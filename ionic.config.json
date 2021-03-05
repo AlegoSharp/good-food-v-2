@@ -1,0 +1,8 @@
+{
+  "name": "good_food_v2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "c435fa4b"
+}
