@@ -1,0 +1,23 @@
+<ion-content>
+  <div class="login">
+      <div class="divLogo">
+      </div>
+      <form #f="ngForm" (ngSubmit)="login(f)" method="post">
+          <ion-item lines="full">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" name="email" ngModel required></ion-input>
+          </ion-item>
+
+          <ion-item lines="full">
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" required name="password" ngModel></ion-input>
+          </ion-item>
+
+          <div class="forgot-pwd">
+              Mot de passe oublié ? 
+              <a class="small-text" href="/forgot">cliquez ici</a>
+          </div>
+          <ion-button type="submit" color="dark">Connexion</ion-button>
+      </form>
+  </div>
+</ion-content>
