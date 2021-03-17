@@ -1,6 +1,4 @@
 app-login {
-    margin-top: 30%;
-
 }
 
 @media (max-width: 480px) { 
@@ -26,17 +24,21 @@ app-login {
 } 
   /* Media Query for Large screens */ 
 @media (min-width: 1281px) { 
-    .login{
-        width: 900px;
-        margin: 10% 30% auto;
-    }
-    .divLogo{
-        margin: 20% 30% auto;
-    }
-    .forgot-pwd{
-        width: 100%;
-        margin: 0 40% auto;
-    }
+
+}
+.login{
+    width: 900px;
+    margin: 0 auto;
+    margin-top: 250px;
+
+
+}
+.divLogo{
+    margin: 0 auto;
+}
+.forgot-pwd{
+    width: 100%;
+    margin: 0 auto;
 }
 ion-button{
     color: white;

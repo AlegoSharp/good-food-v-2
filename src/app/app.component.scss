@@ -122,3 +122,21 @@ ion-item.selected {
 ion-split-pane{
   margin-top: 100px;
 }
+ion-menu{
+  display: none;
+  position: relative;
+}
+.btnHomeGf{
+  background-image: url("/assets/GoodFood_Logo1.png");
+  width: 150px;
+  height: 80px;
+  background-size: 70%;
+  background-position: center;  
+  background-repeat: no-repeat;
+}
+.site-content{
+  margin-top: 30px;
+}
+.divRouterAnim{
+  width: 100%;
+}

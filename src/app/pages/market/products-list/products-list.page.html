@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nos produits !</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar color="secondary">
+    <ion-title >Filtres :</ion-title>
+  </ion-toolbar>
+  <div class="productsList">
+    <ion-card class="productContainer" *ngFor="let art of Articles">
+      <div class="cardContent">
+        <ion-toolbar color="primary">
+          <ion-label slot="start" class="toolboxContent">{{art.ref}}</ion-label>
+          <ion-label slot="end" class="toolboxContent">PRIX   €</ion-label>
+        </ion-toolbar>
+        <img src="{{art.url_img}}" style="display:block;"/> 
+        <ion-label>
+          {{art.des}}
+        </ion-label>
+        <ion-toolbar color="primary">
+          <ion-button slot="end" color="secondary">Commander maintenant !</ion-button>
+        </ion-toolbar>      
+      </div>    
+    </ion-card>
+  </div>
+</ion-content>

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { EnvService } from './env.service';
 import { User } from '../models/user';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,8 +15,10 @@ export class AuthService {
     private env: EnvService,
   ) { }
   login(email: String, password: String) {
-    return this.http.post(this.env.API_URL + 'account/login/' + email + "&" + password,""
-    )
+    const headers = new HttpHeaders({
+      'Content-Type': "text/plain;charset=UTF-8 "
+    });    
+    return this.http.post(this.env.API_URL + 'User/login/' + email + "&" + password,"",{responseType: 'text' })
   }
   register(fName: String, lName: String, email: String, password: String) {
     return this.http.post(this.env.API_URL + 'auth/register',

@@ -1,0 +1,61 @@
+app-home{
+    width: 100%;
+}
+.stack-horizontal{
+    width: 80%;
+    margin: 0 auto;
+    height: 500px;
+
+}
+
+.artCardTop{
+    width: 32%;
+    display: inline-block;
+    height: 220px;
+    margin-top: 50px;
+
+}
+
+.artCard{
+    width: 30%;
+    display: inline-block;
+    height: 85%;
+    margin-top: 100px;
+}
+
+.stack-present{
+    background-color: #0CA789;
+    height: 20%;
+    background-image: url("/assets/recipe_wallpap.jpg");    
+}
+
+.menu_container{
+    background-size: auto 250px;
+    background-position: top center;
+    background-repeat: no-repeat;
+    min-width: 350px;
+
+}
+.menuCardContent{
+    margin-bottom: 20px;
+    margin-top: 250px;
+}
+
+.menu_1{
+    background-image: url("/assets/menu_1.jpg");    
+}
+.menu_2{
+    background-image: url("/assets/menu_2.jpg");    
+}
+.menu_3{
+    background-image: url("/assets/menu_3.jpg");    
+}
+.menu_4{
+    background-image: url("/assets/menu_1.jpg");    
+}
+.menu_5{
+    background-image: url("/assets/menu_2.jpg");    
+}
+.menu_6{
+    background-image: url("/assets/menu_3.jpg");    
+}

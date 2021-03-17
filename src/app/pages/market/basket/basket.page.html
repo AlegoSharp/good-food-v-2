@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>basket</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="pageContent">
+    <ion-card class="productContainer" *ngFor="let art of [1,2,3,4]">
+      <div class="cardContent">
+        <ion-toolbar color="primary" class="productToolbar">
+          <img class="productPicture" slot="start" height="80px" src="https://images.prismic.io/ionicframeworkcom/a31274bf-d3f1-4e2e-a884-e604bf19aa95_identity-vault-docs-promo.png?auto=compress,format&rect=0,0,280,200&w=280&h=200" style="display:block;"/> 
+          <ion-label class="toolboxContent">REF</ion-label>
+          <ion-label class="toolboxContent">
+            DES        
+          </ion-label>
+          <div slot="end"> 
+            <ion-icon name="remove-circle" size="small"></ion-icon>
+            <ion-label class="toolboxContent">
+              1        
+            </ion-label>
+            <ion-icon name="add-circle" size="small" ></ion-icon>
+          </div>
+          <ion-label slot="end" class="toolboxContent" class="productPrice">250 000 €</ion-label>
+          <ion-button slot="end">
+            <ion-label>Supprimer du panier</ion-label>
+            <ion-icon color="secondary" name="trash" size="large"></ion-icon>
+          </ion-button>
+        </ion-toolbar>
+
+      </div>    
+    </ion-card>
+    <ion-card class="productContainer">
+      <ion-toolbar color="primary" class="productToolbar">
+        <ion-label class="toolboxContent">
+          TOTAL :         
+        </ion-label>
+        <ion-label slot="end" class="toolboxContent">2 000 000 €</ion-label>
+      </ion-toolbar>
+    </ion-card>
+  </div>
+</ion-content>

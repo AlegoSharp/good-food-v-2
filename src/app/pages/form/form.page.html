@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Administration des articles</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="objChoice">
+    <ion-button href="form/User">User</ion-button>
+    <ion-button href="form/Article">Article</ion-button>
+  </div>
+  <div class="formContent">
+    <form>
+      <div *ngFor="let item of MyForm.properties">
+        <ion-label class="itemBlock">{{item.nom}} : </ion-label>
+        <ion-item class="item">
+          <ion-input class="itemBlock" *ngIf="item.type === 'string'" type="text" name="{{item.nom}}" (keydown.enter)="onIdChange($event.target.value,$event.target)" value="{{item.value}}"></ion-input>
+          <ion-input class="itemBlock" *ngIf="item.type === 'number'" type="number" name="{{item.nom}}" (input)="onIdChange($event.target.value,$event.target)" value="{{item.value}}"></ion-input>
+        </ion-item>
+      </div>
+
+    </form>
+  </div>
+
+</ion-content>  

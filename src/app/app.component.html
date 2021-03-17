@@ -1,29 +1,52 @@
 <ion-app>
-  <div id="header">
-    <ion-header>
+    <ion-header class="main-header">
       <ion-toolbar color="primary">
-        <ion-button href="/" slot="start" color="tertiary">
-          <ion-icon name="home-outline" color="light"></ion-icon>
-        </ion-button>
+        <ion-icon (click)="backHome()" slot="start" class="btnHomeGf">
+        </ion-icon>
         <ion-searchbar></ion-searchbar>
-        <ion-button href="/login" slot="end" color="tertiary">
-          <ion-icon name="person-circle-outline" color="light"></ion-icon>
-        </ion-button>
+        <div slot="end" color="tertiary">
+          <ion-button [routerLink]="['/login']" *ngIf="!IsConnected">
+            <ion-label>Se connecter</ion-label>
+          </ion-button>
+          <ion-button [routerLink]="['/register']" *ngIf="!IsConnected">
+            <ion-label>S'inscrire</ion-label>
+          </ion-button>
+          <ion-button [routerLink]="['/myBasket']" *ngIf="IsConnected" color="light">
+            <ion-icon name="basket" size="large"></ion-icon>
+            <ion-label>Mon panier</ion-label>
+          </ion-button>
+          <ion-button [routerLink]="['/account']" *ngIf="IsConnected" color="light">
+            <ion-icon name="person-circle-outline" size="large"></ion-icon>
+            <ion-label>Mon compte</ion-label>
+          </ion-button>
+        </div>
       </ion-toolbar>
       <ion-toolbar color="tertiary">
-        <ion-buttons slot="start">  
-        </ion-buttons>
-        <ion-icon name="menu-outline" color="primary" slot="start"></ion-icon>
-        <ion-toggle slot="end"></ion-toggle>
+        <ion-button [routerLink]="['/']" slot="start">
+          <ion-label>Commander</ion-label>
+        </ion-button>
+        <ion-button [routerLink]="['/us']"  slot="start">
+          <ion-label>Qui sommes nous ?</ion-label>
+        </ion-button>
+        <ion-button [routerLink]="['/products']" slot="start">
+          <ion-label>Nos produits</ion-label>
+        </ion-button>
+        <ion-button [routerLink]="['/menus']" slot="start">
+          <ion-label>Nos menus</ion-label>
+        </ion-button>
+        <ion-button [routerLink]="['/form']" slot="end">
+          <ion-icon name="settings" size="large"></ion-icon>
+          <ion-label>Administration</ion-label>
+        </ion-button>
+        <ion-toggle slot="end" (ionChange)="switchTheme()"></ion-toggle>
       </ion-toolbar>
-  </ion-header>, 
-  </div>
-  <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
+  </ion-header>
+  <ion-split-pane id="content-for-anim" contentId="main-content" [@triggerName]="prepareRoute()">
+    <ion-menu id="leftMenu" contentId="main-content" type="overlay">
       <ion-content>
-        test
+        
       </ion-content>
     </ion-menu>
-    <ion-router-outlet id="main-content"></ion-router-outlet>
+    <ion-router-outlet id="main-content" class="site-content"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>
