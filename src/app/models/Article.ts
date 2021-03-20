@@ -1,5 +1,6 @@
 export class Article {
     id: number
+    qty: number
     ref: string
     des: string
     grp_0001: string
@@ -13,6 +14,7 @@ export class Article {
     }
     public init_empty() : void{
         this.id = 0;
+        this.qty = 0;
         this.ref = '0';
         this.grp_0001 = '0';
         this.grp_0002 = '0';

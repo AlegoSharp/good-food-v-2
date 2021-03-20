@@ -6,23 +6,23 @@
 
 <ion-content>
   <div class="pageContent">
-    <ion-card class="productContainer" *ngFor="let art of [1,2,3,4]">
+    <ion-card class="productContainer" *ngFor="let art of Articles">
       <div class="cardContent">
         <ion-toolbar color="primary" class="productToolbar">
-          <img class="productPicture" slot="start" height="80px" src="https://images.prismic.io/ionicframeworkcom/a31274bf-d3f1-4e2e-a884-e604bf19aa95_identity-vault-docs-promo.png?auto=compress,format&rect=0,0,280,200&w=280&h=200" style="display:block;"/> 
-          <ion-label class="toolboxContent">REF</ion-label>
+          <img class="productPicture" slot="start" height="80px" src="{{art.url_img}}" style="display:block;"/> 
+          <ion-label class="toolboxContent">{{art.ref}}</ion-label>
           <ion-label class="toolboxContent">
-            DES        
+            {{art.des}}
           </ion-label>
           <div slot="end"> 
             <ion-icon name="remove-circle" size="small"></ion-icon>
             <ion-label class="toolboxContent">
-              1        
+              {{art.qty}}        
             </ion-label>
             <ion-icon name="add-circle" size="small" ></ion-icon>
           </div>
           <ion-label slot="end" class="toolboxContent" class="productPrice">250 000 €</ion-label>
-          <ion-button slot="end">
+          <ion-button slot="end" (click)="deleteArtFromBasket(art)">
             <ion-label>Supprimer du panier</ion-label>
             <ion-icon color="secondary" name="trash" size="large"></ion-icon>
           </ion-button>

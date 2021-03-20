@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Nos produits !</ion-title>
+    <ion-title>Nos produits ! ({{Articles.length}})</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -20,7 +20,7 @@
           {{art.des}}
         </ion-label>
         <ion-toolbar color="primary">
-          <ion-button slot="end" color="secondary">Commander maintenant !</ion-button>
+          <ion-button slot="end" color="secondary" (click)="addItemToBasket(art)">Commander maintenant !</ion-button>
         </ion-toolbar>      
       </div>    
     </ion-card>

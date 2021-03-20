@@ -16,7 +16,7 @@ export class FormPage implements OnInit {
   public MyForm: Form;
   public AcutalType: Type;
   constructor(private formService: FormService) { }
-
+  public myObject: Object
   ngOnInit() {
     this.MyForm = new Form();
     this.setCreateForm();
@@ -51,6 +51,7 @@ export class FormPage implements OnInit {
       u = new Article();
       u.init_empty();
     }
+    this.myObject = u;
     this.MyForm = this.formService.getFormFromObject(u)
   }
 }
