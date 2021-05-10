@@ -8,23 +8,28 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class AuthService {
+
   isLoggedIn = false;
   token:any;
+
   constructor(
     private http: HttpClient,
     private env: EnvService,
   ) { }
+
   login(email: String, password: String) {
     const headers = new HttpHeaders({
       'Content-Type': "text/plain;charset=UTF-8 "
     });    
-    return this.http.post(this.env.API_URL + 'User/login/' + email + "&" + password,"",{responseType: 'text' })
+    return this.http.post(this.env.API_URL + 'User/login/email=' + email + "&password=" + password,"",{responseType: 'text' })
   }
+
   register(fName: String, lName: String, email: String, password: String) {
     return this.http.post(this.env.API_URL + 'auth/register',
       {fName: fName, lName: lName, email: email, password: password}
     )
   }
+
   logout() {
     const headers = new HttpHeaders({
       'Authorization': this.token["token_type"]+" "+this.token["access_token"]
@@ -38,6 +43,7 @@ export class AuthService {
       })
     )
   }
+
   user() {
     const headers = new HttpHeaders({
       'Authorization': this.token["token_type"]+" "+this.token["access_token"]
@@ -49,5 +55,4 @@ export class AuthService {
       })
     )
   }
-  
 }

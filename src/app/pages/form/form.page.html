@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Administration des articles</ion-title>
+    <ion-title>Administration des {{itemName}}s</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <div class="objChoice">
-    <ion-button href="form/User">User</ion-button>
-    <ion-button href="form/Article">Article</ion-button>
+    <ion-button [routerLink]="['/form/User']">User</ion-button>
+    <ion-button [routerLink]="['/form/Article']">Article</ion-button>
   </div>
   <div class="formContent">
     <form>
@@ -17,8 +17,7 @@
           <ion-input class="itemBlock" *ngIf="item.type === 'number'" type="number" name="{{item.nom}}" (input)="onIdChange($event.target.value,$event.target)" value="{{item.value}}"></ion-input>
         </ion-item>
       </div>
-      <ion-buton>Ajouter {{item}}</ion-buton>
-
+      <ion-button>Crrer un nouvel {{itemName}}</ion-button>
     </form>
   </div>
 

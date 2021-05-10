@@ -6,16 +6,18 @@
 
 <ion-content>
   <ion-toolbar color="secondary">
-    <ion-title >Filtres :</ion-title>
+    <ion-title slot="start" >Filtres :</ion-title>
+    <ion-input type="number" color="primary" style="width: 100px;"></ion-input>
   </ion-toolbar>
   <div class="productsList">
+
     <ion-card class="productContainer" *ngFor="let art of Articles">
       <div class="cardContent">
         <ion-toolbar color="primary">
           <ion-label slot="start" class="toolboxContent">{{art.ref}}</ion-label>
-          <ion-label slot="end" class="toolboxContent">PRIX   €</ion-label>
+          <ion-label slot="end" class="toolboxContent">{{art.pu}} €</ion-label>
         </ion-toolbar>
-        <img src="{{art.url_img}}" style="display:block;"/> 
+        <img src="{{art.url_img}}" style="display:block;height: 100px;"/> 
         <ion-label>
           {{art.des}}
         </ion-label>

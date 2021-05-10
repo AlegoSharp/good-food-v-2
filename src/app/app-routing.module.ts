@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { GuardService } from 'src/app/services/guard.service';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
@@ -14,6 +15,8 @@ const routes: Routes = [
   {
     path: 'form/:id',
     loadChildren: () => import('./pages/form/form.module').then( m => m.FormPageModule),
+    canActivate: [GuardService]
+
   },
   {
     path: 'form',
@@ -42,9 +45,10 @@ const routes: Routes = [
   {
     path: 'myBasket',
     loadChildren: () => import('./pages/market/basket/basket.module').then( m => m.BasketPageModule)
+  },  {
+    path: 'order',
+    loadChildren: () => import('./pages/market/order/order.module').then( m => m.OrderPageModule)
   },
-
-
 
 ];
 
@@ -52,6 +56,9 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    GuardService
+  ]
 })
 export class AppRoutingModule {}

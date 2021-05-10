@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { createAnimation, Animation } from '@ionic/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { trigger } from '@angular/animations';
-import { Plugins } from '@capacitor/core';
 import { async } from '@angular/core/testing';
+import { Article } from './models/Article';
+import jwt_decode from "jwt-decode";
+import { Plugins } from '@capacitor/core';
 
 const { Storage } = Plugins;
 export const routeTransitionAnimations = trigger('triggerName', []);
@@ -17,9 +19,11 @@ export const routeTransitionAnimations = trigger('triggerName', []);
 export class AppComponent {
   constructor(private router: Router) {}
 
+  public basketCount = 0;
   public IsConnected = false;
   private storageBusy = false;
   private token = "";
+  private role = "";
   ngOnInit(){
 
   }
@@ -57,18 +61,26 @@ export class AppComponent {
     .duration(300)
     .fromTo('opacity', '1', '0');
   }
+  
   async prepareRoute() {
-    //this.fadeIn('content-for-anim');
     if(this.token === ""){
       if(!this.storageBusy){
         this.storageBusy = true;
         setTimeout(async ()=>{
+          this.basketCount = (JSON.parse(await (await Storage.get({ key: 'basket' })).value) as Array<Article>).length;
           await this.getToken();
           this.storageBusy = false;
-        },1000);
+        },500);
+      }
+    }else{
+      if(!this.storageBusy){
+        this.storageBusy = true;
+        setTimeout(async ()=>{
+          this.basketCount = (JSON.parse(await (await Storage.get({ key: 'basket' })).value) as Array<Article>).length;
+          this.storageBusy = false;
+        },500);
       }
     }
-
   }
   
   async getToken(){
@@ -77,6 +89,7 @@ export class AppComponent {
         if(ret.value !== null){
           console.log(ret.value);
           this.token = (ret.value);
+          this.role = (jwt_decode(this.token) as any).role
           this.IsConnected = true;
         }
     }

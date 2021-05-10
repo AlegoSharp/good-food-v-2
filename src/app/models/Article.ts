@@ -8,6 +8,7 @@ export class Article {
     grp_0003: string
     tycode: string
     url_img: string
+    pu: number
     constructor() 
     { 
 
@@ -15,6 +16,7 @@ export class Article {
     public init_empty() : void{
         this.id = 0;
         this.qty = 0;
+        this.pu = 0;
         this.ref = '0';
         this.grp_0001 = '0';
         this.grp_0002 = '0';

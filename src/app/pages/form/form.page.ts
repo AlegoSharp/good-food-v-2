@@ -5,6 +5,7 @@ import { Article } from 'src/app/models/Article';
 import { Form } from 'src/app/models/Form';
 import { User } from 'src/app/models/user';
 import { FormService } from '../../services/form.service';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -15,8 +16,9 @@ export class FormPage implements OnInit {
 
   public MyForm: Form;
   public AcutalType: Type;
-  constructor(private formService: FormService) { }
+  constructor(private formService: FormService,private router: Router) { }
   public myObject: Object
+  public itemName: string
   ngOnInit() {
     this.MyForm = new Form();
     this.setCreateForm();
@@ -45,10 +47,12 @@ export class FormPage implements OnInit {
     let u: any; 
     if(window.document.URL.includes('User')){
       u = new User();
+      this.itemName = "utilisateur";
       u.init_empty();
     }
     else if(window.document.URL.includes('Article')){
       u = new Article();
+      this.itemName = "article";
       u.init_empty();
     }
     this.myObject = u;

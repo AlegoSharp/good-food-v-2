@@ -12,6 +12,7 @@
             <ion-label>S'inscrire</ion-label>
           </ion-button>
           <ion-button [routerLink]="['/myBasket']" *ngIf="IsConnected" color="light">
+            <ion-label class="basketCount">{{basketCount}}</ion-label>
             <ion-icon name="basket" size="large"></ion-icon>
             <ion-label>Mon panier</ion-label>
           </ion-button>
@@ -34,12 +35,13 @@
         <ion-button [routerLink]="['/menus']" slot="start">
           <ion-label>Nos menus</ion-label>
         </ion-button>
-        <ion-button [routerLink]="['/form']" slot="end">
+        <ion-button [routerLink]="['/form']" slot="end" *ngIf="role !== 'user'">
           <ion-icon name="settings" size="large"></ion-icon>
           <ion-label>Administration</ion-label>
         </ion-button>
         <ion-toggle slot="end" (ionChange)="switchTheme()"></ion-toggle>
       </ion-toolbar>
+
   </ion-header>
   <ion-split-pane id="content-for-anim" contentId="main-content" [@triggerName]="prepareRoute()">
     <ion-menu id="leftMenu" contentId="main-content" type="overlay">
@@ -47,6 +49,8 @@
         
       </ion-content>
     </ion-menu>
-    <ion-router-outlet id="main-content" class="site-content"></ion-router-outlet>
+    <ion-router-outlet id="main-content" class="site-content">
+
+    </ion-router-outlet>
   </ion-split-pane>
 </ion-app>
