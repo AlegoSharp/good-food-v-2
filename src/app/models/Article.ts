@@ -1,27 +1,40 @@
 export class Article {
-    id: number
-    qty: number
-    ref: string
-    des: string
-    grp_0001: string
-    grp_0002: string
-    grp_0003: string
-    tycode: string
-    url_img: string
-    pu: number
+    idArticle: number
+    libelleArticle: string
+    descriptionArticle: string
+    urlImgArticle: string
+    stockArticle: number
+    prixArticleHt: number
+    tva: number
+    idCategorie: number
+    idFranchise: number
+    estMenu: boolean
+
     constructor() 
     { 
 
     }
+
     public init_empty() : void{
-        this.id = 0;
-        this.qty = 0;
-        this.pu = 0;
-        this.ref = '0';
-        this.grp_0001 = '0';
-        this.grp_0002 = '0';
-        this.grp_0003 = '0';
-        this.tycode = '0';
-        this.url_img = '0';
+        this.idArticle = 0;
+
+        this.stockArticle = 0;
+        this.prixArticleHt = 0;
+        this.tva = 0;
+
+        this.libelleArticle = '0';
+        this.descriptionArticle = '0';
+        this.urlImgArticle = '0';
+
+
+        this.idFranchise = 0;
+        this.idFranchise = 0;
+
+        this.estMenu = false;
+
     }
 }
+/*
+
+
+*/

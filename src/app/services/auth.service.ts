@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { EnvService } from './env.service';
-import { User } from '../models/user';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class AuthService {
     const headers = new HttpHeaders({
       'Content-Type': "text/plain;charset=UTF-8 "
     });    
-    return this.http.post(this.env.API_URL + 'User/login/email=' + email + "&password=" + password,"",{responseType: 'text' })
+    return this.http.post(this.env.API_URL + 'User/login/' + email + "&" + password,"",{responseType: 'text' })
   }
 
   register(fName: String, lName: String, email: String, password: String) {

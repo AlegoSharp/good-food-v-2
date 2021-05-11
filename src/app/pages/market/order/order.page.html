@@ -5,5 +5,40 @@
 </ion-header>
 
 <ion-content>
+  <div class="pageContent">
+    <ion-card class="productContainer" *ngFor="let art of Articles">
+      <div class="cardContent">
+        <ion-toolbar color="primary" class="productToolbar">
+          <img class="productPicture" slot="start" class="productPicture" src="{{art.article.urlImgArticle}}" style="display:block;"/> 
+          <ion-label class="toolboxContent article_lib" slot="start">{{art.article.libelleArticle}}</ion-label>
+          <ion-label class="toolboxContent article_desc" slot="start">
+            {{art.article.descriptionArticle}}
+          </ion-label>
+          <div slot="start"> 
+            <ion-label class="toolboxContent">
+              Quantite : {{art.quantiteArticle}}        
+            </ion-label>
+          </div>
+          <ion-label slot="end" class="toolboxContent" class="productPrice">{{art.article.prixArticleHt * art.quantiteArticle }} €</ion-label>
+        </ion-toolbar>
 
-</ion-content>
+      </div>    
+    </ion-card>
+    <ion-card class="productContainer">
+      <ion-toolbar color="primary" style="padding: 10px;">
+        <ion-label class="toolboxContent">
+          TOTAL HT :
+        </ion-label>
+        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalHt()}} €</ion-label>
+      </ion-toolbar>
+      <ion-toolbar color="primary" style="padding: 10px;">
+        <ion-label>
+          TTC : 
+        </ion-label>
+        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalTtc()}} €</ion-label>
+      </ion-toolbar>
+      <ion-toolbar style="padding: 10px;">
+        <ion-button color="secondary" slot="end" (click)="validateOrder()">Valider la commande</ion-button>
+      </ion-toolbar>
+    </ion-card>
+    </div></ion-content>

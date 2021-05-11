@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { NgForm } from '@angular/forms';
-import { User } from 'src/app/models/user';
+import { User } from 'src/app/models/User';
 import { Router } from '@angular/router';
 import { AlertService} from 'src/app/services/alert.service'
 import { Plugins } from '@capacitor/core';

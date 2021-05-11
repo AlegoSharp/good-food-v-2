@@ -17,7 +17,7 @@
           <ion-input class="itemBlock" *ngIf="item.type === 'number'" type="number" name="{{item.nom}}" (input)="onIdChange($event.target.value,$event.target)" value="{{item.value}}"></ion-input>
         </ion-item>
       </div>
-      <ion-button>Crrer un nouvel {{itemName}}</ion-button>
+      <ion-button (click)="createNewElement()">Crrer un nouvel {{itemName}}</ion-button>
     </form>
   </div>
 

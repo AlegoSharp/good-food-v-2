@@ -14,12 +14,12 @@
     <ion-card class="productContainer" *ngFor="let art of Articles">
       <div class="cardContent">
         <ion-toolbar color="primary">
-          <ion-label slot="start" class="toolboxContent">{{art.ref}}</ion-label>
-          <ion-label slot="end" class="toolboxContent">{{art.pu}} €</ion-label>
+          <ion-label slot="start" class="toolboxContent">{{art.libelleArticle}}</ion-label>
+          <ion-label slot="end" class="toolboxContent">{{art.prixArticleHt}} €</ion-label>
         </ion-toolbar>
-        <img src="{{art.url_img}}" style="display:block;height: 100px;"/> 
+        <img src="{{art.urlImgArticle}}" style="display:block;height: 100px;"/> 
         <ion-label>
-          {{art.des}}
+          {{art.descriptionArticle}}
         </ion-label>
         <ion-toolbar color="primary">
           <ion-button slot="end" color="secondary" (click)="addItemToBasket(art)">Commander maintenant !</ion-button>

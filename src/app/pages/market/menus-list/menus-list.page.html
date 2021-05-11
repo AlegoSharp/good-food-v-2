@@ -1,22 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Nos menus !</ion-title>
+    <ion-title>Nos menus ! ({{Articles.length}})</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-toolbar color="secondary">
+    <ion-title slot="start" >Filtres :</ion-title>
+    <ion-input type="number" color="primary" style="width: 100px;"></ion-input>
+  </ion-toolbar>
   <div class="productsList">
-    <ion-card class="productContainer" *ngFor="let number of [0,1,2,3,4]">
+
+    <ion-card class="productContainer" *ngFor="let art of Articles">
       <div class="cardContent">
         <ion-toolbar color="primary">
-          <ion-label slot="start" class="toolboxContent">NOM DU MENUS</ion-label>
-          <ion-label slot="end" class="toolboxContent">20.   €</ion-label>
+          <ion-label slot="start" class="toolboxContent">{{art.libelleArticle}}</ion-label>
+          <ion-label slot="end" class="toolboxContent">{{art.prixArticleHt}} €</ion-label>
         </ion-toolbar>
+        <img src="{{art.urlImgArticle}}" style="display:block;height: 100px;"/> 
         <ion-label>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+          {{art.descriptionArticle}}
         </ion-label>
         <ion-toolbar color="primary">
-          <ion-button slot="end" color="secondary">Commander maintenant !</ion-button>
+          <ion-button slot="end" color="secondary" (click)="addItemToBasket(art)">Commander maintenant !</ion-button>
         </ion-toolbar>      
       </div>    
     </ion-card>

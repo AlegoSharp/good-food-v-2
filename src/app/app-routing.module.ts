@@ -14,9 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'form/:id',
-    loadChildren: () => import('./pages/form/form.module').then( m => m.FormPageModule),
-    canActivate: [GuardService]
-
+    loadChildren: () => import('./pages/form/form.module').then( m => m.FormPageModule)
   },
   {
     path: 'form',
@@ -45,7 +43,8 @@ const routes: Routes = [
   {
     path: 'myBasket',
     loadChildren: () => import('./pages/market/basket/basket.module').then( m => m.BasketPageModule)
-  },  {
+  },
+  {
     path: 'order',
     loadChildren: () => import('./pages/market/order/order.module').then( m => m.OrderPageModule)
   },

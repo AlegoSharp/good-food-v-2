@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Article } from 'src/app/models/Article';
 import { StorageService } from 'src/app/services/storage.service';
 import { Router } from '@angular/router';
+import { LigneCommande } from 'src/app/models/LigneCommande';
+import { Commande } from 'src/app/models/Commande';
 
 @Component({
   selector: 'app-basket',
@@ -10,32 +12,31 @@ import { Router } from '@angular/router';
 })
 export class BasketPage implements OnInit {
 
-  public Articles: Array<Article>;
+  public Articles: Array<LigneCommande>;
+  public Commande: Commande;
+
   constructor(private storageService: StorageService, private router: Router) { }
 
   ngOnInit() {
-    console.log
+    this.Commande = new Commande();
 
   }
 
   ionViewDidEnter(){
     this.storageService.getObject("basket").then(value => {
-        return (value as unknown) as Array<Article>;
+        return (value as unknown) as Array<LigneCommande>;
     }).then(x=> {
+      this.Commande.lignesCommande = x;
       this.Articles = x;
     });
   }
 
-  async getArticles(){
-    return await this.storageService.getObject("basket").then(value => {
-      return (value as unknown) as Array<Article>;
-    });
-  }
 
-  async deleteArtFromBasket(article: Article) {
-    await this.storageService.removeItemFromBasket(article);
+
+  async deleteArtFromBasket(ligneCommande: LigneCommande) {
+    await this.storageService.removeItemFromBasket(ligneCommande);
     this.Articles = await this.storageService.getObject("basket").then(value => {
-      return (value as unknown) as Array<Article>;
+      return (value as unknown) as Array<LigneCommande>;
     });
   }
 

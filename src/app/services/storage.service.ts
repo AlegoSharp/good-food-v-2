@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Plugins } from '@capacitor/core';
-import { Article } from '../models/Article';
+import { LigneCommande } from '../models/LigneCommande';
 
 const { Storage } = Plugins;
 @Injectable({
@@ -27,26 +27,26 @@ export class StorageService {
         return JSON.parse(ret.value);
     }
 
-    public async removeItemFromBasket(article: Article){
+    public async removeItemFromBasket(ligneCommande: LigneCommande){
         let basket =  await this.getObject("basket").then(value => {
-            return (value as unknown) as Array<Article>;
+            return (value as unknown) as Array<LigneCommande>;
         });
         console.log(basket)
         if(basket !== undefined){
-            basket = basket.filter(w=>w.ref !== article.ref);
+            basket = basket.filter(w=>w.article.idArticle !== ligneCommande.article.idArticle);
             await this.setObject("basket",basket);
         }
 
     }
-    public async addItemToBasket(article: Article){
-        let basket = new Array<Article>();
+    public async addItemToBasket(ligneCommande: LigneCommande){
+        let basket = new Array<LigneCommande>();
         let tempBasket = await this.getObject("basket").then(value => {
-            return (value as unknown) as Array<Article>;
+            return (value as unknown) as Array<LigneCommande>;
         });
         if(tempBasket !== null){
             basket = tempBasket;
         } 
-        basket.push(article);
+        basket.push(ligneCommande);
         await this.setObject("basket", basket);
     }
 }

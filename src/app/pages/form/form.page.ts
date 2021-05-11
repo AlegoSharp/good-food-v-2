@@ -3,7 +3,7 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import { IonInput } from '@ionic/angular';
 import { Article } from 'src/app/models/Article';
 import { Form } from 'src/app/models/Form';
-import { User } from 'src/app/models/user';
+import { User } from 'src/app/models/User';
 import { FormService } from '../../services/form.service';
 import { Router, RouterOutlet } from '@angular/router';
 
@@ -14,11 +14,13 @@ import { Router, RouterOutlet } from '@angular/router';
 })
 export class FormPage implements OnInit {
 
-  public MyForm: Form;
-  public AcutalType: Type;
-  constructor(private formService: FormService,private router: Router) { }
   public myObject: Object
   public itemName: string
+  public MyForm: Form;
+  public AcutalType: Type;
+
+  constructor(private formService: FormService, private router: Router) { }
+
   ngOnInit() {
     this.MyForm = new Form();
     this.setCreateForm();
@@ -27,17 +29,19 @@ export class FormPage implements OnInit {
   }
 
   setUpdateForm(object: any){
-    this.MyForm = new Form;
+    this.myObject = object;
+    this.MyForm = new Form();
     this.MyForm = this.formService.getFormFromObject(object)
     console.log(this.MyForm)
   }
 
   onIdChange(searchValue: string, target:IonInput): void {  
     if(searchValue.length > 0)
-      this.formService.getDetail(target.name + "=" + searchValue,window.document.URL.split('/')[4]).toPromise()
+      this.formService.getDetail(searchValue,window.document.URL.split('/')[4]).toPromise()
       .then(response =>  {
-        if(response[0] !== undefined){
-          this.setUpdateForm(response[0]);
+        if(response !== undefined){
+          delete response[target.name];
+          this.setUpdateForm(response);
         }
       });
   }
@@ -57,5 +61,14 @@ export class FormPage implements OnInit {
     }
     this.myObject = u;
     this.MyForm = this.formService.getFormFromObject(u)
+  }
+
+  createNewElement(){
+    console.log(this.myObject);
+    console.log((<any>this.myObject).constructor.name);
+    this.formService.postObject(window.document.URL.split('/')[4],this.myObject).toPromise()
+    .then(response =>  {
+      console.log(response);
+    });
   }
 }
