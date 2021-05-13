@@ -13,17 +13,17 @@ export class GuardService implements CanActivate {
     private storageService: StorageService
   ) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    let result = false;
-    Storage.get({ key: 'token' }).then(x=> {
+  async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
+    let result = await Storage.get({ key: 'token' }).then(x=> {
       if(x.value !== null && x.value !== undefined){
-        if((jwt_decode(x.value) as any).role === "user"){
-          result =  false;
+        console.log((jwt_decode(x.value) as any).role === 1);
+        if((jwt_decode(x.value) as any).role === 1){
+          return false;
         }else{
-          result =  true;
+          return  true;
         }
       }
     });
-  return result;
+    return result;
   }
 }

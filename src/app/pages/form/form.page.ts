@@ -16,6 +16,7 @@ export class FormPage implements OnInit {
 
   public myObject: Object
   public itemName: string
+  public idName: string
   public MyForm: Form;
   public AcutalType: Type;
 
@@ -40,7 +41,7 @@ export class FormPage implements OnInit {
       this.formService.getDetail(searchValue,window.document.URL.split('/')[4]).toPromise()
       .then(response =>  {
         if(response !== undefined){
-          delete response[target.name];
+          this.idName = target.name;
           this.setUpdateForm(response);
         }
       });
@@ -65,6 +66,7 @@ export class FormPage implements OnInit {
 
   createNewElement(){
     console.log(this.myObject);
+    delete this.myObject[this.idName];
     console.log((<any>this.myObject).constructor.name);
     this.formService.postObject(window.document.URL.split('/')[4],this.myObject).toPromise()
     .then(response =>  {

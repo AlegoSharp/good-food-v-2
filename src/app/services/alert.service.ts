@@ -16,9 +16,37 @@ export class AlertService {
 
     await alert.present();
   }
+  async getAlertOuiNon(title: string, message: string): Promise<HTMLIonAlertElement>{
+    const alert = await this.alertController.create({
+      header: title,
+      subHeader: '____',
+      message: message,
+      buttons: ['Oui','Non']
+    });
+    return alert;
+  }
 
-  async presentMarketDialogQty() {
-    let result = 0;
+  async presentAlertOuiNon(title: string, message: string,yesAction:any) {
+    let alert = await this.alertController.create({
+      header: title,
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'Annuler'
+        },
+        {
+          text: 'Okay',
+          handler: () => {
+            console.log("test")
+            yesAction();
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  async presentMarketDialogQty():Promise<HTMLIonAlertElement> {
     let alert = await this.alertController.create({
       header: "Quelle quantité souhaitez-vous commander?",
       inputs:[

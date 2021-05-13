@@ -4,6 +4,7 @@ import { StorageService } from 'src/app/services/storage.service';
 import { Router } from '@angular/router';
 import { LigneCommande } from 'src/app/models/LigneCommande';
 import { Commande } from 'src/app/models/Commande';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-basket',
@@ -15,7 +16,7 @@ export class BasketPage implements OnInit {
   public Articles: Array<LigneCommande>;
   public Commande: Commande;
 
-  constructor(private storageService: StorageService, private router: Router) { }
+  constructor(private storageService: StorageService, private router: Router, private alertService: AlertService) { }
 
   ngOnInit() {
     this.Commande = new Commande();
@@ -32,6 +33,22 @@ export class BasketPage implements OnInit {
   }
 
 
+  async increaseArtQtyFromBasket(ligneCommande: LigneCommande) {
+    ligneCommande.quantiteArticle++;
+    await this.storageService.replaceItemFromBasket(ligneCommande);
+  }
+
+  async decreaseArtQtyFromBasket(ligneCommande: LigneCommande) {
+    if(ligneCommande.quantiteArticle - 1 < 1){
+      this.alertService.presentAlertOuiNon("Voulez-vous supprimer l'article du panier ?","",()=>{ 
+        ligneCommande.quantiteArticle--;
+        this.deleteArtFromBasket(ligneCommande); 
+      });
+    }else{
+      ligneCommande.quantiteArticle--;
+      await this.storageService.replaceItemFromBasket(ligneCommande);
+    }
+  }
 
   async deleteArtFromBasket(ligneCommande: LigneCommande) {
     await this.storageService.removeItemFromBasket(ligneCommande);

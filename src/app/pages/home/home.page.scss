@@ -1,12 +1,3 @@
-app-home{
-    width: 100%;
-}
-.stack-horizontal{
-    width: 80%;
-    margin: 0 auto;
-    height: 500px;
-
-}
 
 .artCardTop{
     width: 32%;
@@ -19,8 +10,8 @@ app-home{
 .artCard{
     width: 30%;
     display: inline-block;
-    height: 85%;
     margin-top: 100px;
+    margin: 10px ;
 }
 
 .stack-present{
@@ -33,14 +24,22 @@ app-home{
     background-size: auto 250px;
     background-position: top center;
     background-repeat: no-repeat;
-    min-width: 350px;
-
 }
 .menuCardContent{
     margin-bottom: 20px;
     margin-top: 250px;
 }
-
+.list{
+    width: 100%;
+    margin: 0 auto;
+}
+.mainContent{
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+    align-content: center;
+    background-color: #ffffff;
+}
 .menu_1{
     background-image: url("/assets/menu_1.jpg");    
 }

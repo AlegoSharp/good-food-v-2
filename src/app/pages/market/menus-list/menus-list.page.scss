@@ -2,12 +2,21 @@
     width: 80%;
     margin: 0 auto;
 }
+.productPicture{
+    border-radius: 10px;
+    display:block;
+    margin: 0 auto; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 100px;
+}
 .productContainer{
     background-size: auto 250px;
     background-position: top center;
     background-repeat: no-repeat;
-    width: 30%;
-    display: inline-block;
+    display: inline-flex;
+    min-width: 20%;
+
 }
 .productCard{
     margin-bottom: 20px;
@@ -18,4 +27,66 @@
 }
 .cardContent{
     padding: 5px;
+}
+.headerCard{
+    box-shadow: 1.5px 1.5px 1.5px 1.4px rgba(0, 0, 0, 0.521);
+    border-style:inset;
+    border-radius: 10px;
+    border-color: rgba(0, 0, 0, 0.521);;
+    border-width: 0.1px;
+    padding: 5px;
+    color:white;
+}
+ion-input{
+    border-radius: 10px !important;
+    padding-right: 30px;
+    font-size: 0.9em;
+    border: 1px solid #f1f1f1 !important;
+    /* height: 10%; */
+    /* width: 41%; */
+    max-width: 50vw; // this is applying perfectly
+    max-height: 10vh
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+.artCardTop{
+    width: 32%;
+    display: inline-block;
+    margin-top: 50px;
+
+}
+.pointer { cursor: pointer; }
+
+.artCard{
+    min-width: 200px;
+    width: 20%;
+    display: inline-block;
+    height: 100%;
+    max-height: 320px;
+    min-height: 200px;
+    border-width: 2px;
+    border-radius: 10px !important;
+    box-shadow: 1.5px 1.5px 1.5px 1.4px rgba(0, 0, 0, 0.521);
+}
+
+
+.mainContent{
+    width: 80%;
+    margin: 0 auto;
+    min-height: 100%;
+    background-color: #ffffff;
+}
+.btnCmd{
+    width: 120px;
+    height: 50px;
+    font-size: 12px;
+    text-align: center;
+    vertical-align: bottom; 
 }

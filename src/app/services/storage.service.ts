@@ -36,8 +36,21 @@ export class StorageService {
             basket = basket.filter(w=>w.article.idArticle !== ligneCommande.article.idArticle);
             await this.setObject("basket",basket);
         }
-
     }
+
+    public async replaceItemFromBasket(ligneCommande: LigneCommande){
+        let basket =  await this.getObject("basket").then(value => {
+            return (value as unknown) as Array<LigneCommande>;
+        });
+        console.log(basket)
+        if(basket !== undefined){
+            
+            let ligne = basket.findIndex(w=>w.article.idArticle === ligneCommande.article.idArticle);
+            basket[ligne] = ligneCommande;
+            await this.setObject("basket",basket);
+        }
+    }
+
     public async addItemToBasket(ligneCommande: LigneCommande){
         let basket = new Array<LigneCommande>();
         let tempBasket = await this.getObject("basket").then(value => {

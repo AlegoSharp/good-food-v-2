@@ -14,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'form/:id',
-    loadChildren: () => import('./pages/form/form.module').then( m => m.FormPageModule)
+    loadChildren: () => import('./pages/form/form.module').then( m => m.FormPageModule),
+    canActivate: [GuardService]
   },
   {
     path: 'form',

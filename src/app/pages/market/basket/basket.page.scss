@@ -1,19 +1,22 @@
 .pageContent{
-    padding: 15px;
     width: 80%;
     margin: 0 auto;
+    min-height: 100%;
+    background-color: #222428;
+    padding: 15px;
 }
 
 .productToolbar{
-    padding: 15x;
+    padding: 15px;
 }
 
 .productPicture{
     margin-right: 20px;
+    border-radius: 10px;
 }
 
 .productToolBar{
-    height: 45px;
+    height: 75px;
 }
 
 .productPrice{
@@ -22,13 +25,35 @@
 }
 
 .article_lib{
-    width: 150px;
+    width: 100%;
 }
 
 .article_desc{
-    width: 350px;
+    width: 100%;
 }
 
+.poductContainer{
+    height: 50px;
+
+}
 .productPicture{
     width: 100px;
+}
+.pointer { cursor: pointer; }
+
+.cardContent{
+    padding: 15px;
+}
+
+.totToolBars{
+    height: 50px;
+}
+
+.contentBorders{
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}
+.totaux{
+    margin-top: 150px;
 }
