@@ -2,7 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { EnvService } from './env.service';
-import { User } from '../models/User';
+import { Utilisateur } from '../models/User';
+import { element } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +25,19 @@ export class AuthService {
     return this.http.post(this.env.API_URL + 'User/login/' + email + "&" + password,"",{responseType: 'text' })
   }
 
-  register(fName: String, lName: String, email: String, password: String) {
-    return this.http.post(this.env.API_URL + 'auth/register',
-      {fName: fName, lName: lName, email: email, password: password}
-    )
+  register(nom: string, prenom: string, email: string, password: string) {
+    let user = new Utilisateur();
+    user.nomUtilisateur = nom;
+    user.prenomUtilisateur = prenom;
+    user.mdpUtilisateur = password;
+    user.emailUtilisateur = email;
+    const headerDict = {
+      'Content-Type': 'application/json',
+    };
+    const requestOptions = {                                                                                                                                                                                 
+      headers: new HttpHeaders(headerDict),
+    };
+    return this.http.post(this.env.API_URL + 'User/create', JSON.stringify(user),requestOptions)
   }
 
   logout() {
@@ -48,7 +58,7 @@ export class AuthService {
     const headers = new HttpHeaders({
       'Authorization': this.token["token_type"]+" "+this.token["access_token"]
     });
-    return this.http.get<User>(this.env.API_URL + 'auth/user', { headers: headers })
+    return this.http.get<Utilisateur>(this.env.API_URL + 'auth/user', { headers: headers })
     .pipe(
       tap(user => {
         return user;

@@ -4,20 +4,73 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <div class="objChoice">
-    <ion-button [routerLink]="['/form/User']">User</ion-button>
-    <ion-button [routerLink]="['/form/Article']">Article</ion-button>
-  </div>
+
   <div class="formContent">
+    <div class="objChoice">
+      <ion-button [routerLink]="['/form/User']">User</ion-button>
+      <ion-button [routerLink]="['/form/Article']">Article</ion-button>
+      <ion-button [routerLink]="['/form/Categorie_Article']">Catégorie article</ion-button>
+      <ion-button [routerLink]="['/form/Promo']">Promos</ion-button>
+      <ion-button [routerLink]="['/form/Role']">Roles</ion-button>
+    </div>
     <form>
-      <div *ngFor="let item of MyForm.properties">
-        <ion-label class="itemBlock">{{item.nom}} : </ion-label>
-        <ion-item class="item">
-          <ion-input class="itemBlock" *ngIf="item.type === 'string'" type="text" name="{{item.nom}}" (keydown.enter)="onIdChange($event.target.value,$event.target)" value="{{item.value}}"></ion-input>
-          <ion-input class="itemBlock" *ngIf="item.type === 'number'" type="number" name="{{item.nom}}" (input)="onIdChange($event.target.value,$event.target)" value="{{item.value}}"></ion-input>
+      <ion-card *ngFor="let item of MyForm.properties" color="success" class="card">
+        <h5>
+          <ion-label class="itemBlock" *ngIf="item.alias!==''">{{item.alias.replace('id','').toUpperCase()}} :</ion-label>
+        </h5>
+        <ion-item class="item" color="dark">
+
+          <ion-input class="itemBlock" 
+                    *ngIf="item.type === 'number' && item.nom.includes('id') && item.alias.includes(MyForm.title)" 
+                    type="number" 
+                    name="{{item.nom}}" 
+                    (input)="onIdChange($event.target.value,$event.target)" 
+                    [(ngModel)]="item.value"
+                    name="item.nom"
+                    [ngModelOptions]="{standalone: true}"
+                    ></ion-input>
+
+          <ion-input class="itemBlock" 
+                    *ngIf="item.type === 'string'" 
+                    type="text" 
+                    name="{{item.nom}}" 
+                    [(ngModel)]="item.value"
+                    name="item.nom"
+                    [ngModelOptions]="{standalone: true}"
+                    ></ion-input>
+
+          <ion-input class="itemBlock" 
+                    *ngIf="item.type === 'number' && !item.nom.includes('id')" 
+                    type="number" 
+                    name="{{item.nom}}" 
+                    [(ngModel)]="item.value"
+                    name="item.nom"
+                    [ngModelOptions]="{standalone: true}"
+                    ></ion-input>
+          <ion-card color="secondary">
+            <ion-card *ngIf="item.alias.includes('id') && !item.alias.includes(MyForm.title) && !item.value !== undefined" color="secondary">
+              <ion-label name="item.nom" *ngFor="let prop of item.objectReference" color="success">{{prop}}</ion-label>
+            </ion-card>
+            <ion-button *ngIf="item.nom.includes('id') && !item.alias.includes(MyForm.title)" (click)="openModal(item.externalRouteRessource,item)">
+              Rechercher un(e) {{item.nom.replace('id','')}}
+            </ion-button>
+          </ion-card>
+
+          <ion-radio-group value="item.value" *ngIf="item.type === 'boolean'" name="item.nom">       
+            <ion-item color="dark">
+              <ion-label>Oui</ion-label>
+              <ion-radio slot="start" value="1"></ion-radio>
+            </ion-item>
+        
+            <ion-item color="dark">
+              <ion-label>Non</ion-label>
+              <ion-radio slot="start" value="0"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
         </ion-item>
-      </div>
+      </ion-card>
       <ion-button (click)="createNewElement()">Crrer un nouvel {{itemName}}</ion-button>
+      <ion-button (click)="editElement()">Modifier un {{itemName}}</ion-button>
     </form>
   </div>
 

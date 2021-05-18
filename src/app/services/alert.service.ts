@@ -1,19 +1,25 @@
 import { Injectable } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController, ToastController } from '@ionic/angular';
+import { PickerModalPage } from '../modal/picker-modal/picker-modal.page';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AlertService {
-  constructor(public alertController: AlertController) { }
+  constructor(
+    public alertController: AlertController,
+    public modalController: ModalController,
+    private toastController: ToastController
+  ) { }
   
   async presentAlertOk(title: string, message: string) {
     const alert = await this.alertController.create({
       header: title,
       subHeader: '____',
       message: message,
-      buttons: ['OK']
+      buttons: ['OK'],
+      cssClass: 'custom-alertDanger'
     });
-
     await alert.present();
   }
   async getAlertOuiNon(title: string, message: string): Promise<HTMLIonAlertElement>{
@@ -70,4 +76,30 @@ export class AlertService {
     });
     return alert;
   }
+  async presentModal(tite: string, route: string, ): Promise<HTMLIonModalElement> {
+    const modal = await this.modalController.create({
+      component: PickerModalPage,
+      componentProps:{
+        title: tite,
+        route: route
+      },
+      
+      cssClass: 'modal-custom-class'
+    });
+    return modal;
+  }
+
+  async presentToast(type:'Error' | 'Success', message: string, show_button: boolean) {
+    let typeClass = type === "Success" ? 'toast-custom-class-success' : 'toast-custom-class-error';
+    const toast = await this.toastController.create({
+      message: message,
+      position: 'bottom',
+      duration: 2100,
+      keyboardClose: show_button,
+      cssClass: ['toast-custom-class', typeClass]
+    });
+    toast.color = "dark"
+    toast.present();
+  }
+
 }

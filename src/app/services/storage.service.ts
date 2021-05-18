@@ -12,7 +12,6 @@ export class StorageService {
 
     public async setObject(key: string, value: any) {
         let valueStringify = JSON.stringify(value);
-        console.log(valueStringify)
         await Storage.set({ key, value: valueStringify });
     }
 
@@ -31,7 +30,6 @@ export class StorageService {
         let basket =  await this.getObject("basket").then(value => {
             return (value as unknown) as Array<LigneCommande>;
         });
-        console.log(basket)
         if(basket !== undefined){
             basket = basket.filter(w=>w.article.idArticle !== ligneCommande.article.idArticle);
             await this.setObject("basket",basket);
@@ -42,7 +40,6 @@ export class StorageService {
         let basket =  await this.getObject("basket").then(value => {
             return (value as unknown) as Array<LigneCommande>;
         });
-        console.log(basket)
         if(basket !== undefined){
             
             let ligne = basket.findIndex(w=>w.article.idArticle === ligneCommande.article.idArticle);
@@ -58,8 +55,17 @@ export class StorageService {
         });
         if(tempBasket !== null){
             basket = tempBasket;
-        } 
-        basket.push(ligneCommande);
+        }
+        let itemExisitingIndex = basket.findIndex(ligne => ligne.article?.idArticle === ligneCommande.article.idArticle);
+        if(itemExisitingIndex >= 0){
+            let currentQty = basket[itemExisitingIndex].quantiteArticle;
+            let addinQty = ligneCommande.quantiteArticle as number;
+            let finalQty = 0;
+            finalQty = Number.parseInt(currentQty.toString()) + Number.parseInt(addinQty.toString());
+            basket[itemExisitingIndex].quantiteArticle = finalQty;
+        }else{
+            basket.push(ligneCommande);
+        }
         await this.setObject("basket", basket);
     }
 }

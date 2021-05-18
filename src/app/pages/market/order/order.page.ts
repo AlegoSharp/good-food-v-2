@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Commande } from 'src/app/models/Commande';
 import { LigneCommande } from 'src/app/models/LigneCommande';
+import { GuardService } from 'src/app/services/guard.service';
 import { StorageService } from 'src/app/services/storage.service';
 @Component({
   selector: 'app-order',
@@ -13,11 +14,16 @@ export class OrderPage implements OnInit {
   public Articles: Array<LigneCommande>;
   public Commande: Commande;
 
-  constructor(private storageService: StorageService, private router: Router) { }
+  // Permet de creer une commande pour un autre client
+  public ModeSupport = false;
+
+  constructor(private storageService: StorageService, private router: Router, private guardService: GuardService) { }
 
   ngOnInit() {
     this.Commande = new Commande();
-
+    this.guardService.checkAuth().then(result => {
+      this.ModeSupport = result;
+    });
   }
 
   ionViewDidEnter(){

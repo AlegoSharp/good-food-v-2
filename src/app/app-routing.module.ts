@@ -27,15 +27,17 @@ const routes: Routes = [
   },
   {
     path: 'account',
-    loadChildren: () => import('./pages/account/account.module').then( m => m.AccountPageModule),
+    loadChildren: () => import('./pages/auth/account/account-routing.module').then( m => m.AccountPageRoutingModule),
   },
   {
     path: 'products',
     loadChildren: () => import('./pages/market/products-list/products-list.module').then( m => m.ProductsListPageModule),
+    data : {estMenu : 0}
   },
   {
     path: 'menus',
-    loadChildren: () => import('./pages/market/menus-list/menus-list.module').then( m => m.MenusListPageModule),
+    loadChildren: () => import('./pages/market/products-list/products-list.module').then( m => m.ProductsListPageModule),
+    data : {estMenu : 1}
   },
   {
     path: 'us',
@@ -49,6 +51,26 @@ const routes: Routes = [
     path: 'order',
     loadChildren: () => import('./pages/market/order/order.module').then( m => m.OrderPageModule)
   },
+  {
+    path: 'picker-modal',
+    loadChildren: () => import('./modal/picker-modal/picker-modal.module').then( m => m.PickerModalPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/auth/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'forgot',
+    loadChildren: () => import('./pages/auth/forget-password/forget-password-routing.module').then( m => m.ForgetPasswordPageRoutingModule)
+  },
+  {
+    path: 'article-detail',
+    loadChildren: () => import('./pages/market/article-detail/article-detail.module').then( m => m.ArticleDetailPageModule)
+  },
+
+
+
+
 
 ];
 

@@ -14,13 +14,17 @@ export class GuardService implements CanActivate {
   ) {}
 
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
+    return this.checkAuth();
+  }
+
+  async checkAuth(): Promise<boolean> {
     let result = await Storage.get({ key: 'token' }).then(x=> {
       if(x.value !== null && x.value !== undefined){
-        console.log((jwt_decode(x.value) as any).role === 1);
-        if((jwt_decode(x.value) as any).role === 1){
-          return false;
+        //console.log((jwt_decode(x.value) as any).role === 1);
+        if((jwt_decode(x.value) as any).role === 2){
+          return true;
         }else{
-          return  true;
+          return  false;
         }
       }
     });

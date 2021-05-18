@@ -1,44 +1,59 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>order</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <div class="pageContent">
-    <ion-card class="productContainer" *ngFor="let art of Articles">
-      <div class="cardContent">
-        <ion-toolbar color="primary" class="productToolbar">
-          <img class="productPicture" slot="start" class="productPicture" src="{{art.article.urlImgArticle}}" style="display:block;"/> 
-          <ion-label class="toolboxContent article_lib" slot="start">{{art.article.libelleArticle}}</ion-label>
-          <ion-label class="toolboxContent article_desc" slot="start">
-            {{art.article.descriptionArticle}}
-          </ion-label>
+  <div class="pageContent contentBorders">
+    <ion-item color="success" style="border-radius: 10px;">
+      <ion-label>
+        <h1>Adresses :</h1>
+      </ion-label>
+    </ion-item>
+    <ion-item color="dark" style="border-radius: 10px;">
+      <ion-label>
+        <h2>Livraison</h2>
+      </ion-label>
+    </ion-item>
+
+    <ion-item color="dark" style="border-radius: 10px;">
+      <ion-label>
+        <h2>Facturation</h2>
+      </ion-label>
+    </ion-item>
+    <ion-item color="success" style="margin-top: 25px;border-radius: 10px;">
+      <ion-label>
+        <h1>Articles :</h1>
+      </ion-label>
+    </ion-item>
+    <ion-card class="productContainer contentBorders" *ngFor="let art of Articles">
+        <ion-toolbar class="productToolbar" color="dark">
+          <img class="productPicture" slot="start" src="{{art.article.urlImgArticle}}" style="display:block;"/> 
+          <div style="width: 50%;display: inline-block;" slot="start">
+            <h3><ion-label class="article_lib">{{art.article.libelleArticle}}</ion-label></h3>
+            <ion-label class="article_desc">
+              {{art.article.descriptionArticle}}
+            </ion-label>
+          </div>
           <div slot="start"> 
             <ion-label class="toolboxContent">
-              Quantite : {{art.quantiteArticle}}        
+              x {{art.quantiteArticle}}        
             </ion-label>
           </div>
           <ion-label slot="end" class="toolboxContent" class="productPrice">{{art.article.prixArticleHt * art.quantiteArticle }} €</ion-label>
+          <ion-button slot="end" (click)="deleteArtFromBasket(art)" color="tertiary">
+            <ion-label>Supprimer du panier</ion-label>
+            <ion-icon color="dark" name="trash" size="large" style="margin-left: 10px;"></ion-icon>
+          </ion-button>
         </ion-toolbar>
-
-      </div>    
     </ion-card>
-    <ion-card class="productContainer">
-      <ion-toolbar color="primary" style="padding: 10px;">
-        <ion-label class="toolboxContent">
-          TOTAL HT :
-        </ion-label>
-        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalHt()}} €</ion-label>
-      </ion-toolbar>
-      <ion-toolbar color="primary" style="padding: 10px;">
-        <ion-label>
-          TTC : 
-        </ion-label>
-        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalTtc()}} €</ion-label>
-      </ion-toolbar>
-      <ion-toolbar style="padding: 10px;">
-        <ion-button color="secondary" slot="end" (click)="validateOrder()">Valider la commande</ion-button>
-      </ion-toolbar>
-    </ion-card>
-    </div></ion-content>
+      <ion-card class="totaux contentBorders">
+        <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">
+          <h5><ion-label class="toolboxContent">TOTAL HT:</ion-label></h5>
+          <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalHt()}} €</ion-label>
+        </ion-toolbar>  
+        <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">
+          <h4><ion-label>TTC :</ion-label></h4>
+          <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalTtc()}} €</ion-label>
+        </ion-toolbar>
+        <div>
+          <ion-button (click)="validateOrder()">Valider la panier</ion-button>
+        </div>
+      </ion-card>
+    </div>
+</ion-content>

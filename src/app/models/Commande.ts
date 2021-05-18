@@ -1,6 +1,6 @@
 import { ThrowStmt } from "@angular/compiler";
 import { LigneCommande } from "./LigneCommande";
-import { User } from "./User";
+import { Utilisateur } from "./User";
 
 export class Commande {
 	
@@ -12,7 +12,7 @@ export class Commande {
     totalHt: number;
 
 	adresseUtilisateur: number;
-	utilisateur: User;
+	utilisateur: Utilisateur;
 
     lignesCommande: LigneCommande[];
 

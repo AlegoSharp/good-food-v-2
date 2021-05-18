@@ -2,24 +2,31 @@
 
 </ion-header>
 
-<ion-content>
+<ion-content> 
+  <ion-toolbar color="secondary" *ngIf="filterVisible">
+    <ion-title slot="start" >Filtres :</ion-title>
+  </ion-toolbar>
   <div class="mainContent">
-    <div class="list">
-      <ion-card *ngFor="let number of [0,1,2,3,4]" class="artCard menu_1 menu_container">
-        <div class="menuCardContent">
-          <ion-toolbar color="primary">
-            <ion-label slot="start">NOM DU MENU</ion-label>
-            <ion-label slot="end">PRIX   €</ion-label>
-          </ion-toolbar>
-          <ion-label>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-          </ion-label>
-          <ion-toolbar color="primary">
-            <ion-button slot="end">Commander maintenant !</ion-button>
-          </ion-toolbar>      
-        </div>
-      </ion-card>
-    </div>
-
+    <ion-card class="artCard" *ngFor="let art of Articles" style="height: 80%;" style="background-color: transparent;">
+      <div class="cardContent" *ngIf="slide === currentSlideNumber || slide === currentSlideNumber-1 || slide === currentSlideNumber + 1">
+        <ion-toolbar color="success" class="headerCard">
+          <div>
+            <h5><ion-label slot="start">{{art.libelleArticle}}</ion-label></h5>
+            <ion-label slot="end" >{{art.prixArticleHt}} €</ion-label>  
+          </div>
+        </ion-toolbar>
+        <img src="{{art.urlImgArticle}}" class="productPicture"> 
+        <ion-label>   
+          {{art.descriptionArticle}}
+        </ion-label>
+        <ion-toolbar color="white" style="margin-top: 10px;">
+          <ion-button slot="end" color="tertiary" class="btnCmd" text-wrap (click)="addItemToBasket(art)">
+            <ion-label class="ion-text-wrap">
+              Commander maintenant
+            </ion-label>
+          </ion-button>
+        </ion-toolbar>      
+      </div>    
+    </ion-card>
   </div>
 </ion-content>

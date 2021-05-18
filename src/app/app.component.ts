@@ -87,7 +87,7 @@ export class AppComponent {
     if(!this.IsConnected){
         const ret = await Storage.get({ key: 'token' });
         if(ret.value !== null){
-          console.log(ret.value);
+          //  console.log(ret.value);
           this.token = (ret.value);
           this.role = (jwt_decode(this.token) as any).role
           this.IsConnected = true;

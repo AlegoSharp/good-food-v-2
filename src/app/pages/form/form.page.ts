@@ -3,9 +3,15 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import { IonInput } from '@ionic/angular';
 import { Article } from 'src/app/models/Article';
 import { Form } from 'src/app/models/Form';
-import { User } from 'src/app/models/User';
+import { Utilisateur } from 'src/app/models/User';
 import { FormService } from '../../services/form.service';
 import { Router, RouterOutlet } from '@angular/router';
+import { AlertService } from 'src/app/services/alert.service';
+import { FormProperty } from 'src/app/models/FormProperty';
+import { Role } from 'src/app/models/Role';
+import { Categorie_Article } from 'src/app/models/Categorie_Article';
+import { Promo } from 'src/app/models/Promo';
+import { R3ResolvedDependencyType } from '@angular/compiler';
 
 @Component({
   selector: 'app-form',
@@ -20,7 +26,7 @@ export class FormPage implements OnInit {
   public MyForm: Form;
   public AcutalType: Type;
 
-  constructor(private formService: FormService, private router: Router) { }
+  constructor(private formService: FormService, private router: Router, private alertService: AlertService) { }
 
   ngOnInit() {
     this.MyForm = new Form();
@@ -29,10 +35,25 @@ export class FormPage implements OnInit {
     //.then(Response => console.log(Response));
   }
 
-  setUpdateForm(object: any){
+  async setProperty(item: FormProperty, value: any){
+    console.log("FORM PROP",item)
+    console.log("VALUE",value)
+    if(item.alias === "Id"){
+      this.myObject = value;
+      this.MyForm = await this.formService.getFormFromObject(value,this.MyForm.title);
+      this.idName = item.nom;
+
+    }else{
+      item.value = value[item.nom];
+      item.objectReference = Object.values(value);
+      this.formService.setObjectProps(value,this.MyForm.properties)  
+    }
+  }
+
+  setUpdateForm(object: any, fixedModelName = ""){
     this.myObject = object;
     this.MyForm = new Form();
-    this.MyForm = this.formService.getFormFromObject(object)
+    this.MyForm = fixedModelName === "" ? this.formService.getFormFromObject(object) : this.formService.getFormFromObject(object, fixedModelName);
     console.log(this.MyForm)
   }
 
@@ -42,7 +63,7 @@ export class FormPage implements OnInit {
       .then(response =>  {
         if(response !== undefined){
           this.idName = target.name;
-          this.setUpdateForm(response);
+          this.setUpdateForm(response,window.document.URL.split('/')[4]);
         }
       });
   }
@@ -51,8 +72,13 @@ export class FormPage implements OnInit {
     this.MyForm = new Form;
     let u: any; 
     if(window.document.URL.includes('User')){
-      u = new User();
+      u = new Utilisateur();
       this.itemName = "utilisateur";
+      u.init_empty();
+    }
+    else if(window.document.URL.includes('Categorie_Article')){
+      u = new Categorie_Article();
+      this.itemName = "categorie_article";
       u.init_empty();
     }
     else if(window.document.URL.includes('Article')){
@@ -60,17 +86,59 @@ export class FormPage implements OnInit {
       this.itemName = "article";
       u.init_empty();
     }
+    else if(window.document.URL.includes('Promo')){
+      u = new Promo();
+      this.itemName = "promo";
+      u.init_empty();
+    } 
+    else if(window.document.URL.includes('Role')){
+      u = new Role();
+      this.itemName = "role";
+      u.init_empty();
+    }
     this.myObject = u;
     this.MyForm = this.formService.getFormFromObject(u)
   }
 
-  createNewElement(){
-    console.log(this.myObject);
-    delete this.myObject[this.idName];
-    console.log((<any>this.myObject).constructor.name);
-    this.formService.postObject(window.document.URL.split('/')[4],this.myObject).toPromise()
+  editElement(){
+    this.formService.setObjectProps(this.myObject,this.MyForm.properties);
+    //console.log((<any>this.myObject).constructor.name);
+    this.formService.postEditObject(window.document.URL.split('/')[4],this.myObject).toPromise()
     .then(response =>  {
       console.log(response);
+    });
+  }
+
+  createNewElement(){
+    //console.log();
+    this.formService.setObjectProps(this.myObject,this.MyForm.properties);
+    delete this.myObject[this.idName];
+    console.log(this.idName,this.myObject);
+    //console.log((<any>this.myObject).constructor.name);
+    this.formService.postObject(window.document.URL.split('/')[4],this.myObject).toPromise()
+    .then(response =>  {
+      this.alertService.presentToast('Success', this.MyForm.title + ' créé', true)
+      console.log(response);
+    }).catch(reason =>{
+      console.log(reason);
+      this.alertService.presentAlertOk("Erreur",reason.message + "\\n" + reason.error.details);
+    });
+  }
+
+  addReference(){
+
+  }
+
+  async openModal(name: string, formProperty: FormProperty) {    
+    this.alertService.presentModal(name,name).then(async(modal) =>{
+      await modal.present();
+      await modal.onDidDismiss().then((data) =>{
+        if(data?.data!== undefined){
+          this.setProperty(formProperty,data.data);
+          //console.log(this.MyForm)
+          //console.log()
+        }
+      });
     });
   }
 }
