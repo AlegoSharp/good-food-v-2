@@ -16,10 +16,10 @@
       </ion-toolbar>
       <ion-toolbar color="secondary">
         <ion-label slot="start" color="success">Choisir une categorie : </ion-label>
-        <ion-select slot="start" color="dark" style="width: 300px;" interface="action-sheet" [value]="selectedCategorie">
-          <ion-select-option  *ngFor="let categorie of Categories" [value]="categorie" color="success">
-            <ion-label color="success">{{categorie.libelleCategorieArticle}}</ion-label>
-          </ion-select-option >
+        <ion-select slot="start" style="width: 300px;" interface="action-sheet" [(ngModel)]="selectedCategorie">
+          <ion-select-option *ngFor="let categorie of Categories" [value]="categorie.idCategorieArticle">
+            <ion-label >{{categorie.libelleCategorieArticle}}</ion-label>
+          </ion-select-option>
         </ion-select>
       </ion-toolbar>
     </div>
@@ -28,22 +28,23 @@
   <div class="mainContent">
     <ion-slides pager="true" (ionSlideTouchEnd)="slideChanged()" style="height: 80%;">
       <ion-slide *ngFor="let page of Pages" style="padding: 20px;display: inline-block;" >
-        <ion-card class="artCard" *ngFor="let art of page.Articles" style="height: 80%;" style="background-color: transparent;" color="success">
+        <ion-card class="artCard" *ngFor="let art of page.Articles" style="height: 80%;" style="background-color: rgba(186, 194, 191, 0.24);" color="success">
           <div class="cardContent" >
             <ion-toolbar color="success" class="headerCard">
               <div>
-                <h5><ion-label slot="start">{{art.libelleArticle}}</ion-label></h5>
-                <ion-label slot="end" >{{art.prixArticleHt}} €</ion-label>
+                <h5><b><ion-label slot="start">{{art.libelleArticle}}</ion-label></b></h5>
+                <ion-label>   
+                  {{art.descriptionArticle}}
+                </ion-label>
               </div>
             </ion-toolbar>
             <img src="{{art.urlImgArticle}}" class="productPicture"> 
-            <ion-label>   
-              {{art.descriptionArticle}}
-            </ion-label>
-            <ion-toolbar color="white" style="margin-top: 10px;">
+            <ion-toolbar color="white" style="margin-top: 10px; padding: 10px;">
+              <ion-label color="dark" slot="start" ><b>{{art.prixArticleHt}} €</b></ion-label>
+
               <ion-button slot="end" color="tertiary" class="btnCmd" text-wrap (click)="addItemToBasket(art)">
                 <ion-label class="ion-text-wrap">
-                  Commander maintenant
+                  Ajouter au panier
                 </ion-label>
               </ion-button>
             </ion-toolbar>      

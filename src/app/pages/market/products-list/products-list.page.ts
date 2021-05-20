@@ -30,7 +30,7 @@ export class ProductsListPage implements OnInit {
   public CurrentPagesLoaded = [];
 
   public Categories: Categorie_Article[];
-  public selectedCategorie: Categorie_Article;
+  public selectedCategorie: any;
 
   public Articles = [];
   public ArticlesNext = [];
@@ -45,7 +45,7 @@ export class ProductsListPage implements OnInit {
   public nbPages = 0;
   public nbArt = 0;
 
-  public nbElemParPage = 5;
+  public nbElemParPage = 8;
 
   private isButtonSlideChange = false;
   private filterVisible = false;
@@ -62,36 +62,34 @@ export class ProductsListPage implements OnInit {
   init(){
     this.Pages = [];
     this.Articles = [];
-    console.log(this.currentSlideName)
+    
     this.route.data.subscribe(data => {
       this.ModeMenu = data.estMenu;
     })
 
-    this.Pages = new Array<Page>();
     let maxelem = (this.nbElemParPage * 3);
     let query = "/Article?pageSize=" + maxelem.toString() + 
                 "&pageNumber=" + this.currentSlideNumber + 
                 "&estMenu=" + this.ModeMenu.toString();
 
+    query = query + (this.selectedCategorie  !== undefined  ? "&idCategorieArticle=" + this.selectedCategorie : "");
+    console.log(this.selectedCategorie);
     if(this.searchText !== ""){
       query = query + "&descriptionArticle=" + this.searchText +
       "&libelleArticle=" + this.searchText
     }
-    console.log(query)
+
     this.formService.getList(query).toPromise().then(response => {
+
       (response as Array<Article>).forEach(element => {
         this.Articles.push(element);
       });
 
-      let countQuery = "";
-      if(this.ModeMenu === 1){
-        countQuery = "/Article/menu/count"
-      }else{
-        countQuery = "/Article/ingr/count"
-  
-      }
+      let countQuery = this.ModeMenu === 1 ? "/Article/menu/count" : "/Article/ingr/count";
+
       if(this.searchText === ""){
         this.formService.getList(countQuery).toPromise().then(response => {
+
           this.nbArt = (response as number);
           this.nbPages = Math.ceil((response as number) / this.nbElemParPage);
     
@@ -102,10 +100,12 @@ export class ProductsListPage implements OnInit {
           }
     
           this.Pages[0].Articles = this.getArticlePrevPage();
+
           if(this.Pages.length > 1)
           {
             this.Pages[1].Articles = this.getArticleCurrentPage();
           }
+        
         }).catch(reason => {
           this.alertService.presentAlertOk("Error",reason.message);
         });
@@ -115,6 +115,7 @@ export class ProductsListPage implements OnInit {
         if(this.nbPages === 1){
           let page = new Page();
           page.NumeroPage = 1;
+          
           this.Pages.push(page);
         }else{
           for(let i = 0; i < this.nbPages+1; i++){
@@ -134,6 +135,7 @@ export class ProductsListPage implements OnInit {
       this.alertService.presentAlertOk("Error",reason.message);
     });
   }
+
   searchArticle(){
     this.init();
   }
@@ -216,16 +218,9 @@ export class ProductsListPage implements OnInit {
   // Permet de récupérer les articles de la page suivante lorsque l'on navigue sur une autre pour éviter les clignotements et améliorer le temps de réponses des pages
   async getArticles(){  
 
-    //Next page
     if(this.currentSlideNumber < this.Pages.length && this.Pages.length > 1){
       this.Pages[this.currentSlideNumber].Articles = new Array<Article>();
-      let query = "/Article?pageSize=" + this.nbElemParPage + 
-                  "&pageNumber=" + (this.currentSlideNumber + 1).toString() + 
-                  "&estMenu=" + this.ModeMenu.toString();
-      if(this.searchText !== ""){
-        query = query + "&descriptionArticle=" + this.searchText +
-        "&libelleArticle=" + this.searchText
-      }
+      let query = this.getApiQuery(this.currentSlideNumber + 1);
       await this.formService.getList(query).toPromise().then(response => {
         (response as Array<Article>).forEach(element => {
           this.Pages[this.currentSlideNumber].Articles.push(element);
@@ -237,13 +232,7 @@ export class ProductsListPage implements OnInit {
 
     if(this.currentSlideNumber - 1 > 0){
       this.Pages[this.currentSlideNumber - 1].Articles = new Array<Article>();
-      let query = "/Article?pageSize=" + this.nbElemParPage + 
-                  "&pageNumber=" + (this.currentSlideNumber).toString() + 
-                  "&estMenu=" + this.ModeMenu.toString();
-      if(this.searchText !== ""){
-        query = query + "&descriptionArticle=" + this.searchText +
-        "&libelleArticle=" + this.searchText
-      }
+      let query = this.getApiQuery(this.currentSlideNumber);
       await this.formService.getList(query).toPromise().then(response => {
         (response as Array<Article>).forEach(element => {
           this.Pages[this.currentSlideNumber - 1].Articles.push(element);
@@ -251,16 +240,11 @@ export class ProductsListPage implements OnInit {
       }).catch(reason => {
         this.alertService.presentAlertOk("Error",reason.message +"\\n" + this.currentSlideNumber);
       });    
-    } 
+    }
+
     if(this.currentSlideNumber - 2 > 0 && this.Pages.length > 1){
       this.Pages[this.currentSlideNumber - 2].Articles = new Array<Article>();
-      let query = "/Article?pageSize=" + this.nbElemParPage + 
-                  "&pageNumber=" + (this.currentSlideNumber - 1).toString() + 
-                  "&estMenu=" + this.ModeMenu.toString();
-      if(this.searchText !== ""){
-        query = query + "&descriptionArticle=" + this.searchText +
-        "&libelleArticle=" + this.searchText
-      }
+      let query = this.getApiQuery(this.currentSlideNumber - 1);
       await this.formService.getList(query).toPromise().then(response => {
         (response as Array<Article>).forEach(element => {
           this.Pages[this.currentSlideNumber - 2].Articles.push(element);
@@ -287,5 +271,17 @@ export class ProductsListPage implements OnInit {
     });
   }
   
-  get
+  getApiQuery(pageNumber: number): string{
+    let query = "/Article?pageSize=" + this.nbElemParPage + 
+    "&pageNumber=" + pageNumber + 
+    "&estMenu=" + this.ModeMenu.toString();
+    
+    query = query + (this.selectedCategorie  !== undefined  ? "&idCategorieArticle=" + this.selectedCategorie : "");
+
+    if(this.searchText !== ""){
+      query = query + "&descriptionArticle=" + this.searchText +
+      "&libelleArticle=" + this.searchText
+    }
+    return query;
+  }
 }
