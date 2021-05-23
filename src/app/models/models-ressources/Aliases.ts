@@ -19,7 +19,7 @@ export class Aliases{
         stockArticle: "Quantité en stock",
         prixArticleHt: "Prix unitaire HT",
         tva: "TVA",
-        idCategorieArticle: "idCategorie",
+        idCategorieArticle: "idCategorieArticle",
         idFranchise: "idFranchise",
         estMenu: "Menu",
     }

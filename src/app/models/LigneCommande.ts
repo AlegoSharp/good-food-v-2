@@ -1,19 +1,20 @@
-import { Article } from "./Article";
+import { Article } from './Article';
 
 export class LigneCommande {
-	
-	idLigneCommande: number;
-	idCommande: number;
-    article: Article
-    quantiteArticle: number;
-	sousTotalTtc: number;
 
-    constructor() 
-    { 
+    idLigneCommande: number;
+    idCommande: number;
+    article: Article;
+    idArticle: any;
+    quantiteArticle: number;
+    sousTotalTtc: number;
+
+    constructor()
+    {
         this.init_empty();
     }
 
-    public init_empty() : void{
+    public init_empty(): void{
         this.idLigneCommande = 0;
         this.idCommande = 0;
         this.article = new Article();
@@ -23,7 +24,7 @@ export class LigneCommande {
     }
 
     public calculerSousTotal(): number{
-        if(this.article !== undefined){
+        if (this.article !== undefined){
             return this.article.prixArticleHt * this.quantiteArticle;
         }
         else
@@ -32,7 +33,3 @@ export class LigneCommande {
         }
     }
 }
-/*
-
-
-*/

@@ -4,21 +4,21 @@
         <ion-icon (click)="backHome()" slot="start" class="btnHomeGf">
         </ion-icon>
         <ion-searchbar color="dark"></ion-searchbar>
-        <div slot="end" color="tertiary">
-          <ion-button [routerLink]="['/login']" *ngIf="!IsConnected" color="tertiary">
-            <ion-label>Se connecter</ion-label>
+        <div slot="end">
+          <ion-button [routerLink]="['/login']" *ngIf="!IsConnected" color="dark">
+            <ion-label color="dark">Se connecter</ion-label>
           </ion-button>
-          <ion-button [routerLink]="['/register']" *ngIf="!IsConnected" color="tertiary">
-            <ion-label>S'inscrire</ion-label>
+          <ion-button [routerLink]="['/register']" *ngIf="!IsConnected" color="dark">
+            <ion-label color="dark">S'inscrire</ion-label>
           </ion-button>
           <ion-button [routerLink]="['/myBasket']" *ngIf="IsConnected" color="success">
             <ion-label class="basketCount">{{basketCount}}</ion-label>
-            <ion-icon name="basket" size="large"></ion-icon>
-            <ion-label>Mon panier</ion-label>
+            <ion-icon name="basket" size="large" color="dark"></ion-icon>
+            <ion-label color="dark">Mon panier</ion-label>
           </ion-button>
           <ion-button [routerLink]="['/account']" *ngIf="IsConnected" color="success">
-            <ion-icon name="person-circle-outline" size="large"></ion-icon>
-            <ion-label>Mon compte</ion-label>
+            <ion-icon name="person-circle-outline" size="large" color="dark"></ion-icon>
+            <ion-label color="dark">Mon compte</ion-label>
           </ion-button>
         </div>
       </ion-toolbar>

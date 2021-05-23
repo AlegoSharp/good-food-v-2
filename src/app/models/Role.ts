@@ -4,7 +4,7 @@ export class Role {
 
     constructor(){}
 
-    public init_empty() : void{
+    public init_empty(): void{
         this.idRole = 0;
         this.libelleRole = '0';
     }

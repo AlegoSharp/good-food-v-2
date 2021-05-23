@@ -40,9 +40,9 @@ export class BasketPage implements OnInit {
 
   async decreaseArtQtyFromBasket(ligneCommande: LigneCommande) {
     if(ligneCommande.quantiteArticle - 1 < 1){
-      this.alertService.presentAlertOuiNon("Voulez-vous supprimer l'article du panier ?","",()=>{ 
+      this.alertService.presentAlertOuiNon('Voulez-vous supprimer l\'article du panier ?', '', () => {
         ligneCommande.quantiteArticle--;
-        this.deleteArtFromBasket(ligneCommande); 
+        this.deleteArtFromBasket(ligneCommande);
       });
     }else{
       ligneCommande.quantiteArticle--;

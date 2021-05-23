@@ -27,7 +27,7 @@ const routes: Routes = [
   },
   {
     path: 'account',
-    loadChildren: () => import('./pages/auth/account/account-routing.module').then( m => m.AccountPageRoutingModule),
+    loadChildren: () => import('./pages/auth/account/account.module').then( m => m.AccountPageModule),
   },
   {
     path: 'products',
@@ -67,11 +67,6 @@ const routes: Routes = [
     path: 'article-detail',
     loadChildren: () => import('./pages/market/article-detail/article-detail.module').then( m => m.ArticleDetailPageModule)
   },
-
-
-
-
-
 ];
 
 @NgModule({

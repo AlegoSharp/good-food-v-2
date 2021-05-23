@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { createAnimation, Animation } from '@ionic/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { trigger } from '@angular/animations';
-import { async } from '@angular/core/testing';
 import { Article } from './models/Article';
-import jwt_decode from "jwt-decode";
+import jwt_decode from 'jwt-decode';
 import { Plugins } from '@capacitor/core';
 
 const { Storage } = Plugins;
@@ -22,14 +21,13 @@ export class AppComponent {
   public basketCount = 0;
   public IsConnected = false;
   private storageBusy = false;
-  private token = "";
-  private role = "";
-  ngOnInit(){
+  private token = '';
+  private role = '';
 
-  }
   backHome(){
-    this.router.navigateByUrl("/home");
+    this.router.navigateByUrl('/home');
   }
+
   showMenu(){
     let myElementRef = window.document.getElementById('leftMenu');
     const fadeOut = createAnimation()
@@ -45,6 +43,7 @@ export class AppComponent {
       });
     }
   }
+
   fadeIn(elementID: string){
     let myElementRef = window.document.getElementById(elementID);
     const fadeIn = createAnimation()
@@ -61,35 +60,35 @@ export class AppComponent {
     .duration(300)
     .fromTo('opacity', '1', '0');
   }
-  
+
   async prepareRoute() {
-    if(this.token === ""){
-      if(!this.storageBusy){
+    if (this.token === ''){
+      if (!this.storageBusy){
         this.storageBusy = true;
-        setTimeout(async ()=>{
+        setTimeout(async () => {
           this.basketCount = (JSON.parse(await (await Storage.get({ key: 'basket' })).value) as Array<Article>).length;
           await this.getToken();
           this.storageBusy = false;
-        },500);
+        }, 500);
       }
     }else{
-      if(!this.storageBusy){
+      if (!this.storageBusy){
         this.storageBusy = true;
-        setTimeout(async ()=>{
+        setTimeout(async () => {
           this.basketCount = (JSON.parse(await (await Storage.get({ key: 'basket' })).value) as Array<Article>).length;
           this.storageBusy = false;
-        },500);
+        }, 500);
       }
     }
   }
-  
+
   async getToken(){
-    if(!this.IsConnected){
+    if (!this.IsConnected){
         const ret = await Storage.get({ key: 'token' });
-        if(ret.value !== null){
+        if (ret.value !== null){
           //  console.log(ret.value);
           this.token = (ret.value);
-          this.role = (jwt_decode(this.token) as any).role
+          this.role = (jwt_decode(this.token) as any).role;
           this.IsConnected = true;
         }
     }

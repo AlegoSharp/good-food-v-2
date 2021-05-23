@@ -5,8 +5,5 @@ export class FormProperty {
     value: string;
     objectReference: object;
     externalRouteRessource: string;
-    constructor() 
-    { 
-
-    }
+    constructor(){}
 }

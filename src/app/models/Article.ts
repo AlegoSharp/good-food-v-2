@@ -1,21 +1,18 @@
 export class Article {
-    idArticle: number
-    libelleArticle: string
-    descriptionArticle: string
-    urlImgArticle: string
-    stockArticle: number
-    prixArticleHt: number
-    tva: number
-    idCategorieArticle: number
-    idFranchise: number
-    estMenu: string
+    idArticle: number;
+    libelleArticle: string;
+    descriptionArticle: string;
+    urlImgArticle: string;
+    stockArticle: number;
+    prixArticleHt: number;
+    tva: number;
+    idCategorieArticle: number;
+    idFranchise: number;
+    estMenu: string;
 
-    constructor() 
-    { 
+    constructor(){}
 
-    }
-
-    public init_empty() : void{
+    public init_empty(): void{
         this.idArticle = 0;
 
         this.stockArticle = 100;
@@ -33,7 +30,3 @@ export class Article {
         this.estMenu = '0';
     }
 }
-/*
-
-
-*/

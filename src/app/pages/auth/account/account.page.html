@@ -1,119 +1,128 @@
 <ion-header>
   <ion-toolbar>
     <ion-title slot="start">{{email}}</ion-title>
-    <ion-button color="secondary" slot="start">Mes adresses</ion-button>
-    <ion-button color="secondary" slot="start">Mes commandes</ion-button>
+    <ion-button color="secondary" slot="start" (click)="displayMode = 'Adresse_Utilisateur'">Mes adresses</ion-button>
+    <ion-button color="secondary" slot="start" (click)="displayMode = 'Commande'">Mes commandes</ion-button>
     <ion-button color="secondary" (click)="deleteToken('token')" slot="end">Se deconnecter</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div clas="accountContainer">
-    <ion-card class="adr" color="dark">
-      <ion-row>
-        <ion-col color="success">
-          <ion-text color="success"><span class="label">First Name</span></ion-text>
-          <ion-input class="input" [(ngModel)]="address.first_name" padding-horizontal></ion-input>
-        </ion-col>
-        <ion-col>
-          <ion-text color="success"><span class="label">Last Name</span></ion-text>
-          <ion-input class="input" [(ngModel)]="address.last_name" padding-horizontal></ion-input>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-text color="success"><span class="label">Address Line 1</span></ion-text>
-          <ion-input class="input" [(ngModel)]="address.address_line_1" padding-horizontal></ion-input>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-text color="success"><span class="label">Address Line 2</span></ion-text>
-          <ion-input class="input" [(ngModel)]="address.address_line_2" padding-horizontal placeholder="Optional"></ion-input>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-text color="success"><span class="label">Country</span></ion-text>
-          <ion-select [(value)]="address.country" class="input">
-            <ion-select-option *ngFor="let q of countries" [(value)]="q.name">{{q.name}}</ion-select-option>
-          </ion-select>
-        </ion-col>
-        <ion-col>
-          <ion-text color="success"><span class="label">State</span></ion-text>
-          <ion-input class="input" [(ngModel)]="address.state" padding-horizontal placeholder="Optional"></ion-input>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-text color="success"><span class="label">City</span></ion-text>
-          <ion-input class="input" [(ngModel)]="address.city" padding-horizontal></ion-input>
-        </ion-col>
-        <ion-col>
-          <ion-text color="success"><span class="label">Zipcode</span></ion-text>
-          <ion-input class="input" [(ngModel)]="address.zipcode" type="number" padding-horizontal></ion-input>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-text color="success"><span class="label">Phone Number</span></ion-text>
-          <ion-input class="input" [(ngModel)]="address.phone_number" type="number" padding-horizontal></ion-input>
-        </ion-col>
-      </ion-row>
-      <ion-button expand="block" color="mytheme" class="bottom" (click)="update()"><span class="white"><strong>Save</strong></span></ion-button>
-    </ion-card>
-    <ion-card class="adr" color="dark">
-      <ion-row>
-        <ion-col color="success">
-          <ion-text color="success"><span class="label">First Name</span></ion-text>
-          <ion-input class="input" [(ngModel)]="address.first_name" padding-horizontal></ion-input>
-        </ion-col>
-        <ion-col>
-          <ion-text color="success"><span class="label">Last Name</span></ion-text>
-          <ion-input class="input" [(ngModel)]="address.last_name" padding-horizontal></ion-input>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-text color="success"><span class="label">Address Line 1</span></ion-text>
-          <ion-input class="input" [(ngModel)]="address.address_line_1" padding-horizontal></ion-input>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-text color="success"><span class="label">Address Line 2</span></ion-text>
-          <ion-input class="input" [(ngModel)]="address.address_line_2" padding-horizontal placeholder="Optional"></ion-input>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-text color="success"><span class="label">Country</span></ion-text>
-          <ion-select [(value)]="address.country" class="input">
-            <ion-select-option *ngFor="let q of countries" [(value)]="q.name">{{q.name}}</ion-select-option>
-          </ion-select>
-        </ion-col>
-        <ion-col>
-          <ion-text color="success"><span class="label">State</span></ion-text>
-          <ion-input class="input" [(ngModel)]="address.state" padding-horizontal placeholder="Optional"></ion-input>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-text color="success"><span class="label">City</span></ion-text>
-          <ion-input class="input" [(ngModel)]="address.city" padding-horizontal></ion-input>
-        </ion-col>
-        <ion-col>
-          <ion-text color="success"><span class="label">Zipcode</span></ion-text>
-          <ion-input class="input" [(ngModel)]="address.zipcode" type="number" padding-horizontal></ion-input>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-text color="success"><span class="label">Phone Number</span></ion-text>
-          <ion-input class="input" [(ngModel)]="address.phone_number" type="number" padding-horizontal></ion-input>
-        </ion-col>
-      </ion-row>
-      <ion-button expand="block" color="mytheme" class="bottom" (click)="update()"><span class="white"><strong>Save</strong></span></ion-button>
-    </ion-card>
+    <div id="Adr" *ngIf="displayMode === 'Adresse_Utilisateur'">
+      <ion-card class="adr" color="dark">
+        <ion-item color="success" style="margin-top: 25px;border-radius: 10px;">
+          <ion-label>
+            <h1>Adresse de livraison :</h1>
+          </ion-label>
+        </ion-item>
+        <ion-row>
+          <ion-col color="success">
+            <ion-text color="success"><span class="label">Nom</span></ion-text>
+            <ion-input class="input" [value]="user.nomUtilisateur" [(ngModel)]="user.nomUtilisateur" padding-horizontal></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-text color="success"><span class="label">Prenom</span></ion-text>
+            <ion-input class="input" [value]="user.prenomUtilisateur" [(ngModel)]="user.prenomUtilisateur" padding-horizontal></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text color="success"><span class="label">Address Line 1</span></ion-text>
+            <ion-input class="input" [value]="addressLivr.nomAdresse" [(ngModel)]="addressLivr.nomAdresse" padding-horizontal></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text color="success"><span class="label">Address Line 2</span></ion-text>
+            <ion-input class="input" [value]="addressLivr.suppNomAdresse" [(ngModel)]="addressLivr.suppNomAdresse" padding-horizontal placeholder="Optionel"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text color="success"><span class="label">Country</span></ion-text>
+            <ion-select [(value)]="addressLivr.pays" class="input">
+              <ion-select-option *ngFor="let q of countries" [(value)]="q.name">{{q.name}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text color="success"><span class="label">City</span></ion-text>
+            <ion-input class="input" [value]="addressLivr.villeAdresse"  [(ngModel)]="addressLivr.villeAdresse" padding-horizontal></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-text color="success"><span class="label">Zipcode</span></ion-text>
+            <ion-input class="input" [value]="addressLivr.codePostal" [(ngModel)]="addressLivr.codePostal" type="number" padding-horizontal></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text color="success"><span class="label">Phone Number</span></ion-text>
+            <ion-input class="input" [value]="user.numeroTelUtilisateur"  [(ngModel)]="user.numeroTelUtilisateur" type="number" padding-horizontal></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-button expand="block" color="mytheme" class="bottom" (click)="update()"><span class="white"><strong>Enregistrer</strong></span></ion-button>
+      </ion-card>
+      <ion-card class="adr" color="dark">
+        <ion-item color="success" style="margin-top: 25px;border-radius: 10px;">
+          <ion-label>
+            <h1>Adresse de facturation :</h1>
+          </ion-label>
+        </ion-item>
+        <ion-row>
+          <ion-col color="success">
+            <ion-text color="success"><span class="label">Nom</span></ion-text>
+            <ion-input class="input" [value]="user.nomUtilisateur" [(ngModel)]="user.nomUtilisateur" padding-horizontal></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-text color="success"><span class="label">Prenom</span></ion-text>
+            <ion-input class="input" [value]="user.prenomUtilisateur" [(ngModel)]="user.prenomUtilisateur" padding-horizontal></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text color="success"><span class="label">Address Line 1</span></ion-text>
+            <ion-input class="input" [value]="addressFact.nomAdresse" [(ngModel)]="addressFact.nomAdresse" padding-horizontal></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text color="success"><span class="label">Address Line 2</span></ion-text>
+            <ion-input class="input" [value]="addressFact.suppNomAdresse" [(ngModel)]="addressFact.suppNomAdresse" padding-horizontal placeholder="Optionel"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text color="success"><span class="label">Country</span></ion-text>
+            <ion-select [(value)]="addressFact.pays" class="input">
+              <ion-select-option *ngFor="let q of countries" [(value)]="q.name">{{q.name}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text color="success"><span class="label">City</span></ion-text>
+            <ion-input class="input" [value]="addressFact.villeAdresse"  [(ngModel)]="addressFact.villeAdresse" padding-horizontal></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-text color="success"><span class="label">Zipcode</span></ion-text>
+            <ion-input class="input" [value]="addressFact.codePostal" [(ngModel)]="addressFact.codePostal" type="number" padding-horizontal></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text color="success"><span class="label">Phone Number</span></ion-text>
+            <ion-input class="input" [value]="user.numeroTelUtilisateur"  [(ngModel)]="user.numeroTelUtilisateur" type="number" padding-horizontal></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-button expand="block" color="mytheme" class="bottom" (click)="update()"><span class="white"><strong>Enregistrer</strong></span></ion-button>
+      </ion-card>  
+    </div>
+    <div id="Adr" *ngIf="displayMode === 'Commande'">
+      <ion-card *ngFor="let commande of user.commandes">
+        {{commande.idUtilisateur}}
+      </ion-card>
+    </div>
   </div>
 </ion-content>

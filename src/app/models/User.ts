@@ -1,4 +1,5 @@
-import { Commande } from "./Commande";
+import { Address } from 'node:cluster';
+import { Commande } from './Commande';
 
 export class Utilisateur {
     idUtilisateur: number;
@@ -14,13 +15,11 @@ export class Utilisateur {
     mdpUtilisateur: string;
 
     commandes: Commande[];
+    adresses: Address[];
 
-    constructor() 
-    { 
+    constructor(){}
 
-    }
-
-    public init_empty() : void{
+    public init_empty(): void{
         this.idUtilisateur = 0;
         this.idRole = 0;
         this.adresseUtilisateur = 0;
@@ -34,5 +33,6 @@ export class Utilisateur {
         this.mdpUtilisateur = '0';
 
         this.commandes = new Array<Commande>();
+        this.adresses = new Array<Address>();
     }
 }

@@ -8,7 +8,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class ForgetPasswordPage implements OnInit {
 
-  public email: string
+  public email: string;
 
   constructor(private toastController: ToastController) { }
 
@@ -16,25 +16,17 @@ export class ForgetPasswordPage implements OnInit {
   }
 
   reset(){
-    if(this.validateEmail(this.email)){
-      this.presentToast('Verification mail sent', false, 'bottom', 2100);
-    }
-    else{
-      this.presentToast('Wrong Input!', true, 'bottom', 2100);
-    }
+    this.presentToast('Verification mail sent', false, 'bottom', 2100);
   }
-  
-  async presentToast(message, show_button, position, duration) {
+
+  async presentToast(message: string, showButton: boolean, position: 'top' | 'bottom' | 'middle', duration: number) {
     const toast = await this.toastController.create({
-      message: message,
-      position: position,
-      duration: duration,
-      keyboardClose: show_button
+      message: message as string,
+      position: position as 'top' | 'bottom' | 'middle',
+      duration: duration as number,
+      keyboardClose: showButton as boolean
     });
     toast.present();
   }
-  validateEmail(email: string) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-  }
+
 }
