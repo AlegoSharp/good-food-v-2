@@ -58,7 +58,7 @@ export class AlertService {
       inputs:[
         {
           name: 'Quantity',
-          type: 'text',
+          type: 'number',
           placeholder: 'Quantité'
         }],
       buttons: [
