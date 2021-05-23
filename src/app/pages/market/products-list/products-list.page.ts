@@ -1,6 +1,6 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IonSelect, IonSlides } from '@ionic/angular';
 import { Article } from 'src/app/models/Article';
 import { Categorie_Article } from 'src/app/models/Categorie_Article';
@@ -52,7 +52,11 @@ export class ProductsListPage implements OnInit {
 
   private searchText = "";
   
-  constructor(private formService: FormService,private storageService: StorageService,private alertService: AlertService, private route: ActivatedRoute) { }
+  constructor(private formService: FormService,
+              private storageService: StorageService,
+              private alertService: AlertService, 
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.currentSlideNumber = 0;  

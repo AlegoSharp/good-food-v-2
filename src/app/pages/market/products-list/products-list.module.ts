@@ -8,6 +8,8 @@ import { ProductsListPageRoutingModule } from './products-list-routing.module';
 
 import { ProductsListPage } from './products-list.page';
 
+import { ActivatedRoute, Router } from '@angular/router';
+
 @NgModule({
   imports: [
     CommonModule,

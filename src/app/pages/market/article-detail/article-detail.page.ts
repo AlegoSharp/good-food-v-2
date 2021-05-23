@@ -1,5 +1,10 @@
+import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Article } from 'src/app/models/Article';
+import { AlertService } from 'src/app/services/alert.service';
+import { FormService } from 'src/app/services/form.service';
+
 
 @Component({
   selector: 'app-article-detail',
@@ -8,17 +13,26 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class ArticleDetailPage implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  public article: Article;
+  public id: number;
+
+  constructor(private route: ActivatedRoute, private formService: FormService, private alertService: AlertService) {}
 
   ngOnInit() {
-    this.route.queryParams.toPromise().then((value: Params) =>{
-      value[0];
+    this.route.queryParams
+    .subscribe(params => {
+      this.id = params.id;
+      this.getArticle();
+      console.log(params.id); // popular
     });
-    this.route.queryParams.subscribe((params: any) => {
-      if (params) {
-        let queryParams = JSON.parse(params);
-        console.log(queryParams)
-      }
+  }
+
+  async getArticle() {
+    await this.formService.getList("Article/id/" + this.id).toPromise().then(response => {
+      this.article = response as Article;
+    })
+    .catch(reason => {
+      this.alertService.presentAlertOk("Error",reason.message);
     });
   }
 

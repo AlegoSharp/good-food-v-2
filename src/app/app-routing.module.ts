@@ -64,7 +64,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/auth/forget-password/forget-password-routing.module').then( m => m.ForgetPasswordPageRoutingModule)
   },
   {
-    path: 'article-detail',
+    path: 'article-detail/:id',
     loadChildren: () => import('./pages/market/article-detail/article-detail.module').then( m => m.ArticleDetailPageModule)
   },
 ];
