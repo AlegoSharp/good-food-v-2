@@ -7,50 +7,50 @@ export class Aliases{
     ///     ARTICLE
     ///
     public static articleCustomRoutes = {
-        idCategorieArticle: "Categorie_Article",
-        idFranchise: "Franchise",
-        idArticle: "Article"    
-    }
+        idCategorieArticle: 'Categorie_Article',
+        idFranchise: 'Franchise',
+        idArticle: 'Article'
+    };
+
     public static articleConvivialNames = {
-        idArticle: "Id",
-        libelleArticle: "Libelle ",
-        descriptionArticle: "Description",
-        urlImgArticle: "Image",
-        stockArticle: "Quantité en stock",
-        prixArticleHt: "Prix unitaire HT",
-        tva: "TVA",
-        idCategorieArticle: "idCategorieArticle",
-        idFranchise: "idFranchise",
-        estMenu: "Menu",
-    }
+        idArticle: 'Id',
+        libelleArticle: 'Libelle ',
+        descriptionArticle: 'Description',
+        urlImgArticle: 'Image',
+        stockArticle: 'Quantité en stock',
+        prixArticleHt: 'Prix unitaire HT',
+        tva: 'TVA',
+        idCategorieArticle: 'idCategorieArticle',
+        idFranchise: 'idFranchise',
+        estMenu: 'Menu',
+    };
     ///
     ///     CATEGORIE ARTICLE
     ///
     public static categorieArticleConvivialNames = {
-        idCategorieArticle: "Id",
-        libelleCategorieArticle: "Libelle",
-    }
+        idCategorieArticle: 'Id',
+        libelleCategorieArticle: 'Libelle',
+    };
 
     ///
     ///     PROMOS
-    ///    
+    ///
     public static promosConvivialNames = {
-        estActive: "Activer",
-        idArticle: "idArticle",
-        idPromo: "Id",
-        libellePromo: "Libelle"
+        estActive: 'Activer',
+        idArticle: 'idArticle',
+        idPromo: 'Id',
+        libellePromo: 'Libelle'
     }
     public static promosCustomRoutes = {
-        idArticle: "Article",
-    }
-    
+        idArticle: 'Article'
+    };
     ///
     ///     ROLE
     ///
     public static roleConvivialNames = {
-        idRole: "Id",
-        libelleRole: "Libelle",
-    }
+        idRole: 'Id',
+        libelleRole: 'Libelle',
+    };
 
     ///
     ///     USER
@@ -58,18 +58,18 @@ export class Aliases{
 
     public static userConvivialNames = {
         idUtilisateur: 'Id',
-        idRole: 'Role',
-        idAdresseUtilisateur: 'Adresse',    
+        idRole: 'idRole',
+        idAdresseUtilisateur: 'idAdresseUtilisateur',
         nomUtilisateur: 'Nom',
         prenomUtilisateur: 'Prenom',
         numeroTelUtilisateur: 'Téléphone',
         emailUtilisateur: 'E-mail',
         mdpUtilisateur: 'Mot de passe',
-    }
+    };
 
     public static userCustomRoutes = {
         idRole: 'Role',
-        idAdresseUtilisateur: 'Adresse_Utilisateur',    
-    }
+        idAdresseUtilisateur: 'Adresse_Utilisateur',
+    };
 
 }

@@ -59,17 +59,17 @@ export class ProductsListPage implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.currentSlideNumber = 0;  
+    this.currentSlideNumber = 0;
     this.init();
     this.getCategories();
   }
   init(){
     this.Pages = [];
     this.Articles = [];
-    
-    this.route.data.subscribe(data => {
+
+    this.route.data.toPromise().then(data => {
       this.ModeMenu = data.estMenu;
-    })
+    });
 
     let maxelem = (this.nbElemParPage * 3);
     let query = "/Article?pageSize=" + maxelem.toString() + 
@@ -96,20 +96,17 @@ export class ProductsListPage implements OnInit {
 
           this.nbArt = (response as number);
           this.nbPages = Math.ceil((response as number) / this.nbElemParPage);
-    
           for(let i = 0; i < this.nbPages; i++){
-            let page = new Page();
+            const page = new Page();
             page.NumeroPage = i;
             this.Pages.push(page);
           }
-    
           this.Pages[0].Articles = this.getArticlePrevPage();
 
           if(this.Pages.length > 1)
           {
             this.Pages[1].Articles = this.getArticleCurrentPage();
           }
-        
         }).catch(reason => {
           this.alertService.presentAlertOk("Error",reason.message);
         });
@@ -117,13 +114,12 @@ export class ProductsListPage implements OnInit {
         this.nbArt = this.Articles.length;
         this.nbPages = Math.ceil(this.nbArt / this.nbElemParPage);
         if(this.nbPages === 1){
-          let page = new Page();
+          const page = new Page();
           page.NumeroPage = 1;
-          
           this.Pages.push(page);
         }else{
           for(let i = 0; i < this.nbPages+1; i++){
-            let page = new Page();
+            const page = new Page();
             page.NumeroPage = i;
             this.Pages.push(page);
           }
@@ -274,7 +270,7 @@ export class ProductsListPage implements OnInit {
       });
     });
   }
-  
+
   getApiQuery(pageNumber: number): string{
     let query = "/Article?pageSize=" + this.nbElemParPage + 
     "&pageNumber=" + pageNumber + 

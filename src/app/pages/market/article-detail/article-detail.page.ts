@@ -23,16 +23,15 @@ export class ArticleDetailPage implements OnInit {
     .subscribe(params => {
       this.id = params.id;
       this.getArticle();
-      console.log(params.id); // popular
     });
   }
 
   async getArticle() {
-    await this.formService.getList("Article/id/" + this.id).toPromise().then(response => {
+    await this.formService.getList('Article/' + this.id).toPromise().then(response => {
       this.article = response as Article;
     })
     .catch(reason => {
-      this.alertService.presentAlertOk("Error",reason.message);
+      this.alertService.presentAlertOk('Error', reason.message);
     });
   }
 

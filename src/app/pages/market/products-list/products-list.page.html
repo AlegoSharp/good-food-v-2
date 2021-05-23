@@ -30,7 +30,7 @@
       <ion-slide *ngFor="let page of Pages" style="padding: 20px;display: inline-block;" >
         <ion-card class="artCard" *ngFor="let art of page.Articles" style="height: 80%;" style="background-color: rgba(186, 194, 191, 0.24);" color="success">
           <div class="cardContent" >
-            <ion-toolbar color="success" class="headerCard" [routerLink]="['/article-detail/:id']" [queryParams]="{id: art.idArticle}">
+            <ion-toolbar color="success" class="headerCard" [routerLink]="['/article-detail/']" [queryParams]="{id: art.idArticle}">
               <div>
                 <h5><b><ion-label slot="start">{{art.libelleArticle}}</ion-label></b></h5>
                 <ion-label>   

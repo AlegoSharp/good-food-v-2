@@ -36,7 +36,9 @@ export class FormService {
             const prop = new FormProperty();
             prop.nom = element;
             prop.alias = this.getConvivialName(modelName, element);
-            prop.alias = prop.alias === '' ? element : prop.alias;
+            prop.alias = prop.alias === '' ? element : '';
+            console.log(prop.alias);
+
             prop.type = typeof(obj[element]);
             prop.value = obj[element];
             prop.externalRouteRessource = this.getCustomRoute(modelName, element);
