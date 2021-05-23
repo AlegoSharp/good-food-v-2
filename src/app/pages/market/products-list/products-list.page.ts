@@ -67,7 +67,7 @@ export class ProductsListPage implements OnInit {
     this.Pages = [];
     this.Articles = [];
 
-    this.route.data.toPromise().then(data => {
+    this.route.data.subscribe(data => {
       this.ModeMenu = data.estMenu;
     });
 
