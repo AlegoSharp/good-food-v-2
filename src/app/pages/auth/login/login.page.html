@@ -1,23 +1,26 @@
 <ion-content>
-  <div class="login">
-      <div class="divLogo">
+  <div>
+    <ion-card class="login" color="dark">
+      <div class="divLogo"> 
+        <img class="logo" src="assets/GoodFood_Logo1.png"/>
       </div>
-      <form #f="ngForm" (ngSubmit)="login(f)" method="post">
-          <ion-item lines="full">
+      <form class="form" #f="ngForm" (ngSubmit)="login(f)" method="post">
+          <ion-item lines="full" color="dark" class="formitem">
             <ion-label position="floating">Email</ion-label>
             <ion-input type="email" name="email" ngModel required></ion-input>
           </ion-item>
 
-          <ion-item lines="full">
+          <ion-item lines="full" color="dark" class="formitem">
             <ion-label position="floating">Mot de passe</ion-label>
             <ion-input type="password" required name="password" ngModel></ion-input>
           </ion-item>
 
-          <div class="forgot-pwd">
+          <div class="forgot-pwd" class="formitem">
               Mot de passe oublié ? 
               <a class="small-text" href="/forgot">cliquez ici</a>
           </div>
-          <ion-button type="submit" color="dark">Connexion</ion-button>
+          <ion-button type="submit" color="tertiary">Connexion</ion-button>
       </form>
+    </ion-card>
   </div>
 </ion-content>

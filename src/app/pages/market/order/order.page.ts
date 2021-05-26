@@ -55,24 +55,16 @@ export class OrderPage implements OnInit {
     }).then(x => {
       this.Articles = x;
       this.Commande.lignesCommande = x;
-/*    g   x.forEach(element =>{
-        const ligne = new LigneCommande();
-        ligne.article = element.article;
-        ligne.idArticle = element.article.idArticle;
-        ligne.idCommande = this.Commande.idCommande;
-        ligne.quantiteArticle = element.quantiteArticle;
-        this.Commande.lignesCommande.push(ligne);
-      }); */
     });
   }
 
   async createOrder(){
+    this.Commande.totalHt = this.Commande.calculerTotalHt();
+    this.Commande.totalTtc = this.Commande.calculerTotalTtc();
+    this.Commande.lignesCommande.forEach(element => {
+      element.sousTotalTtc = (element.article.prixArticleHt * element.quantiteArticle) * (1 + (element.article.tva / 100));
+    });
     this.CommandeApi = JSON.parse(JSON.stringify(this.Commande));
-/* 
-    this.CommandeApi.lignesCommande.forEach(element =>{
-      element.idArticle = element.article.idArticle;
-      delete element.article;
-    }); */
 
     const lignesCommande = JSON.parse(JSON.stringify(this.Commande.lignesCommande));
 

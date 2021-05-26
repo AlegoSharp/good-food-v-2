@@ -37,20 +37,21 @@ export class FormPage implements OnInit {
     this.setCreateForm();
   }
 
-  async setProperty(item: FormProperty, value: any){
-    if (item.alias === 'Id'){
+  async setProperty(item: FormProperty, value: any) {
+    if (item.alias === 'Id') {
       this.myObject = value;
-      this.MyForm = this.formService.getFormFromObject(value, this.MyForm.title);
+      item.objectReference = Object.values(value);
+      this.setUpdateForm(value, this.MyForm.title);
       this.idName = item.nom;
 
-    }else{
+    } else {
       item.value = value[item.nom];
       item.objectReference = Object.values(value);
       this.formService.setObjectProps(value, this.MyForm.properties);
     }
   }
 
-  setUpdateForm(object: any, fixedModelName = ''){
+  setUpdateForm(object: any, fixedModelName = '') {
     this.myObject = object;
     this.MyForm = new Form();
     this.MyForm = fixedModelName === '' ?
@@ -58,68 +59,69 @@ export class FormPage implements OnInit {
   }
 
   onIdChange(searchValue: string, target: IonInput): void {
-    if (searchValue.length > 0){
+    if (searchValue.length > 0) {
       this.formService.getDetail(searchValue, window.document.URL.split('/')[4]).toPromise()
-      .then(response =>  {
-        if (response !== undefined){
-          this.idName = target.name;
-          this.setUpdateForm(response, window.document.URL.split('/')[4]);
-        }
-      });
+        .then(response => {
+          if (response !== undefined) {
+            this.idName = target.name;
+            this.setUpdateForm(response, window.document.URL.split('/')[4]);
+          }
+        });
     }
   }
 
-  setCreateForm(){
+  setCreateForm() {
     this.MyForm = new Form();
     let u: any;
-    if (window.document.URL.includes('User')){
+    if (window.document.URL.includes('User')) {
       u = new Utilisateur();
-      this.itemName = 'utilisateur';
+      this.itemName = 'Utilisateur';
       u.init_empty();
     }
-    else if (window.document.URL.includes('Categorie_Article')){
+    else if (window.document.URL.includes('Categorie_Article')) {
       u = new Categorie_Article();
-      this.itemName = 'categorie_article';
+      this.itemName = 'Categorie_Article';
       u.init_empty();
     }
-    else if (window.document.URL.includes('Article')){
+    else if (window.document.URL.includes('Article')) {
       u = new Article();
-      this.itemName = 'article';
+      this.itemName = 'Article';
       u.init_empty();
     }
-    else if (window.document.URL.includes('Promo')){
+    else if (window.document.URL.includes('Promo')) {
       u = new Promo();
-      this.itemName = 'promo';
+      this.itemName = 'Promo';
       u.init_empty();
     }
-    else if (window.document.URL.includes('Role')){
+    else if (window.document.URL.includes('Role')) {
       u = new Role();
-      this.itemName = 'role';
+      this.itemName = 'Role';
       u.init_empty();
     }
     this.myObject = u;
-    this.MyForm = this.formService.getFormFromObject(u);
+    this.MyForm = this.formService.getFormFromObject(u, this.itemName);
+    console.log(this.MyForm);
   }
 
-  editElement(){
+  editElement() {
     this.formService.setObjectProps(this.myObject, this.MyForm.properties);
     this.formService.postEditObject(window.document.URL.split('/')[4], this.myObject);
   }
 
-  createNewElement(){
+  createNewElement() {
     this.formService.setObjectProps(this.myObject, this.MyForm.properties);
     delete this.myObject[this.idName];
     console.log(this.idName, this.myObject);
     this.formService.postObject(window.document.URL.split('/')[4], this.myObject).toPromise()
-    .then(() =>  {
-      this.alertService.presentToast('Success', this.MyForm.title + ' créé', true);
-    }).catch(reason => {
-      console.log(reason);
-      this.alertService.presentAlertOk('Erreur', reason.message + '\\n' + reason.error.details);
-    });
+      .then(() => {
+        this.alertService.presentToast('Success', this.MyForm.title + ' créé', true);
+      }).catch(reason => {
+        console.log(reason);
+        this.alertService.presentAlertOk('Erreur', reason.message + '\\n' + reason.error.details);
+      });
   }
 
-  addReference(){
+  addReference() {
 
   }
 
@@ -127,7 +129,7 @@ export class FormPage implements OnInit {
     this.alertService.presentModal(name, name).then(async (modal) => {
       await modal.present();
       await modal.onDidDismiss().then((data) => {
-        if (data?.data !== undefined){
+        if (data?.data !== undefined) {
           this.setProperty(formProperty, data.data);
         }
       });

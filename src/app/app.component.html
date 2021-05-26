@@ -3,12 +3,12 @@
       <ion-toolbar color="primary">
         <ion-icon (click)="backHome()" slot="start" class="btnHomeGf">
         </ion-icon>
-        <ion-searchbar color="dark"></ion-searchbar>
+        <ion-searchbar color="dark" placeholder="Rechercher un restaurant"></ion-searchbar>
         <div slot="end">
-          <ion-button [routerLink]="['/login']" *ngIf="!IsConnected" color="dark">
+          <ion-button [routerLink]="['/login']" *ngIf="!IsConnected" color="tertiary">
             <ion-label color="dark">Se connecter</ion-label>
           </ion-button>
-          <ion-button [routerLink]="['/register']" *ngIf="!IsConnected" color="dark">
+          <ion-button [routerLink]="['/register']" *ngIf="!IsConnected" color="tertiary">
             <ion-label color="dark">S'inscrire</ion-label>
           </ion-button>
           <ion-button [routerLink]="['/myBasket']" *ngIf="IsConnected" color="success">
@@ -43,12 +43,8 @@
       </ion-toolbar>
 
   </ion-header>
-  <ion-split-pane id="content-for-anim" contentId="main-content" [@triggerName]="prepareRoute()">
-    <ion-menu id="leftMenu" contentId="main-content" type="overlay">
-      <ion-content>
-        
-      </ion-content>
-    </ion-menu>
+  <ion-split-pane id="content-for-anim" contentId="main-content">
+
     <ion-router-outlet id="main-content" class="site-content" >
 
     </ion-router-outlet>

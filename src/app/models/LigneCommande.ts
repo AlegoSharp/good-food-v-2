@@ -25,7 +25,7 @@ export class LigneCommande {
 
     public calculerSousTotal(): number{
         if (this.article !== undefined){
-            return this.article.prixArticleHt * this.quantiteArticle;
+            return (this.article.prixArticleHt * this.quantiteArticle) * (1 + (this.article.tva / 100));
         }
         else
         {

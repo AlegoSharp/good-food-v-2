@@ -8,13 +8,15 @@ import { OrderPageRoutingModule } from './order-routing.module';
 
 import { OrderPage } from './order.page';
 import { BasketPage } from 'src/app/pages/market/basket/basket.page'
+import { Router } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    OrderPageRoutingModule
+    OrderPageRoutingModule,
+    Router
   ],
   declarations: [OrderPage]
 })

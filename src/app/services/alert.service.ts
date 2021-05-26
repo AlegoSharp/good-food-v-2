@@ -11,29 +11,29 @@ export class AlertService {
     public modalController: ModalController,
     private toastController: ToastController
   ) { }
-  
+
   async presentAlertOk(title: string, message: string) {
     const alert = await this.alertController.create({
       header: title,
       subHeader: '____',
-      message: message,
+      message: message as string,
       buttons: ['OK'],
       cssClass: 'custom-alertDanger'
     });
     await alert.present();
   }
-  async getAlertOuiNon(title: string, message: string): Promise<HTMLIonAlertElement>{
+  async getAlertOuiNon(title: string, message: string): Promise<HTMLIonAlertElement> {
     const alert = await this.alertController.create({
       header: title,
       subHeader: '____',
-      message: message,
-      buttons: ['Oui','Non']
+      message: message as string,
+      buttons: ['Oui', 'Non']
     });
     return alert;
   }
 
-  async presentAlertOuiNon(title: string, message: string,yesAction:any) {
-    let alert = await this.alertController.create({
+  async presentAlertOuiNon(title: string, message: string, yesAction: any) {
+    const alert = await this.alertController.create({
       header: title,
       buttons: [
         {
@@ -43,7 +43,7 @@ export class AlertService {
         {
           text: 'Okay',
           handler: () => {
-            console.log("test")
+            console.log('test');
             yesAction();
           }
         }
@@ -52,14 +52,14 @@ export class AlertService {
     await alert.present();
   }
 
-  async presentMarketDialogQty():Promise<HTMLIonAlertElement> {
-    let alert = await this.alertController.create({
-      header: "Quelle quantité souhaitez-vous commander?",
-      inputs:[
+  async presentMarketDialogQty(): Promise<HTMLIonAlertElement> {
+    const alert = await this.alertController.create({
+      header: 'Quelle quantité souhaitez-vous commander?',
+      inputs: [
         {
           name: 'Quantity',
           type: 'number',
-          placeholder: 'Quantité'
+          placeholder: 'Quantité',
         }],
       buttons: [
         {
@@ -76,30 +76,29 @@ export class AlertService {
     });
     return alert;
   }
-  async presentModal(tite: string, route: string, ): Promise<HTMLIonModalElement> {
+  async presentModal(tite: string, route: string): Promise<HTMLIonModalElement> {
     const modal = await this.modalController.create({
       component: PickerModalPage,
-      componentProps:{
+      componentProps: {
         title: tite,
-        route: route
+        route: route as string
       },
-      
+
       cssClass: 'modal-custom-class'
     });
     return modal;
   }
 
-  async presentToast(type:'Error' | 'Success', message: string, show_button: boolean) {
-    let typeClass = type === "Success" ? 'toast-custom-class-success' : 'toast-custom-class-error';
+  async presentToast(type: 'Error' | 'Success', message: string, showButton: boolean) {
+    const typeClass = type === 'Success' ? 'toast-custom-class-success' : 'toast-custom-class-error';
     const toast = await this.toastController.create({
-      message: message,
+      message: message as string,
       position: 'bottom',
       duration: 2100,
-      keyboardClose: show_button,
+      keyboardClose: showButton,
       cssClass: ['toast-custom-class', typeClass]
     });
-    toast.color = "dark"
+    toast.color = 'dark';
     toast.present();
   }
-
 }

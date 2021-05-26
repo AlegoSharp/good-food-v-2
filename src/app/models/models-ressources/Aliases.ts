@@ -23,6 +23,7 @@ export class Aliases{
         idCategorieArticle: 'idCategorieArticle',
         idFranchise: 'idFranchise',
         estMenu: 'Menu',
+        estActive: 'Actif',
     };
     ///
     ///     CATEGORIE ARTICLE
@@ -32,6 +33,9 @@ export class Aliases{
         libelleCategorieArticle: 'Libelle',
     };
 
+    public static categorieArticleCustomRoutes = {
+        idCategorieArticle: 'Categorie_Article',
+    };
     ///
     ///     PROMOS
     ///
@@ -51,6 +55,9 @@ export class Aliases{
         idRole: 'Id',
         libelleRole: 'Libelle',
     };
+    public static roleCustomRoutes = {
+        idRole: 'Role',
+    };
 
     ///
     ///     USER
@@ -68,6 +75,7 @@ export class Aliases{
     };
 
     public static userCustomRoutes = {
+        idUtilisateur: 'User',
         idRole: 'Role',
         idAdresseUtilisateur: 'Adresse_Utilisateur',
     };

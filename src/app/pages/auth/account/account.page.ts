@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Plugins } from '@capacitor/core';
 import jwt_decode from 'jwt-decode';
 import { Adresse_Utilisateur } from 'src/app/models/Adresse_Utilisateur';
+import { Commande } from 'src/app/models/Commande';
 import { Utilisateur } from 'src/app/models/User';
 import { FormService } from 'src/app/services/form.service';
 
@@ -20,6 +21,7 @@ export class AccountPage implements OnInit {
   public addressLivr: Adresse_Utilisateur;
   public addressFact: Adresse_Utilisateur;
   public user: Utilisateur;
+  public commandes: Array<Commande>;
 
   public displayMode: 'Adresse_Utilisateur' | 'Commande';
 
@@ -39,7 +41,7 @@ export class AccountPage implements OnInit {
     this.user.init_empty();
     this.getToken('token').then(value => this.Token = value.toString());
     Storage.get({ key: 'token' }).then((x: any) => {
-      if (x.value !== null && x.value !== undefined){
+      if (x.value !== null && x.value !== undefined) {
         console.log((jwt_decode(x.value) as any));
         this.email = (jwt_decode(x.value) as any).email;
         this.userId = (jwt_decode(x.value) as any).id;
@@ -56,30 +58,30 @@ export class AccountPage implements OnInit {
     return JSON.parse(ret.value);
   }
 
-  async deleteToken(key: string){
+  async deleteToken(key: string) {
     const ret = await Storage.remove({ key });
   }
 
-  async getOrders(){
+  async getOrders() {
     this.formService.getList('Commande?idUtilisateur=' + this.userId).toPromise().then((response: any) => {
-      if (response !== undefined){
-        this.user.commandes = response;
+      if (response !== undefined) {
+        this.commandes = response;
       }
     });
   }
 
-  async getUser(){
+  async getUser() {
     this.formService.getList('User/id' + this.userId).toPromise().then((response: any) => {
-      if (response !== undefined){
+      if (response !== undefined) {
         this.user = response as Utilisateur;
       }
     });
   }
 
-  async getAdresses(){
+  async getAdresses() {
     this.formService.getList('Adresse_Utilisateur?idUtilisateur=' + this.userId).toPromise().then((response: any) => {
-      if (response !== undefined){
-        this.addressLivr  = response[0];
+      if (response !== undefined) {
+        this.addressLivr = response[0];
         this.addressFact = response[1];
       }
     });

@@ -8,14 +8,16 @@ import { ProductsListPageRoutingModule } from './products-list-routing.module';
 
 import { ProductsListPage } from './products-list.page';
 
-import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ProductsListPageRoutingModule
+    ProductsListPageRoutingModule,
+    HttpClientModule
   ],
   declarations: [ProductsListPage]
 })

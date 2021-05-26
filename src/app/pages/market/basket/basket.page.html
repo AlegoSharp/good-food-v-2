@@ -6,39 +6,47 @@
       </ion-label>
     </ion-item>
     <ion-card class="productContainer contentBorders" *ngFor="let art of Articles">
-        <ion-toolbar class="productToolbar" color="dark">
-          <img class="productPicture" slot="start" src="{{art.article.urlImgArticle}}" style="display:block;"/> 
-          <div style="width: 50%;display: inline-block;" slot="start">
-            <h3><ion-label class="article_lib">{{art.article.libelleArticle}}</ion-label></h3>
-            <ion-label class="article_desc">
-              {{art.article.descriptionArticle}}
-            </ion-label>
-          </div>
-          <div slot="start"> 
-            <ion-icon name="remove-circle" size="small" class="pointer" (click)="decreaseArtQtyFromBasket(art)"></ion-icon>
-            <ion-label class="toolboxContent">
-              {{art.quantiteArticle}}        
-            </ion-label>
-            <ion-icon name="add-circle" size="small" class="pointer" (click)="increaseArtQtyFromBasket(art)"></ion-icon>
-          </div>
-          <ion-label slot="end" class="toolboxContent" class="productPrice">{{art.article.prixArticleHt * art.quantiteArticle }} €</ion-label>
-          <ion-button slot="end" (click)="deleteArtFromBasket(art)" color="tertiary">
-            <ion-label>Supprimer du panier</ion-label>
-            <ion-icon color="dark" name="trash" size="large" style="margin-left: 10px;"></ion-icon>
-          </ion-button>
-        </ion-toolbar>
+      <ion-toolbar class="productToolbar" color="dark">
+        <img class="productPicture" slot="start" src="{{art.article.urlImgArticle}}" style="display:block;" />
+        <div style="width: 50%;display: inline-block;" slot="start">
+          <h3>
+            <ion-label class="article_lib">{{art.article.libelleArticle}}</ion-label>
+          </h3>
+          <ion-label class="article_desc">
+            {{art.article.descriptionArticle}}
+          </ion-label>
+        </div>
+        <div slot="start">
+          <ion-icon name="remove-circle" size="small" class="pointer" (click)="decreaseArtQtyFromBasket(art)">
+          </ion-icon>
+          <ion-label class="toolboxContent">
+            {{art.quantiteArticle}}
+          </ion-label>
+          <ion-icon name="add-circle" size="small" class="pointer" (click)="increaseArtQtyFromBasket(art)"></ion-icon>
+        </div>
+        <ion-label slot="end" class="toolboxContent" class="productPrice">{{art.article.prixArticleHt *
+          art.quantiteArticle }} €</ion-label>
+        <ion-button slot="end" (click)="deleteArtFromBasket(art)" color="tertiary">
+          <ion-label>Supprimer du panier</ion-label>
+          <ion-icon color="dark" name="trash" size="large" style="margin-left: 10px;"></ion-icon>
+        </ion-button>
+      </ion-toolbar>
     </ion-card>
     <ion-card class="productContainer totaux contentBorders">
       <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">
-        <h5><ion-label class="toolboxContent">TOTAL HT:</ion-label></h5>
+        <h5>
+          <ion-label class="toolboxContent">TOTAL HT:</ion-label>
+        </h5>
         <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalHt()}} €</ion-label>
       </ion-toolbar>
       <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">
-        <h4><ion-label>TTC :</ion-label></h4>
+        <h4>
+          <ion-label>TTC :</ion-label>
+        </h4>
         <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalTtc()}} €</ion-label>
       </ion-toolbar>
       <ion-toolbar color="success" style="padding: 15px;" class="totToolBars">
-        <ion-button slot="end" (click)="validateOrder()" style="margin: 10px;" >Valider la panier</ion-button>
+        <ion-button slot="end" (click)="validateOrder()" style="margin: 10px;">Valider le panier</ion-button>
       </ion-toolbar>
     </ion-card>
   </div>
