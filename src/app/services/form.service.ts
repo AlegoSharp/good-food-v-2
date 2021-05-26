@@ -55,8 +55,25 @@ export class FormService {
     }
 
     getDetail(id: string, route: string) {
+        let headerDict = undefined;
+        const token = this.util.token;
+        if (token !== '' && token) {
+            headerDict = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer' + ' ' + token.replace('"','').replace('"','')
+            };
+        } else {
+            headerDict = {
+                'Content-Type': 'application/json',
+            };
+        }
 
-        return this.http.get(this.env.API_URL + route + '/' + id);
+        const requestOptions = {
+            headers: new HttpHeaders(headerDict),
+            withCredentials: true
+        };
+
+        return this.http.get(this.env.API_URL + route + '/' + id, requestOptions);
     }
 
     getList(route: string) {
