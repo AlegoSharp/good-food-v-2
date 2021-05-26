@@ -31,7 +31,7 @@ export class LoginPage implements OnInit {
       .toPromise()
       .then(response => {
         console.log(response);
-        this.setObject('token', response);
+        this.setObject('token', response.replace('"',''));
         // this.cookieService.set('jwt', response);
         this.router.navigateByUrl('/account');
       }

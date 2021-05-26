@@ -4,6 +4,8 @@ import { FormProperty } from '../models/FormProperty';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EnvService } from './env.service';
 import { Aliases } from 'src/app/models/models-ressources/Aliases';
+import { StorageService } from './storage.service';
+import { UtilityService } from './utility.service';
 @Injectable({
     providedIn: 'root',
 })
@@ -11,7 +13,10 @@ import { Aliases } from 'src/app/models/models-ressources/Aliases';
 export class FormService {
     constructor(
         private http: HttpClient,
-        private env: EnvService) { }
+        private env: EnvService,
+        private storage: StorageService,
+        private util:UtilityService
+    ) { }
 
     public getFormFromObject<T>(obj: T, fixedNameClassName = ''): Form {
         const form = new Form();
@@ -50,24 +55,45 @@ export class FormService {
     }
 
     getDetail(id: string, route: string) {
+
         return this.http.get(this.env.API_URL + route + '/' + id);
     }
 
     getList(route: string) {
-        const headerDict = {
-            'Content-Type': 'application/json',
-        };
+        let headerDict = undefined;
+        const token = this.util.token;
+        console.log(token.replace('"',''));
+        if (token !== '' && token) {
+            headerDict = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer' + ' ' + token.replace('"','').replace('"','')
+            };
+        } else {
+            headerDict = {
+                'Content-Type': 'application/json',
+            };
+        }
+
         const requestOptions = {
             headers: new HttpHeaders(headerDict),
             withCredentials: true
         };
+
         return this.http.get(this.env.API_URL + route, requestOptions);
     }
 
-    postObject(route: string, body: any) {
-        const headerDict = {
-            'Content-Type': 'application/json',
-        };
+    postObject(route: string, body: any, token = '') {
+        let headerDict = undefined;
+        if (token !== '') {
+            headerDict = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer' + ' ' + token
+            };
+        } else {
+            headerDict = {
+                'Content-Type': 'application/json',
+            };
+        }
         const requestOptions = {
             headers: new HttpHeaders(headerDict),
             withCredentials: true

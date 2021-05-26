@@ -6,6 +6,7 @@ import { Article } from './models/Article';
 import jwt_decode from 'jwt-decode';
 import { Plugins } from '@capacitor/core';
 import { MenuItem } from './models/UiModels/MenuItem';
+import { UtilityService } from './services/utility.service';
 // import { CookieService } from 'ngx-cookie-service';
 
 const { Storage } = Plugins;
@@ -19,7 +20,7 @@ export const routeTransitionAnimations = trigger('triggerName', []);
 })
 export class AppComponent {
   constructor(private router: Router,
-    // private cookieService: CookieService
+    private util: UtilityService
     ) {
     // this.cookieService.set('Set-Cookie', 'jwt=test');
   }
@@ -97,6 +98,7 @@ export class AppComponent {
     const ret = await Storage.get({ key: 'token' });
     if (ret.value !== null) {
       //  console.log(ret.value);
+      this.util.token = ret.value;
       this.token = (ret.value);
       this.role = (jwt_decode(this.token) as any).role;
       this.IsConnected = true;

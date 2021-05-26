@@ -10,7 +10,7 @@
 <ion-content>
   <div clas="accountContainer">
     <div id="Adr" *ngIf="displayMode === 'Adresse_Utilisateur'">
-      <ion-card class="adr" color="dark">
+      <ion-card class="adr" color="dark" *ngIf="addressLivr">
         <ion-item color="success" style="margin-top: 25px;border-radius: 10px;">
           <ion-label>
             <h1>Adresse de livraison :</h1>
@@ -64,7 +64,7 @@
         </ion-row>
         <ion-button expand="block" color="mytheme" class="bottom" (click)="update()"><span class="white"><strong>Enregistrer</strong></span></ion-button>
       </ion-card>
-      <ion-card class="adr" color="dark">
+      <ion-card class="adr" color="dark" *ngIf="addressFact">
         <ion-item color="success" style="margin-top: 25px;border-radius: 10px;">
           <ion-label>
             <h1>Adresse de facturation :</h1>

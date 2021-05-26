@@ -31,12 +31,7 @@ export class AccountPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.addressLivr = new Adresse_Utilisateur();
-    this.addressLivr.init_empty();
-
-    this.addressFact = new Adresse_Utilisateur();
-    this.addressFact.init_empty();
-
+    this.getInfo();
     this.user = new Utilisateur();
     this.user.init_empty();
     this.getToken('token').then(value => this.Token = value.toString());
@@ -78,11 +73,26 @@ export class AccountPage implements OnInit {
     });
   }
 
+  async getInfo() {
+    this.formService.getList('secured/infos').toPromise().then((response: any) => {
+      console.log(response);
+    });
+  }
+
   async getAdresses() {
     this.formService.getList('Adresse_Utilisateur?idUtilisateur=' + this.userId).toPromise().then((response: any) => {
       if (response !== undefined) {
         this.addressLivr = response[0];
         this.addressFact = response[1];
+        if(this.addressLivr){
+          this.addressLivr = new Adresse_Utilisateur();
+          this.addressLivr.init_empty();
+        }
+
+        if(this.addressFact){
+          this.addressFact = new Adresse_Utilisateur();
+          this.addressFact.init_empty();
+        }
       }
     });
   }
