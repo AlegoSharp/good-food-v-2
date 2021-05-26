@@ -31,6 +31,7 @@ export class AuthService {
     user.prenomUtilisateur = prenom;
     user.mdpUtilisateur = password;
     user.emailUtilisateur = email;
+    user.role = '';
     const headerDict = {
       'Content-Type': 'application/json',
     };

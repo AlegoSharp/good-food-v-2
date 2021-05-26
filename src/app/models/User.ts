@@ -2,7 +2,7 @@ import { Commande } from './Commande';
 
 export class Utilisateur {
     idUtilisateur: number;
-    idRole: number;
+    role: string;
     // adresseUtilisateur: number;
 
     nomUtilisateur: string;
@@ -20,7 +20,7 @@ export class Utilisateur {
 
     public init_empty(): void {
         this.idUtilisateur = 0;
-        this.idRole = 0;
+        this.role = '0';
         // this.adresseUtilisateur = 0;
 
         this.nomUtilisateur = '0';

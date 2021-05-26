@@ -62,7 +62,6 @@ export class FormService {
     getList(route: string) {
         let headerDict = undefined;
         const token = this.util.token;
-        console.log(token.replace('"',''));
         if (token !== '' && token) {
             headerDict = {
                 'Content-Type': 'application/json',
@@ -125,9 +124,6 @@ export class FormService {
             case 'Promo':
                 return Aliases.promosCustomRoutes[propertyName];
 
-            case 'Role':
-                return Aliases.roleCustomRoutes[propertyName];
-
             default:
                 return '';
         }
@@ -143,9 +139,6 @@ export class FormService {
 
             case 'Utilisateur':
                 return Aliases.userConvivialNames[propertyName];
-
-            case 'Role':
-                return Aliases.roleConvivialNames[propertyName];
 
             case 'Promo':
                 return Aliases.promosConvivialNames[propertyName];

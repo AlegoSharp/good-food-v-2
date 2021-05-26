@@ -48,16 +48,6 @@ export class Aliases{
     public static promosCustomRoutes = {
         idArticle: 'Article'
     };
-    ///
-    ///     ROLE
-    ///
-    public static roleConvivialNames = {
-        idRole: 'Id',
-        libelleRole: 'Libelle',
-    };
-    public static roleCustomRoutes = {
-        idRole: 'Role',
-    };
 
     ///
     ///     USER
@@ -65,7 +55,7 @@ export class Aliases{
 
     public static userConvivialNames = {
         idUtilisateur: 'Id',
-        idRole: 'idRole',
+        role: 'role',
         idAdresseUtilisateur: 'idAdresseUtilisateur',
         nomUtilisateur: 'Nom',
         prenomUtilisateur: 'Prenom',
