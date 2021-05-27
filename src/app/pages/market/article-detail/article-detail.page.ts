@@ -2,6 +2,8 @@ import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Article } from 'src/app/models/Article';
+import { Article_Allergene } from 'src/app/models/Article_Allergene';
+import { Article_Promo } from 'src/app/models/Article_Promo';
 import { AlertService } from 'src/app/services/alert.service';
 import { FormService } from 'src/app/services/form.service';
 
@@ -15,6 +17,8 @@ export class ArticleDetailPage implements OnInit {
 
   public article: Article;
   public id: number;
+  public artAllergenes: Article_Allergene[];
+  public artPromos: Article_Promo[];
 
   constructor(private route: ActivatedRoute, private formService: FormService, private alertService: AlertService) {}
 
@@ -23,6 +27,8 @@ export class ArticleDetailPage implements OnInit {
     .subscribe(params => {
       this.id = params.id;
       this.getArticle();
+      this.getAllergenes();
+      this.getPromos();
     });
   }
 
@@ -35,4 +41,25 @@ export class ArticleDetailPage implements OnInit {
     });
   }
 
+  async getAllergenes() {
+    await this.formService.getList('Article/' + this.id + '/allergene').toPromise().then(response => {
+      this.artAllergenes = response as Article_Allergene[]
+      console.log(this.artAllergenes);
+    })
+    .catch(reason => {
+      this.alertService.presentAlertOk('Error', reason.message);
+    });
+  }
+
+  async getPromos() {
+    await this.formService.getList('Article/' + this.id + '/promo').toPromise().then(response => {
+      this.artPromos = response as Article_Promo[]
+      console.log(this.artPromos);
+    })
+    .catch(reason => {
+      this.alertService.presentAlertOk('Error', reason.message);
+    });
+  }
+
 }
+

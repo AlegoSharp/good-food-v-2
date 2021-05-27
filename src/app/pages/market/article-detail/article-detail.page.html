@@ -11,10 +11,24 @@
             </ion-label>
           </div>
         </ion-toolbar>
-        <img src="{{article.urlImgArticle}}" class="productPicture"> 
         <ion-toolbar color="white" style="margin-top: 10px; padding: 10px;">
-          <ion-label color="dark" slot="start" ><b>{{article.prixArticleHt}} €</b></ion-label>
-
+          <div slot="start">
+            <img src="{{article.urlImgArticle}}" class="productPicture"> 
+          </div>
+          <div slot="start">
+            <ion-card *ngFor="let allergene of artAllergenes" >
+              <ion-label color="dark">{{allergene}}</ion-label>
+            </ion-card>
+          </div>  
+          <div slot="start">
+            <ion-card *ngFor="let promo of artPromos" >
+              <ion-label color="dark">{{promo}}</ion-label>
+            </ion-card>
+          </div>
+        </ion-toolbar>
+        <ion-toolbar color="white" style="margin-top: 10px; padding: 10px;">
+          <ion-label color="dark" slot="start"><b>{{article.prixArticleHt}} €</b></ion-label>
+          <ion-label color="dark"><b>{{article.stockArticle}} exemplaire(s) en stock</b></ion-label>
           <ion-button slot="end" color="tertiary" class="btnCmd" text-wrap (click)="addItemToBasket(article)">
             <ion-label class="ion-text-wrap">
               Ajouter au panier
