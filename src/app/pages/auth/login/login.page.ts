@@ -4,7 +4,6 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertService } from 'src/app/services/alert.service';
 import { Plugins } from '@capacitor/core';
-// import { CookieService } from 'ngx-cookie-service';
 
 const { Storage } = Plugins;
 
@@ -18,7 +17,6 @@ export class LoginPage implements OnInit {
   constructor(
       private router: Router,
       private authService: AuthService,
-      // private cookieService: CookieService,
       private alertService: AlertService
   ) { }
 
@@ -32,7 +30,6 @@ export class LoginPage implements OnInit {
       .then(response => {
         console.log(response);
         this.setObject('token', response.replace('"',''));
-        // this.cookieService.set('jwt', response);
         this.router.navigateByUrl('/account');
       }
       ).catch(reason => {
