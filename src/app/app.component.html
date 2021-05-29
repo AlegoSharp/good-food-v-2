@@ -3,7 +3,16 @@
       <ion-toolbar color="primary">
         <ion-icon (click)="backHome()" slot="start" class="btnHomeGf">
         </ion-icon>
-        <ion-searchbar color="dark" placeholder="Rechercher un restaurant"></ion-searchbar>
+        <div>
+          <ion-searchbar 
+            color="dark" 
+            (ionInput)="onSearchInput($event)"
+            placeholder="Rechercher un restaurant" 
+            ></ion-searchbar>
+            <ion-label *ngIf="selectedFranchise">
+              {{selectedFranchise.nomFranchise}}
+            </ion-label>
+        </div>
         <div slot="end">
           <ion-button [routerLink]="['/login']" *ngIf="!IsConnected" color="tertiary">
             <ion-label color="dark">Se connecter</ion-label>
@@ -41,10 +50,14 @@
         </ion-button>
         <ion-toggle slot="end" (ionChange)="switchTheme()"></ion-toggle>
       </ion-toolbar>
-
+      <ion-toolbar *ngIf="franchises && franchises.length != '' && !franchiseSelected" style="height: 50vh;">
+        <ion-card *ngFor=" let item of franchises" color="success" style="width:80%; margin: 0 auto; margin-bottom: 10px; padding: 20px;" (click)="selectFranchise(item)">
+          <ion-label style="font-size: large; width: 100%; display: block;">{{item.nomFranchise}}</ion-label>
+          <ion-label style="font-size: large; width: 100%; display: block;">{{item.emailFranchise}}</ion-label>
+        </ion-card>
+      </ion-toolbar>
   </ion-header>
   <ion-split-pane id="content-for-anim" contentId="main-content">
-
     <ion-router-outlet id="main-content" class="site-content" >
 
     </ion-router-outlet>

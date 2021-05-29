@@ -46,7 +46,8 @@ export class Aliases{
         libellePromo: 'Libelle'
     }
     public static promosCustomRoutes = {
-        idArticle: 'Article'
+        idArticle: 'Article',
+        idPromo: 'Promo'
     };
 
     ///
