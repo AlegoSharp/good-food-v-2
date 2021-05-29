@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Qui sommes nous ?</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="mainContent">
+    <ion-card color="dark" style="padding: 15px;">
+      <ion-card-title>L'histoire de l'entreprise</ion-card-title>
+      <ion-card-content>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.
+      </ion-card-content>
+    </ion-card>
+    <ion-card color="dark" style="padding: 15px;">
+      <ion-card-title>Notre démarche éco-responsable</ion-card-title>
+      <ion-card-content>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.
+      </ion-card-content>
+    </ion-card>
+    <ion-card color="dark" style="padding: 15px;">
+      <ion-card-title>Nos franchises</ion-card-title>
+      <ion-card-content>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

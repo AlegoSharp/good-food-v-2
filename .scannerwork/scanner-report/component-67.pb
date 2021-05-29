@@ -1,0 +1,1 @@
+C 2cssX)hr<src/app/pages/market/article-detail/article-detail.page.scss
