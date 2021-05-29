@@ -6,26 +6,31 @@
         <ion-toolbar color="success" class="headerCard">
           <div>
             <h5><b><ion-label slot="start">{{article.libelleArticle}}</ion-label></b></h5>
-            <ion-label>   
-              {{article.descriptionArticle}}
-            </ion-label>
           </div>
         </ion-toolbar>
         <ion-toolbar color="white" style="margin-top: 10px; padding: 10px;">
-          <div slot="start">
-            <img src="{{article.urlImgArticle}}" class="productPicture"> 
+          <div class="divPicture">
+            <img src="{{article.urlImgArticle}}" class="productPicture">
           </div>
-          <div slot="start">
+          <div class="divDescription"> 
+            <ion-label color="dark" class="description">   
+              {{article.descriptionArticle}}
+            </ion-label>
+          </div>  
+        </ion-toolbar>  
+          <div style="width: 50%;float:left;">
+            <ion-label color="dark">Allergènes</ion-label>
             <ion-card *ngFor="let allergene of artAllergenes" >
               <ion-label color="dark">{{allergene}}</ion-label>
             </ion-card>
           </div>  
-          <div slot="start">
+          <div style="width: 50%;float:right;">
+            <ion-label color="dark">Promos</ion-label>
             <ion-card *ngFor="let promo of artPromos" >
-              <ion-label color="dark">{{promo}}</ion-label>
+              <ion-label color="dark">{{promo}}%</ion-label>
             </ion-card>
           </div>
-        </ion-toolbar>
+        
         <ion-toolbar color="white" style="margin-top: 10px; padding: 10px;">
           <ion-label color="dark" slot="start"><b>{{article.prixArticleHt}} €</b></ion-label>
           <ion-label color="dark"><b>{{article.stockArticle}} exemplaire(s) en stock</b></ion-label>
