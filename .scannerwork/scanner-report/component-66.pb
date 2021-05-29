@@ -1,0 +1,1 @@
+B 2webXhr<src/app/pages/market/article-detail/article-detail.page.html

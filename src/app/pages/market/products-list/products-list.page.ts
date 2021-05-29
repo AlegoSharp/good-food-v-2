@@ -58,12 +58,21 @@ export class ProductsListPage implements OnInit {
                 private util: UtilityService,
     ){ }
 
+
+    /**
+     * on init
+     */
     ngOnInit() {
         this.currentSlideNumber = 0;
         this.init();
         this.getCategories();
     }
 
+
+    /**
+     * Inits products list page
+     * Initialise la page liste des articles
+     */
     init() {
         this.Pages = [];
         this.Articles = [];
@@ -135,16 +144,28 @@ export class ProductsListPage implements OnInit {
         });
     }
 
+    /**
+     * Searchs an article by display re-init
+     * Cherche un article par re initialisation de l'affichage
+     */
     searchArticle() {
         this.init();
     }
 
+    /**
+     * Removes filters apply by the user
+     * Supprimes les filtres appliqués par l'utilisateur
+     */
     removeFilters() {
         this.searchText = '';
         this.selectedCategorie = undefined;
         this.init();
     }
 
+    /**
+     * Shows hide filters in DOM
+     * Afficher / masquer les filtres dans le DOM
+     */
     showHideFilters() {
         if (this.filterVisible) {
             this.filterVisible = false;
@@ -152,6 +173,12 @@ export class ProductsListPage implements OnInit {
             this.filterVisible = true;
         }
     }
+
+
+    /**
+     * On Slides changed
+     * Sur changement de slide
+     */
     slideChanged() {
         if (!this.isButtonSlideChange) {
             this.slides.getActiveIndex().then(value => {
@@ -163,6 +190,10 @@ export class ProductsListPage implements OnInit {
         }
     }
 
+    /**
+     * Previous slide
+     * Slide précédente
+     */
     async prevPage() {
         if (this.currentSlideNumber - 1 > -1) {
             this.isButtonSlideChange = true;
@@ -171,6 +202,11 @@ export class ProductsListPage implements OnInit {
         }
     }
 
+
+    /**
+     * Next slide
+     * Slide suivante
+     */
     async nextPage() {
         if (this.currentSlideNumber + 1 <= this.Pages.length) {
             this.isButtonSlideChange = true;
@@ -183,6 +219,10 @@ export class ProductsListPage implements OnInit {
         }
     }
 
+    /**
+     * Sets slide from selected value
+     * Definit la slide a partir de la valeur sélectionnée
+     */
     async setPage() {
         this.currentSlideNumber = this.select.value;
         this.getArticles().then(async () => {
@@ -190,7 +230,10 @@ export class ProductsListPage implements OnInit {
         });
     }
 
-
+    /**
+     * Fill articles categories
+     * Rempli les cattégories articles
+     */
     getCategories() {
         this.Categories = [];
         this.formService.getList('Categorie_Article').toPromise().then(response => {
@@ -203,18 +246,38 @@ export class ProductsListPage implements OnInit {
         });
     }
 
+    /**
+     * Gets article for prev slide
+     * Renvoie les articles de la slide précédente
+     * @returns  
+     */
     getArticlePrevPage() {
         return this.Articles.slice(0, this.nbElemParPage);
     }
 
+    /**
+     * Gets article for next slide
+     * Renvoie les articles de la slide suivante
+     * @returns  
+     */
     getArticleNextPage() {
         return this.Articles.slice(this.nbElemParPage * 3, this.nbElemParPage * 4);
 
     }
+
+    /**
+     * Gets article for current slide
+     * Renvoie les articles de la slide courrante
+     * @returns  
+     */
     getArticleCurrentPage() {
         return this.Articles.slice(this.nbElemParPage, this.nbElemParPage + this.nbElemParPage);
     }
 
+    /**
+     * Fill articles from API
+     * Rempli les articles depuis l'API  
+     */
     async getArticles() {
         if (this.currentSlideNumber < this.Pages.length && this.Pages.length > 1) {
             this.Pages[this.currentSlideNumber].Articles = new Array<Article>();
@@ -253,6 +316,12 @@ export class ProductsListPage implements OnInit {
         }
     }
 
+
+    /**
+     * Adds article to basket
+     * Ajouter un article au panier
+     * @param article 
+     */
     async addItemToBasket(article: Article) {
         const ligneCommande = new LigneCommande();
         ligneCommande.article = article;
@@ -272,6 +341,13 @@ export class ProductsListPage implements OnInit {
         });
     }
 
+
+    /**
+     * Gets api query for the page displays
+     * Renvoie la requete api pour l'affichage de la page 
+     * @param pageNumber 
+     * @returns api query 
+     */
     getApiQuery(pageNumber: number): string {
         let query = '/Article?pageSize=' + this.nbElemParPage +
             '&pageNumber=' + pageNumber +

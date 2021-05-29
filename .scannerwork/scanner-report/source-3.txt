@@ -1,0 +1,65 @@
+<ion-app>
+    <ion-header class="main-header">
+      <ion-toolbar color="primary">
+        <ion-icon (click)="backHome()" slot="start" class="btnHomeGf">
+        </ion-icon>
+        <div>
+          <ion-searchbar 
+            color="dark" 
+            (ionInput)="onSearchInput($event)"
+            placeholder="Rechercher un restaurant" 
+            ></ion-searchbar>
+            <ion-label *ngIf="selectedFranchise">
+              {{selectedFranchise.nomFranchise}}
+            </ion-label>
+        </div>
+        <div slot="end">
+          <ion-button [routerLink]="['/login']" *ngIf="!IsConnected" color="tertiary">
+            <ion-label color="dark">Se connecter</ion-label>
+          </ion-button>
+          <ion-button [routerLink]="['/register']" *ngIf="!IsConnected" color="tertiary">
+            <ion-label color="dark">S'inscrire</ion-label>
+          </ion-button>
+          <ion-button [routerLink]="['/myBasket']" *ngIf="IsConnected" color="success">
+            <ion-label class="basketCount">{{basketCount}}</ion-label>
+            <ion-icon name="basket" size="large" color="dark"></ion-icon>
+            <ion-label color="dark">Mon panier</ion-label>
+          </ion-button>
+          <ion-button [routerLink]="['/account']" *ngIf="IsConnected" color="success">
+            <ion-icon name="person-circle-outline" size="large" color="dark"></ion-icon>
+            <ion-label color="dark">Mon compte</ion-label>
+          </ion-button>
+        </div>
+      </ion-toolbar>
+      <ion-toolbar color="secondary">
+        <ion-button [routerLink]="['/']" slot="start">
+          <ion-label>Notre sélection !</ion-label>
+        </ion-button>
+        <ion-button [routerLink]="['/us']"  slot="start">
+          <ion-label>Qui sommes nous ?</ion-label>
+        </ion-button>
+        <ion-button [routerLink]="['/products']" slot="start">
+          <ion-label>Nos produits</ion-label>
+        </ion-button>
+        <ion-button [routerLink]="['/menus']" slot="start">
+          <ion-label>Nos menus</ion-label>
+        </ion-button>
+        <ion-button [routerLink]="['/form']" slot="end" *ngIf="role.toUpperCase() === 'ADMIN'">
+          <ion-icon name="settings" size="large"></ion-icon>
+          <ion-label>Administration</ion-label>
+        </ion-button>
+        <ion-toggle slot="end" (ionChange)="switchTheme()"></ion-toggle>
+      </ion-toolbar>
+      <ion-toolbar *ngIf="franchises && franchises.length != '' && !franchiseSelected" style="height: 50vh;">
+        <ion-card *ngFor=" let item of franchises" color="success" style="width:80%; margin: 0 auto; margin-bottom: 10px; padding: 20px;" (click)="selectFranchise(item)">
+          <ion-label style="font-size: large; width: 100%; display: block;">{{item.nomFranchise}}</ion-label>
+          <ion-label style="font-size: large; width: 100%; display: block;">{{item.emailFranchise}}</ion-label>
+        </ion-card>
+      </ion-toolbar>
+  </ion-header>
+  <ion-split-pane id="content-for-anim" contentId="main-content">
+    <ion-router-outlet id="main-content" class="site-content" >
+
+    </ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

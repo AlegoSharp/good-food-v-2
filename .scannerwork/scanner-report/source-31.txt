@@ -1,0 +1,10 @@
+.adr{
+    width: 45%;
+    margin: 0 auto;
+}
+.accountContainer{
+    width: 800px;
+    margin: 0 auto;
+    display: inline-block;
+    padding: 20px;
+}

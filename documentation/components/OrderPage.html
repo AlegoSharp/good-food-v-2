@@ -1,0 +1,1120 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>good-food-v-2 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">good-food-v-2 documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>OrderPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/market/order/order.page.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-order</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./order.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./order.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#Articles">Articles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#Commande">Commande</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#CommandeApi">CommandeApi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ModeSupport">ModeSupport</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#User">User</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#userId">userId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#createOrder">createOrder</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getUser">getUser</a>
+                            </li>
+                            <li>
+                                <a href="#ionViewDidEnter">ionViewDidEnter</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#presentToast">presentToast</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(storageService: <a href="../injectables/StorageService.html">StorageService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, guardService: <a href="../guards/GuardService.html">GuardService</a>, formService: <a href="../injectables/FormService.html">FormService</a>, toastController: ToastController, alertService: <a href="../injectables/AlertService.html">AlertService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/market/order/order.page.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>storageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/StorageService.html" target="_self" >StorageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>guardService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../guards/GuardService.html" target="_self" >GuardService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>formService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FormService.html" target="_self" >FormService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>toastController</td>
+                                                  
+                                                        <td>
+                                                                    <code>ToastController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>alertService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AlertService.html" target="_self" >AlertService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createOrder"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            createOrder
+                        </b>
+                        <a href="#createOrder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createOrder()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">src/app/pages/market/order/order.page.ts:61</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUser"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            getUser
+                        </b>
+                        <a href="#getUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUser()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">src/app/pages/market/order/order.page.ts:96</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ionViewDidEnter"></a>
+                    <span class="name">
+                        <b>
+                            ionViewDidEnter
+                        </b>
+                        <a href="#ionViewDidEnter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ionViewDidEnter()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/pages/market/order/order.page.ts:52</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/pages/market/order/order.page.ts:43</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="presentToast"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            presentToast
+                        </b>
+                        <a href="#presentToast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>presentToast(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, showButton: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, position: "top" | "bottom" | "middle", duration: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="116"
+                            class="link-to-prism">src/app/pages/market/order/order.page.ts:116</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>message</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>showButton</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>position</td>
+                                    <td>
+                                            <code>&quot;top&quot; | &quot;bottom&quot; | &quot;middle&quot;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>duration</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="Articles"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            Articles</b>
+                            <a href="#Articles"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;LigneCommande&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/market/order/order.page.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="Commande"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            Commande</b>
+                            <a href="#Commande"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Commande.html" target="_self" >Commande</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/market/order/order.page.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="CommandeApi"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            CommandeApi</b>
+                            <a href="#CommandeApi"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Commande.html" target="_self" >Commande</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/market/order/order.page.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ModeSupport"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            ModeSupport</b>
+                            <a href="#ModeSupport"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/market/order/order.page.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="User"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            User</b>
+                            <a href="#User"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Utilisateur.html" target="_self" >Utilisateur</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/market/order/order.page.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userId"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            userId</b>
+                            <a href="#userId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/market/order/order.page.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { Plugins } from &#x27;@capacitor/core&#x27;;
+import { ToastController } from &#x27;@ionic/angular&#x27;;
+import { Commande } from &#x27;src/app/models/Commande&#x27;;
+import { LigneCommande } from &#x27;src/app/models/LigneCommande&#x27;;
+import { Utilisateur } from &#x27;src/app/models/User&#x27;;
+import { FormService } from &#x27;src/app/services/form.service&#x27;;
+import { GuardService } from &#x27;src/app/services/guard.service&#x27;;
+import { StorageService } from &#x27;src/app/services/storage.service&#x27;;
+import jwt_decode from &#x27;jwt-decode&#x27;;
+import { Article } from &#x27;src/app/models/Article&#x27;;
+import { AlertService } from &#x27;src/app/services/alert.service&#x27;;
+
+const { Storage } &#x3D; Plugins;
+
+@Component({
+  selector: &#x27;app-order&#x27;,
+  templateUrl: &#x27;./order.page.html&#x27;,
+  styleUrls: [&#x27;./order.page.scss&#x27;]
+})
+export class OrderPage implements OnInit {
+
+  public Articles: Array&lt;LigneCommande&gt;;
+  public Commande: Commande;
+  public CommandeApi: Commande;
+  public User: Utilisateur;
+
+  public userId: number;
+
+  // Permet de creer une commande pour un autre client
+  public ModeSupport &#x3D; false;
+
+  constructor(
+    private storageService: StorageService,
+    private router: Router,
+    private guardService: GuardService,
+    private formService: FormService,
+    private toastController: ToastController,
+    private alertService: AlertService
+  ){ }
+
+  ngOnInit() {
+    this.Commande &#x3D; new Commande();
+    this.guardService.checkAuth().then(result &#x3D;&gt; {
+      this.ModeSupport &#x3D; result;
+    });
+    this.getUser();
+    this.Commande.lignesCommande &#x3D; new Array&lt;LigneCommande&gt;();
+  }
+
+  ionViewDidEnter(){
+    this.storageService.getObject(&#x27;basket&#x27;).then(value &#x3D;&gt; {
+        return (value as unknown) as Array&lt;LigneCommande&gt;;
+    }).then(x &#x3D;&gt; {
+      this.Articles &#x3D; x;
+      this.Commande.lignesCommande &#x3D; x;
+    });
+  }
+
+  async createOrder(){
+    this.Commande.totalHt &#x3D; this.Commande.calculerTotalHt();
+    this.Commande.totalTtc &#x3D; this.Commande.calculerTotalTtc();
+    this.Commande.lignesCommande.forEach(element &#x3D;&gt; {
+      element.sousTotalTtc &#x3D; (element.article.prixArticleHt * element.quantiteArticle) * (1 + (element.article.tva / 100));
+    });
+    this.CommandeApi &#x3D; JSON.parse(JSON.stringify(this.Commande));
+
+    const lignesCommande &#x3D; JSON.parse(JSON.stringify(this.Commande.lignesCommande));
+
+    delete this.CommandeApi.lignesCommande;
+
+    this.CommandeApi.utilisateur &#x3D; this.User;
+
+    this.formService.postObject(&#x27;Commande&#x27;, JSON.stringify(this.CommandeApi)).toPromise().then((responseCommande: any) &#x3D;&gt; {
+      lignesCommande.forEach(element &#x3D;&gt; {
+        element.idCommande &#x3D; responseCommande.idCommande;
+        element.idArticle &#x3D; element.article.idArticle;
+        delete element.article;
+        delete element.idLigneCommande;
+      });
+      console.log(lignesCommande);
+      console.log(JSON.stringify(lignesCommande));
+      this.formService.postObject(&#x27;Ligne_Commande&#x27;, JSON.stringify(lignesCommande)).toPromise().then((responseLignesCommande: any) &#x3D;&gt; {
+        this.presentToast(responseLignesCommande, false, &#x27;bottom&#x27;, 2100);
+      }).catch(reason &#x3D;&gt; {
+        this.alertService.presentAlertOk(&#x27;Erreur&#x27;, reason.message);
+      });
+    }).catch(reason &#x3D;&gt; {
+      this.alertService.presentAlertOk(&#x27;Erreur&#x27;, reason.message);
+    });
+
+
+  }
+
+  async getUser(){
+    Storage.get({ key: &#x27;token&#x27; }).then((x: any) &#x3D;&gt; {
+      if (x.value !&#x3D;&#x3D; null &amp;&amp; x.value !&#x3D;&#x3D; undefined){
+        console.log((jwt_decode(x.value) as any));
+        this.userId &#x3D; (jwt_decode(x.value) as any).id;
+        this.formService.getList(&#x27;User/id&#x27; + this.userId).toPromise().then((responseUser: any) &#x3D;&gt; {
+          if (responseUser !&#x3D;&#x3D; undefined){
+            this.User &#x3D; responseUser as Utilisateur;
+            this.formService.getList(&#x27;Adresse_Utilisateur?idUtilisateur&#x3D;&#x27; + this.userId).toPromise().then((responseAdresse: any) &#x3D;&gt; {
+              if (responseAdresse !&#x3D;&#x3D; undefined){
+                this.Commande.idAdresseLivraison &#x3D; responseAdresse[0].idAdresse;
+                this.Commande.idAdresseFacturation &#x3D; responseAdresse[1].idAdresse ;
+              }
+            });
+          }
+        });
+      }
+    });
+  }
+
+  async presentToast(message: string, showButton: boolean, position: &#x27;top&#x27; | &#x27;bottom&#x27; | &#x27;middle&#x27;, duration: number) {
+    const toast &#x3D; await this.toastController.create({
+      message: message as string,
+      position: position as &#x27;top&#x27; | &#x27;bottom&#x27; | &#x27;middle&#x27;,
+      duration: duration as number,
+      keyboardClose: showButton as boolean
+    });
+    toast.present();
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content&gt;
+  &lt;div class&#x3D;&quot;pageContent contentBorders&quot;&gt;
+    &lt;ion-item color&#x3D;&quot;success&quot; style&#x3D;&quot;border-radius: 10px;&quot;&gt;
+      &lt;ion-label&gt;
+        &lt;h1&gt;Adresses :&lt;/h1&gt;
+      &lt;/ion-label&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-item color&#x3D;&quot;dark&quot; style&#x3D;&quot;border-radius: 10px;&quot;&gt;
+      &lt;ion-label&gt;
+        &lt;h2&gt;Livraison&lt;/h2&gt;
+      &lt;/ion-label&gt;
+    &lt;/ion-item&gt;
+
+    &lt;ion-item color&#x3D;&quot;dark&quot; style&#x3D;&quot;border-radius: 10px;&quot;&gt;
+      &lt;ion-label&gt;
+        &lt;h2&gt;Facturation&lt;/h2&gt;
+      &lt;/ion-label&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-item color&#x3D;&quot;success&quot; style&#x3D;&quot;margin-top: 25px;border-radius: 10px;&quot;&gt;
+      &lt;ion-label&gt;
+        &lt;h1&gt;Articles :&lt;/h1&gt;
+      &lt;/ion-label&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-card class&#x3D;&quot;productContainer contentBorders&quot; *ngFor&#x3D;&quot;let art of Articles&quot;&gt;
+      &lt;ion-toolbar class&#x3D;&quot;productToolbar&quot; color&#x3D;&quot;dark&quot;&gt;
+        &lt;img class&#x3D;&quot;productPicture&quot; slot&#x3D;&quot;start&quot; src&#x3D;&quot;{{art.article.urlImgArticle}}&quot; style&#x3D;&quot;display:block;&quot; /&gt;
+        &lt;div style&#x3D;&quot;width: 50%;display: inline-block;&quot; slot&#x3D;&quot;start&quot;&gt;
+          &lt;h3&gt;
+            &lt;ion-label class&#x3D;&quot;article_lib&quot;&gt;{{art.article.libelleArticle}}&lt;/ion-label&gt;
+          &lt;/h3&gt;
+          &lt;ion-label class&#x3D;&quot;article_desc&quot;&gt;
+            {{art.article.descriptionArticle}}
+          &lt;/ion-label&gt;
+        &lt;/div&gt;
+        &lt;div slot&#x3D;&quot;start&quot;&gt;
+          &lt;ion-label class&#x3D;&quot;toolboxContent&quot;&gt;
+            x {{art.quantiteArticle}}
+          &lt;/ion-label&gt;
+        &lt;/div&gt;
+        &lt;ion-label slot&#x3D;&quot;end&quot; class&#x3D;&quot;toolboxContent&quot; class&#x3D;&quot;productPrice&quot;&gt;{{art.article.prixArticleHt *
+          art.quantiteArticle }} €&lt;/ion-label&gt;
+        &lt;ion-button slot&#x3D;&quot;end&quot; (click)&#x3D;&quot;deleteArtFromBasket(art)&quot; color&#x3D;&quot;tertiary&quot;&gt;
+          &lt;ion-label&gt;Supprimer du panier&lt;/ion-label&gt;
+          &lt;ion-icon color&#x3D;&quot;dark&quot; name&#x3D;&quot;trash&quot; size&#x3D;&quot;large&quot; style&#x3D;&quot;margin-left: 10px;&quot;&gt;&lt;/ion-icon&gt;
+        &lt;/ion-button&gt;
+      &lt;/ion-toolbar&gt;
+    &lt;/ion-card&gt;
+    &lt;ion-card class&#x3D;&quot;totaux contentBorders&quot;&gt;
+      &lt;ion-toolbar color&#x3D;&quot;dark&quot; class&#x3D;&quot;totToolBars&quot; style&#x3D;&quot;padding: 5px; height: 50px;&quot;&gt;
+        &lt;h5&gt;
+          &lt;ion-label class&#x3D;&quot;toolboxContent&quot;&gt;TOTAL HT:&lt;/ion-label&gt;
+        &lt;/h5&gt;
+        &lt;ion-label slot&#x3D;&quot;end&quot; class&#x3D;&quot;toolboxContent&quot;&gt;{{Commande.calculerTotalHt()}} €&lt;/ion-label&gt;
+      &lt;/ion-toolbar&gt;
+      &lt;ion-toolbar color&#x3D;&quot;dark&quot; class&#x3D;&quot;totToolBars&quot; style&#x3D;&quot;padding: 5px; height: 50px;&quot;&gt;
+        &lt;h4&gt;
+          &lt;ion-label&gt;TTC :&lt;/ion-label&gt;
+        &lt;/h4&gt;
+        &lt;ion-label slot&#x3D;&quot;end&quot; class&#x3D;&quot;toolboxContent&quot;&gt;{{Commande.calculerTotalTtc()}} €&lt;/ion-label&gt;
+      &lt;/ion-toolbar&gt;
+      &lt;div&gt;
+        &lt;ion-button (click)&#x3D;&quot;createOrder()&quot;&gt;Valider ma commande&lt;/ion-button&gt;
+      &lt;/div&gt;
+    &lt;/ion-card&gt;
+  &lt;/div&gt;
+&lt;/ion-content&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./order.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.pageContent{
+    width: 80%;
+    margin: 0 auto;
+    min-height: 100%;
+    background-color: white;
+    padding: 15px;
+}
+
+.productToolbar{
+    padding: 15px;
+}
+
+.productPicture{
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.productToolBar{
+    height: 75px;
+}
+
+.productPrice{
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.article_lib{
+    width: 100%;
+}
+
+.article_desc{
+    width: 100%;
+}
+
+.productPicture{
+    width: 100px;
+}
+.pointer { cursor: pointer; }
+
+.cardContent{
+    padding: 15px;
+}
+
+.contentBorders{
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 10px;
+}
+.totaux{
+    background-color: white;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 10;
+    height: 100%;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content>  <div class="pageContent contentBorders">    <ion-item color="success" style="border-radius: 10px;">      <ion-label>        <h1>Adresses :</h1>      </ion-label>    </ion-item>    <ion-item color="dark" style="border-radius: 10px;">      <ion-label>        <h2>Livraison</h2>      </ion-label>    </ion-item>    <ion-item color="dark" style="border-radius: 10px;">      <ion-label>        <h2>Facturation</h2>      </ion-label>    </ion-item>    <ion-item color="success" style="margin-top: 25px;border-radius: 10px;">      <ion-label>        <h1>Articles :</h1>      </ion-label>    </ion-item>    <ion-card class="productContainer contentBorders" *ngFor="let art of Articles">      <ion-toolbar class="productToolbar" color="dark">        <img class="productPicture" slot="start" src="{{art.article.urlImgArticle}}" style="display:block;" />        <div style="width: 50%;display: inline-block;" slot="start">          <h3>            <ion-label class="article_lib">{{art.article.libelleArticle}}</ion-label>          </h3>          <ion-label class="article_desc">            {{art.article.descriptionArticle}}          </ion-label>        </div>        <div slot="start">          <ion-label class="toolboxContent">            x {{art.quantiteArticle}}          </ion-label>        </div>        <ion-label slot="end" class="toolboxContent" class="productPrice">{{art.article.prixArticleHt *          art.quantiteArticle }} €</ion-label>        <ion-button slot="end" (click)="deleteArtFromBasket(art)" color="tertiary">          <ion-label>Supprimer du panier</ion-label>          <ion-icon color="dark" name="trash" size="large" style="margin-left: 10px;"></ion-icon>        </ion-button>      </ion-toolbar>    </ion-card>    <ion-card class="totaux contentBorders">      <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">        <h5>          <ion-label class="toolboxContent">TOTAL HT:</ion-label>        </h5>        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalHt()}} €</ion-label>      </ion-toolbar>      <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">        <h4>          <ion-label>TTC :</ion-label>        </h4>        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalTtc()}} €</ion-label>      </ion-toolbar>      <div>        <ion-button (click)="createOrder()">Valider ma commande</ion-button>      </div>    </ion-card>  </div></ion-content></div>'
+    var COMPONENTS = [{'name': 'AccountPage', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ArticleDetailPage', 'selector': 'app-article-detail'},{'name': 'BasketPage', 'selector': 'app-basket'},{'name': 'ForgetPasswordPage', 'selector': 'app-forget-password'},{'name': 'FormPage', 'selector': 'app-form'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'OrderPage', 'selector': 'app-order'},{'name': 'PickerModalPage', 'selector': 'app-picker-modal'},{'name': 'ProductsListPage', 'selector': 'app-products-list'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'WhoarewePage', 'selector': 'app-whoarewe'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'OrderPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'OrderPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

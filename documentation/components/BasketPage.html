@@ -1,0 +1,958 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>good-food-v-2 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">good-food-v-2 documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>BasketPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/market/basket/basket.page.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-basket</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./basket.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./basket.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#Articles">Articles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#Commande">Commande</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#decreaseArtQtyFromBasket">decreaseArtQtyFromBasket</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteArtFromBasket">deleteArtFromBasket</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#increaseArtQtyFromBasket">increaseArtQtyFromBasket</a>
+                            </li>
+                            <li>
+                                <a href="#ionViewDidEnter">ionViewDidEnter</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#validateOrder">validateOrder</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(storageService: <a href="../injectables/StorageService.html">StorageService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, alertService: <a href="../injectables/AlertService.html">AlertService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/market/basket/basket.page.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>storageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/StorageService.html" target="_self" >StorageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>alertService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AlertService.html" target="_self" >AlertService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="decreaseArtQtyFromBasket"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            decreaseArtQtyFromBasket
+                        </b>
+                        <a href="#decreaseArtQtyFromBasket"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>decreaseArtQtyFromBasket(ligneCommande: <a href="../classes/LigneCommande.html">LigneCommande</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/pages/market/basket/basket.page.ts:38</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ligneCommande</td>
+                                    <td>
+                                                <code><a href="../classes/LigneCommande.html" target="_self" >LigneCommande</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteArtFromBasket"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            deleteArtFromBasket
+                        </b>
+                        <a href="#deleteArtFromBasket"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteArtFromBasket(ligneCommande: <a href="../classes/LigneCommande.html">LigneCommande</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/app/pages/market/basket/basket.page.ts:50</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ligneCommande</td>
+                                    <td>
+                                                <code><a href="../classes/LigneCommande.html" target="_self" >LigneCommande</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="increaseArtQtyFromBasket"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            increaseArtQtyFromBasket
+                        </b>
+                        <a href="#increaseArtQtyFromBasket"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>increaseArtQtyFromBasket(ligneCommande: <a href="../classes/LigneCommande.html">LigneCommande</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/pages/market/basket/basket.page.ts:33</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ligneCommande</td>
+                                    <td>
+                                                <code><a href="../classes/LigneCommande.html" target="_self" >LigneCommande</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ionViewDidEnter"></a>
+                    <span class="name">
+                        <b>
+                            ionViewDidEnter
+                        </b>
+                        <a href="#ionViewDidEnter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ionViewDidEnter()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/pages/market/basket/basket.page.ts:24</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/app/pages/market/basket/basket.page.ts:20</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateOrder"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            validateOrder
+                        </b>
+                        <a href="#validateOrder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validateOrder()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/pages/market/basket/basket.page.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="Articles"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            Articles</b>
+                            <a href="#Articles"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;LigneCommande&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/market/basket/basket.page.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="Commande"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            Commande</b>
+                            <a href="#Commande"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Commande.html" target="_self" >Commande</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/market/basket/basket.page.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { StorageService } from &#x27;src/app/services/storage.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { LigneCommande } from &#x27;src/app/models/LigneCommande&#x27;;
+import { Commande } from &#x27;src/app/models/Commande&#x27;;
+import { AlertService } from &#x27;src/app/services/alert.service&#x27;;
+
+@Component({
+  selector: &#x27;app-basket&#x27;,
+  templateUrl: &#x27;./basket.page.html&#x27;,
+  styleUrls: [&#x27;./basket.page.scss&#x27;],
+})
+export class BasketPage implements OnInit {
+
+  public Articles: Array&lt;LigneCommande&gt;;
+  public Commande: Commande;
+
+  constructor(private storageService: StorageService, private router: Router, private alertService: AlertService) { }
+
+  ngOnInit() {
+    this.Commande &#x3D; new Commande();
+  }
+
+  ionViewDidEnter() {
+    this.storageService.getObject(&#x27;basket&#x27;).then(value &#x3D;&gt; {
+      return (value as unknown) as Array&lt;LigneCommande&gt;;
+    }).then(x &#x3D;&gt; {
+      this.Commande.lignesCommande &#x3D; x;
+      this.Articles &#x3D; x;
+    });
+  }
+
+  async increaseArtQtyFromBasket(ligneCommande: LigneCommande) {
+    ligneCommande.quantiteArticle++;
+    await this.storageService.replaceItemFromBasket(ligneCommande);
+  }
+
+  async decreaseArtQtyFromBasket(ligneCommande: LigneCommande) {
+    if (ligneCommande.quantiteArticle - 1 &lt; 1) {
+      this.alertService.presentAlertOuiNon(&#x27;Voulez-vous supprimer l\&#x27;article du panier ?&#x27;, &#x27;&#x27;, () &#x3D;&gt; {
+        ligneCommande.quantiteArticle--;
+        this.deleteArtFromBasket(ligneCommande);
+      });
+    } else {
+      ligneCommande.quantiteArticle--;
+      await this.storageService.replaceItemFromBasket(ligneCommande);
+    }
+  }
+
+  async deleteArtFromBasket(ligneCommande: LigneCommande) {
+    await this.storageService.removeItemFromBasket(ligneCommande);
+    this.Articles &#x3D; await this.storageService.getObject(&#x27;basket&#x27;).then(value &#x3D;&gt; {
+      return (value as unknown) as Array&lt;LigneCommande&gt;;
+    });
+  }
+
+  async validateOrder() {
+    if (this.Articles.length &gt; 0) {
+      await this.router.navigateByUrl(&#x27;/order&#x27;);
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content&gt;
+  &lt;div class&#x3D;&quot;pageContent contentBorders&quot;&gt;
+    &lt;ion-item color&#x3D;&quot;success&quot; style&#x3D;&quot;margin-top: 25px;border-radius: 10px;&quot;&gt;
+      &lt;ion-label&gt;
+        &lt;h1&gt;Mon panier :&lt;/h1&gt;
+      &lt;/ion-label&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-card class&#x3D;&quot;productContainer contentBorders&quot; *ngFor&#x3D;&quot;let art of Articles&quot;&gt;
+      &lt;ion-toolbar class&#x3D;&quot;productToolbar&quot; color&#x3D;&quot;dark&quot;&gt;
+        &lt;img class&#x3D;&quot;productPicture&quot; slot&#x3D;&quot;start&quot; src&#x3D;&quot;{{art.article.urlImgArticle}}&quot; style&#x3D;&quot;display:block;&quot; /&gt;
+        &lt;div style&#x3D;&quot;width: 50%;display: inline-block;&quot; slot&#x3D;&quot;start&quot;&gt;
+          &lt;h3&gt;
+            &lt;ion-label class&#x3D;&quot;article_lib&quot;&gt;{{art.article.libelleArticle}}&lt;/ion-label&gt;
+          &lt;/h3&gt;
+          &lt;ion-label class&#x3D;&quot;article_desc&quot;&gt;
+            {{art.article.descriptionArticle}}
+          &lt;/ion-label&gt;
+        &lt;/div&gt;
+        &lt;div slot&#x3D;&quot;start&quot;&gt;
+          &lt;ion-icon name&#x3D;&quot;remove-circle&quot; size&#x3D;&quot;small&quot; class&#x3D;&quot;pointer&quot; (click)&#x3D;&quot;decreaseArtQtyFromBasket(art)&quot;&gt;
+          &lt;/ion-icon&gt;
+          &lt;ion-label class&#x3D;&quot;toolboxContent&quot;&gt;
+            {{art.quantiteArticle}}
+          &lt;/ion-label&gt;
+          &lt;ion-icon name&#x3D;&quot;add-circle&quot; size&#x3D;&quot;small&quot; class&#x3D;&quot;pointer&quot; (click)&#x3D;&quot;increaseArtQtyFromBasket(art)&quot;&gt;&lt;/ion-icon&gt;
+        &lt;/div&gt;
+        &lt;ion-label slot&#x3D;&quot;end&quot; class&#x3D;&quot;toolboxContent&quot; class&#x3D;&quot;productPrice&quot;&gt;{{art.article.prixArticleHt *
+          art.quantiteArticle }} €&lt;/ion-label&gt;
+        &lt;ion-button slot&#x3D;&quot;end&quot; (click)&#x3D;&quot;deleteArtFromBasket(art)&quot; color&#x3D;&quot;tertiary&quot;&gt;
+          &lt;ion-label&gt;Supprimer du panier&lt;/ion-label&gt;
+          &lt;ion-icon color&#x3D;&quot;dark&quot; name&#x3D;&quot;trash&quot; size&#x3D;&quot;large&quot; style&#x3D;&quot;margin-left: 10px;&quot;&gt;&lt;/ion-icon&gt;
+        &lt;/ion-button&gt;
+      &lt;/ion-toolbar&gt;
+    &lt;/ion-card&gt;
+    &lt;ion-card class&#x3D;&quot;productContainer totaux contentBorders&quot;&gt;
+      &lt;ion-toolbar color&#x3D;&quot;dark&quot; class&#x3D;&quot;totToolBars&quot; style&#x3D;&quot;padding: 5px; height: 50px;&quot;&gt;
+        &lt;h5&gt;
+          &lt;ion-label class&#x3D;&quot;toolboxContent&quot;&gt;TOTAL HT:&lt;/ion-label&gt;
+        &lt;/h5&gt;
+        &lt;ion-label slot&#x3D;&quot;end&quot; class&#x3D;&quot;toolboxContent&quot;&gt;{{Commande.calculerTotalHt()}} €&lt;/ion-label&gt;
+      &lt;/ion-toolbar&gt;
+      &lt;ion-toolbar color&#x3D;&quot;dark&quot; class&#x3D;&quot;totToolBars&quot; style&#x3D;&quot;padding: 5px; height: 50px;&quot;&gt;
+        &lt;h4&gt;
+          &lt;ion-label&gt;TTC :&lt;/ion-label&gt;
+        &lt;/h4&gt;
+        &lt;ion-label slot&#x3D;&quot;end&quot; class&#x3D;&quot;toolboxContent&quot;&gt;{{Commande.calculerTotalTtc()}} €&lt;/ion-label&gt;
+      &lt;/ion-toolbar&gt;
+      &lt;ion-toolbar color&#x3D;&quot;success&quot; style&#x3D;&quot;padding: 15px;&quot; class&#x3D;&quot;totToolBars&quot;&gt;
+        &lt;ion-button slot&#x3D;&quot;end&quot; (click)&#x3D;&quot;validateOrder()&quot; style&#x3D;&quot;margin: 10px;&quot;&gt;Valider le panier&lt;/ion-button&gt;
+      &lt;/ion-toolbar&gt;
+    &lt;/ion-card&gt;
+  &lt;/div&gt;
+&lt;/ion-content&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./basket.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.pageContent{
+    width: 80%;
+    margin: 0 auto;
+    min-height: 100%;
+    background-color: white;
+    padding: 15px;
+    z-index: 0;
+
+}
+
+.productToolbar{
+    padding: 15px;
+}
+
+.productPicture{
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.productToolBar{
+    height: 75px;
+}
+
+.productPrice{
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.article_lib{
+    width: 100%;
+}
+
+.article_desc{
+    width: 100%;
+}
+
+.poductContainer{
+    height: 50px;
+
+}
+.productPicture{
+    width: 100px;
+}
+.pointer { cursor: pointer; }
+
+.cardContent{
+    padding: 15px;
+}
+
+.contentBorders{
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 10px;
+}
+.totaux{
+    background-color: white;
+    position: sticky;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 75%;
+    margin: 0 auto;
+    z-index: 10;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content>  <div class="pageContent contentBorders">    <ion-item color="success" style="margin-top: 25px;border-radius: 10px;">      <ion-label>        <h1>Mon panier :</h1>      </ion-label>    </ion-item>    <ion-card class="productContainer contentBorders" *ngFor="let art of Articles">      <ion-toolbar class="productToolbar" color="dark">        <img class="productPicture" slot="start" src="{{art.article.urlImgArticle}}" style="display:block;" />        <div style="width: 50%;display: inline-block;" slot="start">          <h3>            <ion-label class="article_lib">{{art.article.libelleArticle}}</ion-label>          </h3>          <ion-label class="article_desc">            {{art.article.descriptionArticle}}          </ion-label>        </div>        <div slot="start">          <ion-icon name="remove-circle" size="small" class="pointer" (click)="decreaseArtQtyFromBasket(art)">          </ion-icon>          <ion-label class="toolboxContent">            {{art.quantiteArticle}}          </ion-label>          <ion-icon name="add-circle" size="small" class="pointer" (click)="increaseArtQtyFromBasket(art)"></ion-icon>        </div>        <ion-label slot="end" class="toolboxContent" class="productPrice">{{art.article.prixArticleHt *          art.quantiteArticle }} €</ion-label>        <ion-button slot="end" (click)="deleteArtFromBasket(art)" color="tertiary">          <ion-label>Supprimer du panier</ion-label>          <ion-icon color="dark" name="trash" size="large" style="margin-left: 10px;"></ion-icon>        </ion-button>      </ion-toolbar>    </ion-card>    <ion-card class="productContainer totaux contentBorders">      <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">        <h5>          <ion-label class="toolboxContent">TOTAL HT:</ion-label>        </h5>        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalHt()}} €</ion-label>      </ion-toolbar>      <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">        <h4>          <ion-label>TTC :</ion-label>        </h4>        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalTtc()}} €</ion-label>      </ion-toolbar>      <ion-toolbar color="success" style="padding: 15px;" class="totToolBars">        <ion-button slot="end" (click)="validateOrder()" style="margin: 10px;">Valider le panier</ion-button>      </ion-toolbar>    </ion-card>  </div></ion-content></div>'
+    var COMPONENTS = [{'name': 'AccountPage', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ArticleDetailPage', 'selector': 'app-article-detail'},{'name': 'BasketPage', 'selector': 'app-basket'},{'name': 'ForgetPasswordPage', 'selector': 'app-forget-password'},{'name': 'FormPage', 'selector': 'app-form'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'OrderPage', 'selector': 'app-order'},{'name': 'PickerModalPage', 'selector': 'app-picker-modal'},{'name': 'ProductsListPage', 'selector': 'app-products-list'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'WhoarewePage', 'selector': 'app-whoarewe'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'BasketPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'BasketPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

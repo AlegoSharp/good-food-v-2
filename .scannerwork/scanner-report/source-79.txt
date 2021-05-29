@@ -1,0 +1,58 @@
+.pageContent{
+    width: 80%;
+    margin: 0 auto;
+    min-height: 100%;
+    background-color: white;
+    padding: 15px;
+}
+
+.productToolbar{
+    padding: 15px;
+}
+
+.productPicture{
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.productToolBar{
+    height: 75px;
+}
+
+.productPrice{
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.article_lib{
+    width: 100%;
+}
+
+.article_desc{
+    width: 100%;
+}
+
+.productPicture{
+    width: 100px;
+}
+.pointer { cursor: pointer; }
+
+.cardContent{
+    padding: 15px;
+}
+
+.contentBorders{
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 10px;
+}
+.totaux{
+    background-color: white;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 10;
+    height: 100%;
+}
