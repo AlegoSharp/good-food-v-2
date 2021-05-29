@@ -8,7 +8,6 @@ import { FormService } from '../../services/form.service';
 import { Router, RouterOutlet } from '@angular/router';
 import { AlertService } from 'src/app/services/alert.service';
 import { FormProperty } from 'src/app/models/FormProperty';
-import { Role } from 'src/app/models/Role';
 import { Categorie_Article } from 'src/app/models/Categorie_Article';
 import { Promo } from 'src/app/models/Promo';
 import { R3ResolvedDependencyType } from '@angular/compiler';
@@ -93,11 +92,7 @@ export class FormPage implements OnInit {
       this.itemName = 'Promo';
       u.init_empty();
     }
-    else if (window.document.URL.includes('Role')) {
-      u = new Role();
-      this.itemName = 'Role';
-      u.init_empty();
-    }
+    
     this.myObject = u;
     this.MyForm = this.formService.getFormFromObject(u, this.itemName);
     console.log(this.MyForm);

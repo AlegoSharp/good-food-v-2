@@ -8,6 +8,7 @@ import { Page } from 'src/app/models/UiModels/Page';
 import { AlertService } from 'src/app/services/alert.service';
 import { FormService } from 'src/app/services/form.service';
 import { StorageService } from 'src/app/services/storage.service';
+import { UtilityService } from 'src/app/services/utility.service';
 @Component({
     selector: 'app-products-list',
     templateUrl: './products-list.page.html',
@@ -53,7 +54,8 @@ export class ProductsListPage implements OnInit {
                 private storageService: StorageService,
                 private alertService: AlertService,
                 private route: ActivatedRoute,
-                private router: Router
+                private router: Router,
+                private util: UtilityService,
     ){ }
 
     ngOnInit() {
@@ -195,6 +197,7 @@ export class ProductsListPage implements OnInit {
             (response as Array<Categorie_Article>).forEach(element => {
                 this.Categories.push(element);
             });
+            this.util.categoriesArticles = this.Categories;
         }).catch(reason => {
             this.alertService.presentAlertOk('Error', reason.message);
         });

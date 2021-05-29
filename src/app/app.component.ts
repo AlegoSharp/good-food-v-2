@@ -7,6 +7,8 @@ import jwt_decode from 'jwt-decode';
 import { Plugins } from '@capacitor/core';
 import { MenuItem } from './models/UiModels/MenuItem';
 import { UtilityService } from './services/utility.service';
+import { FormService } from './services/form.service';
+import { Franchise } from './models/Franchise';
 // import { CookieService } from 'ngx-cookie-service';
 
 const { Storage } = Plugins;
@@ -19,8 +21,14 @@ export const routeTransitionAnimations = trigger('triggerName', []);
   animations: [routeTransitionAnimations]
 })
 export class AppComponent {
+
+  searchFranchise = '';
+  public franchises: Franchise[];
+  public selectedFranchise: Franchise;
+
   constructor(private router: Router,
-    private util: UtilityService
+    private util: UtilityService,
+    private formService: FormService
     ) {
     // this.cookieService.set('Set-Cookie', 'jwt=test');
   }
@@ -28,11 +36,21 @@ export class AppComponent {
   public basketCount = 0;
   public IsConnected = false;
   private storageBusy = false;
+  private franchiseSelected = false;
   private token = '';
   private role = '';
 
   private autoSaveInterval: any = setInterval(async () => {
     await this.getToken();
+    if(this.searchFranchise && this.searchFranchise.length > 2){
+      this.formService.getList("Franchise?search=" + this.searchFranchise).toPromise().then(Response =>{
+        this.franchises = Response as Array<Franchise>;
+        this.searchFranchise = '';
+        console.log(this.franchises);
+      }).catch(reason =>{
+        
+      });
+    }
   }, 1000);
 
   backHome() {
@@ -105,5 +123,21 @@ export class AppComponent {
     }else{
       this.IsConnected = false;
     }
+  }
+  async onSearchInput(event: any) {
+    this.searchFranchise = event.target.value;
+    if(event.target.value === ''){
+      this.franchises = [];
+      this.franchiseSelected = false;
+      this.util.franchiseSelected = undefined;
+      this.selectedFranchise = undefined;
+    }
+  }
+
+  selectFranchise(item: Franchise){
+    this.util.franchiseSelected = item;
+    this.selectedFranchise = item;
+    this.searchFranchise = item.nomFranchise;
+    this.franchiseSelected = true;
   }
 }

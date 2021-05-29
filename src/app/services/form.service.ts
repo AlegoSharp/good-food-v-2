@@ -18,6 +18,15 @@ export class FormService {
         private util:UtilityService
     ) { }
 
+    
+    /**
+     * Gets an instance of Form from an object
+     * Récupère une instance de Form à partir d'un objet
+     * @template T                  * Type of Objet to parse / Type de l'objet à parser
+     * @param obj                   * The object to parse / L'objet à parser
+     * @param [fixedNameClassName]  * The classname objet to force it / Le nom de la class de l'objet pour le fixer
+     * @returns form from object    * An instance of Form / Une instance du model Form
+     */
     public getFormFromObject<T>(obj: T, fixedNameClassName = ''): Form {
         const form = new Form();
         form.title = fixedNameClassName === '' ? (obj as any).constructor.name : fixedNameClassName;
@@ -25,6 +34,14 @@ export class FormService {
         return form;
     }
 
+    /**
+     * Sets the value of an object property to the corresponding FormProperty
+     * Définit la valeur de la propriété d'un objet à partir d'un objet FormProperty
+     * @template T                  * Type of Objet to parse / Type de l'objet à parser
+     * @param obj                   * The object to parse / L'objet à parser
+     * @param propsArray            * The array of FormProperty of the object / Le tableau de FormProperty de l'objet
+     * @returns object props        * L'objet
+     */
     public setObjectProps<T>(obj: T, propsArray: Array<FormProperty>): T {
         propsArray.forEach(element => {
             obj[element.nom] = element.value;
@@ -34,6 +51,15 @@ export class FormService {
 
     // Permet de remonter les properties d'un objet sous forme de tableau
     // La class FormProperty contient le type / le nom de la property et sa valeur
+
+    /**
+     * Gets object props as an Array
+     * Permet de remonter les properties d'un objet sous forme de tableau
+     * @template T                  * Type of Objet to parse / Type de l'objet à parser
+     * @param obj                   * The object to parse / L'objet à parser
+     * @param [fixedNameClassName]  * The classname objet to force it / Le nom de la class de l'objet pour le fixer
+     * @returns object props        * Array of properties of the object / Tableau de propriété de l'objet en paramètre
+     */
     public getObjectProps<T>(obj: T, fixedNameClassName = ''): Array<FormProperty> {
         const array = Object.getOwnPropertyNames(obj);
         const result = new Array<FormProperty>();
