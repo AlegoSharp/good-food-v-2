@@ -1,1 +1,0 @@
-= 2cssXchr!src/app/pages/home/home.page.scss

@@ -1,1 +1,0 @@
-@ 2tsXhrDsrc/app/pages/market/article-detail/article-detail-routing.module.ts

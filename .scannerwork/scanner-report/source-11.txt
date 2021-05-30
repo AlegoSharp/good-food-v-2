@@ -1,3 +1,0 @@
-.objectCard{
-    padding: 15px;
-}

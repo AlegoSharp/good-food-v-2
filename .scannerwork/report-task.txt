@@ -2,5 +2,5 @@ projectKey=goodfood-angular
 serverUrl=http://globecen.freeboxos.fr:9100
 serverVersion=7.9.5.38598
 dashboardUrl=http://globecen.freeboxos.fr:9100/dashboard?id=goodfood-angular
-ceTaskId=AXm3_0eTHhPZ5dluLrY4
-ceTaskUrl=http://globecen.freeboxos.fr:9100/api/ce/task?id=AXm3_0eTHhPZ5dluLrY4
+ceTaskId=AXm4zdq3M5lvjXoPC_X9
+ceTaskUrl=http://globecen.freeboxos.fr:9100/api/ce/task?id=AXm4zdq3M5lvjXoPC_X9
