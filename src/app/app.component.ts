@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { createAnimation, Animation } from '@ionic/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { createAnimation } from '@ionic/core';
+import { Router } from '@angular/router';
 import { trigger } from '@angular/animations';
 import { Article } from './models/Article';
 import jwt_decode from 'jwt-decode';
 import { Plugins } from '@capacitor/core';
-import { MenuItem } from './models/UiModels/MenuItem';
 import { UtilityService } from './services/utility.service';
 import { FormService } from './services/form.service';
 import { Franchise } from './models/Franchise';
-// import { CookieService } from 'ngx-cookie-service';
+import { AlertService } from './services/alert.service';
+import { cpuUsage } from 'process';
+import { resourceLimits } from 'worker_threads';
+import { LigneCommande } from './models/LigneCommande';
 
 const { Storage } = Plugins;
+
 export const routeTransitionAnimations = trigger('triggerName', []);
 
 @Component({
@@ -22,43 +25,79 @@ export const routeTransitionAnimations = trigger('triggerName', []);
 })
 export class AppComponent {
 
+  constructor(private router: Router,
+              private util: UtilityService,
+              private formService: FormService,
+              private alertService: AlertService
+  ) {
+    this.getToken().then((resp) => {
+      console.log(resp);
+    });
+    this.getBasketCount();
+    // this.cookieService.set('Set-Cookie', 'jwt=test');
+  }
+  private franchiseSelected = false;
+  private displayFranchise = false;
+  private role = '';
+
   searchFranchise = '';
   public franchises: Franchise[];
   public selectedFranchise: Franchise;
 
-  constructor(private router: Router,
-    private util: UtilityService,
-    private formService: FormService
-    ) {
-    // this.cookieService.set('Set-Cookie', 'jwt=test');
+  public basketCount = 0;
+  private storageBusy = false;
+
+  private token = this.util.token;
+
+  IsConnected = false;
+
+  public isConnected(): boolean{
+    this.basketCount = this.util.backetCache.length;
+    return !this.IsConnected || this.util.token === undefined || this.util.token === '' ? false : true;
   }
 
-  public basketCount = 0;
-  public IsConnected = false;
-  private storageBusy = false;
-  private franchiseSelected = false;
-  private token = '';
-  private role = '';
+  public async getToken(): Promise<string>{
+    let result = '';
+    try{
+      result = await (await Storage.get({ key: 'token' })).value;
+      if (result){
+        this.util.token = result;
+        this.token = (result);
+        this.role = (jwt_decode(this.token) as any).role;
+        this.IsConnected = true;
+      }
+    }catch (reason){
+      console.log(reason);
+    }
 
-  private autoSaveInterval: any = setInterval(async () => {
-    await this.getToken();
-    await this.prepareRoute();
-    if(this.searchFranchise && this.searchFranchise.length > 2){
-      this.formService.getList("Franchise?search=" + this.searchFranchise).toPromise().then(Response =>{
-        this.franchises = Response as Array<Franchise>;
-        this.searchFranchise = '';
-        console.log(this.franchises);
-      }).catch(reason =>{
-        
-      });
+    return result;
+  }
+
+  public getFranchises = async (): Promise<Franchise[]> => {
+    const result = await this.formService.getList('Franchise?search=' + this.searchFranchise).toPromise() as Franchise[];
+    this.franchises = result;
+    this.displayFranchise = (result && result.length > 0 && !this.franchiseSelected);
+    return result;
+  }
+
+/*   private autoSaveInterval: any = setInterval(async () => {
+    await this.getToken().catch(reason => {
+      this.alertService.presentToast('Error', 'problème d\'initialisation', true);
+    });
+    await this.prepareRoute().catch(reason => {
+      this.alertService.presentToast('Error', 'problème d\'initialisation' + '\\n' + reason.message, true);
+    });
+
+    if (this.searchFranchise && this.searchFranchise.length > 2) {
+
     }
   }, 1000);
-
+ */
   backHome() {
     this.router.navigateByUrl('/home');
   }
 
-  showMenu() {
+ /*  showMenu() {
     const myElementRef = window.document.getElementById('leftMenu');
     const fadeOut = createAnimation()
       .addElement(myElementRef)
@@ -90,44 +129,51 @@ export class AppComponent {
       .duration(300)
       .fromTo('opacity', '1', '0');
     fadeOut.play();
+  } */
+
+  async getBasketCount() {
+    await Storage.get({ key: 'basket' }).then(Response => {
+      this.util.backetCache = JSON.parse(Response.value) as LigneCommande[];
+      this.basketCount = this.util.backetCache.length;
+    });
+
+/*     if (Storage){
+      if (basket){
+        this.basketCount = (JSON.parse(basket.value) as []).length;
+      }else{
+        return 0;
+      }
+    } */
   }
 
-  async prepareRoute() {
-    if (this.token === '') {
-      if (!this.storageBusy) {
-        this.storageBusy = true;
-        setTimeout(async () => {
-          this.basketCount = (JSON.parse(await (await Storage.get({ key: 'basket' })).value) as Array<Article>).length;
-          await this.getToken();
-          this.storageBusy = false;
-        }, 500);
-      }
-    } else {
-      if (!this.storageBusy) {
-        this.storageBusy = true;
-        setTimeout(async () => {
-          this.basketCount = (JSON.parse(await (await Storage.get({ key: 'basket' })).value) as Array<Article>).length;
-          this.storageBusy = false;
-        }, 500);
-      }
-    }
-  }
-
-  async getToken() {
+ /*  async getToken() {
     const ret = await Storage.get({ key: 'token' });
-    if (ret.value !== null) {
-      //  console.log(ret.value);
-      this.util.token = ret.value;
-      this.token = (ret.value);
-      this.role = (jwt_decode(this.token) as any).role;
-      this.IsConnected = true;
+    // console.log(ret);
+    this.IsConnected = false;
+    if (ret){
+      if (ret.value !== null) {
+        //  console.log(ret.value);
+        try{
+          this.util.token = ret.value;
+          this.token = (ret.value);
+          this.role = (jwt_decode(this.token) as any).role;
+          this.IsConnected = true;
+        }catch (reason){
+          this.IsConnected = false;
+        }
+
+      } else {
+        this.IsConnected = false;
+      }
     }else{
       this.IsConnected = false;
     }
-  }
-  async onSearchInput(event: any) {
+  } */
+
+  onSearchInput(event: any) {
     this.searchFranchise = event.target.value;
-    if(event.target.value === ''){
+    this.getFranchises.call(null);
+    if (event.target.value === '') {
       this.franchises = [];
       this.franchiseSelected = false;
       this.util.franchiseSelected = undefined;
@@ -135,7 +181,8 @@ export class AppComponent {
     }
   }
 
-  selectFranchise(item: Franchise){
+  selectFranchise(item: Franchise) {
+    this.displayFranchise = false;
     this.util.franchiseSelected = item;
     this.selectedFranchise = item;
     this.searchFranchise = item.nomFranchise;

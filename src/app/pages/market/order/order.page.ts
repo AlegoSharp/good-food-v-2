@@ -98,7 +98,7 @@ export class OrderPage implements OnInit {
       if (x.value !== null && x.value !== undefined){
         console.log((jwt_decode(x.value) as any));
         this.userId = (jwt_decode(x.value) as any).id;
-        this.formService.getList('User/id' + this.userId).toPromise().then((responseUser: any) => {
+        this.formService.getList('User/' + this.userId).toPromise().then((responseUser: any) => {
           if (responseUser !== undefined){
             this.User = responseUser as Utilisateur;
             this.formService.getList('Adresse_Utilisateur?idUtilisateur=' + this.userId).toPromise().then((responseAdresse: any) => {

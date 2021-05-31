@@ -5,6 +5,7 @@ import { Adresse_Utilisateur } from 'src/app/models/Adresse_Utilisateur';
 import { Commande } from 'src/app/models/Commande';
 import { Utilisateur } from 'src/app/models/User';
 import { FormService } from 'src/app/services/form.service';
+import { UtilityService } from 'src/app/services/utility.service';
 
 const { Storage } = Plugins;
 @Component({
@@ -27,11 +28,12 @@ export class AccountPage implements OnInit {
 
   countries: any;
   constructor(
-    private formService: FormService
+    private formService: FormService,
+    private util: UtilityService
   ) { }
 
   ngOnInit() {
-    this.getInfo();
+    // this.getInfo();
     this.user = new Utilisateur();
     this.user.init_empty();
     this.getToken('token').then(value => this.Token = value.toString());
@@ -55,6 +57,7 @@ export class AccountPage implements OnInit {
 
   async deleteToken(key: string) {
     const ret = await Storage.remove({ key });
+    this.util.token = '';
   }
 
   async getOrders() {
@@ -66,7 +69,7 @@ export class AccountPage implements OnInit {
   }
 
   async getUser() {
-    this.formService.getList('User/id' + this.userId).toPromise().then((response: any) => {
+    this.formService.getList('User/' + this.userId).toPromise().then((response: any) => {
       if (response !== undefined) {
         this.user = response as Utilisateur;
       }

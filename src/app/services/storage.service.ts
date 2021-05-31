@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Plugins } from '@capacitor/core';
 import { LigneCommande } from '../models/LigneCommande';
+import { UtilityService } from './utility.service';
 
 const { Storage } = Plugins;
 @Injectable({
@@ -8,7 +9,7 @@ const { Storage } = Plugins;
 })
 export class StorageService {
 
-    constructor() { }
+    constructor(private util: UtilityService ) { }
 
 
     /**
@@ -18,7 +19,7 @@ export class StorageService {
      * @param value             * Value to store / Valeur à stockée
      */
     public async setObject(key: string, value: any) {
-        let valueStringify = JSON.stringify(value);
+        const valueStringify = JSON.stringify(value);
         await Storage.set({ key, value: valueStringify });
     }
 
@@ -52,12 +53,13 @@ export class StorageService {
      * @param ligneCommande     * LigneCommande to delete / Ligne_commande à supprimer
      */
     public async removeItemFromBasket(ligneCommande: LigneCommande){
-        let basket =  await this.getObject("basket").then(value => {
+        let basket =  await this.getObject('basket').then(value => {
             return (value as unknown) as Array<LigneCommande>;
         });
-        if(basket !== undefined){
-            basket = basket.filter(w=>w.article.idArticle !== ligneCommande.article.idArticle);
-            await this.setObject("basket",basket);
+        if (basket !== undefined){
+            basket = basket.filter(w => w.article.idArticle !== ligneCommande.article.idArticle);
+            await this.setObject('basket', basket);
+            this.util.backetCache = basket;
         }
     }
 
@@ -67,14 +69,14 @@ export class StorageService {
      * @param ligneCommande    * LigneCommande to replace / Ligne_commande à remplacer
      */
     public async replaceItemFromBasket(ligneCommande: LigneCommande){
-        let basket =  await this.getObject("basket").then(value => {
+        const basket =  await this.getObject('basket').then(value => {
             return (value as unknown) as Array<LigneCommande>;
         });
-        if(basket !== undefined){
-            
-            let ligne = basket.findIndex(w=>w.article.idArticle === ligneCommande.article.idArticle);
+        if (basket !== undefined){
+            const ligne = basket.findIndex(w => w.article.idArticle === ligneCommande.article.idArticle);
             basket[ligne] = ligneCommande;
-            await this.setObject("basket",basket);
+            await this.setObject('basket', basket);
+            this.util.backetCache = basket;
         }
     }
 
@@ -82,26 +84,27 @@ export class StorageService {
     /**
      * Adds ligne_commande to basket
      * Ajouter une ligne_commande au panier
-     * @param ligneCommande 
+     * @param ligneCommande ligne
      */
     public async addItemToBasket(ligneCommande: LigneCommande){
         let basket = new Array<LigneCommande>();
-        let tempBasket = await this.getObject("basket").then(value => {
+        const tempBasket = await this.getObject("basket").then(value => {
             return (value as unknown) as Array<LigneCommande>;
         });
-        if(tempBasket !== null){
+        if (tempBasket !== null){
             basket = tempBasket;
         }
-        let itemExisitingIndex = basket.findIndex(ligne => ligne.article?.idArticle === ligneCommande.article.idArticle);
-        if(itemExisitingIndex >= 0){
-            let currentQty = basket[itemExisitingIndex].quantiteArticle;
-            let addinQty = ligneCommande.quantiteArticle as number;
+        const itemExisitingIndex = basket.findIndex(ligne => ligne.article?.idArticle === ligneCommande.article.idArticle);
+        if (itemExisitingIndex >= 0){
+            const currentQty = basket[itemExisitingIndex].quantiteArticle;
+            const addinQty = ligneCommande.quantiteArticle as number;
             let finalQty = 0;
-            finalQty = Number.parseInt(currentQty.toString()) + Number.parseInt(addinQty.toString());
+            finalQty = Number.parseInt(currentQty.toString(), 2) + Number.parseInt(addinQty.toString(), 2);
             basket[itemExisitingIndex].quantiteArticle = finalQty;
         }else{
             basket.push(ligneCommande);
         }
-        await this.setObject("basket", basket);
+        this.util.backetCache = basket;
+        await this.setObject('basket', basket);
     }
 }

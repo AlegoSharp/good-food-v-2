@@ -56,7 +56,7 @@ export class ProductsListPage implements OnInit {
                 private route: ActivatedRoute,
                 private router: Router,
                 private util: UtilityService,
-    ){ }
+    ) { }
 
 
     /**
@@ -64,6 +64,7 @@ export class ProductsListPage implements OnInit {
      */
     ngOnInit() {
         this.currentSlideNumber = 0;
+        this.ModeMenu = this.route.snapshot.data.estMenu;
         this.init();
         this.getCategories();
     }
@@ -76,18 +77,12 @@ export class ProductsListPage implements OnInit {
     init() {
         this.Pages = [];
         this.Articles = [];
-
-        this.route.data.subscribe(data => {
-            this.ModeMenu = data.estMenu;
-        });
-
         const maxelem = (this.nbElemParPage * 3);
         let query = '/Article?pageSize=' + maxelem.toString() +
             '&pageNumber=' + this.currentSlideNumber +
             '&estMenu=' + this.ModeMenu.toString();
 
         query = query + (this.selectedCategorie !== undefined ? '&idCategorieArticle=' + this.selectedCategorie : '');
-        console.log(this.selectedCategorie);
         if (this.searchText !== '') {
             query = query + '&descriptionArticle=' + this.searchText +
                 '&libelleArticle=' + this.searchText;
@@ -99,7 +94,7 @@ export class ProductsListPage implements OnInit {
                 this.Articles.push(element);
             });
 
-            const countQuery = this.ModeMenu === 1 ? '/Article/menu/count' : '/Article/ingr/count';
+            const countQuery = '/Article/count';
 
             if (this.searchText === '') {
                 this.formService.getList(countQuery).toPromise().then((responseCount: any) => {
@@ -137,7 +132,6 @@ export class ProductsListPage implements OnInit {
                 if (this.Pages.length > 1) {
                     this.Pages[1].Articles = this.getArticleCurrentPage();
                 }
-                console.log(query, this.Pages);
             }
         }).catch(reason => {
             this.alertService.presentAlertOk('Error', reason.message);

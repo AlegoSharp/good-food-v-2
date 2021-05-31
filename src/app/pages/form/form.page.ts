@@ -11,6 +11,7 @@ import { FormProperty } from 'src/app/models/FormProperty';
 import { Categorie_Article } from 'src/app/models/Categorie_Article';
 import { Promo } from 'src/app/models/Promo';
 import { R3ResolvedDependencyType } from '@angular/compiler';
+import { UtilityService } from 'src/app/services/utility.service';
 
 @Component({
   selector: 'app-form',
@@ -28,7 +29,8 @@ export class FormPage implements OnInit {
   constructor(
     private formService: FormService,
     private router: Router,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private util: UtilityService
   ) { }
 
   ngOnInit() {
@@ -92,7 +94,11 @@ export class FormPage implements OnInit {
       this.itemName = 'Promo';
       u.init_empty();
     }
-    
+    else{
+      u = new Article();
+      this.itemName = 'Article';
+      u.init_empty();
+    }
     this.myObject = u;
     this.MyForm = this.formService.getFormFromObject(u, this.itemName);
     console.log(this.MyForm);
@@ -100,14 +106,18 @@ export class FormPage implements OnInit {
 
   editElement() {
     this.formService.setObjectProps(this.myObject, this.MyForm.properties);
-    this.formService.postEditObject(window.document.URL.split('/')[4], this.myObject);
+    this.formService.postEditObject(window.document.URL.split('/')[4], this.myObject, this.util.token).toPromise().then(Response =>{
+
+    }).catch(reason =>{
+      this.alertService.presentAlertOk("Erreur",reason.message);
+    });
   }
 
   createNewElement() {
     this.formService.setObjectProps(this.myObject, this.MyForm.properties);
     delete this.myObject[this.idName];
     console.log(this.idName, this.myObject);
-    this.formService.postObject(window.document.URL.split('/')[4], this.myObject).toPromise()
+    this.formService.postObject(window.document.URL.split('/')[4], this.myObject, this.util.token).toPromise()
       .then(() => {
         this.alertService.presentToast('Success', this.MyForm.title + ' créé', true);
       }).catch(reason => {

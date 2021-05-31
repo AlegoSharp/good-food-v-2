@@ -6,7 +6,7 @@
       </ion-label>
     </ion-item>
     <ion-card class="productContainer contentBorders" *ngFor="let art of Articles">
-      <ion-toolbar class="productToolbar" color="dark">
+      <ion-toolbar class="productToolbar" >
         <img class="productPicture" slot="start" src="{{art.article.urlImgArticle}}" style="display:block;" />
         <div style="width: 50%;display: inline-block;" slot="start">
           <h3>
@@ -33,13 +33,13 @@
       </ion-toolbar>
     </ion-card>
     <ion-card class="productContainer totaux contentBorders">
-      <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">
+      <ion-toolbar class="totToolBars" style="padding: 5px; height: 50px;">
         <h5>
           <ion-label class="toolboxContent">TOTAL HT:</ion-label>
         </h5>
         <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalHt()}} €</ion-label>
       </ion-toolbar>
-      <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">
+      <ion-toolbar class="totToolBars" style="padding: 5px; height: 50px;">
         <h4>
           <ion-label>TTC :</ion-label>
         </h4>

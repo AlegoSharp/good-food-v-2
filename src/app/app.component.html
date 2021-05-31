@@ -14,18 +14,18 @@
             </ion-label>
         </div>
         <div slot="end">
-          <ion-button [routerLink]="['/login']" *ngIf="!IsConnected" color="tertiary">
+          <ion-button [routerLink]="['/login']" *ngIf="isConnected() ? false : true" color="tertiary">
             <ion-label color="dark">Se connecter</ion-label>
           </ion-button>
-          <ion-button [routerLink]="['/register']" *ngIf="!IsConnected" color="tertiary">
+          <ion-button [routerLink]="['/register']" *ngIf="isConnected() ? false : true" color="tertiary">
             <ion-label color="dark">S'inscrire</ion-label>
           </ion-button>
-          <ion-button [routerLink]="['/myBasket']" *ngIf="IsConnected" color="success">
-            <ion-label class="basketCount">{{basketCount}}</ion-label>
-            <ion-icon name="basket" size="large" color="dark"></ion-icon>
+          <ion-button [routerLink]="['/myBasket']" *ngIf="isConnected() ? true : false" color="success">
+              <ion-label class="basketCount">{{this.basketCount}}</ion-label>
+              <ion-icon name="basket" size="large" color="dark"></ion-icon>
             <ion-label color="dark">Mon panier</ion-label>
           </ion-button>
-          <ion-button [routerLink]="['/account']" *ngIf="IsConnected" color="success">
+          <ion-button [routerLink]="['/account']" *ngIf="isConnected() ? true : false" color="success">
             <ion-icon name="person-circle-outline" size="large" color="dark"></ion-icon>
             <ion-label color="dark">Mon compte</ion-label>
           </ion-button>
@@ -50,7 +50,7 @@
         </ion-button>
         <ion-toggle slot="end" (ionChange)="switchTheme()"></ion-toggle>
       </ion-toolbar>
-      <ion-toolbar *ngIf="franchises && franchises.length != '' && !franchiseSelected" style="height: 50vh;">
+      <ion-toolbar *ngIf="displayFranchise" style="height: 50vh;">
         <ion-card *ngFor=" let item of franchises" color="success" style="width:80%; margin: 0 auto; margin-bottom: 10px; padding: 20px;" (click)="selectFranchise(item)">
           <ion-label style="font-size: large; width: 100%; display: block;">{{item.nomFranchise}}</ion-label>
           <ion-label style="font-size: large; width: 100%; display: block;">{{item.emailFranchise}}</ion-label>

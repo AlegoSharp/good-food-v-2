@@ -37,8 +37,7 @@
             x {{art.quantiteArticle}}
           </ion-label>
         </div>
-        <ion-label slot="end" class="toolboxContent" class="productPrice">{{art.article.prixArticleHt *
-          art.quantiteArticle }} €</ion-label>
+        <ion-label slot="end" class="toolboxContent" class="productPrice">{{art.article.prixArticleHt * art.quantiteArticle }} €</ion-label>
         <ion-button slot="end" (click)="deleteArtFromBasket(art)" color="tertiary">
           <ion-label>Supprimer du panier</ion-label>
           <ion-icon color="dark" name="trash" size="large" style="margin-left: 10px;"></ion-icon>

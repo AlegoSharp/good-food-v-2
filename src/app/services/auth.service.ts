@@ -22,15 +22,15 @@ export class AuthService {
   /**
    * Logins http request
    * Requete http pour connecter l'utilisateur
-   * @param email 
-   * @param password 
+   * @param email email
+   * @param password password
    * @returns  
    */
-  login(email: String, password: String) {
+  login(email: string, password: string) {
     const headers = new HttpHeaders({
-      'Content-Type': "text/plain;charset=UTF-8 "
-    });    
-    return this.http.post(this.env.API_URL + 'User/login/' + email + "&" + password,"",{responseType: 'text' })
+      'Content-Type': 'text/plain;charset=UTF-8 '
+    });
+    return this.http.post(this.env.API_URL + 'User/login/' + email + '&' + password, '', {responseType: 'text' });
   }
 
 

@@ -1,16 +1,16 @@
 <ion-content>
-  <div>
-    <ion-card class="login" color="dark">
-      <div class="divLogo"> 
-        <img class="logo" src="assets/GoodFood_Logo1.png"/>
-      </div>
+  <div class="login"> 
+    <div class="divLogo"> 
+      <img class="logo" src="assets/GoodFood_Logo1.png"/>
+    </div>
+    <ion-card  color="secondary">
       <form class="form" #f="ngForm" (ngSubmit)="login(f)" method="post">
-          <ion-item lines="full" color="dark" class="formitem">
+          <ion-item lines="full" class="formitem">
             <ion-label position="floating">Email</ion-label>
             <ion-input type="email" name="email" ngModel required></ion-input>
           </ion-item>
 
-          <ion-item lines="full" color="dark" class="formitem">
+          <ion-item lines="full" class="formitem">
             <ion-label position="floating">Mot de passe</ion-label>
             <ion-input type="password" required name="password" ngModel></ion-input>
           </ion-item>
@@ -19,7 +19,9 @@
               Mot de passe oublié ? 
               <a class="small-text" href="/forgot">cliquez ici</a>
           </div>
-          <ion-button type="submit" color="tertiary">Connexion</ion-button>
+          <ion-toolbar>
+            <ion-button  slot="end" type="submit" color="secondary">Connexion</ion-button>
+          </ion-toolbar>
       </form>
     </ion-card>
   </div>

@@ -1,3 +1,7 @@
+.stack-present{
+    height: 15vh;
+    background-image: url("/assets/recipe_wallpap.jpg");    
+}
 .productsList{
     width: 80%;
     margin: 0 auto;
@@ -71,6 +75,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
+.topContent{
+    width: 80%;
+    margin: 0 auto;
+    background-color: #ffffff;
+}
 .mainContent{
     width: 80%;
     margin: 0 auto;

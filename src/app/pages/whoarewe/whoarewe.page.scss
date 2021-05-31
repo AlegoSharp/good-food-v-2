@@ -1,6 +1,14 @@
 .mainContent{
     width: 80%;
     margin: 0 auto;
-    min-height: 100%;
     background-color: #ffffff;
+}
+.title{
+    height: 7.5vh;
+    font-size: large;
+    font-weight: bold;
+}
+.stack-present{
+    height: 12vh;
+    background-image: url("/assets/recipe_wallpap.jpg");    
 }

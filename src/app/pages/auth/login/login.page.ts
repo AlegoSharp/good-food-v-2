@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertService } from 'src/app/services/alert.service';
 import { Plugins } from '@capacitor/core';
+import { UtilityService } from 'src/app/services/utility.service';
 
 const { Storage } = Plugins;
 
@@ -17,7 +18,8 @@ export class LoginPage implements OnInit {
   constructor(
       private router: Router,
       private authService: AuthService,
-      private alertService: AlertService
+      private alertService: AlertService,
+      private util: UtilityService
   ) { }
 
   ngOnInit() {
@@ -29,7 +31,8 @@ export class LoginPage implements OnInit {
       .toPromise()
       .then(response => {
         console.log(response);
-        this.setObject('token', response.replace('"',''));
+        this.setObject('token', response.replace('"', ''));
+        this.util.token = response.replace('"', '');
         this.router.navigateByUrl('/account');
       }
       ).catch(reason => {

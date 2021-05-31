@@ -15,10 +15,9 @@ export class FormService {
         private http: HttpClient,
         private env: EnvService,
         private storage: StorageService,
-        private util:UtilityService
+        private util: UtilityService
     ) { }
 
-    
     /**
      * Gets an instance of Form from an object
      * Récupère une instance de Form à partir d'un objet
@@ -129,7 +128,7 @@ export class FormService {
         if (token !== '') {
             headerDict = {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer' + ' ' + token
+                'Authorization': 'Bearer' + ' ' + token.replace('"','').replace('"','')
             };
         } else {
             headerDict = {
@@ -143,13 +142,23 @@ export class FormService {
         return this.http.post(this.env.API_URL + route + '/create', body, requestOptions);
     }
 
-    postEditObject(route: string, body: any) {
-        const headerDict = {
-            'Content-Type': 'application/json',
-        };
+    postEditObject(route: string, body: any, token: string) {
+        let headerDict = undefined;
+        if (token !== '') {
+            headerDict = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer' + ' ' + token.replace('"','').replace('"','')
+            };
+        } else {
+            headerDict = {
+                'Content-Type': 'application/json',
+            };
+        }
         const requestOptions = {
             headers: new HttpHeaders(headerDict),
+            withCredentials: true
         };
+        console.log('test');
         return this.http.patch(this.env.API_URL + route + '/modify', body, requestOptions);
     }
 

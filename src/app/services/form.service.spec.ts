@@ -3,9 +3,11 @@ import { Article } from '../models/Article';
 
 import { FormService } from './form.service';
 import { HttpClientModule } from '@angular/common/http';
+import { UtilityService } from './utility.service';
 
 describe('FormService', () => {
   let service: FormService;
+  let util: UtilityService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -14,6 +16,7 @@ describe('FormService', () => {
       ],
     }).compileComponents();
     service = TestBed.inject(FormService);
+    util = TestBed.inject(UtilityService);
 
   });
 

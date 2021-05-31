@@ -3,14 +3,20 @@ import { CanActivate, Router, RouterStateSnapshot, ActivatedRouteSnapshot } from
 import { StorageService } from './storage.service'
 import jwt_decode from 'jwt-decode';
 import { Plugins } from '@capacitor/core';
+import { UtilityService } from './utility.service';
 
 const { Storage } = Plugins;
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
+
 export class GuardService implements CanActivate {
 
   constructor(
     private router: Router,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private util: UtilityService,
+
   ) { }
 
   
@@ -32,10 +38,16 @@ export class GuardService implements CanActivate {
    * @returns auth
    */
   async checkAuth(): Promise<boolean> {
+    console.log((jwt_decode(this.util.token.replace('"', '')) as any).role);
+    if ((jwt_decode(this.util.token) as any).role === 'admin') {
+      return true;
+    } else {
+      return false;
+    }
     const result = await Storage.get({ key: 'token' }).then(x => {
       if (x.value !== null && x.value !== undefined) {
         // console.log((jwt_decode(x.value) as any).role === 1);
-        if ((jwt_decode(x.value) as any).role === 2) {
+        if ((jwt_decode(x.value) as any).role === 'admin') {
           return true;
         } else {
           return false;
