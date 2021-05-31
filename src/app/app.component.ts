@@ -52,7 +52,9 @@ export class AppComponent {
   IsConnected = false;
 
   public isConnected(): boolean{
-    this.basketCount = this.util.backetCache.length;
+    if(this.util.backetCache){
+      this.basketCount = this.util.backetCache.length;
+    }
     return !this.IsConnected || this.util.token === undefined || this.util.token === '' ? false : true;
   }
 

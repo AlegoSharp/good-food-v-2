@@ -42,7 +42,7 @@ export class ArticleDetailPage implements OnInit {
   }
 
   async getAllergenes() {
-    await this.formService.getList('Article/' + this.id + '/allergene').toPromise().then(response => {
+    await this.formService.getList('Article/' + this.id + '/Allergene').toPromise().then(response => {
       this.artAllergenes = response as Article_Allergene[]
       console.log(this.artAllergenes);
     })
@@ -52,7 +52,7 @@ export class ArticleDetailPage implements OnInit {
   }
 
   async getPromos() {
-    await this.formService.getList('Article/' + this.id + '/promo').toPromise().then(response => {
+    await this.formService.getList('Article/' + this.id + '/Promo').toPromise().then(response => {
       this.artPromos = response as Article_Promo[]
       console.log(this.artPromos);
     })
