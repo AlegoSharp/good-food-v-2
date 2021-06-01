@@ -3,7 +3,6 @@ WORKDIR /app/
 COPY package*.json /app/
 RUN npm install -g ionic
 RUN npm install
-RUN ng test
 COPY ./ /app/
 RUN npm run-script build
 FROM nginx:alpine
