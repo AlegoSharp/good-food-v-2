@@ -94,7 +94,7 @@ export class ProductsListPage implements OnInit {
                 this.Articles.push(element);
             });
 
-            const countQuery = '/Article/' + (this.ModeMenu === 1 ? 'Menu' :  'Ingr') + '/count';
+            const countQuery = '/Article/' + (this.ModeMenu === 1 ? 'Menu' :  'Ingr') + '/nombre';
 
             if (this.searchText === '') {
                 this.formService.getList(countQuery).toPromise().then((responseCount: any) => {

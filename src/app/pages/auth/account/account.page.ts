@@ -69,7 +69,7 @@ export class AccountPage implements OnInit {
   }
 
   async getUser() {
-    this.formService.getList('User/' + this.userId).toPromise().then((response: any) => {
+    this.formService.getList('Utilisateur/' + this.userId).toPromise().then((response: any) => {
       if (response !== undefined) {
         this.user = response as Utilisateur;
       }
