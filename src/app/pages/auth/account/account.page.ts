@@ -3,7 +3,7 @@ import { Plugins } from '@capacitor/core';
 import jwt_decode from 'jwt-decode';
 import { Adresse_Utilisateur } from 'src/app/models/Adresse_Utilisateur';
 import { Commande } from 'src/app/models/Commande';
-import { Utilisateur } from 'src/app/models/User';
+import { Utilisateur } from 'src/app/models/Utilisateur';
 import { FormService } from 'src/app/services/form.service';
 import { UtilityService } from 'src/app/services/utility.service';
 

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Form } from 'src/app/models/Form';
-import { Utilisateur } from 'src/app/models/User';
+import { Utilisateur } from 'src/app/models/Utilisateur';
 import { Article } from 'src/app/models/Article';
 import { FormService } from 'src/app/services/form.service';
 import { ModalController } from '@ionic/angular';

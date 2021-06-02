@@ -4,7 +4,7 @@ import { Plugins } from '@capacitor/core';
 import { ToastController } from '@ionic/angular';
 import { Commande } from 'src/app/models/Commande';
 import { LigneCommande } from 'src/app/models/LigneCommande';
-import { Utilisateur } from 'src/app/models/User';
+import { Utilisateur } from 'src/app/models/Utilisateur';
 import { FormService } from 'src/app/services/form.service';
 import { GuardService } from 'src/app/services/guard.service';
 import { StorageService } from 'src/app/services/storage.service';

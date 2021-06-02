@@ -1,6 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { LigneCommande } from './LigneCommande';
-import { Utilisateur } from './User';
+import { Utilisateur } from './Utilisateur';
 
 export class Commande {
 

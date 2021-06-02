@@ -3,7 +3,7 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import { IonInput } from '@ionic/angular';
 import { Article } from 'src/app/models/Article';
 import { Form } from 'src/app/models/Form';
-import { Utilisateur } from 'src/app/models/User';
+import { Utilisateur } from 'src/app/models/Utilisateur';
 import { FormService } from '../../services/form.service';
 import { Router, RouterOutlet } from '@angular/router';
 import { AlertService } from 'src/app/services/alert.service';

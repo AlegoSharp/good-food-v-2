@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { EnvService } from './env.service';
-import { Utilisateur } from '../models/User';
+import { Utilisateur } from '../models/Utilisateur';
 import { element } from 'protractor';
 
 @Injectable({
@@ -11,7 +11,7 @@ import { element } from 'protractor';
 export class AuthService {
 
   isLoggedIn = false;
-  token:any;
+  token: any;
 
   constructor(
     private http: HttpClient,
@@ -27,10 +27,7 @@ export class AuthService {
    * @returns  
    */
   login(email: string, password: string) {
-    const headers = new HttpHeaders({
-      'Content-Type': 'text/plain;charset=UTF-8 '
-    });
-    return this.http.post(this.env.API_URL + 'User/login/' + email + '&' + password, '', {responseType: 'text' });
+    return this.http.post(this.env.API_URL + 'Utilisateur/connexion/' + email + '&' + password, '', {responseType: 'text' });
   }
 
 
@@ -53,23 +50,23 @@ export class AuthService {
     const headerDict = {
       'Content-Type': 'application/json',
     };
-    const requestOptions = {                                                                                                                                                                                 
+    const requestOptions = {
       headers: new HttpHeaders(headerDict),
     };
-    return this.http.post(this.env.API_URL + 'User/create', JSON.stringify(user),requestOptions)
+    return this.http.post(this.env.API_URL + 'Utilisateur/creer', JSON.stringify(user), requestOptions);
   }
 
 
   /**
    * Logouts --> Remove token
    * Se déconnecter --> Suppr token
-   * @returns  
+   * @returns
    */
   logout() {
     const headers = new HttpHeaders({
-      'Authorization': this.token["token_type"]+" "+this.token["access_token"]
+      Authorization: this.token.token_type + ' ' + this.token.access_token
     });
-    return this.http.get(this.env.API_URL + 'auth/logout', { headers: headers })
+    return this.http.get(this.env.API_URL + 'auth/logout', { headers })
     .pipe(
       tap(data => {
         this.isLoggedIn = false;
