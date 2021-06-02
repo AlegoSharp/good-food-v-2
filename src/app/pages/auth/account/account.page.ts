@@ -1,9 +1,11 @@
+import { JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Plugins } from '@capacitor/core';
 import jwt_decode from 'jwt-decode';
 import { Adresse_Utilisateur } from 'src/app/models/Adresse_Utilisateur';
 import { Commande } from 'src/app/models/Commande';
 import { Utilisateur } from 'src/app/models/Utilisateur';
+import { AlertService } from 'src/app/services/alert.service';
 import { FormService } from 'src/app/services/form.service';
 import { UtilityService } from 'src/app/services/utility.service';
 
@@ -18,7 +20,6 @@ export class AccountPage implements OnInit {
   public userId: '';
   public Token = '';
   public email = '';
-
   public addressLivr: Adresse_Utilisateur;
   public addressFact: Adresse_Utilisateur;
   public user: Utilisateur;
@@ -29,7 +30,8 @@ export class AccountPage implements OnInit {
   countries: any;
   constructor(
     private formService: FormService,
-    private util: UtilityService
+    private util: UtilityService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {
@@ -69,7 +71,7 @@ export class AccountPage implements OnInit {
   }
 
   async getUser() {
-    this.formService.getList('User/' + this.userId).toPromise().then((response: any) => {
+    this.formService.getList('Utilisateur/' + this.userId).toPromise().then((response: any) => {
       if (response !== undefined) {
         this.user = response as Utilisateur;
       }
@@ -97,6 +99,14 @@ export class AccountPage implements OnInit {
           this.addressFact.init_empty();
         }
       }
+    });
+  }
+  async update(myadresse: any){
+    console.log(JSON.stringify(myadresse))
+    this.formService.postEditObject("Adresse_Utilisateur", myadresse, this.util.token).toPromise().then(Response =>{
+
+    }).catch(reason =>{
+      this.alertService.presentAlertOk("Erreur",reason.message);
     });
   }
 

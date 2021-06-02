@@ -11,7 +11,6 @@ import { UtilityService } from './utility.service';
 })
 
 export class FormService {
-
     public headerDictLogin: {
         'Content-Type': 'application/json',
         'email': 'quentin.alegos@gmail.com',
@@ -32,13 +31,13 @@ export class FormService {
         };
         return headerDictLogin;
     }
-
     constructor(
         private http: HttpClient,
         private env: EnvService,
         private storage: StorageService,
         private util: UtilityService
-    ) { }
+    ) { 
+    }
 
     /**
      * Gets an instance of Form from an object
@@ -100,49 +99,41 @@ export class FormService {
         });
         return result;
     }
-
-    getDetail(id: string, route: string) {
-        let headerDict = undefined;
-        const token = this.util.token;
-        if (token !== '' && token) {
-            headerDict = {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer' + ' ' + token.replace('"','').replace('"','')
-            };
-        } else {
-            headerDict = {
-                'Content-Type': 'application/json',
-            };
-        }
-
+    getList(route: string,securitymode: 'none'|'bearer'|'withCredentials' = 'none') {
         const requestOptions = {
-            headers: new HttpHeaders(headerDict),
+           headers: new HttpHeaders(this.getHeaderFromSecurityMode(securitymode)),
+            withCredentials: true
+        };
+
+        return this.http.get(this.env.API_URL + route, requestOptions);
+    }
+
+    getDetail(id: string, route: string, securitymode: 'none'|'bearer'|'withCredentials' = 'none') {
+        const requestOptions = {
+            headers: new HttpHeaders(this.getHeaderFromSecurityMode(securitymode)),
             withCredentials: true
         };
 
         return this.http.get(this.env.API_URL + route + '/' + id, requestOptions);
     }
-
-    getList(route: string) {
+    private getHeaderFromSecurityMode (securitymode :'none' |'bearer' |'withCredentials'='none'): any{
         let headerDict = undefined;
         const token = this.util.token;
-        if (token !== '' && token) {
-            headerDict = {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer' + ' ' + token.replace('"','').replace('"','')
-            };
-        } else {
-            headerDict = {
-                'Content-Type': 'application/json',
-            };
+        switch (securitymode) {
+            case 'none':
+                headerDict = this.headerDictNone;
+                break;
+            case 'bearer':
+                headerDict = this.headerDictTAMRR(token);
+                break;
+            case 'none':
+                headerDict = this.headerDictLogin;
+                break;
+            default:
+                headerDict = this.headerDictNone;
+                break;
         }
-
-        const requestOptions = {
-            headers: new HttpHeaders(headerDict),
-            withCredentials: true
-        };
-
-        return this.http.get(this.env.API_URL + route, requestOptions);
+        return headerDict;
     }
 
     postObject(route: string, body: any, token = '') {
@@ -181,7 +172,7 @@ export class FormService {
             withCredentials: true
         };
         console.log('test');
-        return this.http.patch(this.env.API_URL + route + '/modify', body, requestOptions);
+        return this.http.patch(this.env.API_URL + route + '/modifier', body, requestOptions);
     }
 
     public getCustomRoute(model: string, propertyName: string): string {
