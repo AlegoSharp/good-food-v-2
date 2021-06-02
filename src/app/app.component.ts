@@ -21,8 +21,9 @@ export const routeTransitionAnimations = trigger('triggerName', []);
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
-  animations: [routeTransitionAnimations]
+  // animations: [routeTransitionAnimations]
 })
+
 export class AppComponent {
 
   constructor(private router: Router,
@@ -30,12 +31,10 @@ export class AppComponent {
               private formService: FormService,
               private alertService: AlertService
   ) {
-    this.getToken().then((resp) => {
-      console.log(resp);
-    });
+    this.getToken();
     this.getBasketCount();
-    // this.cookieService.set('Set-Cookie', 'jwt=test');
   }
+
   private franchiseSelected = false;
   private displayFranchise = false;
   private role = '';
@@ -52,7 +51,7 @@ export class AppComponent {
   IsConnected = false;
 
   public isConnected(): boolean{
-    if(this.util.backetCache){
+    if (this.util.backetCache){
       this.basketCount = this.util.backetCache.length;
     }
     return !this.IsConnected || this.util.token === undefined || this.util.token === '' ? false : true;
@@ -82,95 +81,16 @@ export class AppComponent {
     return result;
   }
 
-/*   private autoSaveInterval: any = setInterval(async () => {
-    await this.getToken().catch(reason => {
-      this.alertService.presentToast('Error', 'problème d\'initialisation', true);
-    });
-    await this.prepareRoute().catch(reason => {
-      this.alertService.presentToast('Error', 'problème d\'initialisation' + '\\n' + reason.message, true);
-    });
-
-    if (this.searchFranchise && this.searchFranchise.length > 2) {
-
-    }
-  }, 1000);
- */
   backHome() {
     this.router.navigateByUrl('/home');
   }
-
- /*  showMenu() {
-    const myElementRef = window.document.getElementById('leftMenu');
-    const fadeOut = createAnimation()
-      .addElement(myElementRef)
-      .duration(500)
-      .fromTo('opacity', '1', '0');
-    if (window.document.getElementById('leftMenu').style.display === 'none') {
-      window.document.getElementById('leftMenu').style.display = 'block';
-      this.fadeIn('leftMenu');
-    } else {
-      fadeOut.play().then(() => {
-        window.document.getElementById('leftMenu').style.display = 'none';
-      });
-    }
-  }
-
-  fadeIn(elementID: string) {
-    const myElementRef = window.document.getElementById(elementID);
-    const fadeIn = createAnimation()
-      .addElement(myElementRef)
-      .duration(500)
-      .fromTo('opacity', '0', '1');
-    fadeIn.play();
-  }
-
-  fadeOut(elementID: string) {
-    const myElementRef = window.document.getElementById(elementID);
-    const fadeOut = createAnimation()
-      .addElement(myElementRef)
-      .duration(300)
-      .fromTo('opacity', '1', '0');
-    fadeOut.play();
-  } */
 
   async getBasketCount() {
     await Storage.get({ key: 'basket' }).then(Response => {
       this.util.backetCache = JSON.parse(Response.value) as LigneCommande[];
       this.basketCount = this.util.backetCache.length;
     });
-
-/*     if (Storage){
-      if (basket){
-        this.basketCount = (JSON.parse(basket.value) as []).length;
-      }else{
-        return 0;
-      }
-    } */
   }
-
- /*  async getToken() {
-    const ret = await Storage.get({ key: 'token' });
-    // console.log(ret);
-    this.IsConnected = false;
-    if (ret){
-      if (ret.value !== null) {
-        //  console.log(ret.value);
-        try{
-          this.util.token = ret.value;
-          this.token = (ret.value);
-          this.role = (jwt_decode(this.token) as any).role;
-          this.IsConnected = true;
-        }catch (reason){
-          this.IsConnected = false;
-        }
-
-      } else {
-        this.IsConnected = false;
-      }
-    }else{
-      this.IsConnected = false;
-    }
-  } */
 
   onSearchInput(event: any) {
     this.searchFranchise = event.target.value;

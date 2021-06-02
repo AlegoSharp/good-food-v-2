@@ -66,7 +66,7 @@ export class Aliases{
     };
 
     public static userCustomRoutes = {
-        idUtilisateur: 'User',
+        idUtilisateur: 'Utilisateur',
         idRole: 'Role',
         idAdresseUtilisateur: 'Adresse_Utilisateur',
     };

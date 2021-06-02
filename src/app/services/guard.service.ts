@@ -19,7 +19,7 @@ export class GuardService implements CanActivate {
 
   ) { }
 
-  
+
   /**
    * Determines if route can be activated
    * Determine si la route peut être activée pour l'utilisateur
@@ -31,7 +31,7 @@ export class GuardService implements CanActivate {
     return this.checkAuth();
   }
 
-  
+
   /**
    * Checks auth if the token has the right role
    * Verifie si l'utilisateur à le bon role

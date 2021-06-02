@@ -94,7 +94,7 @@ export class ProductsListPage implements OnInit {
                 this.Articles.push(element);
             });
 
-            const countQuery = '/Article/count';
+            const countQuery = '/Article/' + (this.ModeMenu === 1 ? 'Menu' :  'Ingr') + '/count';
 
             if (this.searchText === '') {
                 this.formService.getList(countQuery).toPromise().then((responseCount: any) => {
@@ -202,7 +202,7 @@ export class ProductsListPage implements OnInit {
      * Slide suivante
      */
     async nextPage() {
-        if (this.currentSlideNumber + 1 <= this.Pages.length) {
+        if (this.currentSlideNumber + 1 < this.Pages.length) {
             this.isButtonSlideChange = true;
             this.currentSlideNumber++;
             this.slides.slideNext().finally(async () => {

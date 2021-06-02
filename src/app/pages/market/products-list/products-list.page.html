@@ -60,7 +60,7 @@
   
       <div style="width: 100px; margin: 0 auto;text-align: center;">
         <ion-label slot="end" color="primary">Page</ion-label>
-        <ion-select color="primary" style="width: 100px;color:black;" interface="action-sheet" [value]="currentSlideNumber">
+        <ion-select color="primary" style="width: 100px;color:black;" interface="action-sheet" [(value)]="currentSlideNumber">
           <ion-select-option  *ngFor="let page of Pages" [value]="page.NumeroPage" color="primary">
             <ion-label color="primary">{{page.NumeroPage + 1}}</ion-label>
           </ion-select-option >
