@@ -54,9 +54,9 @@ export class BasketPage implements OnInit {
     });
   }
 
-  async validateOrder() {
+   validateOrder() {
     if (this.Articles.length > 0) {
-      await this.router.navigateByUrl('/order');
+       this.router.navigateByUrl('/order');
     }
   }
 }
