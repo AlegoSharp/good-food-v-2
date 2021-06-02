@@ -11,6 +11,28 @@ import { UtilityService } from './utility.service';
 })
 
 export class FormService {
+
+    public headerDictLogin: {
+        'Content-Type': 'application/json',
+        'email': 'quentin.alegos@gmail.com',
+        'password': 'hHxL3zXapXz3JWW',
+    };
+
+    public headerDictTAMRR(token: string): object{
+        const headerDictLogin = {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer' + ' ' + token.replace('"', '').replace('"', '')
+        };
+        return headerDictLogin;
+    }
+
+    public headerDictNone(): object{
+        const headerDictLogin = {
+            'Content-Type': 'application/json'
+        };
+        return headerDictLogin;
+    }
+
     constructor(
         private http: HttpClient,
         private env: EnvService,

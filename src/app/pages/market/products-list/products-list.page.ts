@@ -9,11 +9,13 @@ import { AlertService } from 'src/app/services/alert.service';
 import { FormService } from 'src/app/services/form.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { UtilityService } from 'src/app/services/utility.service';
+
 @Component({
     selector: 'app-products-list',
     templateUrl: './products-list.page.html',
     styleUrls: ['./products-list.page.scss'],
 })
+
 export class ProductsListPage implements OnInit {
 
     @ViewChild(IonSlides) slides: IonSlides;

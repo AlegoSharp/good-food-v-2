@@ -88,7 +88,9 @@ export class AppComponent {
   async getBasketCount() {
     await Storage.get({ key: 'basket' }).then(Response => {
       this.util.backetCache = JSON.parse(Response.value) as LigneCommande[];
-      this.basketCount = this.util.backetCache.length;
+      if (this.util.backetCache){
+        this.basketCount = this.util.backetCache.length;
+      }
     });
   }
 
