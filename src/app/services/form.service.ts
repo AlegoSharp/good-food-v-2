@@ -172,7 +172,7 @@ export class FormService {
             withCredentials: true
         };
         console.log('test');
-        return this.http.patch(this.env.API_URL + route + '/modify', body, requestOptions);
+        return this.http.patch(this.env.API_URL + route + '/modifier', body, requestOptions);
     }
 
     public getCustomRoute(model: string, propertyName: string): string {
