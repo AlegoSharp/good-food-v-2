@@ -17,10 +17,6 @@
     // box-shadow: 1.5px 1.5px 1.5px 1.4px rgba(0, 0, 0, 0.521);
 }
 
-.divPicture{
-    float:left;
-    width: 50%;
-}
 
 .productPicture{
     border-radius: 10px;
@@ -29,11 +25,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     height: 40vh;
-}
-
-.divDescription{
-    float:right;
-    width:50%;
+    object-fit: cover;
 }
 
 .description{
@@ -42,7 +34,7 @@
     margin: 0 auto; 
     margin-top: 10px;
     margin-bottom: 10px;
-    width:70%;
+    width:60%;
 }
 
 .mainContent{
