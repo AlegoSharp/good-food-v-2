@@ -16,8 +16,11 @@ import { AlertService } from './services/alert.service';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, RouterModule, BrowserAnimationsModule],
+  imports: [BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule, HttpClientModule,
+    RouterModule, BrowserAnimationsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, UtilityService, AlertService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

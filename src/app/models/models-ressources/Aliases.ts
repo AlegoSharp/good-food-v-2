@@ -57,7 +57,8 @@ export class Aliases{
     public static userConvivialNames = {
         idUtilisateur: 'Id',
         role: 'role',
-        idAdresseUtilisateur: 'idAdresseUtilisateur',
+        idAdresseFacturation: 'idAdresseFacturation',
+        idAdresseLivraison: 'idAdresseLivraison',
         nomUtilisateur: 'Nom',
         prenomUtilisateur: 'Prenom',
         numeroTelUtilisateur: 'Téléphone',

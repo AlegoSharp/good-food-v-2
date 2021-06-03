@@ -1,0 +1,61 @@
+<ion-menu contentId="main" menuId="myMenu" side="start">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+
+
+    <ion-menu-toggle>
+      <ion-item button (click)="setTitle('home')" [routerLink]="['/home']" routerDirection="root"
+        routerLinkActive="active-item" [routerLinkActiveOptions]="{exact: true}">
+        <ion-label>Notre sélection !</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle>
+      <ion-item button (click)="setTitle('home')" [routerLink]="['/us']" routerDirection="root"
+        routerLinkActive="active-item" [routerLinkActiveOptions]="{exact: true}">
+        <ion-label>Qui sommes nous ?</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle>
+      <ion-item button (click)="setTitle('home')" [routerLink]="['/products']" routerDirection="root"
+        routerLinkActive="active-item" [routerLinkActiveOptions]="{exact: true}">
+        <ion-label>Nos produits</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle>
+      <ion-item button (click)="setTitle('home')" [routerLink]="['/menus']" routerDirection="root"
+        routerLinkActive="active-item" [routerLinkActiveOptions]="{exact: true}">
+        <ion-label>Nos menus</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+  </ion-content>
+</ion-menu>
+<app-header [title]="title"></app-header>
+<ion-router-outlet id="main">
+
+</ion-router-outlet>
+<!-- 
+<ion-button [routerLink]="['/']" slot="start">
+  <ion-label>Notre sélection !</ion-label>
+</ion-button>
+<ion-button [routerLink]="['/us']"  slot="start">
+  <ion-label>Qui sommes nous ?</ion-label>
+</ion-button>
+<ion-button [routerLink]="['/products']" slot="start">
+  <ion-label>Nos produits</ion-label>
+</ion-button>
+<ion-button [routerLink]="['/menus']" slot="start">
+  <ion-label>Nos menus</ion-label>
+</ion-button>
+<ion-button [routerLink]="['/form']" slot="end" *ngIf="role.toUpperCase() === 'ADMIN'">
+  <ion-icon name="settings" size="large"></ion-icon>
+  <ion-label>Administration</ion-label>
+</ion-button>
+<ion-toggle slot="end" (ionChange)="switchTheme()"></ion-toggle> -->

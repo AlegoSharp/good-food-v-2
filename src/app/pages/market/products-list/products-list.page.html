@@ -39,15 +39,12 @@
               </div>
             </ion-toolbar>
             <img src="{{art.urlImgArticle}}" class="productPicture"> 
-            <ion-toolbar color="white" style="margin-top: 10px; padding: 10px;">
-              <ion-label color="dark" slot="start" ><b>{{art.prixArticleHt}} €</b></ion-label>
-
-              <ion-button slot="end" color="tertiary" class="btnCmd" text-wrap (click)="addItemToBasket(art)">
-                <ion-label class="ion-text-wrap">
-                  Ajouter au panier
-                </ion-label>
-              </ion-button>
-            </ion-toolbar>      
+            <ion-label color="dark" slot="start" style="width: 100%;"><b>{{art.prixArticleHt}} €</b></ion-label>
+            <ion-button size="small" slot="end" color="success" (click)="addItemToBasket(art)" style="width: 100%;">
+              <ion-label color="primary">
+                Ajouter au panier
+              </ion-label>
+            </ion-button>   
           </div>    
         </ion-card>
       </ion-slide>
