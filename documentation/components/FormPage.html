@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>good-food-v-2 documentation</title>
+        <title>GoodFond IHM Documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">good-food-v-2 documentation</a>
+            <a href="../" class="navbar-brand">GoodFond IHM Documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -162,9 +162,6 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#addReference">addReference</a>
-                            </li>
-                            <li>
                                 <a href="#createNewElement">createNewElement</a>
                             </li>
                             <li>
@@ -208,12 +205,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(formService: <a href="../injectables/FormService.html">FormService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, alertService: <a href="../injectables/AlertService.html">AlertService</a>)</code>
+<code>constructor(formService: <a href="../injectables/FormService.html">FormService</a>, alertService: <a href="../injectables/AlertService.html">AlertService</a>, util: <a href="../injectables/UtilityService.html">UtilityService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/form/form.page.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/form/form.page.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -243,10 +240,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>router</td>
+                                                        <td>alertService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                                        <code><a href="../injectables/AlertService.html" target="_self" >AlertService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -255,10 +252,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>alertService</td>
+                                                        <td>util</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/AlertService.html" target="_self" >AlertService</a></code>
+                                                                        <code><a href="../injectables/UtilityService.html" target="_self" >UtilityService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -288,45 +285,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="addReference"></a>
-                    <span class="name">
-                        <b>
-                            addReference
-                        </b>
-                        <a href="#addReference"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>addReference()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="119"
-                            class="link-to-prism">src/app/pages/form/form.page.ts:119</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="createNewElement"></a>
                     <span class="name">
                         <b>
@@ -345,14 +303,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="106"
-                            class="link-to-prism">src/app/pages/form/form.page.ts:106</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">src/app/pages/form/form.page.ts:142</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Creates new element in db
+Creer un nouvel element en base</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -384,14 +345,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="101"
-                            class="link-to-prism">src/app/pages/form/form.page.ts:101</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">src/app/pages/form/form.page.ts:129</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Edits element properties
+Edit les propriétés de l&#39;element</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -423,8 +387,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/app/pages/form/form.page.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/pages/form/form.page.ts:33</a></div>
                 </td>
             </tr>
 
@@ -462,14 +426,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">src/app/pages/form/form.page.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">src/app/pages/form/form.page.ts:76</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Determines whether id change
+Determine un changement dans l&#39;id</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -479,6 +446,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -493,6 +461,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>searchValue</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>target</td>
@@ -505,6 +477,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>target</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -546,14 +522,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="123"
-                            class="link-to-prism">src/app/pages/form/form.page.ts:123</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="161"
+                            class="link-to-prism">src/app/pages/form/form.page.ts:161</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Opens modal to select an element in db
+Ouvre une page modale pour selectionner un element en base</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -563,6 +542,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -577,6 +557,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>name</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>formProperty</td>
@@ -589,6 +573,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>formProperty</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -628,14 +616,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">src/app/pages/form/form.page.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">src/app/pages/form/form.page.ts:92</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Sets create form TODO REMOVE
+Initialise un formulaire de creation</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -669,14 +660,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/app/pages/form/form.page.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/pages/form/form.page.ts:43</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Sets property
+Remplis l&#39;objet à parir de la propriété du formulaire</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -686,6 +680,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -700,6 +695,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>item</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>value</td>
@@ -712,6 +711,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>value</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -751,14 +754,17 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">src/app/pages/form/form.page.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/app/pages/form/form.page.ts:63</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Sets update form
+Definit le formulaire en fonction de l&#39;objet en parametre</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -769,6 +775,7 @@
                                     <td>Type</td>
                                     <td>Optional</td>
                                     <td>Default value</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -785,6 +792,10 @@
                                     <td>
                                     </td>
 
+                                    <td>
+                                        <p>object</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>fixedModelName</td>
@@ -800,6 +811,10 @@
                                         <code>&#x27;&#x27;</code>
                                     </td>
 
+                                    <td>
+                                        <p>[fixedModelName]</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -844,7 +859,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/form/form.page.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/form/form.page.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -872,7 +887,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/form/form.page.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/form/form.page.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -900,7 +915,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/form/form.page.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/form/form.page.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -928,7 +943,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/form/form.page.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/form/form.page.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -956,7 +971,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/form/form.page.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/pages/form/form.page.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -970,18 +985,17 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Type } from &#x27;@angular/compiler/src/core&#x27;;
-import { Component, OnInit, NgModule } from &#x27;@angular/core&#x27;;
+import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { IonInput } from &#x27;@ionic/angular&#x27;;
 import { Article } from &#x27;src/app/models/Article&#x27;;
 import { Form } from &#x27;src/app/models/Form&#x27;;
-import { Utilisateur } from &#x27;src/app/models/User&#x27;;
+import { Utilisateur } from &#x27;src/app/models/Utilisateur&#x27;;
 import { FormService } from &#x27;../../services/form.service&#x27;;
-import { Router, RouterOutlet } from &#x27;@angular/router&#x27;;
 import { AlertService } from &#x27;src/app/services/alert.service&#x27;;
 import { FormProperty } from &#x27;src/app/models/FormProperty&#x27;;
 import { Categorie_Article } from &#x27;src/app/models/Categorie_Article&#x27;;
 import { Promo } from &#x27;src/app/models/Promo&#x27;;
-import { R3ResolvedDependencyType } from &#x27;@angular/compiler&#x27;;
+import { UtilityService } from &#x27;src/app/services/utility.service&#x27;;
 
 @Component({
   selector: &#x27;app-form&#x27;,
@@ -998,15 +1012,20 @@ export class FormPage implements OnInit {
 
   constructor(
     private formService: FormService,
-    private router: Router,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private util: UtilityService
   ) { }
 
   ngOnInit() {
     this.MyForm &#x3D; new Form();
     this.setCreateForm();
   }
-
+  /**
+   * Sets property
+   * Remplis l&#x27;objet à parir de la propriété du formulaire
+   * @param item item
+   * @param value value
+   */
   async setProperty(item: FormProperty, value: any) {
     if (item.alias &#x3D;&#x3D;&#x3D; &#x27;Id&#x27;) {
       this.myObject &#x3D; value;
@@ -1021,6 +1040,12 @@ export class FormPage implements OnInit {
     }
   }
 
+  /**
+   * Sets update form
+   * Definit le formulaire en fonction de l&#x27;objet en parametre
+   * @param object object
+   * @param [fixedModelName] [fixedModelName]
+   */
   setUpdateForm(object: any, fixedModelName &#x3D; &#x27;&#x27;) {
     this.myObject &#x3D; object;
     this.MyForm &#x3D; new Form();
@@ -1028,6 +1053,12 @@ export class FormPage implements OnInit {
       this.formService.getFormFromObject(object) : this.formService.getFormFromObject(object, fixedModelName);
   }
 
+  /**
+   * Determines whether id change
+   * Determine un changement dans l&#x27;id
+   * @param searchValue searchValue
+   * @param target target
+   */
   onIdChange(searchValue: string, target: IonInput): void {
     if (searchValue.length &gt; 0) {
       this.formService.getDetail(searchValue, window.document.URL.split(&#x27;/&#x27;)[4]).toPromise()
@@ -1040,6 +1071,10 @@ export class FormPage implements OnInit {
     }
   }
 
+  /**
+   * Sets create form TODO REMOVE
+   * Initialise un formulaire de creation
+   */
   setCreateForm() {
     this.MyForm &#x3D; new Form();
     let u: any;
@@ -1063,22 +1098,38 @@ export class FormPage implements OnInit {
       this.itemName &#x3D; &#x27;Promo&#x27;;
       u.init_empty();
     }
-    
+    else {
+      u &#x3D; new Article();
+      this.itemName &#x3D; &#x27;Article&#x27;;
+      u.init_empty();
+    }
     this.myObject &#x3D; u;
     this.MyForm &#x3D; this.formService.getFormFromObject(u, this.itemName);
     console.log(this.MyForm);
   }
 
+  /**
+   * Edits element properties
+   * Edit les propriétés de l&#x27;element
+   */
   editElement() {
     this.formService.setObjectProps(this.myObject, this.MyForm.properties);
-    this.formService.postEditObject(window.document.URL.split(&#x27;/&#x27;)[4], this.myObject);
+    this.formService.postEditObject(window.document.URL.split(&#x27;/&#x27;)[4], this.myObject, this.util.token).toPromise().then(Response &#x3D;&gt; {
+
+    }).catch(reason &#x3D;&gt; {
+      this.alertService.presentAlertOk(&#x27;Erreur&#x27;, reason.message);
+    });
   }
 
+  /**
+   * Creates new element in db
+   * Creer un nouvel element en base
+   */
   createNewElement() {
     this.formService.setObjectProps(this.myObject, this.MyForm.properties);
     delete this.myObject[this.idName];
     console.log(this.idName, this.myObject);
-    this.formService.postObject(window.document.URL.split(&#x27;/&#x27;)[4], this.myObject).toPromise()
+    this.formService.postObject(window.document.URL.split(&#x27;/&#x27;)[4], this.myObject, this.util.token).toPromise()
       .then(() &#x3D;&gt; {
         this.alertService.presentToast(&#x27;Success&#x27;, this.MyForm.title + &#x27; créé&#x27;, true);
       }).catch(reason &#x3D;&gt; {
@@ -1087,10 +1138,12 @@ export class FormPage implements OnInit {
       });
   }
 
-  addReference() {
-
-  }
-
+  /**
+   * Opens modal to select an element in db
+   * Ouvre une page modale pour selectionner un element en base
+   * @param name name
+   * @param formProperty formProperty
+   */
   async openModal(name: string, formProperty: FormProperty) {
     this.alertService.presentModal(name, name).then(async (modal) &#x3D;&gt; {
       await modal.present();

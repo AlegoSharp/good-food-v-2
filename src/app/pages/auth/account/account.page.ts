@@ -89,12 +89,12 @@ export class AccountPage implements OnInit {
       if (response !== undefined) {
         this.addressLivr = response[0];
         this.addressFact = response[1];
-        if(this.addressLivr){
+        if (this.addressLivr){
           this.addressLivr = new Adresse_Utilisateur();
           this.addressLivr.init_empty();
         }
 
-        if(this.addressFact){
+        if (this.addressFact){
           this.addressFact = new Adresse_Utilisateur();
           this.addressFact.init_empty();
         }
@@ -102,11 +102,11 @@ export class AccountPage implements OnInit {
     });
   }
   async update(myadresse: any){
-    console.log(JSON.stringify(myadresse))
-    this.formService.postEditObject("Adresse_Utilisateur", myadresse, this.util.token).toPromise().then(Response =>{
+    console.log(JSON.stringify(myadresse));
+    this.formService.postEditObject('Adresse_Utilisateur', myadresse, this.util.token).toPromise().then(Response => {
 
-    }).catch(reason =>{
-      this.alertService.presentAlertOk("Erreur",reason.message);
+    }).catch(reason => {
+      this.alertService.presentAlertOk('Erreur', reason.message);
     });
   }
 

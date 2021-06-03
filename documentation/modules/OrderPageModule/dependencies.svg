@@ -24,55 +24,55 @@
 <title>cluster_OrderPageModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="64,-70 64,-195 432,-195 432,-70 64,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_OrderPageModule_declarations</title>
-<polygon fill="none" stroke="black" points="332,-78 332,-130 424,-130 424,-78 332,-78"/>
-</g>
 <g id="clust4" class="cluster">
 <title>cluster_OrderPageModule_imports</title>
-<polygon fill="none" stroke="black" points="72,-78 72,-130 324,-130 324,-78 72,-78"/>
+<polygon fill="none" stroke="black" points="172,-78 172,-130 424,-130 424,-78 172,-78"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_OrderPageModule_declarations</title>
+<polygon fill="none" stroke="black" points="72,-78 72,-130 164,-130 164,-78 72,-78"/>
 </g>
 <!-- OrderPage -->
 <g id="node1" class="node">
 <title>OrderPage</title>
-<polygon fill="#ffffb3" stroke="black" points="415.85,-122 340.15,-122 340.15,-86 415.85,-86 415.85,-122"/>
-<text text-anchor="middle" x="378" y="-99.8" font-family="Times,serif" font-size="14.00">OrderPage</text>
+<polygon fill="#ffffb3" stroke="black" points="155.85,-122 80.15,-122 80.15,-86 155.85,-86 155.85,-122"/>
+<text text-anchor="middle" x="118" y="-99.8" font-family="Times,serif" font-size="14.00">OrderPage</text>
 </g>
 <!-- OrderPageModule -->
 <g id="node2" class="node">
 <title>OrderPageModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="293.9,-187 290.9,-191 269.9,-191 266.9,-187 174.1,-187 174.1,-151 293.9,-151 293.9,-187"/>
-<text text-anchor="middle" x="234" y="-164.8" font-family="Times,serif" font-size="14.00">OrderPageModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="266.9,-187 263.9,-191 242.9,-191 239.9,-187 147.1,-187 147.1,-151 266.9,-151 266.9,-187"/>
+<text text-anchor="middle" x="207" y="-164.8" font-family="Times,serif" font-size="14.00">OrderPageModule</text>
 </g>
 <!-- OrderPage&#45;&gt;OrderPageModule -->
 <g id="edge1" class="edge">
 <title>OrderPage&#45;&gt;OrderPageModule</title>
-<path fill="none" stroke="black" d="M378,-122.11C378,-141.34 378,-169 378,-169 378,-169 303.82,-169 303.82,-169"/>
-<polygon fill="black" stroke="black" points="303.82,-165.5 293.82,-169 303.82,-172.5 303.82,-165.5"/>
+<path fill="none" stroke="black" d="M151.61,-122.11C151.61,-122.11 151.61,-140.99 151.61,-140.99"/>
+<polygon fill="black" stroke="black" points="148.11,-140.99 151.61,-150.99 155.11,-140.99 148.11,-140.99"/>
 </g>
 <!-- OrderPageRoutingModule -->
 <g id="node3" class="node">
 <title>OrderPageRoutingModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="316.02,-122 313.02,-126 292.02,-126 289.02,-122 151.98,-122 151.98,-86 316.02,-86 316.02,-122"/>
-<text text-anchor="middle" x="234" y="-99.8" font-family="Times,serif" font-size="14.00">OrderPageRoutingModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="416.02,-122 413.02,-126 392.02,-126 389.02,-122 251.98,-122 251.98,-86 416.02,-86 416.02,-122"/>
+<text text-anchor="middle" x="334" y="-99.8" font-family="Times,serif" font-size="14.00">OrderPageRoutingModule</text>
 </g>
 <!-- OrderPageRoutingModule&#45;&gt;OrderPageModule -->
 <g id="edge2" class="edge">
 <title>OrderPageRoutingModule&#45;&gt;OrderPageModule</title>
-<path fill="none" stroke="black" d="M234,-122.11C234,-122.11 234,-140.99 234,-140.99"/>
-<polygon fill="black" stroke="black" points="230.5,-140.99 234,-150.99 237.5,-140.99 230.5,-140.99"/>
+<path fill="none" stroke="black" d="M259.22,-122.11C259.22,-122.11 259.22,-140.99 259.22,-140.99"/>
+<polygon fill="black" stroke="black" points="255.72,-140.99 259.22,-150.99 262.72,-140.99 255.72,-140.99"/>
 </g>
 <!-- Router -->
 <g id="node4" class="node">
 <title>Router</title>
-<polygon fill="#8dd3c7" stroke="black" points="134.1,-122 131.1,-126 110.1,-126 107.1,-122 79.9,-122 79.9,-86 134.1,-86 134.1,-122"/>
-<text text-anchor="middle" x="107" y="-99.8" font-family="Times,serif" font-size="14.00">Router</text>
+<polygon fill="#8dd3c7" stroke="black" points="234.1,-122 231.1,-126 210.1,-126 207.1,-122 179.9,-122 179.9,-86 234.1,-86 234.1,-122"/>
+<text text-anchor="middle" x="207" y="-99.8" font-family="Times,serif" font-size="14.00">Router</text>
 </g>
 <!-- Router&#45;&gt;OrderPageModule -->
 <g id="edge3" class="edge">
 <title>Router&#45;&gt;OrderPageModule</title>
-<path fill="none" stroke="black" d="M107,-122.11C107,-141.34 107,-169 107,-169 107,-169 164.22,-169 164.22,-169"/>
-<polygon fill="black" stroke="black" points="164.22,-172.5 174.22,-169 164.22,-165.5 164.22,-172.5"/>
+<path fill="none" stroke="black" d="M207,-122.11C207,-122.11 207,-140.99 207,-140.99"/>
+<polygon fill="black" stroke="black" points="203.5,-140.99 207,-150.99 210.5,-140.99 203.5,-140.99"/>
 </g>
 </g>
 </svg>

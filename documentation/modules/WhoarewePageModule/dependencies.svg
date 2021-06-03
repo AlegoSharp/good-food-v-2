@@ -24,43 +24,43 @@
 <title>cluster_WhoarewePageModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="72,-70 72,-195 424,-195 424,-70 72,-70"/>
 </g>
-<g id="clust4" class="cluster">
-<title>cluster_WhoarewePageModule_imports</title>
-<polygon fill="none" stroke="black" points="208,-78 208,-130 416,-130 416,-78 208,-78"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_WhoarewePageModule_declarations</title>
-<polygon fill="none" stroke="black" points="80,-78 80,-130 200,-130 200,-78 80,-78"/>
+<polygon fill="none" stroke="black" points="296,-78 296,-130 416,-130 416,-78 296,-78"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_WhoarewePageModule_imports</title>
+<polygon fill="none" stroke="black" points="80,-78 80,-130 288,-130 288,-78 80,-78"/>
 </g>
 <!-- WhoarewePage -->
 <g id="node1" class="node">
 <title>WhoarewePage</title>
-<polygon fill="#ffffb3" stroke="black" points="191.84,-122 88.16,-122 88.16,-86 191.84,-86 191.84,-122"/>
-<text text-anchor="middle" x="140" y="-99.8" font-family="Times,serif" font-size="14.00">WhoarewePage</text>
+<polygon fill="#ffffb3" stroke="black" points="407.84,-122 304.16,-122 304.16,-86 407.84,-86 407.84,-122"/>
+<text text-anchor="middle" x="356" y="-99.8" font-family="Times,serif" font-size="14.00">WhoarewePage</text>
 </g>
 <!-- WhoarewePageModule -->
 <g id="node2" class="node">
 <title>WhoarewePageModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="306.89,-187 303.89,-191 282.89,-191 279.89,-187 159.11,-187 159.11,-151 306.89,-151 306.89,-187"/>
-<text text-anchor="middle" x="233" y="-164.8" font-family="Times,serif" font-size="14.00">WhoarewePageModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="336.89,-187 333.89,-191 312.89,-191 309.89,-187 189.11,-187 189.11,-151 336.89,-151 336.89,-187"/>
+<text text-anchor="middle" x="263" y="-164.8" font-family="Times,serif" font-size="14.00">WhoarewePageModule</text>
 </g>
 <!-- WhoarewePage&#45;&gt;WhoarewePageModule -->
 <g id="edge1" class="edge">
 <title>WhoarewePage&#45;&gt;WhoarewePageModule</title>
-<path fill="none" stroke="black" d="M175.61,-122.11C175.61,-122.11 175.61,-140.99 175.61,-140.99"/>
-<polygon fill="black" stroke="black" points="172.11,-140.99 175.61,-150.99 179.11,-140.99 172.11,-140.99"/>
+<path fill="none" stroke="black" d="M320.39,-122.11C320.39,-122.11 320.39,-140.99 320.39,-140.99"/>
+<polygon fill="black" stroke="black" points="316.89,-140.99 320.39,-150.99 323.89,-140.99 316.89,-140.99"/>
 </g>
 <!-- WhoarewePageRoutingModule -->
 <g id="node3" class="node">
 <title>WhoarewePageRoutingModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="408.01,-122 405.01,-126 384.01,-126 381.01,-122 215.99,-122 215.99,-86 408.01,-86 408.01,-122"/>
-<text text-anchor="middle" x="312" y="-99.8" font-family="Times,serif" font-size="14.00">WhoarewePageRoutingModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="280.01,-122 277.01,-126 256.01,-126 253.01,-122 87.99,-122 87.99,-86 280.01,-86 280.01,-122"/>
+<text text-anchor="middle" x="184" y="-99.8" font-family="Times,serif" font-size="14.00">WhoarewePageRoutingModule</text>
 </g>
 <!-- WhoarewePageRoutingModule&#45;&gt;WhoarewePageModule -->
 <g id="edge2" class="edge">
 <title>WhoarewePageRoutingModule&#45;&gt;WhoarewePageModule</title>
-<path fill="none" stroke="black" d="M261.22,-122.11C261.22,-122.11 261.22,-140.99 261.22,-140.99"/>
-<polygon fill="black" stroke="black" points="257.72,-140.99 261.22,-150.99 264.72,-140.99 257.72,-140.99"/>
+<path fill="none" stroke="black" d="M234.78,-122.11C234.78,-122.11 234.78,-140.99 234.78,-140.99"/>
+<polygon fill="black" stroke="black" points="231.28,-140.99 234.78,-150.99 238.28,-140.99 231.28,-140.99"/>
 </g>
 </g>
 </svg>

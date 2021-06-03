@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>good-food-v-2 documentation</title>
+        <title>GoodFond IHM Documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">good-food-v-2 documentation</a>
+            <a href="../" class="navbar-brand">GoodFond IHM Documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -104,12 +104,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, storageService: <a href="../injectables/StorageService.html">StorageService</a>)</code>
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, storageService: <a href="../injectables/StorageService.html">StorageService</a>, util: <a href="../injectables/UtilityService.html">UtilityService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/services/guard.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/guard.service.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -143,6 +143,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/StorageService.html" target="_self" >StorageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>util</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UtilityService.html" target="_self" >UtilityService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -188,8 +200,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/app/services/guard.service.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/app/services/guard.service.ts:30</a></div>
                 </td>
             </tr>
 
@@ -276,8 +288,8 @@ Determine si la route peut être activée pour l&#39;utilisateur</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/app/services/guard.service.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/services/guard.service.ts:40</a></div>
                 </td>
             </tr>
 
@@ -312,17 +324,23 @@ import { CanActivate, Router, RouterStateSnapshot, ActivatedRouteSnapshot } from
 import { StorageService } from &#x27;./storage.service&#x27;
 import jwt_decode from &#x27;jwt-decode&#x27;;
 import { Plugins } from &#x27;@capacitor/core&#x27;;
+import { UtilityService } from &#x27;./utility.service&#x27;;
 
 const { Storage } &#x3D; Plugins;
-@Injectable()
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+
 export class GuardService implements CanActivate {
 
   constructor(
     private router: Router,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private util: UtilityService,
+
   ) { }
 
-  
+
   /**
    * Determines if route can be activated
    * Determine si la route peut être activée pour l&#x27;utilisateur
@@ -334,17 +352,23 @@ export class GuardService implements CanActivate {
     return this.checkAuth();
   }
 
-  
+
   /**
    * Checks auth if the token has the right role
    * Verifie si l&#x27;utilisateur à le bon role
    * @returns auth
    */
   async checkAuth(): Promise&lt;boolean&gt; {
+    console.log((jwt_decode(this.util.token.replace(&#x27;&quot;&#x27;, &#x27;&#x27;)) as any).role);
+    if ((jwt_decode(this.util.token) as any).role &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;) {
+      return true;
+    } else {
+      return false;
+    }
     const result &#x3D; await Storage.get({ key: &#x27;token&#x27; }).then(x &#x3D;&gt; {
       if (x.value !&#x3D;&#x3D; null &amp;&amp; x.value !&#x3D;&#x3D; undefined) {
         // console.log((jwt_decode(x.value) as any).role &#x3D;&#x3D;&#x3D; 1);
-        if ((jwt_decode(x.value) as any).role &#x3D;&#x3D;&#x3D; 2) {
+        if ((jwt_decode(x.value) as any).role &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;) {
           return true;
         } else {
           return false;

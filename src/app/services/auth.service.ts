@@ -24,7 +24,7 @@ export class AuthService {
    * Requete http pour connecter l'utilisateur
    * @param email email
    * @param password password
-   * @returns  
+   * @returns Promise
    */
   login(email: string, password: string) {
     return this.http.post(this.env.API_URL + 'Utilisateur/connexion/' + email + '&' + password, '', {responseType: 'text' });
@@ -34,14 +34,14 @@ export class AuthService {
   /**
    * Registers an user
    * Créer un compte utilisateur
-   * @param nom 
-   * @param prenom 
-   * @param email 
-   * @param password 
-   * @returns  
+   * @param nom nom
+   * @param prenom prenom
+   * @param email email
+   * @param password password
+   * @returns Promise
    */
   register(nom: string, prenom: string, email: string, password: string) {
-    let user = new Utilisateur();
+    const user = new Utilisateur();
     user.nomUtilisateur = nom;
     user.prenomUtilisateur = prenom;
     user.mdpUtilisateur = password;
@@ -60,7 +60,6 @@ export class AuthService {
   /**
    * Logouts --> Remove token
    * Se déconnecter --> Suppr token
-   * @returns
    */
   logout() {
     const headers = new HttpHeaders({
@@ -73,6 +72,6 @@ export class AuthService {
         delete this.token;
         return data;
       })
-    )
+    );
   }
 }

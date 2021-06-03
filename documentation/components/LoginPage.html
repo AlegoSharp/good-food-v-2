@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>good-food-v-2 documentation</title>
+        <title>GoodFond IHM Documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">good-food-v-2 documentation</a>
+            <a href="../" class="navbar-brand">GoodFond IHM Documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -158,7 +158,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, authService: <a href="../injectables/AuthService.html">AuthService</a>, alertService: <a href="../injectables/AlertService.html">AlertService</a>)</code>
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, authService: <a href="../injectables/AuthService.html">AuthService</a>, alertService: <a href="../injectables/AlertService.html">AlertService</a>, util: <a href="../injectables/UtilityService.html">UtilityService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -209,6 +209,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/AlertService.html" target="_self" >AlertService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>util</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UtilityService.html" target="_self" >UtilityService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -439,7 +451,7 @@ import { NgForm } from &#x27;@angular/forms&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 import { AlertService } from &#x27;src/app/services/alert.service&#x27;;
 import { Plugins } from &#x27;@capacitor/core&#x27;;
-// import { CookieService } from &#x27;ngx-cookie-service&#x27;;
+import { UtilityService } from &#x27;src/app/services/utility.service&#x27;;
 
 const { Storage } &#x3D; Plugins;
 
@@ -453,8 +465,8 @@ export class LoginPage implements OnInit {
   constructor(
       private router: Router,
       private authService: AuthService,
-      // private cookieService: CookieService,
-      private alertService: AlertService
+      private alertService: AlertService,
+      private util: UtilityService
   ) { }
 
   ngOnInit() {
@@ -466,8 +478,8 @@ export class LoginPage implements OnInit {
       .toPromise()
       .then(response &#x3D;&gt; {
         console.log(response);
-        this.setObject(&#x27;token&#x27;, response.replace(&#x27;&quot;&#x27;,&#x27;&#x27;));
-        // this.cookieService.set(&#x27;jwt&#x27;, response);
+        this.setObject(&#x27;token&#x27;, response.replace(&#x27;&quot;&#x27;, &#x27;&#x27;));
+        this.util.token &#x3D; response.replace(&#x27;&quot;&#x27;, &#x27;&#x27;);
         this.router.navigateByUrl(&#x27;/account&#x27;);
       }
       ).catch(reason &#x3D;&gt; {
@@ -484,18 +496,18 @@ export class LoginPage implements OnInit {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;ion-content&gt;
-  &lt;div&gt;
-    &lt;ion-card class&#x3D;&quot;login&quot; color&#x3D;&quot;dark&quot;&gt;
-      &lt;div class&#x3D;&quot;divLogo&quot;&gt; 
-        &lt;img class&#x3D;&quot;logo&quot; src&#x3D;&quot;assets/GoodFood_Logo1.png&quot;/&gt;
-      &lt;/div&gt;
+  &lt;div class&#x3D;&quot;login&quot;&gt; 
+    &lt;div class&#x3D;&quot;divLogo&quot;&gt; 
+      &lt;img class&#x3D;&quot;logo&quot; src&#x3D;&quot;assets/GoodFood_Logo1.png&quot;/&gt;
+    &lt;/div&gt;
+    &lt;ion-card  color&#x3D;&quot;secondary&quot;&gt;
       &lt;form class&#x3D;&quot;form&quot; #f&#x3D;&quot;ngForm&quot; (ngSubmit)&#x3D;&quot;login(f)&quot; method&#x3D;&quot;post&quot;&gt;
-          &lt;ion-item lines&#x3D;&quot;full&quot; color&#x3D;&quot;dark&quot; class&#x3D;&quot;formitem&quot;&gt;
+          &lt;ion-item lines&#x3D;&quot;full&quot; class&#x3D;&quot;formitem&quot;&gt;
             &lt;ion-label position&#x3D;&quot;floating&quot;&gt;Email&lt;/ion-label&gt;
             &lt;ion-input type&#x3D;&quot;email&quot; name&#x3D;&quot;email&quot; ngModel required&gt;&lt;/ion-input&gt;
           &lt;/ion-item&gt;
 
-          &lt;ion-item lines&#x3D;&quot;full&quot; color&#x3D;&quot;dark&quot; class&#x3D;&quot;formitem&quot;&gt;
+          &lt;ion-item lines&#x3D;&quot;full&quot; class&#x3D;&quot;formitem&quot;&gt;
             &lt;ion-label position&#x3D;&quot;floating&quot;&gt;Mot de passe&lt;/ion-label&gt;
             &lt;ion-input type&#x3D;&quot;password&quot; required name&#x3D;&quot;password&quot; ngModel&gt;&lt;/ion-input&gt;
           &lt;/ion-item&gt;
@@ -504,7 +516,9 @@ export class LoginPage implements OnInit {
               Mot de passe oublié ? 
               &lt;a class&#x3D;&quot;small-text&quot; href&#x3D;&quot;/forgot&quot;&gt;cliquez ici&lt;/a&gt;
           &lt;/div&gt;
-          &lt;ion-button type&#x3D;&quot;submit&quot; color&#x3D;&quot;tertiary&quot;&gt;Connexion&lt;/ion-button&gt;
+          &lt;ion-toolbar&gt;
+            &lt;ion-button  slot&#x3D;&quot;end&quot; type&#x3D;&quot;submit&quot; color&#x3D;&quot;secondary&quot;&gt;Connexion&lt;/ion-button&gt;
+          &lt;/ion-toolbar&gt;
       &lt;/form&gt;
     &lt;/ion-card&gt;
   &lt;/div&gt;
@@ -565,7 +579,7 @@ export class LoginPage implements OnInit {
 }
 
 ion-content {
-  --ion-background-color: #0CA789;
+  --ion-background-color: #ffffff;
 }</code></pre>
     </div>
 
@@ -594,7 +608,7 @@ ion-content {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-content>  <div>    <ion-card class="login" color="dark">      <div class="divLogo">         <img class="logo" src="assets/GoodFood_Logo1.png"/>      </div>      <form class="form" #f="ngForm" (ngSubmit)="login(f)" method="post">          <ion-item lines="full" color="dark" class="formitem">            <ion-label position="floating">Email</ion-label>            <ion-input type="email" name="email" ngModel required></ion-input>          </ion-item>          <ion-item lines="full" color="dark" class="formitem">            <ion-label position="floating">Mot de passe</ion-label>            <ion-input type="password" required name="password" ngModel></ion-input>          </ion-item>          <div class="forgot-pwd" class="formitem">              Mot de passe oublié ?               <a class="small-text" href="/forgot">cliquez ici</a>          </div>          <ion-button type="submit" color="tertiary">Connexion</ion-button>      </form>    </ion-card>  </div></ion-content></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-content>  <div class="login">     <div class="divLogo">       <img class="logo" src="assets/GoodFood_Logo1.png"/>    </div>    <ion-card  color="secondary">      <form class="form" #f="ngForm" (ngSubmit)="login(f)" method="post">          <ion-item lines="full" class="formitem">            <ion-label position="floating">Email</ion-label>            <ion-input type="email" name="email" ngModel required></ion-input>          </ion-item>          <ion-item lines="full" class="formitem">            <ion-label position="floating">Mot de passe</ion-label>            <ion-input type="password" required name="password" ngModel></ion-input>          </ion-item>          <div class="forgot-pwd" class="formitem">              Mot de passe oublié ?               <a class="small-text" href="/forgot">cliquez ici</a>          </div>          <ion-toolbar>            <ion-button  slot="end" type="submit" color="secondary">Connexion</ion-button>          </ion-toolbar>      </form>    </ion-card>  </div></ion-content></div>'
     var COMPONENTS = [{'name': 'AccountPage', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ArticleDetailPage', 'selector': 'app-article-detail'},{'name': 'BasketPage', 'selector': 'app-basket'},{'name': 'ForgetPasswordPage', 'selector': 'app-forget-password'},{'name': 'FormPage', 'selector': 'app-form'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'OrderPage', 'selector': 'app-order'},{'name': 'PickerModalPage', 'selector': 'app-picker-modal'},{'name': 'ProductsListPage', 'selector': 'app-products-list'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'WhoarewePage', 'selector': 'app-whoarewe'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginPage'};

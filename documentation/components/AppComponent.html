@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>good-food-v-2 documentation</title>
+        <title>GoodFond IHM Documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">good-food-v-2 documentation</a>
+            <a href="../" class="navbar-brand">GoodFond IHM Documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -124,12 +124,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#autoSaveInterval">autoSaveInterval</a>
-                            </li>
-                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#basketCount">basketCount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#displayFranchise">displayFranchise</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -141,6 +141,9 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#getFranchises">getFranchises</a>
+                            </li>
+                            <li>
                                 <a href="#IsConnected">IsConnected</a>
                             </li>
                             <li>
@@ -178,28 +181,23 @@
                                 <a href="#backHome">backHome</a>
                             </li>
                             <li>
-                                <a href="#fadeIn">fadeIn</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#getBasketCount">getBasketCount</a>
                             </li>
                             <li>
-                                <a href="#fadeOut">fadeOut</a>
-                            </li>
-                            <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
                                 <a href="#getToken">getToken</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
+                                    <span class="modifier">Public</span>
+                                <a href="#isConnected">isConnected</a>
+                            </li>
+                            <li>
                                 <a href="#onSearchInput">onSearchInput</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#prepareRoute">prepareRoute</a>
-                            </li>
-                            <li>
                                 <a href="#selectFranchise">selectFranchise</a>
-                            </li>
-                            <li>
-                                <a href="#showMenu">showMenu</a>
                             </li>
                         </ul>
                     </td>
@@ -219,7 +217,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, util: <a href="../injectables/UtilityService.html">UtilityService</a>, formService: <a href="../injectables/FormService.html">FormService</a>)</code>
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, util: <a href="../injectables/UtilityService.html">UtilityService</a>, formService: <a href="../injectables/FormService.html">FormService</a>, alertService: <a href="../injectables/AlertService.html">AlertService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -277,6 +275,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>alertService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AlertService.html" target="_self" >AlertService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -317,8 +327,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">src/app/app.component.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">src/app/app.component.ts:84</a></div>
                 </td>
             </tr>
 
@@ -338,168 +348,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="fadeIn"></a>
-                    <span class="name">
-                        <b>
-                            fadeIn
-                        </b>
-                        <a href="#fadeIn"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>fadeIn(elementID: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">src/app/app.component.ts:77</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>elementID</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="fadeOut"></a>
-                    <span class="name">
-                        <b>
-                            fadeOut
-                        </b>
-                        <a href="#fadeOut"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>fadeOut(elementID: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="86"
-                            class="link-to-prism">src/app/app.component.ts:86</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>elementID</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getToken"></a>
+                    <a name="getBasketCount"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Async</span>
-                            getToken
+                            getBasketCount
                         </b>
-                        <a href="#getToken"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getBasketCount"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getToken()</code>
+                    <code>getBasketCount()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="116"
-                            class="link-to-prism">src/app/app.component.ts:116</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">src/app/app.component.ts:88</a></div>
                 </td>
             </tr>
 
@@ -519,10 +389,92 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getToken"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Async</span>
+                            getToken
+                        </b>
+                        <a href="#getToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getToken()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/app/app.component.ts:60</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isConnected"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isConnected
+                        </b>
+                        <a href="#isConnected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isConnected()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/app.component.ts:53</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="onSearchInput"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Async</span>
                             onSearchInput
                         </b>
                         <a href="#onSearchInput"><span class="icon ion-ios-link"></span></a>
@@ -531,16 +483,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onSearchInput(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+<code>onSearchInput(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="128"
-                            class="link-to-prism">src/app/app.component.ts:128</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">src/app/app.component.ts:97</a></div>
                 </td>
             </tr>
 
@@ -577,52 +528,11 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
                         
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="prepareRoute"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            prepareRoute
-                        </b>
-                        <a href="#prepareRoute"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>prepareRoute()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="95"
-                            class="link-to-prism">src/app/app.component.ts:95</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
                     </div>
                 </td>
             </tr>
@@ -650,8 +560,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="138"
-                            class="link-to-prism">src/app/app.component.ts:138</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="108"
+                            class="link-to-prism">src/app/app.component.ts:108</a></div>
                 </td>
             </tr>
 
@@ -698,96 +608,12 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="showMenu"></a>
-                    <span class="name">
-                        <b>
-                            showMenu
-                        </b>
-                        <a href="#showMenu"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>showMenu()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">src/app/app.component.ts:61</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
     <section>
     
         <h3 id="inputs">
             Properties
         </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="autoSaveInterval"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            autoSaveInterval</b>
-                            <a href="#autoSaveInterval"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>setInterval(async () &#x3D;&gt; {
-    await this.getToken();
-    await this.prepareRoute();
-    if(this.searchFranchise &amp;&amp; this.searchFranchise.length &gt; 2){
-      this.formService.getList(&quot;Franchise?search&#x3D;&quot; + this.searchFranchise).toPromise().then(Response &#x3D;&gt;{
-        this.franchises &#x3D; Response as Array&lt;Franchise&gt;;
-        this.searchFranchise &#x3D; &#x27;&#x27;;
-        console.log(this.franchises);
-      }).catch(reason &#x3D;&gt;{
-        
-      });
-    }
-  }, 1000)</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/app.component.ts:43</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -814,7 +640,34 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/app.component.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/app.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayFranchise"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            displayFranchise</b>
+                            <a href="#displayFranchise"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/app.component.ts:39</a></div>
                             </td>
                         </tr>
 
@@ -842,7 +695,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/app.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/app.component.ts:43</a></div>
                             </td>
                         </tr>
 
@@ -869,7 +722,34 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/app.component.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/app.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getFranchises"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getFranchises</b>
+                            <a href="#getFranchises"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/app.component.ts:77</a></div>
                             </td>
                         </tr>
 
@@ -883,7 +763,6 @@
                         <a name="IsConnected"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Public</span>
                             IsConnected</b>
                             <a href="#IsConnected"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -896,7 +775,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/app.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/app.component.ts:51</a></div>
                             </td>
                         </tr>
 
@@ -929,7 +808,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/app.component.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/app.component.ts:40</a></div>
                             </td>
                         </tr>
 
@@ -961,7 +840,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/app.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/app.component.ts:42</a></div>
                             </td>
                         </tr>
 
@@ -989,7 +868,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/app.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/app.component.ts:44</a></div>
                             </td>
                         </tr>
 
@@ -1016,7 +895,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/app.component.ts:38</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/app.component.ts:47</a></div>
                             </td>
                         </tr>
 
@@ -1038,18 +917,12 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;&#x27;</code>
+                            <i>Default value : </i><code>this.util.token</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/app.component.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/app.component.ts:49</a></div>
                             </td>
                         </tr>
 
@@ -1062,136 +935,106 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { createAnimation, Animation } from &#x27;@ionic/core&#x27;;
-import { Router, RouterOutlet } from &#x27;@angular/router&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { createAnimation } from &#x27;@ionic/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
 import { trigger } from &#x27;@angular/animations&#x27;;
 import { Article } from &#x27;./models/Article&#x27;;
 import jwt_decode from &#x27;jwt-decode&#x27;;
 import { Plugins } from &#x27;@capacitor/core&#x27;;
-import { MenuItem } from &#x27;./models/UiModels/MenuItem&#x27;;
 import { UtilityService } from &#x27;./services/utility.service&#x27;;
 import { FormService } from &#x27;./services/form.service&#x27;;
 import { Franchise } from &#x27;./models/Franchise&#x27;;
-// import { CookieService } from &#x27;ngx-cookie-service&#x27;;
+import { AlertService } from &#x27;./services/alert.service&#x27;;
+import { cpuUsage } from &#x27;process&#x27;;
+import { resourceLimits } from &#x27;worker_threads&#x27;;
+import { LigneCommande } from &#x27;./models/LigneCommande&#x27;;
 
 const { Storage } &#x3D; Plugins;
+
 export const routeTransitionAnimations &#x3D; trigger(&#x27;triggerName&#x27;, []);
 
 @Component({
   selector: &#x27;app-root&#x27;,
   templateUrl: &#x27;app.component.html&#x27;,
   styleUrls: [&#x27;app.component.scss&#x27;],
-  animations: [routeTransitionAnimations]
+  // animations: [routeTransitionAnimations]
 })
+
 export class AppComponent {
+
+  constructor(private router: Router,
+              private util: UtilityService,
+              private formService: FormService,
+              private alertService: AlertService
+  ) {
+    this.getToken();
+    this.getBasketCount();
+  }
+
+  private franchiseSelected &#x3D; false;
+  private displayFranchise &#x3D; false;
+  private role &#x3D; &#x27;&#x27;;
 
   searchFranchise &#x3D; &#x27;&#x27;;
   public franchises: Franchise[];
   public selectedFranchise: Franchise;
 
-  constructor(private router: Router,
-    private util: UtilityService,
-    private formService: FormService
-    ) {
-    // this.cookieService.set(&#x27;Set-Cookie&#x27;, &#x27;jwt&#x3D;test&#x27;);
+  public basketCount &#x3D; 0;
+  private storageBusy &#x3D; false;
+
+  private token &#x3D; this.util.token;
+
+  IsConnected &#x3D; false;
+
+  public isConnected(): boolean{
+    if (this.util.backetCache){
+      this.basketCount &#x3D; this.util.backetCache.length;
+    }
+    return !this.IsConnected || this.util.token &#x3D;&#x3D;&#x3D; undefined || this.util.token &#x3D;&#x3D;&#x3D; &#x27;&#x27; ? false : true;
   }
 
-  public basketCount &#x3D; 0;
-  public IsConnected &#x3D; false;
-  private storageBusy &#x3D; false;
-  private franchiseSelected &#x3D; false;
-  private token &#x3D; &#x27;&#x27;;
-  private role &#x3D; &#x27;&#x27;;
-
-  private autoSaveInterval: any &#x3D; setInterval(async () &#x3D;&gt; {
-    await this.getToken();
-    await this.prepareRoute();
-    if(this.searchFranchise &amp;&amp; this.searchFranchise.length &gt; 2){
-      this.formService.getList(&quot;Franchise?search&#x3D;&quot; + this.searchFranchise).toPromise().then(Response &#x3D;&gt;{
-        this.franchises &#x3D; Response as Array&lt;Franchise&gt;;
-        this.searchFranchise &#x3D; &#x27;&#x27;;
-        console.log(this.franchises);
-      }).catch(reason &#x3D;&gt;{
-        
-      });
+  public async getToken(): Promise&lt;string&gt;{
+    let result &#x3D; &#x27;&#x27;;
+    try{
+      result &#x3D; await (await Storage.get({ key: &#x27;token&#x27; })).value;
+      if (result){
+        this.util.token &#x3D; result;
+        this.token &#x3D; (result);
+        this.role &#x3D; (jwt_decode(this.token) as any).role;
+        this.IsConnected &#x3D; true;
+      }
+    }catch (reason){
+      console.log(reason);
     }
-  }, 1000);
+
+    return result;
+  }
+
+  public getFranchises &#x3D; async (): Promise&lt;Franchise[]&gt; &#x3D;&gt; {
+    const result &#x3D; await this.formService.getList(&#x27;Franchise?search&#x3D;&#x27; + this.searchFranchise).toPromise() as Franchise[];
+    this.franchises &#x3D; result;
+    this.displayFranchise &#x3D; (result &amp;&amp; result.length &gt; 0 &amp;&amp; !this.franchiseSelected);
+    return result;
+  }
 
   backHome() {
     this.router.navigateByUrl(&#x27;/home&#x27;);
   }
 
-  showMenu() {
-    const myElementRef &#x3D; window.document.getElementById(&#x27;leftMenu&#x27;);
-    const fadeOut &#x3D; createAnimation()
-      .addElement(myElementRef)
-      .duration(500)
-      .fromTo(&#x27;opacity&#x27;, &#x27;1&#x27;, &#x27;0&#x27;);
-    if (window.document.getElementById(&#x27;leftMenu&#x27;).style.display &#x3D;&#x3D;&#x3D; &#x27;none&#x27;) {
-      window.document.getElementById(&#x27;leftMenu&#x27;).style.display &#x3D; &#x27;block&#x27;;
-      this.fadeIn(&#x27;leftMenu&#x27;);
-    } else {
-      fadeOut.play().then(() &#x3D;&gt; {
-        window.document.getElementById(&#x27;leftMenu&#x27;).style.display &#x3D; &#x27;none&#x27;;
-      });
-    }
-  }
-
-  fadeIn(elementID: string) {
-    const myElementRef &#x3D; window.document.getElementById(elementID);
-    const fadeIn &#x3D; createAnimation()
-      .addElement(myElementRef)
-      .duration(500)
-      .fromTo(&#x27;opacity&#x27;, &#x27;0&#x27;, &#x27;1&#x27;);
-    fadeIn.play();
-  }
-
-  fadeOut(elementID: string) {
-    const myElementRef &#x3D; window.document.getElementById(elementID);
-    const fadeOut &#x3D; createAnimation()
-      .addElement(myElementRef)
-      .duration(300)
-      .fromTo(&#x27;opacity&#x27;, &#x27;1&#x27;, &#x27;0&#x27;);
-    fadeOut.play();
-  }
-
-  async prepareRoute() {
-    if (this.token &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
-      if (!this.storageBusy) {
-        this.storageBusy &#x3D; true;
-        setTimeout(async () &#x3D;&gt; {
-          this.basketCount &#x3D; (JSON.parse(await (await Storage.get({ key: &#x27;basket&#x27; })).value) as Array&lt;Article&gt;).length;
-          await this.getToken();
-          this.storageBusy &#x3D; false;
-        }, 500);
+  async getBasketCount() {
+    await Storage.get({ key: &#x27;basket&#x27; }).then(Response &#x3D;&gt; {
+      this.util.backetCache &#x3D; JSON.parse(Response.value) as LigneCommande[];
+      if (this.util.backetCache){
+        this.basketCount &#x3D; this.util.backetCache.length;
       }
-    } else {
-      if (!this.storageBusy) {
-        this.storageBusy &#x3D; true;
-        setTimeout(async () &#x3D;&gt; {
-          this.basketCount &#x3D; (JSON.parse(await (await Storage.get({ key: &#x27;basket&#x27; })).value) as Array&lt;Article&gt;).length;
-          this.storageBusy &#x3D; false;
-        }, 500);
-      }
-    }
+    });
   }
 
-  async getToken() {
-    const ret &#x3D; await Storage.get({ key: &#x27;token&#x27; });
-    if (ret.value !&#x3D;&#x3D; null) {
-      //  console.log(ret.value);
-      this.util.token &#x3D; ret.value;
-      this.token &#x3D; (ret.value);
-      this.role &#x3D; (jwt_decode(this.token) as any).role;
-      this.IsConnected &#x3D; true;
-    }else{
-      this.IsConnected &#x3D; false;
-    }
-  }
-  async onSearchInput(event: any) {
+  onSearchInput(event: any) {
     this.searchFranchise &#x3D; event.target.value;
-    if(event.target.value &#x3D;&#x3D;&#x3D; &#x27;&#x27;){
+    this.getFranchises.call(null);
+    if (event.target.value &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
       this.franchises &#x3D; [];
       this.franchiseSelected &#x3D; false;
       this.util.franchiseSelected &#x3D; undefined;
@@ -1199,7 +1042,8 @@ export class AppComponent {
     }
   }
 
-  selectFranchise(item: Franchise){
+  selectFranchise(item: Franchise) {
+    this.displayFranchise &#x3D; false;
     this.util.franchiseSelected &#x3D; item;
     this.selectedFranchise &#x3D; item;
     this.searchFranchise &#x3D; item.nomFranchise;
@@ -1226,18 +1070,18 @@ export class AppComponent {
             &lt;/ion-label&gt;
         &lt;/div&gt;
         &lt;div slot&#x3D;&quot;end&quot;&gt;
-          &lt;ion-button [routerLink]&#x3D;&quot;[&#x27;/login&#x27;]&quot; *ngIf&#x3D;&quot;!IsConnected&quot; color&#x3D;&quot;tertiary&quot;&gt;
+          &lt;ion-button [routerLink]&#x3D;&quot;[&#x27;/login&#x27;]&quot; *ngIf&#x3D;&quot;isConnected() ? false : true&quot; color&#x3D;&quot;tertiary&quot;&gt;
             &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Se connecter&lt;/ion-label&gt;
           &lt;/ion-button&gt;
-          &lt;ion-button [routerLink]&#x3D;&quot;[&#x27;/register&#x27;]&quot; *ngIf&#x3D;&quot;!IsConnected&quot; color&#x3D;&quot;tertiary&quot;&gt;
+          &lt;ion-button [routerLink]&#x3D;&quot;[&#x27;/register&#x27;]&quot; *ngIf&#x3D;&quot;isConnected() ? false : true&quot; color&#x3D;&quot;tertiary&quot;&gt;
             &lt;ion-label color&#x3D;&quot;dark&quot;&gt;S&#x27;inscrire&lt;/ion-label&gt;
           &lt;/ion-button&gt;
-          &lt;ion-button [routerLink]&#x3D;&quot;[&#x27;/myBasket&#x27;]&quot; *ngIf&#x3D;&quot;IsConnected&quot; color&#x3D;&quot;success&quot;&gt;
-            &lt;ion-label class&#x3D;&quot;basketCount&quot;&gt;{{basketCount}}&lt;/ion-label&gt;
-            &lt;ion-icon name&#x3D;&quot;basket&quot; size&#x3D;&quot;large&quot; color&#x3D;&quot;dark&quot;&gt;&lt;/ion-icon&gt;
+          &lt;ion-button [routerLink]&#x3D;&quot;[&#x27;/myBasket&#x27;]&quot; *ngIf&#x3D;&quot;isConnected() ? true : false&quot; color&#x3D;&quot;success&quot;&gt;
+              &lt;ion-label class&#x3D;&quot;basketCount&quot;&gt;{{this.basketCount}}&lt;/ion-label&gt;
+              &lt;ion-icon name&#x3D;&quot;basket&quot; size&#x3D;&quot;large&quot; color&#x3D;&quot;dark&quot;&gt;&lt;/ion-icon&gt;
             &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Mon panier&lt;/ion-label&gt;
           &lt;/ion-button&gt;
-          &lt;ion-button [routerLink]&#x3D;&quot;[&#x27;/account&#x27;]&quot; *ngIf&#x3D;&quot;IsConnected&quot; color&#x3D;&quot;success&quot;&gt;
+          &lt;ion-button [routerLink]&#x3D;&quot;[&#x27;/account&#x27;]&quot; *ngIf&#x3D;&quot;isConnected() ? true : false&quot; color&#x3D;&quot;success&quot;&gt;
             &lt;ion-icon name&#x3D;&quot;person-circle-outline&quot; size&#x3D;&quot;large&quot; color&#x3D;&quot;dark&quot;&gt;&lt;/ion-icon&gt;
             &lt;ion-label color&#x3D;&quot;dark&quot;&gt;Mon compte&lt;/ion-label&gt;
           &lt;/ion-button&gt;
@@ -1262,7 +1106,7 @@ export class AppComponent {
         &lt;/ion-button&gt;
         &lt;ion-toggle slot&#x3D;&quot;end&quot; (ionChange)&#x3D;&quot;switchTheme()&quot;&gt;&lt;/ion-toggle&gt;
       &lt;/ion-toolbar&gt;
-      &lt;ion-toolbar *ngIf&#x3D;&quot;franchises &amp;&amp; franchises.length !&#x3D; &#x27;&#x27; &amp;&amp; !franchiseSelected&quot; style&#x3D;&quot;height: 50vh;&quot;&gt;
+      &lt;ion-toolbar *ngIf&#x3D;&quot;displayFranchise&quot; style&#x3D;&quot;height: 50vh;&quot;&gt;
         &lt;ion-card *ngFor&#x3D;&quot; let item of franchises&quot; color&#x3D;&quot;success&quot; style&#x3D;&quot;width:80%; margin: 0 auto; margin-bottom: 10px; padding: 20px;&quot; (click)&#x3D;&quot;selectFranchise(item)&quot;&gt;
           &lt;ion-label style&#x3D;&quot;font-size: large; width: 100%; display: block;&quot;&gt;{{item.nomFranchise}}&lt;/ion-label&gt;
           &lt;ion-label style&#x3D;&quot;font-size: large; width: 100%; display: block;&quot;&gt;{{item.emailFranchise}}&lt;/ion-label&gt;
@@ -1466,7 +1310,7 @@ ion-icon{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-app>    <ion-header class="main-header">      <ion-toolbar color="primary">        <ion-icon (click)="backHome()" slot="start" class="btnHomeGf">        </ion-icon>        <div>          <ion-searchbar             color="dark"             (ionInput)="onSearchInput($event)"            placeholder="Rechercher un restaurant"             ></ion-searchbar>            <ion-label *ngIf="selectedFranchise">              {{selectedFranchise.nomFranchise}}            </ion-label>        </div>        <div slot="end">          <ion-button [routerLink]="[\'/login\']" *ngIf="!IsConnected" color="tertiary">            <ion-label color="dark">Se connecter</ion-label>          </ion-button>          <ion-button [routerLink]="[\'/register\']" *ngIf="!IsConnected" color="tertiary">            <ion-label color="dark">S\'inscrire</ion-label>          </ion-button>          <ion-button [routerLink]="[\'/myBasket\']" *ngIf="IsConnected" color="success">            <ion-label class="basketCount">{{basketCount}}</ion-label>            <ion-icon name="basket" size="large" color="dark"></ion-icon>            <ion-label color="dark">Mon panier</ion-label>          </ion-button>          <ion-button [routerLink]="[\'/account\']" *ngIf="IsConnected" color="success">            <ion-icon name="person-circle-outline" size="large" color="dark"></ion-icon>            <ion-label color="dark">Mon compte</ion-label>          </ion-button>        </div>      </ion-toolbar>      <ion-toolbar color="secondary">        <ion-button [routerLink]="[\'/\']" slot="start">          <ion-label>Notre sélection !</ion-label>        </ion-button>        <ion-button [routerLink]="[\'/us\']"  slot="start">          <ion-label>Qui sommes nous ?</ion-label>        </ion-button>        <ion-button [routerLink]="[\'/products\']" slot="start">          <ion-label>Nos produits</ion-label>        </ion-button>        <ion-button [routerLink]="[\'/menus\']" slot="start">          <ion-label>Nos menus</ion-label>        </ion-button>        <ion-button [routerLink]="[\'/form\']" slot="end" *ngIf="role.toUpperCase() === \'ADMIN\'">          <ion-icon name="settings" size="large"></ion-icon>          <ion-label>Administration</ion-label>        </ion-button>        <ion-toggle slot="end" (ionChange)="switchTheme()"></ion-toggle>      </ion-toolbar>      <ion-toolbar *ngIf="franchises && franchises.length != \'\' && !franchiseSelected" style="height: 50vh;">        <ion-card *ngFor=" let item of franchises" color="success" style="width:80%; margin: 0 auto; margin-bottom: 10px; padding: 20px;" (click)="selectFranchise(item)">          <ion-label style="font-size: large; width: 100%; display: block;">{{item.nomFranchise}}</ion-label>          <ion-label style="font-size: large; width: 100%; display: block;">{{item.emailFranchise}}</ion-label>        </ion-card>      </ion-toolbar>  </ion-header>  <ion-split-pane id="content-for-anim" contentId="main-content">    <ion-router-outlet id="main-content" class="site-content" >    </ion-router-outlet>  </ion-split-pane></ion-app></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-app>    <ion-header class="main-header">      <ion-toolbar color="primary">        <ion-icon (click)="backHome()" slot="start" class="btnHomeGf">        </ion-icon>        <div>          <ion-searchbar             color="dark"             (ionInput)="onSearchInput($event)"            placeholder="Rechercher un restaurant"             ></ion-searchbar>            <ion-label *ngIf="selectedFranchise">              {{selectedFranchise.nomFranchise}}            </ion-label>        </div>        <div slot="end">          <ion-button [routerLink]="[\'/login\']" *ngIf="isConnected() ? false : true" color="tertiary">            <ion-label color="dark">Se connecter</ion-label>          </ion-button>          <ion-button [routerLink]="[\'/register\']" *ngIf="isConnected() ? false : true" color="tertiary">            <ion-label color="dark">S\'inscrire</ion-label>          </ion-button>          <ion-button [routerLink]="[\'/myBasket\']" *ngIf="isConnected() ? true : false" color="success">              <ion-label class="basketCount">{{this.basketCount}}</ion-label>              <ion-icon name="basket" size="large" color="dark"></ion-icon>            <ion-label color="dark">Mon panier</ion-label>          </ion-button>          <ion-button [routerLink]="[\'/account\']" *ngIf="isConnected() ? true : false" color="success">            <ion-icon name="person-circle-outline" size="large" color="dark"></ion-icon>            <ion-label color="dark">Mon compte</ion-label>          </ion-button>        </div>      </ion-toolbar>      <ion-toolbar color="secondary">        <ion-button [routerLink]="[\'/\']" slot="start">          <ion-label>Notre sélection !</ion-label>        </ion-button>        <ion-button [routerLink]="[\'/us\']"  slot="start">          <ion-label>Qui sommes nous ?</ion-label>        </ion-button>        <ion-button [routerLink]="[\'/products\']" slot="start">          <ion-label>Nos produits</ion-label>        </ion-button>        <ion-button [routerLink]="[\'/menus\']" slot="start">          <ion-label>Nos menus</ion-label>        </ion-button>        <ion-button [routerLink]="[\'/form\']" slot="end" *ngIf="role.toUpperCase() === \'ADMIN\'">          <ion-icon name="settings" size="large"></ion-icon>          <ion-label>Administration</ion-label>        </ion-button>        <ion-toggle slot="end" (ionChange)="switchTheme()"></ion-toggle>      </ion-toolbar>      <ion-toolbar *ngIf="displayFranchise" style="height: 50vh;">        <ion-card *ngFor=" let item of franchises" color="success" style="width:80%; margin: 0 auto; margin-bottom: 10px; padding: 20px;" (click)="selectFranchise(item)">          <ion-label style="font-size: large; width: 100%; display: block;">{{item.nomFranchise}}</ion-label>          <ion-label style="font-size: large; width: 100%; display: block;">{{item.emailFranchise}}</ion-label>        </ion-card>      </ion-toolbar>  </ion-header>  <ion-split-pane id="content-for-anim" contentId="main-content">    <ion-router-outlet id="main-content" class="site-content" >    </ion-router-outlet>  </ion-split-pane></ion-app></div>'
     var COMPONENTS = [{'name': 'AccountPage', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ArticleDetailPage', 'selector': 'app-article-detail'},{'name': 'BasketPage', 'selector': 'app-basket'},{'name': 'ForgetPasswordPage', 'selector': 'app-forget-password'},{'name': 'FormPage', 'selector': 'app-form'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'OrderPage', 'selector': 'app-order'},{'name': 'PickerModalPage', 'selector': 'app-picker-modal'},{'name': 'ProductsListPage', 'selector': 'app-products-list'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'WhoarewePage', 'selector': 'app-whoarewe'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};

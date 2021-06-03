@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>good-food-v-2 documentation</title>
+        <title>GoodFond IHM Documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">good-food-v-2 documentation</a>
+            <a href="../" class="navbar-brand">GoodFond IHM Documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -742,7 +742,7 @@ export class BasketPage implements OnInit {
       &lt;/ion-label&gt;
     &lt;/ion-item&gt;
     &lt;ion-card class&#x3D;&quot;productContainer contentBorders&quot; *ngFor&#x3D;&quot;let art of Articles&quot;&gt;
-      &lt;ion-toolbar class&#x3D;&quot;productToolbar&quot; color&#x3D;&quot;dark&quot;&gt;
+      &lt;ion-toolbar class&#x3D;&quot;productToolbar&quot; &gt;
         &lt;img class&#x3D;&quot;productPicture&quot; slot&#x3D;&quot;start&quot; src&#x3D;&quot;{{art.article.urlImgArticle}}&quot; style&#x3D;&quot;display:block;&quot; /&gt;
         &lt;div style&#x3D;&quot;width: 50%;display: inline-block;&quot; slot&#x3D;&quot;start&quot;&gt;
           &lt;h3&gt;
@@ -769,13 +769,13 @@ export class BasketPage implements OnInit {
       &lt;/ion-toolbar&gt;
     &lt;/ion-card&gt;
     &lt;ion-card class&#x3D;&quot;productContainer totaux contentBorders&quot;&gt;
-      &lt;ion-toolbar color&#x3D;&quot;dark&quot; class&#x3D;&quot;totToolBars&quot; style&#x3D;&quot;padding: 5px; height: 50px;&quot;&gt;
+      &lt;ion-toolbar class&#x3D;&quot;totToolBars&quot; style&#x3D;&quot;padding: 5px; height: 50px;&quot;&gt;
         &lt;h5&gt;
           &lt;ion-label class&#x3D;&quot;toolboxContent&quot;&gt;TOTAL HT:&lt;/ion-label&gt;
         &lt;/h5&gt;
         &lt;ion-label slot&#x3D;&quot;end&quot; class&#x3D;&quot;toolboxContent&quot;&gt;{{Commande.calculerTotalHt()}} €&lt;/ion-label&gt;
       &lt;/ion-toolbar&gt;
-      &lt;ion-toolbar color&#x3D;&quot;dark&quot; class&#x3D;&quot;totToolBars&quot; style&#x3D;&quot;padding: 5px; height: 50px;&quot;&gt;
+      &lt;ion-toolbar class&#x3D;&quot;totToolBars&quot; style&#x3D;&quot;padding: 5px; height: 50px;&quot;&gt;
         &lt;h4&gt;
           &lt;ion-label&gt;TTC :&lt;/ion-label&gt;
         &lt;/h4&gt;
@@ -885,7 +885,7 @@ export class BasketPage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-content>  <div class="pageContent contentBorders">    <ion-item color="success" style="margin-top: 25px;border-radius: 10px;">      <ion-label>        <h1>Mon panier :</h1>      </ion-label>    </ion-item>    <ion-card class="productContainer contentBorders" *ngFor="let art of Articles">      <ion-toolbar class="productToolbar" color="dark">        <img class="productPicture" slot="start" src="{{art.article.urlImgArticle}}" style="display:block;" />        <div style="width: 50%;display: inline-block;" slot="start">          <h3>            <ion-label class="article_lib">{{art.article.libelleArticle}}</ion-label>          </h3>          <ion-label class="article_desc">            {{art.article.descriptionArticle}}          </ion-label>        </div>        <div slot="start">          <ion-icon name="remove-circle" size="small" class="pointer" (click)="decreaseArtQtyFromBasket(art)">          </ion-icon>          <ion-label class="toolboxContent">            {{art.quantiteArticle}}          </ion-label>          <ion-icon name="add-circle" size="small" class="pointer" (click)="increaseArtQtyFromBasket(art)"></ion-icon>        </div>        <ion-label slot="end" class="toolboxContent" class="productPrice">{{art.article.prixArticleHt *          art.quantiteArticle }} €</ion-label>        <ion-button slot="end" (click)="deleteArtFromBasket(art)" color="tertiary">          <ion-label>Supprimer du panier</ion-label>          <ion-icon color="dark" name="trash" size="large" style="margin-left: 10px;"></ion-icon>        </ion-button>      </ion-toolbar>    </ion-card>    <ion-card class="productContainer totaux contentBorders">      <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">        <h5>          <ion-label class="toolboxContent">TOTAL HT:</ion-label>        </h5>        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalHt()}} €</ion-label>      </ion-toolbar>      <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">        <h4>          <ion-label>TTC :</ion-label>        </h4>        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalTtc()}} €</ion-label>      </ion-toolbar>      <ion-toolbar color="success" style="padding: 15px;" class="totToolBars">        <ion-button slot="end" (click)="validateOrder()" style="margin: 10px;">Valider le panier</ion-button>      </ion-toolbar>    </ion-card>  </div></ion-content></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-content>  <div class="pageContent contentBorders">    <ion-item color="success" style="margin-top: 25px;border-radius: 10px;">      <ion-label>        <h1>Mon panier :</h1>      </ion-label>    </ion-item>    <ion-card class="productContainer contentBorders" *ngFor="let art of Articles">      <ion-toolbar class="productToolbar" >        <img class="productPicture" slot="start" src="{{art.article.urlImgArticle}}" style="display:block;" />        <div style="width: 50%;display: inline-block;" slot="start">          <h3>            <ion-label class="article_lib">{{art.article.libelleArticle}}</ion-label>          </h3>          <ion-label class="article_desc">            {{art.article.descriptionArticle}}          </ion-label>        </div>        <div slot="start">          <ion-icon name="remove-circle" size="small" class="pointer" (click)="decreaseArtQtyFromBasket(art)">          </ion-icon>          <ion-label class="toolboxContent">            {{art.quantiteArticle}}          </ion-label>          <ion-icon name="add-circle" size="small" class="pointer" (click)="increaseArtQtyFromBasket(art)"></ion-icon>        </div>        <ion-label slot="end" class="toolboxContent" class="productPrice">{{art.article.prixArticleHt *          art.quantiteArticle }} €</ion-label>        <ion-button slot="end" (click)="deleteArtFromBasket(art)" color="tertiary">          <ion-label>Supprimer du panier</ion-label>          <ion-icon color="dark" name="trash" size="large" style="margin-left: 10px;"></ion-icon>        </ion-button>      </ion-toolbar>    </ion-card>    <ion-card class="productContainer totaux contentBorders">      <ion-toolbar class="totToolBars" style="padding: 5px; height: 50px;">        <h5>          <ion-label class="toolboxContent">TOTAL HT:</ion-label>        </h5>        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalHt()}} €</ion-label>      </ion-toolbar>      <ion-toolbar class="totToolBars" style="padding: 5px; height: 50px;">        <h4>          <ion-label>TTC :</ion-label>        </h4>        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalTtc()}} €</ion-label>      </ion-toolbar>      <ion-toolbar color="success" style="padding: 15px;" class="totToolBars">        <ion-button slot="end" (click)="validateOrder()" style="margin: 10px;">Valider le panier</ion-button>      </ion-toolbar>    </ion-card>  </div></ion-content></div>'
     var COMPONENTS = [{'name': 'AccountPage', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ArticleDetailPage', 'selector': 'app-article-detail'},{'name': 'BasketPage', 'selector': 'app-basket'},{'name': 'ForgetPasswordPage', 'selector': 'app-forget-password'},{'name': 'FormPage', 'selector': 'app-form'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'OrderPage', 'selector': 'app-order'},{'name': 'PickerModalPage', 'selector': 'app-picker-modal'},{'name': 'ProductsListPage', 'selector': 'app-products-list'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'WhoarewePage', 'selector': 'app-whoarewe'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'BasketPage'};

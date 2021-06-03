@@ -20,7 +20,7 @@ export class FormService {
     public headerDictTAMRR(token: string): object{
         const headerDictLogin = {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer' + ' ' + token.replace('"', '').replace('"', '')
+            Authorization: 'Bearer' + ' ' + token.replace('"', '').replace('"', '')
         };
         return headerDictLogin;
     }
@@ -36,7 +36,7 @@ export class FormService {
         private env: EnvService,
         private storage: StorageService,
         private util: UtilityService
-    ) { 
+    ) {
     }
 
     /**
@@ -99,9 +99,9 @@ export class FormService {
         });
         return result;
     }
-    getList(route: string,securitymode: 'none'|'bearer'|'withCredentials' = 'none') {
+    getList(route: string, securitymode: 'none'|'bearer'|'withCredentials' = 'none') {
         const requestOptions = {
-           headers: new HttpHeaders(this.getHeaderFromSecurityMode(securitymode)),
+            headers: new HttpHeaders(this.getHeaderFromSecurityMode(securitymode)),
             withCredentials: true
         };
 
@@ -116,8 +116,8 @@ export class FormService {
 
         return this.http.get(this.env.API_URL + route + '/' + id, requestOptions);
     }
-    private getHeaderFromSecurityMode (securitymode :'none' |'bearer' |'withCredentials'='none'): any{
-        let headerDict = undefined;
+    private getHeaderFromSecurityMode(securitymode: 'none' |'bearer' |'withCredentials'= 'none'): any{
+        let headerDict;
         const token = this.util.token;
         switch (securitymode) {
             case 'none':
@@ -137,11 +137,11 @@ export class FormService {
     }
 
     postObject(route: string, body: any, token = '') {
-        let headerDict = undefined;
+        let headerDict;
         if (token !== '') {
             headerDict = {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer' + ' ' + token.replace('"','').replace('"','')
+                Authorization: 'Bearer' + ' ' + token.replace('"', '').replace('"', '')
             };
         } else {
             headerDict = {
@@ -156,11 +156,11 @@ export class FormService {
     }
 
     postEditObject(route: string, body: any, token: string) {
-        let headerDict = undefined;
+        let headerDict;
         if (token !== '') {
             headerDict = {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer' + ' ' + token.replace('"','').replace('"','')
+                Authorization: 'Bearer' + ' ' + token.replace('"', '').replace('"', '')
             };
         } else {
             headerDict = {

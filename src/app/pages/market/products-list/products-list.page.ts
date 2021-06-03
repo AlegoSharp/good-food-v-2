@@ -245,7 +245,7 @@ export class ProductsListPage implements OnInit {
     /**
      * Gets article for prev slide
      * Renvoie les articles de la slide précédente
-     * @returns  
+     * @returns Articles
      */
     getArticlePrevPage() {
         return this.Articles.slice(0, this.nbElemParPage);
@@ -254,7 +254,7 @@ export class ProductsListPage implements OnInit {
     /**
      * Gets article for next slide
      * Renvoie les articles de la slide suivante
-     * @returns  
+     * @returns Articles
      */
     getArticleNextPage() {
         return this.Articles.slice(this.nbElemParPage * 3, this.nbElemParPage * 4);
@@ -264,7 +264,7 @@ export class ProductsListPage implements OnInit {
     /**
      * Gets article for current slide
      * Renvoie les articles de la slide courrante
-     * @returns  
+     * @returns Articles
      */
     getArticleCurrentPage() {
         return this.Articles.slice(this.nbElemParPage, this.nbElemParPage + this.nbElemParPage);
@@ -272,7 +272,7 @@ export class ProductsListPage implements OnInit {
 
     /**
      * Fill articles from API
-     * Rempli les articles depuis l'API  
+     * Rempli les articles depuis l'API
      */
     async getArticles() {
         if (this.currentSlideNumber < this.Pages.length && this.Pages.length > 1) {
@@ -316,7 +316,7 @@ export class ProductsListPage implements OnInit {
     /**
      * Adds article to basket
      * Ajouter un article au panier
-     * @param article 
+     * @param article article
      */
     async addItemToBasket(article: Article) {
         const ligneCommande = new LigneCommande();
@@ -340,9 +340,9 @@ export class ProductsListPage implements OnInit {
 
     /**
      * Gets api query for the page displays
-     * Renvoie la requete api pour l'affichage de la page 
-     * @param pageNumber 
-     * @returns api query 
+     * Renvoie la requete api pour l'affichage de la page
+     * @param pageNumber pageNumber
+     * @returns api query
      */
     getApiQuery(pageNumber: number): string {
         let query = '/Article?pageSize=' + this.nbElemParPage +

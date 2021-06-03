@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>good-food-v-2 documentation</title>
+        <title>GoodFond IHM Documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">good-food-v-2 documentation</a>
+            <a href="../" class="navbar-brand">GoodFond IHM Documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -237,35 +237,38 @@ export class WhoarewePage implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;ion-header&gt;
-  &lt;ion-toolbar&gt;
-    &lt;ion-title&gt;Qui sommes nous ?&lt;/ion-title&gt;
-  &lt;/ion-toolbar&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;ion-header class&#x3D;&quot;stack-present&quot;&gt;
+
 &lt;/ion-header&gt;
 
 &lt;ion-content&gt;
+
   &lt;div class&#x3D;&quot;mainContent&quot;&gt;
-    &lt;ion-card color&#x3D;&quot;dark&quot; style&#x3D;&quot;padding: 15px;&quot;&gt;
+    &lt;ion-card &gt;
+      &lt;ion-title&gt;&lt;h3&gt;Qui sommes nous ?&lt;/h3&gt;&lt;/ion-title&gt;
+
+    &lt;ion-card style&#x3D;&quot;padding: 15px;&quot;&gt;
       &lt;ion-card-title&gt;L&#x27;histoire de l&#x27;entreprise&lt;/ion-card-title&gt;
       &lt;ion-card-content&gt;
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.
       &lt;/ion-card-content&gt;
     &lt;/ion-card&gt;
-    &lt;ion-card color&#x3D;&quot;dark&quot; style&#x3D;&quot;padding: 15px;&quot;&gt;
+    &lt;ion-card style&#x3D;&quot;padding: 15px;&quot;&gt;
       &lt;ion-card-title&gt;Notre démarche éco-responsable&lt;/ion-card-title&gt;
       &lt;ion-card-content&gt;
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.
       &lt;/ion-card-content&gt;
     &lt;/ion-card&gt;
-    &lt;ion-card color&#x3D;&quot;dark&quot; style&#x3D;&quot;padding: 15px;&quot;&gt;
+    &lt;ion-card style&#x3D;&quot;padding: 15px;&quot;&gt;
       &lt;ion-card-title&gt;Nos franchises&lt;/ion-card-title&gt;
       &lt;ion-card-content&gt;
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.
       &lt;/ion-card-content&gt;
     &lt;/ion-card&gt;
+  &lt;/ion-card&gt;
   &lt;/div&gt;
 &lt;/ion-content&gt;
 </code></pre>
@@ -278,8 +281,16 @@ export class WhoarewePage implements OnInit {
                 <pre class="line-numbers"><code class="language-scss">.mainContent{
     width: 80%;
     margin: 0 auto;
-    min-height: 100%;
     background-color: #ffffff;
+}
+.title{
+    height: 7.5vh;
+    font-size: large;
+    font-weight: bold;
+}
+.stack-present{
+    height: 12vh;
+    background-image: url(&quot;/assets/recipe_wallpap.jpg&quot;);    
 }</code></pre>
     </div>
 
@@ -308,7 +319,7 @@ export class WhoarewePage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title>Qui sommes nous ?</ion-title>  </ion-toolbar></ion-header><ion-content>  <div class="mainContent">    <ion-card color="dark" style="padding: 15px;">      <ion-card-title>L\'histoire de l\'entreprise</ion-card-title>      <ion-card-content>        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.      </ion-card-content>    </ion-card>    <ion-card color="dark" style="padding: 15px;">      <ion-card-title>Notre démarche éco-responsable</ion-card-title>      <ion-card-content>        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.      </ion-card-content>    </ion-card>    <ion-card color="dark" style="padding: 15px;">      <ion-card-title>Nos franchises</ion-card-title>      <ion-card-content>        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.      </ion-card-content>    </ion-card>  </div></ion-content></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-header class="stack-present"></ion-header><ion-content>  <div class="mainContent">    <ion-card >      <ion-title><h3>Qui sommes nous ?</h3></ion-title>    <ion-card style="padding: 15px;">      <ion-card-title>L\'histoire de l\'entreprise</ion-card-title>      <ion-card-content>        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.      </ion-card-content>    </ion-card>    <ion-card style="padding: 15px;">      <ion-card-title>Notre démarche éco-responsable</ion-card-title>      <ion-card-content>        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.      </ion-card-content>    </ion-card>    <ion-card style="padding: 15px;">      <ion-card-title>Nos franchises</ion-card-title>      <ion-card-content>        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat enim, accumsan eget sapien vitae, mollis semper tortor. Nullam ullamcorper pulvinar pretium. Vivamus sem quam, gravida sed tempus in, aliquam facilisis turpis. Fusce mollis eget ante vel pretium. Maecenas fringilla mi quis enim faucibus, sed fermentum dui porta. Praesent sollicitudin molestie lacus sit amet commodo. Integer hendrerit justo ante, vel aliquet diam hendrerit vitae.      </ion-card-content>    </ion-card>  </ion-card>  </div></ion-content></div>'
     var COMPONENTS = [{'name': 'AccountPage', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ArticleDetailPage', 'selector': 'app-article-detail'},{'name': 'BasketPage', 'selector': 'app-basket'},{'name': 'ForgetPasswordPage', 'selector': 'app-forget-password'},{'name': 'FormPage', 'selector': 'app-form'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'OrderPage', 'selector': 'app-order'},{'name': 'PickerModalPage', 'selector': 'app-picker-modal'},{'name': 'ProductsListPage', 'selector': 'app-products-list'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'WhoarewePage', 'selector': 'app-whoarewe'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'WhoarewePage'};

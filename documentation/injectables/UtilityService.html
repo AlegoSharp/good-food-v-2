@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>good-food-v-2 documentation</title>
+        <title>GoodFond IHM Documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">good-food-v-2 documentation</a>
+            <a href="../" class="navbar-brand">GoodFond IHM Documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -76,6 +76,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#backetCache">backetCache</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#categoriesArticles">categoriesArticles</a>
                             </li>
                             <li>
@@ -110,6 +114,40 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="backetCache"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            backetCache</b>
+                            <a href="#backetCache"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>LigneCommande[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/services/utility.service.ts:31</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Cache du storage basket GLOBAL</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="categoriesArticles"></a>
                         <span class="name">
                             <b>
@@ -127,7 +165,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/services/utility.service.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/services/utility.service.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -161,7 +199,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/utility.service.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/services/utility.service.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -195,7 +233,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/services/utility.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/services/utility.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -217,8 +255,11 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &quot;@angular/core&quot;;
 import { Categorie_Article } from &quot;../models/Categorie_Article&quot;;
 import { Franchise } from &quot;../models/Franchise&quot;;
+import { LigneCommande } from &quot;../models/LigneCommande&quot;;
 
-@Injectable()
+@Injectable({
+    providedIn: &#x27;root&#x27;,
+})
 export class UtilityService{
 
 
@@ -236,7 +277,14 @@ export class UtilityService{
      * Categories GLOBAL
      */
     public categoriesArticles: Categorie_Article[];
-}</code></pre>
+
+
+    /**
+     * Cache du storage basket GLOBAL
+     */
+    public backetCache: LigneCommande[];
+}
+</code></pre>
     </div>
 
 </div>

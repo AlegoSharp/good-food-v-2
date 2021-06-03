@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>good-food-v-2 documentation</title>
+        <title>GoodFond IHM Documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">good-food-v-2 documentation</a>
+            <a href="../" class="navbar-brand">GoodFond IHM Documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -766,7 +766,7 @@ import { Plugins } from &#x27;@capacitor/core&#x27;;
 import { ToastController } from &#x27;@ionic/angular&#x27;;
 import { Commande } from &#x27;src/app/models/Commande&#x27;;
 import { LigneCommande } from &#x27;src/app/models/LigneCommande&#x27;;
-import { Utilisateur } from &#x27;src/app/models/User&#x27;;
+import { Utilisateur } from &#x27;src/app/models/Utilisateur&#x27;;
 import { FormService } from &#x27;src/app/services/form.service&#x27;;
 import { GuardService } from &#x27;src/app/services/guard.service&#x27;;
 import { StorageService } from &#x27;src/app/services/storage.service&#x27;;
@@ -860,7 +860,7 @@ export class OrderPage implements OnInit {
       if (x.value !&#x3D;&#x3D; null &amp;&amp; x.value !&#x3D;&#x3D; undefined){
         console.log((jwt_decode(x.value) as any));
         this.userId &#x3D; (jwt_decode(x.value) as any).id;
-        this.formService.getList(&#x27;User/id&#x27; + this.userId).toPromise().then((responseUser: any) &#x3D;&gt; {
+        this.formService.getList(&#x27;User/&#x27; + this.userId).toPromise().then((responseUser: any) &#x3D;&gt; {
           if (responseUser !&#x3D;&#x3D; undefined){
             this.User &#x3D; responseUser as Utilisateur;
             this.formService.getList(&#x27;Adresse_Utilisateur?idUtilisateur&#x3D;&#x27; + this.userId).toPromise().then((responseAdresse: any) &#x3D;&gt; {
@@ -929,8 +929,7 @@ export class OrderPage implements OnInit {
             x {{art.quantiteArticle}}
           &lt;/ion-label&gt;
         &lt;/div&gt;
-        &lt;ion-label slot&#x3D;&quot;end&quot; class&#x3D;&quot;toolboxContent&quot; class&#x3D;&quot;productPrice&quot;&gt;{{art.article.prixArticleHt *
-          art.quantiteArticle }} €&lt;/ion-label&gt;
+        &lt;ion-label slot&#x3D;&quot;end&quot; class&#x3D;&quot;toolboxContent&quot; class&#x3D;&quot;productPrice&quot;&gt;{{art.article.prixArticleHt * art.quantiteArticle }} €&lt;/ion-label&gt;
         &lt;ion-button slot&#x3D;&quot;end&quot; (click)&#x3D;&quot;deleteArtFromBasket(art)&quot; color&#x3D;&quot;tertiary&quot;&gt;
           &lt;ion-label&gt;Supprimer du panier&lt;/ion-label&gt;
           &lt;ion-icon color&#x3D;&quot;dark&quot; name&#x3D;&quot;trash&quot; size&#x3D;&quot;large&quot; style&#x3D;&quot;margin-left: 10px;&quot;&gt;&lt;/ion-icon&gt;
@@ -1047,7 +1046,7 @@ export class OrderPage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-content>  <div class="pageContent contentBorders">    <ion-item color="success" style="border-radius: 10px;">      <ion-label>        <h1>Adresses :</h1>      </ion-label>    </ion-item>    <ion-item color="dark" style="border-radius: 10px;">      <ion-label>        <h2>Livraison</h2>      </ion-label>    </ion-item>    <ion-item color="dark" style="border-radius: 10px;">      <ion-label>        <h2>Facturation</h2>      </ion-label>    </ion-item>    <ion-item color="success" style="margin-top: 25px;border-radius: 10px;">      <ion-label>        <h1>Articles :</h1>      </ion-label>    </ion-item>    <ion-card class="productContainer contentBorders" *ngFor="let art of Articles">      <ion-toolbar class="productToolbar" color="dark">        <img class="productPicture" slot="start" src="{{art.article.urlImgArticle}}" style="display:block;" />        <div style="width: 50%;display: inline-block;" slot="start">          <h3>            <ion-label class="article_lib">{{art.article.libelleArticle}}</ion-label>          </h3>          <ion-label class="article_desc">            {{art.article.descriptionArticle}}          </ion-label>        </div>        <div slot="start">          <ion-label class="toolboxContent">            x {{art.quantiteArticle}}          </ion-label>        </div>        <ion-label slot="end" class="toolboxContent" class="productPrice">{{art.article.prixArticleHt *          art.quantiteArticle }} €</ion-label>        <ion-button slot="end" (click)="deleteArtFromBasket(art)" color="tertiary">          <ion-label>Supprimer du panier</ion-label>          <ion-icon color="dark" name="trash" size="large" style="margin-left: 10px;"></ion-icon>        </ion-button>      </ion-toolbar>    </ion-card>    <ion-card class="totaux contentBorders">      <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">        <h5>          <ion-label class="toolboxContent">TOTAL HT:</ion-label>        </h5>        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalHt()}} €</ion-label>      </ion-toolbar>      <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">        <h4>          <ion-label>TTC :</ion-label>        </h4>        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalTtc()}} €</ion-label>      </ion-toolbar>      <div>        <ion-button (click)="createOrder()">Valider ma commande</ion-button>      </div>    </ion-card>  </div></ion-content></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-content>  <div class="pageContent contentBorders">    <ion-item color="success" style="border-radius: 10px;">      <ion-label>        <h1>Adresses :</h1>      </ion-label>    </ion-item>    <ion-item color="dark" style="border-radius: 10px;">      <ion-label>        <h2>Livraison</h2>      </ion-label>    </ion-item>    <ion-item color="dark" style="border-radius: 10px;">      <ion-label>        <h2>Facturation</h2>      </ion-label>    </ion-item>    <ion-item color="success" style="margin-top: 25px;border-radius: 10px;">      <ion-label>        <h1>Articles :</h1>      </ion-label>    </ion-item>    <ion-card class="productContainer contentBorders" *ngFor="let art of Articles">      <ion-toolbar class="productToolbar" color="dark">        <img class="productPicture" slot="start" src="{{art.article.urlImgArticle}}" style="display:block;" />        <div style="width: 50%;display: inline-block;" slot="start">          <h3>            <ion-label class="article_lib">{{art.article.libelleArticle}}</ion-label>          </h3>          <ion-label class="article_desc">            {{art.article.descriptionArticle}}          </ion-label>        </div>        <div slot="start">          <ion-label class="toolboxContent">            x {{art.quantiteArticle}}          </ion-label>        </div>        <ion-label slot="end" class="toolboxContent" class="productPrice">{{art.article.prixArticleHt * art.quantiteArticle }} €</ion-label>        <ion-button slot="end" (click)="deleteArtFromBasket(art)" color="tertiary">          <ion-label>Supprimer du panier</ion-label>          <ion-icon color="dark" name="trash" size="large" style="margin-left: 10px;"></ion-icon>        </ion-button>      </ion-toolbar>    </ion-card>    <ion-card class="totaux contentBorders">      <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">        <h5>          <ion-label class="toolboxContent">TOTAL HT:</ion-label>        </h5>        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalHt()}} €</ion-label>      </ion-toolbar>      <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">        <h4>          <ion-label>TTC :</ion-label>        </h4>        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalTtc()}} €</ion-label>      </ion-toolbar>      <div>        <ion-button (click)="createOrder()">Valider ma commande</ion-button>      </div>    </ion-card>  </div></ion-content></div>'
     var COMPONENTS = [{'name': 'AccountPage', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ArticleDetailPage', 'selector': 'app-article-detail'},{'name': 'BasketPage', 'selector': 'app-basket'},{'name': 'ForgetPasswordPage', 'selector': 'app-forget-password'},{'name': 'FormPage', 'selector': 'app-form'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'OrderPage', 'selector': 'app-order'},{'name': 'PickerModalPage', 'selector': 'app-picker-modal'},{'name': 'ProductsListPage', 'selector': 'app-products-list'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'WhoarewePage', 'selector': 'app-whoarewe'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'OrderPage'};

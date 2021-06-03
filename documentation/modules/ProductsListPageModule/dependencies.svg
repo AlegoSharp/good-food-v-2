@@ -24,43 +24,43 @@
 <title>cluster_ProductsListPageModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="62,-70 62,-195 434,-195 434,-70 62,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_ProductsListPageModule_declarations</title>
-<polygon fill="none" stroke="black" points="296,-78 296,-130 426,-130 426,-78 296,-78"/>
-</g>
 <g id="clust4" class="cluster">
 <title>cluster_ProductsListPageModule_imports</title>
-<polygon fill="none" stroke="black" points="70,-78 70,-130 288,-130 288,-78 70,-78"/>
+<polygon fill="none" stroke="black" points="208,-78 208,-130 426,-130 426,-78 208,-78"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_ProductsListPageModule_declarations</title>
+<polygon fill="none" stroke="black" points="70,-78 70,-130 200,-130 200,-78 70,-78"/>
 </g>
 <!-- ProductsListPage -->
 <g id="node1" class="node">
 <title>ProductsListPage</title>
-<polygon fill="#ffffb3" stroke="black" points="417.98,-122 304.02,-122 304.02,-86 417.98,-86 417.98,-122"/>
-<text text-anchor="middle" x="361" y="-99.8" font-family="Times,serif" font-size="14.00">ProductsListPage</text>
+<polygon fill="#ffffb3" stroke="black" points="191.98,-122 78.02,-122 78.02,-86 191.98,-86 191.98,-122"/>
+<text text-anchor="middle" x="135" y="-99.8" font-family="Times,serif" font-size="14.00">ProductsListPage</text>
 </g>
 <!-- ProductsListPageModule -->
 <g id="node2" class="node">
 <title>ProductsListPageModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="341.53,-187 338.53,-191 317.53,-191 314.53,-187 184.47,-187 184.47,-151 341.53,-151 341.53,-187"/>
-<text text-anchor="middle" x="263" y="-164.8" font-family="Times,serif" font-size="14.00">ProductsListPageModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="311.53,-187 308.53,-191 287.53,-191 284.53,-187 154.47,-187 154.47,-151 311.53,-151 311.53,-187"/>
+<text text-anchor="middle" x="233" y="-164.8" font-family="Times,serif" font-size="14.00">ProductsListPageModule</text>
 </g>
 <!-- ProductsListPage&#45;&gt;ProductsListPageModule -->
 <g id="edge1" class="edge">
 <title>ProductsListPage&#45;&gt;ProductsListPageModule</title>
-<path fill="none" stroke="black" d="M322.89,-122.11C322.89,-122.11 322.89,-140.99 322.89,-140.99"/>
-<polygon fill="black" stroke="black" points="319.39,-140.99 322.89,-150.99 326.39,-140.99 319.39,-140.99"/>
+<path fill="none" stroke="black" d="M173.11,-122.11C173.11,-122.11 173.11,-140.99 173.11,-140.99"/>
+<polygon fill="black" stroke="black" points="169.61,-140.99 173.11,-150.99 176.61,-140.99 169.61,-140.99"/>
 </g>
 <!-- ProductsListPageRoutingModule -->
 <g id="node3" class="node">
 <title>ProductsListPageRoutingModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="280.15,-122 277.15,-126 256.15,-126 253.15,-122 77.85,-122 77.85,-86 280.15,-86 280.15,-122"/>
-<text text-anchor="middle" x="179" y="-99.8" font-family="Times,serif" font-size="14.00">ProductsListPageRoutingModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="418.15,-122 415.15,-126 394.15,-126 391.15,-122 215.85,-122 215.85,-86 418.15,-86 418.15,-122"/>
+<text text-anchor="middle" x="317" y="-99.8" font-family="Times,serif" font-size="14.00">ProductsListPageRoutingModule</text>
 </g>
 <!-- ProductsListPageRoutingModule&#45;&gt;ProductsListPageModule -->
 <g id="edge2" class="edge">
 <title>ProductsListPageRoutingModule&#45;&gt;ProductsListPageModule</title>
-<path fill="none" stroke="black" d="M232.28,-122.11C232.28,-122.11 232.28,-140.99 232.28,-140.99"/>
-<polygon fill="black" stroke="black" points="228.78,-140.99 232.28,-150.99 235.78,-140.99 228.78,-140.99"/>
+<path fill="none" stroke="black" d="M263.72,-122.11C263.72,-122.11 263.72,-140.99 263.72,-140.99"/>
+<polygon fill="black" stroke="black" points="260.22,-140.99 263.72,-150.99 267.22,-140.99 260.22,-140.99"/>
 </g>
 </g>
 </svg>

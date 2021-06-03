@@ -1,16 +1,14 @@
 import { Type } from '@angular/compiler/src/core';
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonInput } from '@ionic/angular';
 import { Article } from 'src/app/models/Article';
 import { Form } from 'src/app/models/Form';
 import { Utilisateur } from 'src/app/models/Utilisateur';
 import { FormService } from '../../services/form.service';
-import { Router, RouterOutlet } from '@angular/router';
 import { AlertService } from 'src/app/services/alert.service';
 import { FormProperty } from 'src/app/models/FormProperty';
 import { Categorie_Article } from 'src/app/models/Categorie_Article';
 import { Promo } from 'src/app/models/Promo';
-import { R3ResolvedDependencyType } from '@angular/compiler';
 import { UtilityService } from 'src/app/services/utility.service';
 
 @Component({
@@ -28,7 +26,6 @@ export class FormPage implements OnInit {
 
   constructor(
     private formService: FormService,
-    private router: Router,
     private alertService: AlertService,
     private util: UtilityService
   ) { }
@@ -37,7 +34,12 @@ export class FormPage implements OnInit {
     this.MyForm = new Form();
     this.setCreateForm();
   }
-
+  /**
+   * Sets property
+   * Remplis l'objet à parir de la propriété du formulaire
+   * @param item item
+   * @param value value
+   */
   async setProperty(item: FormProperty, value: any) {
     if (item.alias === 'Id') {
       this.myObject = value;
@@ -52,6 +54,12 @@ export class FormPage implements OnInit {
     }
   }
 
+  /**
+   * Sets update form
+   * Definit le formulaire en fonction de l'objet en parametre
+   * @param object object
+   * @param [fixedModelName] [fixedModelName]
+   */
   setUpdateForm(object: any, fixedModelName = '') {
     this.myObject = object;
     this.MyForm = new Form();
@@ -59,6 +67,12 @@ export class FormPage implements OnInit {
       this.formService.getFormFromObject(object) : this.formService.getFormFromObject(object, fixedModelName);
   }
 
+  /**
+   * Determines whether id change
+   * Determine un changement dans l'id
+   * @param searchValue searchValue
+   * @param target target
+   */
   onIdChange(searchValue: string, target: IonInput): void {
     if (searchValue.length > 0) {
       this.formService.getDetail(searchValue, window.document.URL.split('/')[4]).toPromise()
@@ -71,6 +85,10 @@ export class FormPage implements OnInit {
     }
   }
 
+  /**
+   * Sets create form TODO REMOVE
+   * Initialise un formulaire de creation
+   */
   setCreateForm() {
     this.MyForm = new Form();
     let u: any;
@@ -94,7 +112,7 @@ export class FormPage implements OnInit {
       this.itemName = 'Promo';
       u.init_empty();
     }
-    else{
+    else {
       u = new Article();
       this.itemName = 'Article';
       u.init_empty();
@@ -104,15 +122,23 @@ export class FormPage implements OnInit {
     console.log(this.MyForm);
   }
 
+  /**
+   * Edits element properties
+   * Edit les propriétés de l'element
+   */
   editElement() {
     this.formService.setObjectProps(this.myObject, this.MyForm.properties);
-    this.formService.postEditObject(window.document.URL.split('/')[4], this.myObject, this.util.token).toPromise().then(Response =>{
+    this.formService.postEditObject(window.document.URL.split('/')[4], this.myObject, this.util.token).toPromise().then(Response => {
 
-    }).catch(reason =>{
-      this.alertService.presentAlertOk("Erreur",reason.message);
+    }).catch(reason => {
+      this.alertService.presentAlertOk('Erreur', reason.message);
     });
   }
 
+  /**
+   * Creates new element in db
+   * Creer un nouvel element en base
+   */
   createNewElement() {
     this.formService.setObjectProps(this.myObject, this.MyForm.properties);
     delete this.myObject[this.idName];
@@ -126,10 +152,12 @@ export class FormPage implements OnInit {
       });
   }
 
-  addReference() {
-
-  }
-
+  /**
+   * Opens modal to select an element in db
+   * Ouvre une page modale pour selectionner un element en base
+   * @param name name
+   * @param formProperty formProperty
+   */
   async openModal(name: string, formProperty: FormProperty) {
     this.alertService.presentModal(name, name).then(async (modal) => {
       await modal.present();
