@@ -148,7 +148,7 @@ export class FormPage implements OnInit {
         this.alertService.presentToast('Success', this.MyForm.title + ' créé', true);
       }).catch(reason => {
         console.log(reason);
-        this.alertService.presentAlertOk('Erreur', reason.message + '\\n' + reason.error.details);
+        this.alertService.presentAlertOk('Erreur', reason.message + '\\n' + reason.error?.details);
       });
   }
 

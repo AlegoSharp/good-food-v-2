@@ -49,7 +49,7 @@
                     ></ion-input>
           <ion-card color="secondary">
             <ion-card *ngIf="item.alias.includes('id') && !item.alias.includes(MyForm.title) && !item.value !== undefined" color="secondary">
-              <ion-label name="item.nom" *ngFor="let prop of item.objectReference" color="success">{{prop}}</ion-label>
+              <ion-label name="item.nom" *ngFor="let prop of item.objectReference" color="primary">{{prop}}</ion-label>
             </ion-card>
             <ion-button *ngIf="item.nom.includes('id') && !item.alias.includes(MyForm.title)" (click)="openModal(item.externalRouteRessource,item)">
               Rechercher un(e) {{item.nom.replace('id','')}}

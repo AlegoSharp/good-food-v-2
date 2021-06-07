@@ -29,4 +29,6 @@ export class UtilityService{
      * Cache du storage basket GLOBAL
      */
     public backetCache: LigneCommande[];
+
+    
 }
