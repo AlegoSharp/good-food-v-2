@@ -3,6 +3,7 @@ export class Aliases{
     ///     FRANCHISE
     ///
 
+
     ///
     ///     ARTICLE
     ///
@@ -25,6 +26,7 @@ export class Aliases{
         estMenu: 'Menu',
         estActive: 'Actif',
     };
+
     ///
     ///     CATEGORIE ARTICLE
     ///
@@ -36,6 +38,7 @@ export class Aliases{
     public static categorieArticleCustomRoutes = {
         idCategorieArticle: 'Categorie_Article',
     };
+
     ///
     ///     PROMOS
     ///
@@ -53,7 +56,6 @@ export class Aliases{
     ///
     ///     USER
     ///
-
     public static userConvivialNames = {
         idUtilisateur: 'Id',
         role: 'role',
