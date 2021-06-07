@@ -7,6 +7,3 @@ npm install
 ionic serve --host="YOUR_IP_ADRESS"
 
 docker build ./ -t goodfood:v{numeroDeVersion}
-
-
-test
