@@ -1,7 +1,7 @@
 
 <ion-content>
   <div class="mainContent">
-    <ion-card *ngIf="article !== undefined" class="artCard" style="height: 80%;" style="background-color: rgba(186, 194, 191, 0.24);" color="success">
+    <ion-card *ngIf="article !== undefined" class="artCard" style="height: 80%;" style="background-color: rgba(186, 194, 191, 0.24); padding-top: 10px;" color="success">
       <div class="cardContent" >
         <ion-toolbar color="success" class="headerCard">
           <div>
@@ -9,37 +9,36 @@
           </div>
         </ion-toolbar>
         <ion-toolbar color="white" style="margin-top: 10px; padding: 10px;">
-          <div class="divPicture">
-            <img src="{{article.urlImgArticle}}" class="productPicture">
-          </div>
-          <div class="divDescription"> 
-            <ion-label color="dark" class="description">   
-              {{article.descriptionArticle}}
-            </ion-label>
-          </div>  
-        </ion-toolbar>  
-          <div style="width: 50%;float:left;">
+          <img src="{{article.urlImgArticle}}" class="productPicture">
+          <ion-label color="dark" class="description">   
+            {{article.descriptionArticle}}
+          </ion-label>
+        </ion-toolbar>
+        <ion-toolbar style="padding-top: 10px;">
+          <div style="width: 50%; float:left;">
             <ion-label color="dark">Allergènes</ion-label>
             <ion-card *ngFor="let allergene of artAllergenes" >
               <ion-label color="dark">{{allergene}}</ion-label>
             </ion-card>
           </div>  
-          <div style="width: 50%;float:right;">
+          <div style="width: 50%; float:right; padding-bottom: 10px;">
             <ion-label color="dark">Promos</ion-label>
             <ion-card *ngFor="let promo of artPromos" >
               <ion-label color="dark">{{promo}}%</ion-label>
             </ion-card>
           </div>
-        
-        <ion-toolbar color="white" style="margin-top: 10px; padding: 10px;">
-          <ion-label color="dark" slot="start"><b>{{article.prixArticleHt}} €</b></ion-label>
-          <ion-label color="dark"><b>{{article.stockArticle}} exemplaire(s) en stock</b></ion-label>
-          <ion-button slot="end" color="tertiary" class="btnCmd" text-wrap (click)="addItemToBasket(article)">
-            <ion-label class="ion-text-wrap">
-              Ajouter au panier
-            </ion-label>
-          </ion-button>
-        </ion-toolbar>      
+        </ion-toolbar>
+        <ion-item>
+          <ion-label style="text-align: center;"><b>{{article.stockArticle}} en stock</b></ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label style="text-align: center;"><b>{{article.prixArticleHt}} €</b></ion-label>
+        </ion-item>  
+        <ion-button color="tertiary" class="btnCmd" text-wrap (click)="addItemToBasket(article)" style="width: 100%">
+          <ion-label>
+            Ajouter au panier
+          </ion-label>
+        </ion-button>   
       </div>    
     </ion-card>
   </div>

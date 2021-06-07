@@ -17,7 +17,7 @@ export class Adresse_Utilisateur {
         this.idAdresse = 0;
         this.idUtilisateur = 0;
         this.numeroAdresse = 0;
-        this.nomAdresse = 'tesssssssssssst';
+        this.nomAdresse = '0';
         this.suppNomAdresse = '0';
         this.codePostal = '0';
         this.villeAdresse = '0';
