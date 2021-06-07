@@ -8,16 +8,12 @@
 }
 
 @media(min-width: 768px) {
-    ion-router-outlet {
-        margin-top: 63px;
-    }
+
 }
 
 @media(max-width: 768px) {
-    ion-router-outlet {
-        margin-top: 56px;
-    }
+
 }
 ion-router-outlet {
-    margin-top: 10vh;
+    //margin-top: 10vh;
 }

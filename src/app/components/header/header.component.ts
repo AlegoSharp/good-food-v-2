@@ -21,18 +21,18 @@ export class HeaderComponent implements OnInit {
 
   @ViewChild('productbtn', { read: ElementRef })productbtn: ElementRef;
 
-  private franchiseSelected = false;
-  private displayFranchise = false;
-  private role = '';
+  public franchiseSelected = false;
+  public displayFranchise = false;
+  public role = '';
 
   searchFranchise = '';
   public franchises: Franchise[];
   public selectedFranchise: Franchise;
 
   public basketCount = 0;
-  private storageBusy = false;
+  public storageBusy = false;
 
-  private token = this.util.token;
+  public token = this.util.token;
 
   IsConnected = false;
 

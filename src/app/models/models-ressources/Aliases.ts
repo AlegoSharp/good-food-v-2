@@ -25,6 +25,7 @@ export class Aliases{
         estMenu: 'Menu',
         estActive: 'Actif',
     };
+
     ///
     ///     CATEGORIE ARTICLE
     ///
@@ -36,6 +37,7 @@ export class Aliases{
     public static categorieArticleCustomRoutes = {
         idCategorieArticle: 'Categorie_Article',
     };
+
     ///
     ///     PROMOS
     ///
@@ -43,7 +45,8 @@ export class Aliases{
         estActive: 'Activer',
         idArticle: 'idArticle',
         idPromo: 'Id',
-        libellePromo: 'Libelle'
+        libellePromo: 'Libelle',
+        reduction: 'Reduction'
     }
     public static promosCustomRoutes = {
         idArticle: 'Article',
@@ -53,7 +56,6 @@ export class Aliases{
     ///
     ///     USER
     ///
-
     public static userConvivialNames = {
         idUtilisateur: 'Id',
         role: 'role',
