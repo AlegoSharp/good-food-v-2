@@ -1,9 +1,9 @@
 import { Aliases } from "./models-ressources/Aliases";
 
 export class Categorie_Article {
-    public idCategorieArticle: number;
-    public libelleCategorieArticle: string;
-    public estActive: number;
+    public a_idCategorieArticle: number;
+    public b_libelleCategorieArticle: string;
+    public c_estActive: number;
 
     constructor(){}
 
@@ -13,8 +13,8 @@ export class Categorie_Article {
     };
 
     public init_empty(): void{
-        this.idCategorieArticle = 0;
-        this.libelleCategorieArticle = '0';
-        this.estActive = 0;
+        this.a_idCategorieArticle = 0;
+        this.b_libelleCategorieArticle = '0';
+        this.c_estActive = 0;
     }
 }

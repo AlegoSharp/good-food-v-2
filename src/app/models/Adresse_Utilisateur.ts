@@ -1,15 +1,15 @@
 import { Aliases } from "./models-ressources/Aliases";
 
 export class Adresse_Utilisateur {
-    public idAdresse: number;
-    public numeroAdresse: number;
-    public nomAdresse: string;
-    public suppNomAdresse: string;
-    public villeAdresse: string;
-    public codePostal: string;
-    public pays: string;
-    public estActive: number;
-    public idUtilisateur: number;
+    public a_idAdresse: number;
+    public b_idUtilisateur: number;
+    public c_codePostal: string;
+    public d_nomAdresse: string;
+    public e_numeroAdresse: number;
+    public f_pays: string;
+    public g_suppNomAdresse: string;
+    public h_villeAdresse: string;
+    public i_estActive: number;
 
     constructor(){}
 
@@ -19,14 +19,14 @@ export class Adresse_Utilisateur {
     };
 
     public init_empty(): void{
-        this.idAdresse = 0;
-        this.idUtilisateur = 0;
-        this.numeroAdresse = 0;
-        this.nomAdresse = '0';
-        this.suppNomAdresse = '0';
-        this.codePostal = '0';
-        this.villeAdresse = '0';
-        this.pays = '0';
-        this.estActive = 0;
+        this.a_idAdresse = 0;
+        this.b_idUtilisateur = 0;
+        this.c_codePostal = '0';
+        this.d_nomAdresse = '0';
+        this.e_numeroAdresse = 0;
+        this.f_pays = '0';
+        this.g_suppNomAdresse = '0';
+        this.h_villeAdresse = '0';
+        this.i_estActive = 0;
     }
 }
