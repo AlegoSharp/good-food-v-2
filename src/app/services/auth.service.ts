@@ -49,10 +49,12 @@ export class AuthService {
     user.role = '';
     const headerDict = {
       'Content-Type': 'application/json',
+      Accept: '*',
     };
     const requestOptions = {
       headers: new HttpHeaders(headerDict),
     };
+    console.log(JSON.stringify(user));
     return this.http.post(this.env.API_URL + 'Utilisateur/creer', JSON.stringify(user), requestOptions);
   }
 
