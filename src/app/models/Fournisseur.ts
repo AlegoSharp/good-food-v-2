@@ -1,10 +1,12 @@
 export class Fournisseur {
     public idFournisseur: number;
-    public adresseFournisseur: number;
-    public emailFournisseur: string;
+    public idFranchise: number;
     public nomFournisseur: string;
     public numeroSiretFournisseur: number;
+    public emailFournisseur: string;
     public numeroTelFournisseur: number;
+    public adresseFournisseur: number;
+    public estActive: number;
 
     constructor(){}
 
@@ -15,5 +17,6 @@ export class Fournisseur {
         this.nomFournisseur = '0';
         this.numeroSiretFournisseur = 0;
         this.numeroTelFournisseur = 0;
+        this.estActive = 0;
     }
 }

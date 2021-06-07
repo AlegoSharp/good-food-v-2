@@ -1,13 +1,13 @@
 import { Article } from './Article';
 
 export class LigneCommande {
-
     idLigneCommande: number;
     idCommande: number;
     article: Article;
     idArticle: any;
     quantiteArticle: number;
     sousTotalTtc: number;
+    estActive: number;
 
     constructor()
     {
@@ -20,7 +20,7 @@ export class LigneCommande {
         this.article = new Article();
         this.quantiteArticle = 0;
         this.sousTotalTtc = 0;
-
+        this.estActive = 0;
     }
 
     public calculerSousTotal(): number{

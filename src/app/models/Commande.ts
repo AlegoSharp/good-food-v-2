@@ -7,22 +7,17 @@ export class Commande {
     idCommande: number;
     statutCommande: number;
     dateCommande: Date;
-
     totalTtc: number;
     totalHt: number;
-
     idAdresseLivraison: number;
     idAdresseFacturation: number;
-
     utilisateur: Utilisateur;
-
     lignesCommande: LigneCommande[];
+    estActive: number;
 
     constructor()
     {
     }
-
-
 
     public calculerTotalTtc(): number{
         if (this.lignesCommande !== undefined && this.lignesCommande.length > 0){
