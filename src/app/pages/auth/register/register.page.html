@@ -1,35 +1,40 @@
 <ion-content>
-  <ion-card class="form login" color="dark">
+  <div class="form login">
     <div class="divLogo"> 
       <img class="logo" src="assets/GoodFood_Logo1.png"/>
     </div>
-    <form #f="ngForm" (ngSubmit)="register(f)" method="post">
-      <ion-item lines="full" color="dark" class="formitem">
-        <ion-label position="floating">Nom</ion-label>
+    <ion-card  color="secondary">
+    <form #f="ngForm" (ngSubmit)="register(f)" method="post" >
+      <ion-item lines="full" class="formitem">
+        <ion-label color="dark" position="floating">Nom</ion-label>
         <ion-input type="email" name="nom" ngModel required></ion-input>
       </ion-item>
 
-      <ion-item lines="full" color="dark" class="formitem">
-        <ion-label position="floating">Prenom</ion-label>
+      <ion-item lines="full" class="formitem">
+        <ion-label color="dark" position="floating">Prenom</ion-label>
         <ion-input type="email" name="prenom" ngModel required></ion-input>
       </ion-item>
 
-      <ion-item lines="full" color="dark" class="formitem">
-        <ion-label position="floating">Email</ion-label>
+      <ion-item lines="full" class="formitem">
+        <ion-label color="dark" position="floating">Email</ion-label>
         <ion-input type="email" name="email" ngModel required></ion-input>
       </ion-item>
 
-      <ion-item lines="full" color="dark" class="formitem">
-        <ion-label position="floating">Mot de passe</ion-label>
+      <ion-item lines="full" class="formitem">
+        <ion-label color="dark" position="floating">Mot de passe</ion-label>
         <ion-input type="password" required name="password" ngModel></ion-input>
       </ion-item>
       
-      <ion-item lines="full" color="dark" class="formitem">
-        <ion-label position="floating">Confirmer le mot de passe</ion-label>
+      <ion-item lines="full" class="formitem">
+        <ion-label color="dark" position="floating">Confirmer le mot de passe</ion-label>
         <ion-input type="password" required name="confirm_password" ngModel></ion-input>
       </ion-item>
       
-      <ion-button type="submit" color="tertiary">S'inscrire</ion-button>
+      
     </form>
+    <ion-toolbar>
+      <ion-button slot="end" type="submit" color="secondary">S'inscrire</ion-button>
+    </ion-toolbar>
   </ion-card>
+  </div>
 </ion-content>
