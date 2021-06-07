@@ -1,15 +1,14 @@
 
 export class Adresse_Utilisateur {
     public idAdresse: number;
-    public idUtilisateur: number;
-
     public numeroAdresse: number;
     public nomAdresse: string;
     public suppNomAdresse: string;
-
-    public codePostal: string;
     public villeAdresse: string;
+    public codePostal: string;
     public pays: string;
+    public estActive: number;
+    public idUtilisateur: number;
 
     constructor(){}
 
@@ -22,5 +21,6 @@ export class Adresse_Utilisateur {
         this.codePostal = '0';
         this.villeAdresse = '0';
         this.pays = '0';
+        this.estActive = 0;
     }
 }

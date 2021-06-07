@@ -1,11 +1,8 @@
 export class Promo {
     public idArticle: number;
     public idPromo: number;
-
     public estActive: number;
-
     public libellePromo: string;
-
     public reduction: number;
 
     constructor(){}
