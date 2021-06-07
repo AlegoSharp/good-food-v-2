@@ -10,6 +10,7 @@ import { FormProperty } from 'src/app/models/FormProperty';
 import { Categorie_Article } from 'src/app/models/Categorie_Article';
 import { Promo } from 'src/app/models/Promo';
 import { UtilityService } from 'src/app/services/utility.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -28,12 +29,13 @@ export class FormPage implements OnInit {
     private formService: FormService,
     private alertService: AlertService,
     private util: UtilityService
-  ) { }
+  ) {  }
 
   ngOnInit() {
     this.MyForm = new Form();
     this.setCreateForm();
   }
+
   /**
    * Sets property
    * Remplis l'objet à parir de la propriété du formulaire
@@ -90,7 +92,7 @@ export class FormPage implements OnInit {
    * Initialise un formulaire de creation
    */
   setCreateForm() {
-    this.MyForm = new Form();
+/*     this.MyForm = new Form();
     let u: any;
     if (window.document.URL.includes('User')) {
       u = new Utilisateur();
@@ -116,9 +118,17 @@ export class FormPage implements OnInit {
       u = new Article();
       this.itemName = 'Article';
       u.init_empty();
-    }
-    this.myObject = u;
-    this.MyForm = this.formService.getFormFromObject(u, this.itemName);
+    }*/
+    const itemName = window.document.URL.split('/')[4];
+    const myObject = this.util.Store[itemName];
+    myObject.init_empty();
+    this.myObject = myObject;
+    /*     
+    this.myObject = Object.create(tempObj.prototype);
+    tempObj.init_empty();
+    console.log(tempObj); */
+    // this.myObject = Object.create(window[window.document.URL.split('/')[4]].prototype);
+    this.MyForm = this.formService.getFormFromObject(this.myObject, this.itemName);
     console.log(this.MyForm);
   }
 

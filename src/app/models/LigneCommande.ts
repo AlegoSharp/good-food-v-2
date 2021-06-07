@@ -1,4 +1,5 @@
 import { Article } from './Article';
+import { Aliases } from './models-ressources/Aliases';
 
 export class LigneCommande {
     idLigneCommande: number;
@@ -13,6 +14,11 @@ export class LigneCommande {
     {
         this.init_empty();
     }
+
+    private options = {
+        ConvivialsNames: Aliases.ligneCommandeConvivialNames,
+        CustomRoutes: Aliases.ligneCommandeCustomRoutes,
+    };
 
     public init_empty(): void{
         this.idLigneCommande = 0;

@@ -2,17 +2,23 @@
   <ion-toolbar>
     <ion-title>Administration des {{itemName}}s</ion-title>
   </ion-toolbar>
+  <ion-toolbar class="objChoice">
+    <ion-button [routerLink]="['/form/Article']" >Article</ion-button>
+    <ion-button [routerLink]="['/form/Categorie_Article']" >Catégorie article</ion-button>
+    <ion-button [routerLink]="['/form/Promo']" >Promos</ion-button>
+    <ion-button [routerLink]="['/form/Adresse_Fournisseur']" >Adresse Fournisseur</ion-button>
+    <ion-button [routerLink]="['/form/Adresse_Utilisateur']" >Adresse Utilisateur</ion-button>
+    <ion-button [routerLink]="['/form/Article_Allergene']" >Article Allergene</ion-button>
+    <ion-button [routerLink]="['/form/Article_Promo']" >Article_Promo</ion-button>
+    <ion-button [routerLink]="['/form/Fournisseur']" >Fournisseur</ion-button>
+    <ion-button [routerLink]="['/form/Franchise']" >Franchise</ion-button>
+    <ion-button [routerLink]="['/form/Groupe_Franchise']" >Groupe Franchise</ion-button> 
+  </ion-toolbar>
 </ion-header>
 <ion-content>
 
   <div class="formContent">
-    <div class="objChoice">
-      <ion-button [routerLink]="['/form/User']">User</ion-button>
-      <ion-button [routerLink]="['/form/Article']">Article</ion-button>
-      <ion-button [routerLink]="['/form/Categorie_Article']">Catégorie article</ion-button>
-      <ion-button [routerLink]="['/form/Promo']">Promos</ion-button>
-      <ion-button [routerLink]="['/form/Role']">Roles</ion-button>
-    </div>
+
     <form>
       <ion-card *ngFor="let item of MyForm.properties" color="success" class="card">
         <h5>

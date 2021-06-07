@@ -1,5 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { LigneCommande } from './LigneCommande';
+import { Aliases } from './models-ressources/Aliases';
 import { Utilisateur } from './Utilisateur';
 
 export class Commande {
@@ -18,6 +19,11 @@ export class Commande {
     constructor()
     {
     }
+
+    private options = {
+        ConvivialsNames: Aliases.commandeConvivialNames,
+        CustomRoutes: Aliases.categorieArticleCustomRoutes,
+    };
 
     public calculerTotalTtc(): number{
         if (this.lignesCommande !== undefined && this.lignesCommande.length > 0){

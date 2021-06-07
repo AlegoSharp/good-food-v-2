@@ -1,7 +1,18 @@
 import { Injectable } from "@angular/core";
+import { Adresse_Fournisseur } from "../models/Adresse_Fournisseur";
+import { Adresse_Utilisateur } from "../models/Adresse_Utilisateur";
+import { Article } from "../models/Article";
+import { Article_Allergene } from "../models/Article_Allergene";
+import { Article_Promo } from "../models/Article_Promo";
 import { Categorie_Article } from "../models/Categorie_Article";
+import { Commande } from "../models/Commande";
+import { Fournisseur } from "../models/Fournisseur";
 import { Franchise } from "../models/Franchise";
+import { Groupe_Franchise } from "../models/Groupe_Franchise";
 import { LigneCommande } from "../models/LigneCommande";
+import { Aliases } from "../models/models-ressources/Aliases";
+import { Promo } from "../models/Promo";
+import { Utilisateur } from "../models/Utilisateur";
 
 @Injectable({
     providedIn: 'root',
@@ -30,5 +41,20 @@ export class UtilityService{
      */
     public backetCache: LigneCommande[];
 
-    
+    public Store: any = {
+        Article: new Article(),
+        Utilisateur: new Utilisateur(),
+        Adresse_Fournisseur: new Adresse_Fournisseur(),
+        Adresse_Utilisateur: new Adresse_Utilisateur(),
+        Article_Allergene: new Article_Allergene(),
+        Article_Promo: new Article_Promo(),
+        Categorie_Article: new Categorie_Article(),
+        Commande: new Commande(),
+        Fournisseur: new Fournisseur(),
+        Franchise: new Franchise(),
+        Groupe_Franchise: new Groupe_Franchise(),
+        LigneCommande: new LigneCommande(),
+        Promo: new Promo(),
+        Aliases: new Aliases(),
+    };
 }

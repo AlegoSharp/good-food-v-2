@@ -85,17 +85,20 @@ export class FormService {
         const result = new Array<FormProperty>();
         const modelName = fixedNameClassName === '' ? (obj as any).constructor.name : fixedNameClassName;
         array.forEach(element => {
-            const prop = new FormProperty();
-            prop.nom = element;
-            prop.alias = this.getConvivialName(modelName, element);
-            console.log(prop);
-            if (prop.alias === '') {
-                prop.alias = prop.alias === '' ? element : '';
+            if (element !== 'options'){
+                const prop = new FormProperty();
+                const options = (obj as any).options;
+                prop.nom = element;
+                prop.alias = options.ConvivialsNames[element]; // this.getConvivialName(modelName, element);
+                console.log(prop);
+                if (prop.alias === '') {
+                    prop.alias = prop.alias === '' ? element : '';
+                }
+                prop.type = typeof (obj[element]);
+                prop.value = obj[element];
+                prop.externalRouteRessource = options.CustomRoutes[element]; // this.getCustomRoute(modelName, prop.nom);
+                result.push(prop);
             }
-            prop.type = typeof (obj[element]);
-            prop.value = obj[element];
-            prop.externalRouteRessource = this.getCustomRoute(modelName, prop.nom);
-            result.push(prop);
         });
         return result;
     }
@@ -212,4 +215,26 @@ export class FormService {
                 return '';
         }
     }
+
+    public getObjectOption(model: string, propertyName: string): string {
+        switch (model) {
+            case 'Categorie_Article':
+                return Aliases.categorieArticleConvivialNames[propertyName];
+
+            case 'Article':
+                return ;
+
+            case 'Utilisateur':
+                return Aliases.userConvivialNames[propertyName];
+
+            case 'Promo':
+                return Aliases.promosConvivialNames[propertyName];
+
+            default:
+                return '';
+        }
+    }
+
+
+
 }

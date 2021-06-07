@@ -1,3 +1,5 @@
+import { Aliases } from './models-ressources/Aliases';
+
 export class Franchise {
     public idFranchise: number;
     public idGroupeFranchise: number;
@@ -8,6 +10,11 @@ export class Franchise {
     public estActive: number;
 
     constructor(){}
+
+    private options = {
+        ConvivialsNames: Aliases.franchiseConvivialNames,
+        CustomRoutes: Aliases.franchiseCustomRoutes,
+    };
 
     public init_empty(): void{
         this.idFranchise = 0;

@@ -1,4 +1,8 @@
+import { Aliases } from './models-ressources/Aliases';
+
 export class Article {
+
+    constructor(){}
     idArticle: number;
     libelleArticle: string;
     descriptionArticle: string;
@@ -11,7 +15,10 @@ export class Article {
     estMenu: string;
     estActive: number;
 
-    constructor(){}
+    private options = {
+        ConvivialsNames: Aliases.articleConvivialNames,
+        CustomRoutes: Aliases.articleCustomRoutes,
+    };
 
     public init_empty(): void{
         this.idArticle = 0;

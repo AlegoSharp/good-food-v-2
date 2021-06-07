@@ -1,3 +1,5 @@
+import { Aliases } from './models-ressources/Aliases';
+
 export class Fournisseur {
     public idFournisseur: number;
     public idFranchise: number;
@@ -9,6 +11,11 @@ export class Fournisseur {
     public estActive: number;
 
     constructor(){}
+
+    private options = {
+        ConvivialsNames: Aliases.fournisseurConvivialNames,
+        CustomRoutes: Aliases.fournisseurCustomRoutes,
+    };
 
     public init_empty(): void{
         this.idFournisseur = 0;
