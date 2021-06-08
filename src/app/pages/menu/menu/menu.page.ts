@@ -50,6 +50,7 @@ export class MenuPage implements OnInit {
   @HostListener('window:resize', ['$event'])
   private onResize(event) {
     const newWidth = event.target.innerWidth;
-    this.toggleMenu(newWidth)
+    this.toggleMenu(newWidth);
   }
 }
+  
