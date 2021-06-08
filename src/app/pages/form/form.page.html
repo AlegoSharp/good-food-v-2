@@ -30,7 +30,7 @@
                     *ngIf="item.type === 'number' && item.nom.includes('id') && item.alias.includes(MyForm.title)" 
                     type="number" 
                     name="{{item.nom}}" 
-                    (input)="onIdChange($event.target.value,$event.target)" 
+                    (input)="onIdChange($event.target)" 
                     [(ngModel)]="item.value"
                     name="item.nom"
                     [ngModelOptions]="{standalone: true}"

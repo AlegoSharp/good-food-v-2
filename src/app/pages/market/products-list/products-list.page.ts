@@ -82,12 +82,12 @@ export class ProductsListPage implements OnInit {
         const maxelem = (this.nbElemParPage * 3);
         let query = '/Article?pageSize=' + maxelem.toString() +
             '&pageNumber=' + this.currentSlideNumber +
-            '&estMenu=' + this.ModeMenu.toString();
+            '&i_estMenu=' + this.ModeMenu.toString();
 
-        query = query + (this.selectedCategorie !== undefined ? '&idCategorieArticle=' + this.selectedCategorie : '');
+        query = query + (this.selectedCategorie !== undefined ? '&b_idCategorieArticle=' + this.selectedCategorie : '');
         if (this.searchText !== '') {
-            query = query + '&descriptionArticle=' + this.searchText +
-                '&libelleArticle=' + this.searchText;
+            query = query + '&e_descriptionArticle=' + this.searchText +
+                '&d_libelleArticle=' + this.searchText;
         }
 
         this.formService.getList(query).toPromise().then(response => {

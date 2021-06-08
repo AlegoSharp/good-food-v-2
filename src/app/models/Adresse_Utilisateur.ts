@@ -24,7 +24,7 @@ export class Adresse_Utilisateur {
         this.c_codePostal = '0';
         this.d_nomAdresse = '0';
         this.e_numeroAdresse = 0;
-        this.f_pays = '0';
+        this.f_pays = 'test0';
         this.g_suppNomAdresse = '0';
         this.h_villeAdresse = '0';
         this.i_estActive = 0;

@@ -19,7 +19,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FormPage implements OnInit {
 
-  public myObject: object;
+  public myObject: any;
   public itemName: string;
   public idName: string;
   public MyForm: Form;
@@ -44,6 +44,7 @@ export class FormPage implements OnInit {
    */
   async setProperty(item: FormProperty, value: any) {
     if (item.alias === 'Id') {
+      value.options = this.util.Store[this.MyForm.title].options;
       this.myObject = value;
       item.objectReference = Object.values(value);
       this.setUpdateForm(value, this.MyForm.title);
@@ -64,7 +65,7 @@ export class FormPage implements OnInit {
    */
   setUpdateForm(object: any, fixedModelName = '') {
     this.myObject = object;
-    object.options = this.util.Store[fixedModelName];
+    object.options = this.util.Store[fixedModelName].options;
     this.MyForm = new Form();
     this.MyForm = fixedModelName === '' ?
       this.formService.getFormFromObject(object) : this.formService.getFormFromObject(object, fixedModelName);
@@ -76,7 +77,8 @@ export class FormPage implements OnInit {
    * @param searchValue searchValue
    * @param target target
    */
-  onIdChange(searchValue: string, target: IonInput): void {
+  onIdChange(target: any): void {
+    const searchValue = target.value;
     if (searchValue.length > 0) {
       this.formService.getDetail(searchValue, window.document.URL.split('/')[4]).toPromise()
         .then(response => {
@@ -94,7 +96,11 @@ export class FormPage implements OnInit {
    */
   setCreateForm() {
     const itemName = window.document.URL.split('/')[4];
-    const myObject = this.util.Store[itemName];
+    let myObject = this.util.Store[itemName];
+    if (itemName === '' || myObject === undefined){
+      myObject = this.util.Store.Article;
+    }
+
     myObject.init_empty();
     this.myObject = myObject;
     this.MyForm = this.formService.getFormFromObject(this.myObject, this.itemName);
@@ -141,7 +147,6 @@ export class FormPage implements OnInit {
       await modal.present();
       await modal.onDidDismiss().then((data) => {
         if (data?.data !== undefined) {
-          data.data.options = this.util.Store[name];
           this.setProperty(formProperty, data.data);
         }
       });

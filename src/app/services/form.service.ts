@@ -47,7 +47,7 @@ export class FormService {
      * @param [fixedNameClassName]  * The classname objet to force it / Le nom de la class de l'objet pour le fixer
      * @returns form from object    * An instance of Form / Une instance du model Form
      */
-    public getFormFromObject<T>(obj: T, fixedNameClassName = ''): Form {
+    public getFormFromObject<T>(obj: any, fixedNameClassName = ''): Form {
         const form = new Form();
         form.title = fixedNameClassName === '' ? (obj as any).constructor.name : fixedNameClassName;
         form.properties = this.getObjectProps<T>(obj, fixedNameClassName);
@@ -84,13 +84,15 @@ export class FormService {
         const array = Object.getOwnPropertyNames(obj);
         const result = new Array<FormProperty>();
         const modelName = fixedNameClassName === '' ? (obj as any).constructor.name : fixedNameClassName;
+
+        console.log(obj);
+
         array.forEach(element => {
             if (element !== 'options'){
                 const prop = new FormProperty();
                 const options = (obj as any).options;
                 prop.nom = element;
                 prop.alias = options.ConvivialsNames[element]; // this.getConvivialName(modelName, element);
-                console.log(prop);
                 if (prop.alias === '') {
                     prop.alias = prop.alias === '' ? element : '';
                 }

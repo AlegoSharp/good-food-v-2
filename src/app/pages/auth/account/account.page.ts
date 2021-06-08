@@ -85,19 +85,23 @@ export class AccountPage implements OnInit {
   }
 
   async getAdresses() {
-    this.formService.getList('Adresse_Utilisateur?idUtilisateur=' + this.userId).toPromise().then((response: any) => {
+    this.formService.getList('Utilisateur/' + this.userId + '/Adresse_Utilisateur').toPromise().then((response: any) => {
       if (response !== undefined) {
         this.addressLivr = response[0];
         this.addressFact = response[1];
-        if (this.addressLivr){
+
+        
+        if (this.addressLivr === undefined){
           this.addressLivr = new Adresse_Utilisateur();
           this.addressLivr.init_empty();
         }
 
-        if (this.addressFact){
+        if (this.addressFact  === undefined){
           this.addressFact = new Adresse_Utilisateur();
           this.addressFact.init_empty();
         }
+        console.log(this.addressLivr);
+
       }
     });
   }

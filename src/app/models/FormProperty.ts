@@ -3,7 +3,7 @@ export class FormProperty {
     type: string;
     alias: string;
     value: string;
-    objectReference: object;
+    objectReference: any;
     externalRouteRessource: string;
     constructor(){}
 }
