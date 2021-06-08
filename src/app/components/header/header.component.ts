@@ -117,7 +117,7 @@ export class HeaderComponent implements OnInit {
     this.displayFranchise = false;
     this.util.franchiseSelected = item;
     this.selectedFranchise = item;
-    this.searchFranchise = item.nomFranchise;
+    this.searchFranchise = item.d_nomFranchise;
     this.franchiseSelected = true;
   }
 }

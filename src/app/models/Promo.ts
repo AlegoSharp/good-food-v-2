@@ -1,3 +1,5 @@
+import { Aliases } from "./models-ressources/Aliases";
+
 export class Promo {
     public a_idPromo: number;
     public b_estActive: number;
@@ -6,7 +8,10 @@ export class Promo {
     public e_reduction: number;
 
     constructor(){}
-
+    private options = {
+        ConvivialsNames: Aliases.promosConvivialNames,
+        CustomRoutes: Aliases.promosCustomRoutes,
+    };
     public init_empty(): void{
         this.a_idPromo = 0;
         this.b_estActive = 0;

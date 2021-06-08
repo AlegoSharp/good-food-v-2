@@ -38,7 +38,7 @@ export class OrderPage implements OnInit {
     private formService: FormService,
     private toastController: ToastController,
     private alertService: AlertService
-  ){ }
+  ) { }
 
   ngOnInit() {
     this.Commande = new Commande();
@@ -49,20 +49,20 @@ export class OrderPage implements OnInit {
     this.Commande.lignesCommande = new Array<LigneCommande>();
   }
 
-  ionViewDidEnter(){
+  ionViewDidEnter() {
     this.storageService.getObject('basket').then(value => {
-        return (value as unknown) as Array<LigneCommande>;
+      return (value as unknown) as Array<LigneCommande>;
     }).then(x => {
       this.Articles = x;
       this.Commande.lignesCommande = x;
     });
   }
 
-  async createOrder(){
+  async createOrder() {
     this.Commande.totalHt = this.Commande.calculerTotalHt();
-    this.Commande.totalTtc = this.Commande.calculerTotalTtc();
+    this.Commande.f_totalTtc = this.Commande.calculerTotalTtc();
     this.Commande.lignesCommande.forEach(element => {
-      element.sousTotalTtc = (element.article.prixArticleHt * element.quantiteArticle) * (1 + (element.article.tva / 100));
+      element.e_sousTotalTtc = (element.article.g_prixArticleHt * element.d_quantiteArticle) * (1 + (element.article.h_tva / 100));
     });
     this.CommandeApi = JSON.parse(JSON.stringify(this.Commande));
 
@@ -93,18 +93,18 @@ export class OrderPage implements OnInit {
 
   }
 
-  async getUser(){
+  async getUser() {
     Storage.get({ key: 'token' }).then((x: any) => {
-      if (x.value !== null && x.value !== undefined){
+      if (x.value !== null && x.value !== undefined) {
         console.log((jwt_decode(x.value) as any));
         this.userId = (jwt_decode(x.value) as any).id;
         this.formService.getList('Utilisateur/' + this.userId).toPromise().then((responseUser: any) => {
-          if (responseUser !== undefined){
+          if (responseUser !== undefined) {
             this.User = responseUser as Utilisateur;
             this.formService.getList('Adresse_Utilisateur?idUtilisateur=' + this.userId).toPromise().then((responseAdresse: any) => {
-              if (responseAdresse !== undefined){
-                this.Commande.idAdresseLivraison = responseAdresse[0].idAdresse;
-                this.Commande.idAdresseFacturation = responseAdresse[1].idAdresse ;
+              if (responseAdresse !== undefined) {
+                this.Commande.d_idAdresseLivraison = responseAdresse[0].idAdresse;
+                this.Commande.c_idAdresseFacturation = responseAdresse[1].idAdresse;
               }
             });
           }

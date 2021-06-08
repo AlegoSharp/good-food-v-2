@@ -31,18 +31,18 @@ export class BasketPage implements OnInit {
   }
 
   async increaseArtQtyFromBasket(ligneCommande: LigneCommande) {
-    ligneCommande.quantiteArticle++;
+    ligneCommande.d_quantiteArticle++;
     await this.storageService.replaceItemFromBasket(ligneCommande);
   }
 
   async decreaseArtQtyFromBasket(ligneCommande: LigneCommande) {
-    if (ligneCommande.quantiteArticle - 1 < 1) {
+    if (ligneCommande.d_quantiteArticle - 1 < 1) {
       this.alertService.presentAlertOuiNon('Voulez-vous supprimer l\'article du panier ?', '', () => {
-        ligneCommande.quantiteArticle--;
+        ligneCommande.d_quantiteArticle--;
         this.deleteArtFromBasket(ligneCommande);
       });
     } else {
-      ligneCommande.quantiteArticle--;
+      ligneCommande.d_quantiteArticle--;
       await this.storageService.replaceItemFromBasket(ligneCommande);
     }
   }
@@ -54,9 +54,9 @@ export class BasketPage implements OnInit {
     });
   }
 
-   validateOrder() {
+  validateOrder() {
     if (this.Articles.length > 0) {
-       this.router.navigateByUrl('/order');
+      this.router.navigateByUrl('/order');
     }
   }
 }

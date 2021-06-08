@@ -329,7 +329,7 @@ export class ProductsListPage implements OnInit {
             x.onWillDismiss().then((data) => {
                 if (data.data !== undefined) {
                     if (data.data.values.Quantity !== '') {
-                        ligneCommande.quantiteArticle = data.data.values.Quantity;
+                        ligneCommande.d_quantiteArticle = data.data.values.Quantity;
                         this.storageService.addItemToBasket(ligneCommande);
                     }
                 }

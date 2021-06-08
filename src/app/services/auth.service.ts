@@ -42,11 +42,11 @@ export class AuthService {
    */
   register(nom: string, prenom: string, email: string, password: string) {
     const user = new Utilisateur();
-    user.nomUtilisateur = nom;
-    user.prenomUtilisateur = prenom;
-    user.mdpUtilisateur = password;
-    user.emailUtilisateur = email;
-    user.role = '';
+    user.f_nomUtilisateur = nom;
+    user.h_prenomUtilisateur = prenom;
+    user.e_mdpUtilisateur = password;
+    user.d_emailUtilisateur = email;
+    user.i_role = '';
     const headerDict = {
       'Content-Type': 'application/json',
       Accept: '*',

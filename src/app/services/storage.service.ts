@@ -57,7 +57,7 @@ export class StorageService {
             return (value as unknown) as Array<LigneCommande>;
         });
         if (basket !== undefined){
-            basket = basket.filter(w => w.article.idArticle !== ligneCommande.article.idArticle);
+            basket = basket.filter(w => w.article.a_idArticle !== ligneCommande.article.a_idArticle);
             await this.setObject('basket', basket);
             this.util.backetCache = basket;
         }
@@ -73,7 +73,7 @@ export class StorageService {
             return (value as unknown) as Array<LigneCommande>;
         });
         if (basket !== undefined){
-            const ligne = basket.findIndex(w => w.article.idArticle === ligneCommande.article.idArticle);
+            const ligne = basket.findIndex(w => w.article.a_idArticle === ligneCommande.article.a_idArticle);
             basket[ligne] = ligneCommande;
             await this.setObject('basket', basket);
             this.util.backetCache = basket;
@@ -94,13 +94,13 @@ export class StorageService {
         if (tempBasket !== null){
             basket = tempBasket;
         }
-        const itemExisitingIndex = basket.findIndex(ligne => ligne.article?.idArticle === ligneCommande.article.idArticle);
+        const itemExisitingIndex = basket.findIndex(ligne => ligne.article?.a_idArticle === ligneCommande.article.a_idArticle);
         if (itemExisitingIndex >= 0){
-            const currentQty = basket[itemExisitingIndex].quantiteArticle;
-            const addinQty = ligneCommande.quantiteArticle as number;
+            const currentQty = basket[itemExisitingIndex].d_quantiteArticle;
+            const addinQty = ligneCommande.d_quantiteArticle as number;
             let finalQty = 0;
             finalQty = Number.parseInt(currentQty.toString(), 2) + Number.parseInt(addinQty.toString(), 2);
-            basket[itemExisitingIndex].quantiteArticle = finalQty;
+            basket[itemExisitingIndex].d_quantiteArticle = finalQty;
         }else{
             basket.push(ligneCommande);
         }

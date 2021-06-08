@@ -13,11 +13,11 @@
       <div *ngFor="let item of MyForm.properties">
         <div *ngIf="!item.nom.includes('id') && item.type !== 'boolean' && !item.nom.includes('url')">
           <h5>
-            <ion-label color="success">
+            <ion-label color="primary">
               {{item.nom.toUpperCase()}}
             </ion-label>
           </h5>
-          <ion-label>
+          <ion-label color="primary">
             {{obj[item.nom].toString().toUpperCase()}}
           </ion-label>
         </div>

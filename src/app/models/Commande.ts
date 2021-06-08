@@ -12,10 +12,11 @@ export class Commande {
     e_dateCommande: Date;
     f_totalTtc: number;
     g_statutCommande: number;
-    h_idFranchise: number;_
+    h_idFranchise: number;
     i_estActive: number;
     totalHt: number;
     lignesCommande: LigneCommande[];
+    utilisateur: Utilisateur;
 
     constructor()
     {

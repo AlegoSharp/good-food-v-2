@@ -21,7 +21,7 @@ export class HomePage implements OnInit {
   }
 
   async getArticles() {
-    let query = '/Article?pageSize=' + 6 +
+    const query = '/Article?pageSize=' + 6 +
       '&pageNumber=' + 1 +
       '&estMenu=' + 1;
     await this.formService.getList(query).toPromise().then(response => {
@@ -42,12 +42,11 @@ export class HomePage implements OnInit {
       x.onWillDismiss().then((data) => {
         if (data.data !== undefined) {
           if (data.data.values.Quantity !== '') {
-            ligneCommande.quantiteArticle = data.data.values.Quantity;
+            ligneCommande.d_quantiteArticle = data.data.values.Quantity;
             this.storageService.addItemToBasket(ligneCommande);
           }
         }
       });
-      console.log(article)
     });
   }
 

@@ -35,7 +35,7 @@ export class PickerModalPage implements OnInit {
       });
       this.MyForm = new Form();
       this.setCreateForm(this.Objects[0]);
-      console.log(this.MyForm);
+      console.log('PD' ,  this.MyForm.properties);
     }).catch(reason => {
       // this.alertService.presentAlertOk("Erreur",this.route)
     });
@@ -47,7 +47,6 @@ export class PickerModalPage implements OnInit {
   setCreateForm(u: any){
     this.MyForm = new Form();
     this.MyObject = u;
-    this.MyForm = this.formService.getFormFromObject(u,this.route)
-    console.log(this.MyForm.properties.length);
+    this.MyForm = this.formService.getFormFromObject(u, this.route);
   }
 }

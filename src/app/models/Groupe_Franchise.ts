@@ -8,8 +8,8 @@ export class Groupe_Franchise {
     constructor(){}
 
     private options = {
-        ConvivialsNames: Aliases.categorieArticleConvivialNames,
-        CustomRoutes: Aliases.categorieArticleCustomRoutes,
+        ConvivialsNames: Aliases.groupeFranchiseConvivialNames,
+        CustomRoutes: Aliases.groupeFranchiseCustomRoutes,
     };
 
     public init_empty(): void{

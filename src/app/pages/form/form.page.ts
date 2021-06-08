@@ -64,6 +64,7 @@ export class FormPage implements OnInit {
    */
   setUpdateForm(object: any, fixedModelName = '') {
     this.myObject = object;
+    object.options = this.util.Store[fixedModelName];
     this.MyForm = new Form();
     this.MyForm = fixedModelName === '' ?
       this.formService.getFormFromObject(object) : this.formService.getFormFromObject(object, fixedModelName);
@@ -92,42 +93,10 @@ export class FormPage implements OnInit {
    * Initialise un formulaire de creation
    */
   setCreateForm() {
-/*     this.MyForm = new Form();
-    let u: any;
-    if (window.document.URL.includes('User')) {
-      u = new Utilisateur();
-      this.itemName = 'Utilisateur';
-      u.init_empty();
-    }
-    else if (window.document.URL.includes('Categorie_Article')) {
-      u = new Categorie_Article();
-      this.itemName = 'Categorie_Article';
-      u.init_empty();
-    }
-    else if (window.document.URL.includes('Article')) {
-      u = new Article();
-      this.itemName = 'Article';
-      u.init_empty();
-    }
-    else if (window.document.URL.includes('Promo')) {
-      u = new Promo();
-      this.itemName = 'Promo';
-      u.init_empty();
-    }
-    else {
-      u = new Article();
-      this.itemName = 'Article';
-      u.init_empty();
-    }*/
     const itemName = window.document.URL.split('/')[4];
     const myObject = this.util.Store[itemName];
     myObject.init_empty();
     this.myObject = myObject;
-    /*     
-    this.myObject = Object.create(tempObj.prototype);
-    tempObj.init_empty();
-    console.log(tempObj); */
-    // this.myObject = Object.create(window[window.document.URL.split('/')[4]].prototype);
     this.MyForm = this.formService.getFormFromObject(this.myObject, this.itemName);
     console.log(this.MyForm);
   }
@@ -139,7 +108,6 @@ export class FormPage implements OnInit {
   editElement() {
     this.formService.setObjectProps(this.myObject, this.MyForm.properties);
     this.formService.postEditObject(window.document.URL.split('/')[4], this.myObject, this.util.token).toPromise().then(Response => {
-
     }).catch(reason => {
       this.alertService.presentAlertOk('Erreur', reason.message);
     });
@@ -173,6 +141,7 @@ export class FormPage implements OnInit {
       await modal.present();
       await modal.onDidDismiss().then((data) => {
         if (data?.data !== undefined) {
+          data.data.options = this.util.Store[name];
           this.setProperty(formProperty, data.data);
         }
       });
