@@ -21,7 +21,7 @@ export class ProductsListPage implements OnInit {
     @ViewChild(IonSlides) slides: IonSlides;
     @ViewChild(IonSelect) select: IonSelect;
 
-    private slideOpts = {
+    public slideOpts = {
         initialSlide: 1,
         speed: 400
     };
@@ -47,10 +47,10 @@ export class ProductsListPage implements OnInit {
 
     public nbElemParPage = 8;
 
-    private isButtonSlideChange = false;
-    private filterVisible = false;
+    public isButtonSlideChange = false;
+    public filterVisible = false;
 
-    private searchText = '';
+    public searchText = '';
 
     constructor(private formService: FormService,
                 private storageService: StorageService,

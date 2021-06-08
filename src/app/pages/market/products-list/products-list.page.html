@@ -17,7 +17,7 @@
       <ion-toolbar color="primary">
         <ion-label slot="start" color="success">Choisir une categorie : </ion-label>
         <ion-select slot="start" style="width: 300px;" interface="action-sheet" [(ngModel)]="selectedCategorie">
-          <ion-select-option *ngFor="let categorie of Categories" [value]="categorie.idCategorieArticle">
+          <ion-select-option *ngFor="let categorie of Categories" [value]="categorie.a_idCategorieArticle">
             <ion-label >{{categorie.b_libelleCategorieArticle}}</ion-label>
           </ion-select-option>
         </ion-select>
@@ -38,7 +38,7 @@
                 </ion-label>
               </div>
             </ion-toolbar>
-            <img src="{{art.urlImgArticle}}" class="productPicture"> 
+            <img src="{{art.f_urlImgArticle}}" class="productPicture"> 
             <ion-label ><b>{{art.g_prixArticleHt}} €</b></ion-label>
             <ion-button size="small" color="success" (click)="addItemToBasket(art)" style="width: 100%;">
               <ion-label color="primary">
