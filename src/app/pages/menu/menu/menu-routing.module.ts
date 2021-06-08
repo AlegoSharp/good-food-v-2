@@ -67,7 +67,7 @@ const routes: Routes = [
     },
     {
       path: 'forgot',
-      loadChildren: () => import('../../auth/forget-password/forget-password-routing.module').then( m => m.ForgetPasswordPageRoutingModule)
+      loadChildren: () => import('../../auth/forget-password/forget-password.module').then( m => m.ForgetPasswordPageModule)
     },
     {
       path: 'article-detail',

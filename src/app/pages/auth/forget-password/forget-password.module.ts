@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -15,6 +15,9 @@ import { ForgetPasswordPage } from './forget-password.page';
     IonicModule,
     ForgetPasswordPageRoutingModule
   ],
-  declarations: [ForgetPasswordPage]
+  declarations: [ForgetPasswordPage],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class ForgetPasswordPageModule {}

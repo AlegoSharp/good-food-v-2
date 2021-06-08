@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
 
@@ -23,9 +23,11 @@ import { AlertService } from './services/alert.service';
     HttpClientModule,
     RouterModule,
     BrowserAnimationsModule,
-    //ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, UtilityService, AlertService],
   bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule { }

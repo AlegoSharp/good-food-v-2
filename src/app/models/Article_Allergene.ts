@@ -1,3 +1,4 @@
+// tslint:disable-next-line: class-name
 export class Article_Allergene {
     public idArticle: number;
     public libelleAllergene: string;
