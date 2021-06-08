@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { trigger } from '@angular/animations';
 
 import { Plugins } from '@capacitor/core';
-import { SwUpdate } from '@angular/service-worker';
 
 export const routeTransitionAnimations = trigger('triggerName', []);
 
@@ -16,10 +15,11 @@ export const routeTransitionAnimations = trigger('triggerName', []);
 
 export class AppComponent {
 
-  constructor(private swUpdate: SwUpdate) {
-    this.initializeApp();
+  constructor() {
+    //this.initializeApp();
   }
 
+  /** 
   initializeApp(): void {
     if (this.swUpdate.available) {
       this.swUpdate.available.subscribe(() => {
@@ -28,5 +28,5 @@ export class AppComponent {
         }
       });
     }
-  }
+  }*/
 }

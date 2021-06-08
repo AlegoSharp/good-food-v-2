@@ -30,18 +30,18 @@
         <img class="productPicture" slot="start" src="{{art.article.urlImgArticle}}" style="display:block;" />
         <div style="width: 50%;display: inline-block;" slot="start">
           <h3>
-            <ion-label class="article_lib">{{art.article.libelleArticle}}</ion-label>
+            <ion-label class="article_lib">{{art.article.d_libelleArticle}}</ion-label>
           </h3>
           <ion-label class="article_desc">
-            {{art.article.descriptionArticle}}
+            {{art.article.e_descriptionArticle}}
           </ion-label>
         </div>
         <div slot="start">
           <ion-label class="toolboxContent">
-            x {{art.quantiteArticle}}
+            x {{art.d_quantiteArticle}}
           </ion-label>
         </div>
-        <ion-label slot="end" class="toolboxContent" class="productPrice">{{art.article.prixArticleHt * art.quantiteArticle }} €</ion-label>
+        <ion-label slot="end" class="toolboxContent" class="productPrice">{{art.article.g_prixArticleHt * art.d_quantiteArticle }} €</ion-label>
         <ion-button slot="end" (click)="deleteArtFromBasket(art)" color="tertiary">
           <ion-label>Supprimer du panier</ion-label>
           <ion-icon color="dark" name="trash" size="large" style="margin-left: 10px;"></ion-icon>

@@ -18,7 +18,7 @@
         <ion-label slot="start" color="success">Choisir une categorie : </ion-label>
         <ion-select slot="start" style="width: 300px;" interface="action-sheet" [(ngModel)]="selectedCategorie">
           <ion-select-option *ngFor="let categorie of Categories" [value]="categorie.idCategorieArticle">
-            <ion-label >{{categorie.libelleCategorieArticle}}</ion-label>
+            <ion-label >{{categorie.b_libelleCategorieArticle}}</ion-label>
           </ion-select-option>
         </ion-select>
       </ion-toolbar>
@@ -32,14 +32,14 @@
           <div class="cardContent" >
             <ion-toolbar color="success" class="headerCard" [routerLink]="['/article-detail/']" [queryParams]="{id: art.idArticle}">
               <div>
-                <h5><b><ion-label slot="start">{{art.libelleArticle}}</ion-label></b></h5>
+                <h5><b><ion-label slot="start">{{art.d_libelleArticle}}</ion-label></b></h5>
                 <ion-label>   
-                  {{art.descriptionArticle}}
+                  {{art.e_descriptionArticle}}
                 </ion-label>
               </div>
             </ion-toolbar>
             <img src="{{art.urlImgArticle}}" class="productPicture"> 
-            <ion-label ><b>{{art.prixArticleHt}} €</b></ion-label>
+            <ion-label ><b>{{art.g_prixArticleHt}} €</b></ion-label>
             <ion-button size="small" color="success" (click)="addItemToBasket(art)" style="width: 100%;">
               <ion-label color="primary">
                 Ajouter au panier

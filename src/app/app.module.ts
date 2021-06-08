@@ -12,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { UtilityService } from './services/utility.service';
 import { AlertService } from './services/alert.service';
-import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +23,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     HttpClientModule,
     RouterModule,
     BrowserAnimationsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    //ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, UtilityService, AlertService],
   bootstrap: [AppComponent],

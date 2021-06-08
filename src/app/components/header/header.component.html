@@ -10,7 +10,7 @@
         placeholder="Rechercher un restaurant" 
         ></ion-searchbar>
         <ion-label *ngIf="selectedFranchise">
-          {{selectedFranchise.nomFranchise}}
+          {{selectedFranchise.d_nomFranchise}}
         </ion-label>
     </div>
     <div slot="end">
@@ -42,7 +42,7 @@
       placeholder="Rechercher un restaurant" 
       ></ion-searchbar>
       <ion-label *ngIf="selectedFranchise">
-        {{selectedFranchise.nomFranchise}}
+        {{selectedFranchise.d_nomFranchise}}
       </ion-label>
   </div>
   <div slot="end">
@@ -85,7 +85,7 @@
 
 <ion-toolbar *ngIf="displayFranchise" style="height: 50vh;">
   <ion-card *ngFor=" let item of franchises" color="success" style="width:80%; margin: 0 auto; margin-bottom: 10px; padding: 20px;" (click)="selectFranchise(item)">
-    <ion-label style="font-size: large; width: 100%; display: block;">{{item.nomFranchise}}</ion-label>
-    <ion-label style="font-size: large; width: 100%; display: block;">{{item.emailFranchise}}</ion-label>
+    <ion-label style="font-size: large; width: 100%; display: block;">{{item.d_nomFranchise}}</ion-label>
+    <ion-label style="font-size: large; width: 100%; display: block;">{{item.b_emailFranchise}}</ion-label>
   </ion-card>
 </ion-toolbar>
