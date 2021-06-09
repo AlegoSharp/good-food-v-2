@@ -3,7 +3,7 @@
     margin: 0 auto;
     min-height: 100%;
     background-color: white;
-    padding: 15px;
+    //padding: 15px;
     z-index: 0;
 
 }
@@ -12,35 +12,23 @@
     padding: 15px;
 }
 
-.productPicture{
-    margin-right: 20px;
-    border-radius: 10px;
-}
+
 
 .productToolBar{
-    height: 75px;
+    width: 100%;
 }
 
-.productPrice{
-    margin-right: 50px;
-    margin-left: 50px;
-}
+
 
 .article_lib{
-    width: 100%;
+    width: 50%;
+
 }
 
 .article_desc{
-    width: 100%;
+    width: 50%;
 }
 
-.poductContainer{
-    height: 50px;
-
-}
-.productPicture{
-    width: 100px;
-}
 .pointer { cursor: pointer; }
 
 .cardContent{
