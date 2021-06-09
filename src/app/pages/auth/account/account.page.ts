@@ -47,6 +47,7 @@ export class AccountPage implements OnInit {
         this.getUser().then(() => {
           this.getOrders();
           this.getAdresses();
+          this.getCommandes();
         });
       }
     });
@@ -109,6 +110,14 @@ export class AccountPage implements OnInit {
           this.util.addressFact = this.addressFact;
         }
 
+      }
+    });
+  }
+
+  async getCommandes() {
+    this.formService.getList('Utilisateur/' + this.userId + '/Commande').toPromise().then((response: any) => {
+      if (response !== undefined) {
+        this.commandes = response;
       }
     });
   }

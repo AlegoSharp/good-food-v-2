@@ -14,9 +14,29 @@
       <app-adresse *ngIf="addressFact" adresseType="fact"></app-adresse>
     </div>
     <div id="Adr" *ngIf="displayMode === 'Commande'">
-<!--       <ion-card *ngFor="let commande of commandes">
-        {{commande.idUtilisateur}}
-      </ion-card> -->
+      <ion-card *ngFor="let commande of commandes">
+        <ion-card class="adr" color="dark">
+          <ion-item color="success" style="margin-top: 25px;border-radius: 10px;">
+            <ion-label>
+              <h1>Commande :</h1>
+            </ion-label>
+          </ion-item>
+          <ion-row>
+            <ion-col color="success">
+              <ion-text color="success"><span class="label">Date</span></ion-text>
+              <ion-input class="input" [value]="commande.e_dateCommande" [(ngModel)]="commande.e_dateCommande" padding-horizontal></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-text color="success"><span class="label">Total TTC</span></ion-text>
+              <ion-input class="input" [value]="commande.f_totalTtc" [(ngModel)]="commande.f_totalTtc" padding-horizontal></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-text color="success"><span class="label">Statut</span></ion-text>
+              <ion-input class="input" [value]="commande.g_statutCommande" [(ngModel)]="commande.g_statutCommande" padding-horizontal></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-card>
     </div>
   </div>
 </ion-content>
