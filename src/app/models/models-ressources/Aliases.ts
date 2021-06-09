@@ -76,6 +76,22 @@ export class Aliases{
     };
 
     ///
+    ///     ARTICLE_ALLERGENE
+    ///
+    public static articleAllergeneCustomRoutes = {
+        a_idAllergeneArticle: 'Article_Allergene',
+        b_idArticle: 'Categorie_Article',
+        c_idFranchise: 'Franchise'
+    };
+
+    public static articleAllergeneConvivialNames = {
+        a_idAllergeneArticle: 'idAllergeneArticle',
+        b_idCategorieArticle: 'idCategorieArticle',
+        c_idFranchise: 'idFranchise',
+        d_estActive: 'Actif'
+    };
+
+    ///
     ///     CATEGORIE ARTICLE
     ///
     public static categorieArticleCustomRoutes = {

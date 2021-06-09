@@ -1,12 +1,16 @@
 // tslint:disable-next-line: class-name
 export class Article_Allergene {
-    public idArticle: number;
-    public libelleAllergene: string;
+    public a_idAllergeneArticle: number;
+    public b_idArticle: number;
+    public c_idAllergene: number;
+    public d_estActive: number;
 
     constructor(){}
 
     public init_empty(): void{
-        this.idArticle = 0;
-        this.libelleAllergene = '*';
+        this.a_idAllergeneArticle = 0;
+        this.b_idArticle = 0;
+        this.c_idAllergene = 0;
+        this.d_estActive = 0;
     }
 }
