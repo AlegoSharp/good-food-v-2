@@ -1,5 +1,5 @@
 
-export class Adresse_Utilisateur {
+export class Allergene {
     public a_idAllergene: number;
     public b_libelleAllergene: string;
     public c_estActive: number;
