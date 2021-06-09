@@ -9,12 +9,12 @@
     <ion-searchbar color="dark">
 
     </ion-searchbar>
-    <ion-card class="objectCard" *ngFor="let obj of Objects" color="light" (click)="selectObject(obj)">
+    <ion-card class="objectCard" *ngFor="let obj of Objects" (click)="selectObject(obj)">
       <div *ngFor="let item of MyForm.properties">
         <div *ngIf="!item.nom.includes('id') && item.type !== 'boolean' && !item.nom.includes('url')">
           <h5>
-            <ion-label color="primary">
-              {{item.nom.toUpperCase()}}
+            <ion-label color="success">
+              {{item.alias.toUpperCase()}}
             </ion-label>
           </h5>
           <ion-label color="primary">

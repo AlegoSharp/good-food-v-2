@@ -10,8 +10,8 @@
 <ion-content>
   <div clas="accountContainer">
     <div id="Adr" *ngIf="displayMode === 'Adresse_Utilisateur'">
-      <app-adresse *ngIf="addressLivr" adr="addressLivr"></app-adresse>
-      <app-adresse *ngIf="addressFact" adr="addressFact"></app-adresse>
+      <app-adresse *ngIf="addressLivr" adresseType="livr"></app-adresse>
+      <app-adresse *ngIf="addressFact" adresseType="fact"></app-adresse>
     </div>
     <div id="Adr" *ngIf="displayMode === 'Commande'">
 <!--       <ion-card *ngFor="let commande of commandes">

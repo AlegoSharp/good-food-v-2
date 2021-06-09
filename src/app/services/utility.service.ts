@@ -3,6 +3,7 @@ import { Adresse_Fournisseur } from '../models/Adresse_Fournisseur';
 import { Adresse_Utilisateur } from '../models/Adresse_Utilisateur';
 import { Article } from '../models/Article';
 import { Article_Allergene } from '../models/Article_Allergene';
+import { Allergene } from '../models/Allergene';
 import { Article_Promo } from '../models/Article_Promo';
 import { Categorie_Article } from '../models/Categorie_Article';
 import { Commande } from '../models/Commande';
@@ -46,6 +47,7 @@ export class UtilityService{
         Utilisateur: new Utilisateur(),
         Adresse_Fournisseur: new Adresse_Fournisseur(),
         Adresse_Utilisateur: new Adresse_Utilisateur(),
+        Allergene: new Allergene(),
         Article_Allergene: new Article_Allergene(),
         Article_Promo: new Article_Promo(),
         Categorie_Article: new Categorie_Article(),

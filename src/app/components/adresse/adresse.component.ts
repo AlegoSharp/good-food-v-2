@@ -14,7 +14,8 @@ import { UtilityService } from 'src/app/services/utility.service';
 })
 export class AdresseComponent implements OnInit {
 
-  @Input() adr: any;
+  @Input() adresseType: string;
+  public adr: any;
 
   public user: Utilisateur;
 
@@ -26,8 +27,10 @@ export class AdresseComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.util.userConnected;
-    if (this.adr === undefined){
-      this.adr = new Adresse_Utilisateur();
+    if (this.adresseType === 'livr'){
+      this.adr = this.util.addressLivr;
+    }else{
+      this.adr = this.util.addressFact;
     }
   }
 

@@ -19,7 +19,7 @@ export class ArticleDetailPage implements OnInit {
 
   public article: Article;
   public id: number;
-  public artAllergenes: Article_Allergene[];
+  public artAllergenes: any;
   public artPromos: Article_Promo[];
 
   constructor(
@@ -50,7 +50,7 @@ export class ArticleDetailPage implements OnInit {
 
   async getAllergenes() {
     await this.formService.getList('Article/' + this.id + '/Allergene').toPromise().then(response => {
-      this.artAllergenes = response as Article_Allergene[]
+      this.artAllergenes = response
       console.log(this.artAllergenes);
     })
     .catch(reason => {

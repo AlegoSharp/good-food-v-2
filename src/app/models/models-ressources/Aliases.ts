@@ -80,14 +80,14 @@ export class Aliases{
     ///
     public static articleAllergeneCustomRoutes = {
         a_idAllergeneArticle: 'Article_Allergene',
-        b_idArticle: 'Categorie_Article',
-        c_idFranchise: 'Franchise'
+        b_idArticle: 'Article',
+        c_idAllergene: 'Allergene'
     };
 
     public static articleAllergeneConvivialNames = {
         a_idAllergeneArticle: 'idAllergeneArticle',
-        b_idCategorieArticle: 'idCategorieArticle',
-        c_idFranchise: 'idFranchise',
+        b_idArticle: 'idArticle',
+        c_idAllergene: 'idAllergene',
         d_estActive: 'Actif'
     };
 

@@ -89,8 +89,12 @@ export class AccountPage implements OnInit {
     this.formService.getList('Utilisateur/' + this.userId + '/Adresse_Utilisateur').toPromise().then((response: any) => {
       if (response !== undefined) {
         this.addressLivr = response[0];
-        this.addressFact = response[1];
-
+        if (response.length > 1) {
+          this.addressFact = response[1];
+        }else{
+          this.addressFact = response[0];
+        }
+        console.log(this.addressLivr);
         if (this.addressLivr === undefined){
           this.addressLivr = new Adresse_Utilisateur();
           this.addressLivr.init_empty();
@@ -102,7 +106,7 @@ export class AccountPage implements OnInit {
           this.addressFact = new Adresse_Utilisateur();
           this.addressFact.init_empty();
         }else{
-          this.util.addressLivr = this.addressFact;
+          this.util.addressFact = this.addressFact;
         }
 
       }

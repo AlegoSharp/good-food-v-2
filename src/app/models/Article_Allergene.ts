@@ -1,3 +1,5 @@
+import { Aliases } from "./models-ressources/Aliases";
+
 // tslint:disable-next-line: class-name
 export class Article_Allergene {
     public a_idAllergeneArticle: number;
@@ -6,7 +8,10 @@ export class Article_Allergene {
     public d_estActive: number;
 
     constructor(){}
-
+    private options = {
+        ConvivialsNames: Aliases.articleAllergeneConvivialNames ,
+        CustomRoutes: Aliases.articleAllergeneCustomRoutes,
+    };
     public init_empty(): void{
         this.a_idAllergeneArticle = 0;
         this.b_idArticle = 0;
