@@ -92,6 +92,22 @@ export class Aliases{
     };
 
     ///
+    ///     ARTICLE_PROMO
+    ///
+    public static articlePromoCustomRoutes = {
+        a_idPromoArticle: 'Article_Promo',
+        b_idArticle: 'idArticle',
+        c_idPromo: 'idPromo',
+    };
+
+    public static articlePromoConvivialNames = {
+        a_idPromoArticle: 'idPromoArticle',
+        b_idArticle: 'idArticle',
+        c_idPromo: 'idPromo',
+        d_estActive: 'Actif'
+    };
+
+    ///
     ///     CATEGORIE ARTICLE
     ///
     public static categorieArticleCustomRoutes = {

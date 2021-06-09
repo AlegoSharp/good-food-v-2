@@ -1,13 +1,17 @@
 import { Aliases } from "./models-ressources/Aliases";
 
 export class Article_Promo {
-    public idArticle: number;
-    public reduction: number;
+    public a_idPromoArticle: number;
+    public b_idArticle: number;
+    public c_idPromo: number;
+    public d_estActive: number;
 
     constructor(){}
 
     public init_empty(): void{
-        this.idArticle = 0;
-        this.reduction = 0;
+        this.a_idPromoArticle = 0;
+        this.b_idArticle = 0;
+        this.c_idPromo = 0;
+        this.d_estActive = 0;
     }
 }
