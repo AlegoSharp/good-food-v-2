@@ -17,7 +17,7 @@ export class FormService {
         'password': 'hHxL3zXapXz3JWW',
     };
 
-    public headerDictTAMRR(token: string): object{
+    public headerDictBearer(token: string): object{
         const headerDictLogin = {
             'Content-Type': 'application/json',
             Authorization: 'Bearer' + ' ' + token.replace('"', '').replace('"', '')
@@ -107,7 +107,7 @@ export class FormService {
     getList(route: string, securitymode: 'none'|'bearer'|'withCredentials' = 'none') {
         const requestOptions = {
             headers: new HttpHeaders(this.getHeaderFromSecurityMode(securitymode)),
-            withCredentials: true
+            withCredentials: false
         };
 
         return this.http.get(this.env.API_URL + route, requestOptions);
@@ -121,7 +121,7 @@ export class FormService {
 
         return this.http.get(this.env.API_URL + route + '/' + id, requestOptions);
     }
-    private getHeaderFromSecurityMode(securitymode: 'none' |'bearer' |'withCredentials'= 'none'): any{
+    public getHeaderFromSecurityMode(securitymode: 'none' |'bearer' |'withCredentials'= 'none'): any{
         let headerDict;
         const token = this.util.token;
         switch (securitymode) {
@@ -129,7 +129,7 @@ export class FormService {
                 headerDict = this.headerDictNone;
                 break;
             case 'bearer':
-                headerDict = this.headerDictTAMRR(token);
+                headerDict = this.headerDictBearer(token);
                 break;
             case 'none':
                 headerDict = this.headerDictLogin;

@@ -13,13 +13,18 @@ import { LigneCommande } from '../models/LigneCommande';
 import { Aliases } from '../models/models-ressources/Aliases';
 import { Promo } from '../models/Promo';
 import { Utilisateur } from '../models/Utilisateur';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { EnvService } from './env.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class UtilityService{
 
-
+    constructor(
+        private http: HttpClient,
+        private env: EnvService,
+    ) { }
     /**
      * Token GLOBAL
      */
@@ -78,5 +83,34 @@ export class UtilityService{
      */
     public franchisesInBasket: Array<number>;
 
+    public refreshInterval = setInterval(() => {
+        if (this.userConnected !== undefined){
+            this.refresh(this.userConnected.d_emailUtilisateur).toPromise().then(response => {
+                this.token = (response as any) as string;
+            }).catch(reason => {
+                this.token = '';
+                this.userConnected = undefined;
+            });
+            console.log('refresh');
+        }
+    }, 120000);
+
+    /**
+     * Logins http request
+     * Requete http pour connecter l'utilisateur
+     * @param email email
+     * @returns Promise
+     */
+    refresh(email: string) {
+        const headerDictLogin = {
+            Authorization: 'Bearer' + ' ' + this.token.replace('"', '').replace('"', '')
+        };
+        const requestOptions = {
+            headers: new HttpHeaders(headerDictLogin),
+            withCredentials: true,
+            responseType: 'text' as any
+        };
+        return this.http.get(this.env.API_URL + 'Utilisateur/refresh/' + email, requestOptions);
+    }
 
 }
