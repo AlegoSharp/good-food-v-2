@@ -82,12 +82,17 @@ export class ProductsListPage implements OnInit {
         const maxelem = (this.nbElemParPage * 3);
         let query = '/Article?pageSize=' + maxelem.toString() +
             '&pageNumber=' + this.currentSlideNumber +
-            '&i_estMenu=' + this.ModeMenu.toString();
+            '&estMenu=' + this.ModeMenu.toString();
 
-        query = query + (this.selectedCategorie !== undefined ? '&b_idCategorieArticle=' + this.selectedCategorie : '');
+        query = query + (this.selectedCategorie !== undefined ? '&idCategorieArticle=' + this.selectedCategorie : '');
+
         if (this.searchText !== '') {
-            query = query + '&e_descriptionArticle=' + this.searchText +
-                '&d_libelleArticle=' + this.searchText;
+            query = query + '&descriptionArticle=' + this.searchText +
+                '&libelleArticle=' + this.searchText;
+        }
+
+        if (this.util.franchiseSelected !== undefined) {
+            query = query + '&idFranchise=' + this.util.franchiseSelected.a_idFranchise;
         }
 
         this.formService.getList(query).toPromise().then(response => {
@@ -98,7 +103,7 @@ export class ProductsListPage implements OnInit {
 
             const countQuery = '/Article/' + (this.ModeMenu === 1 ? 'Menu' :  'Ingr') + '/nombre';
 
-            if (this.searchText === '') {
+            if (this.searchText === '' && this.util.franchiseSelected === undefined && this.selectedCategorie === undefined) {
                 this.formService.getList(countQuery).toPromise().then((responseCount: any) => {
 
                     this.nbArt = (responseCount as number);
@@ -355,6 +360,11 @@ export class ProductsListPage implements OnInit {
             query = query + '&descriptionArticle=' + this.searchText +
                 '&libelleArticle=' + this.searchText;
         }
+
+        if (this.util.franchiseSelected !== undefined) {
+            query = query + '&idFranchise=' + this.util.franchiseSelected.a_idFranchise;
+        }
+
         return query;
     }
 }

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Administration des {{itemName}}s</ion-title>
+    <ion-title>Administration des {{MyForm.title}}s</ion-title>
   </ion-toolbar>
   <ion-toolbar class="objChoice">
     <ion-button [routerLink]="['/form/Article']" >Article</ion-button>
@@ -13,6 +13,7 @@
     <ion-button [routerLink]="['/form/Fournisseur']" >Fournisseur</ion-button>
     <ion-button [routerLink]="['/form/Franchise']" >Franchise</ion-button>
     <ion-button [routerLink]="['/form/Groupe_Franchise']" >Groupe Franchise</ion-button> 
+    <ion-button [routerLink]="['/form/Utilisateur']" >Utilisateur</ion-button> 
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -20,11 +21,11 @@
   <div class="formContent">
 
     <form>
-      <ion-card *ngFor="let item of MyForm.properties" color="success" class="card">
+      <ion-card *ngFor="let item of MyForm.properties" color="primary" class="card">
         <h5>
-          <ion-label class="itemBlock" *ngIf="item.alias!==''">{{item.alias.replace('id','').toUpperCase()}} :</ion-label>
+          <ion-label class="itemBlock" *ngIf="item.alias!==''" color="success">{{item.alias.replace('id','').toUpperCase()}} :</ion-label>
         </h5>
-        <ion-item class="item" color="dark">
+        <ion-item class="item">
 
           <ion-input class="itemBlock" 
                     *ngIf="item.type === 'number' && item.nom.includes('id') && item.alias.includes(MyForm.title)" 
@@ -53,14 +54,14 @@
                     name="item.nom"
                     [ngModelOptions]="{standalone: true}"
                     ></ion-input>
-          <ion-card color="secondary">
-            <ion-card *ngIf="item.alias.includes('id') && !item.alias.includes(MyForm.title) && !item.value !== undefined" color="secondary">
-              <ion-label name="item.nom" *ngFor="let prop of item.objectReference" color="primary">{{prop}}</ion-label>
-            </ion-card>
-            <ion-button *ngIf="item.nom.includes('id') && !item.alias.includes(MyForm.title)" (click)="openModal(item.externalRouteRessource,item)">
-              Rechercher un(e) {{item.nom.replace('id','')}}
-            </ion-button>
-          </ion-card>
+            <div>
+              <ion-card *ngIf="item.alias.includes('id') && !item.alias.includes(MyForm.title) && !item.value !== undefined" color="secondary">
+                <ion-label name="item.nom" *ngFor="let prop of item.objectReference" color="primary">{{prop}}</ion-label>
+              </ion-card>
+              <ion-button *ngIf="item.nom.includes('id') && !item.alias.includes(MyForm.title)" (click)="openModal(item.externalRouteRessource,item)">
+                Rechercher un(e) {{item.nom.replace('id','')}}
+              </ion-button>
+            </div>
 
           <ion-radio-group value="item.value" *ngIf="item.type === 'boolean'" name="item.nom">       
             <ion-item color="dark">
@@ -75,8 +76,9 @@
           </ion-radio-group>
         </ion-item>
       </ion-card>
-      <ion-button (click)="createNewElement()">Crrer un nouvel {{itemName}}</ion-button>
-      <ion-button (click)="editElement()">Modifier un {{itemName}}</ion-button>
+      <ion-button (click)="createNewElement()">Crrer un nouvel {{MyForm.title}}</ion-button>
+      <ion-button (click)="editElement()">Modifier un {{MyForm.title}}</ion-button>
+      <ion-button (click)="deleteElement()">Supprimer un {{MyForm.title}}</ion-button>
     </form>
   </div>
 

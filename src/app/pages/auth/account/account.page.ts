@@ -74,6 +74,7 @@ export class AccountPage implements OnInit {
     this.formService.getList('Utilisateur/' + this.userId).toPromise().then((response: any) => {
       if (response !== undefined) {
         this.user = response as Utilisateur;
+        this.util.userConnected = this.user;
       }
     });
   }
@@ -90,28 +91,21 @@ export class AccountPage implements OnInit {
         this.addressLivr = response[0];
         this.addressFact = response[1];
 
-        
         if (this.addressLivr === undefined){
           this.addressLivr = new Adresse_Utilisateur();
           this.addressLivr.init_empty();
+        }else{
+          this.util.addressLivr = this.addressLivr;
         }
 
         if (this.addressFact  === undefined){
           this.addressFact = new Adresse_Utilisateur();
           this.addressFact.init_empty();
+        }else{
+          this.util.addressLivr = this.addressFact;
         }
-        console.log(this.addressLivr);
 
       }
     });
   }
-  async update(myadresse: any){
-    console.log(JSON.stringify(myadresse));
-    this.formService.postEditObject('Adresse_Utilisateur', myadresse, this.util.token).toPromise().then(Response => {
-
-    }).catch(reason => {
-      this.alertService.presentAlertOk('Erreur', reason.message);
-    });
-  }
-
 }

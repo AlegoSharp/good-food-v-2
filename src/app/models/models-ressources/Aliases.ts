@@ -5,7 +5,7 @@ export class Aliases{
     public static  adresseFournisseurCustomRoutes = {
         a_idAdresse: 'Adresse_Fournisseur',
         b_idTiers: 'Fournisseur'
-    }
+    };
 
     public static adresseFournisseurConvivialNames = {
         a_idAdresse: 'Id',
@@ -17,7 +17,7 @@ export class Aliases{
         g_suppNomAdresse: 'Supplément nom',
         h_villeAdresse: 'Ville',
         i_estActive: 'Active'
-    }
+    };
 
     ///
     ///     ADRESSE UTILISATEUR
@@ -25,7 +25,7 @@ export class Aliases{
     public static  adresseUtilisateurCustomRoutes = {
         a_idAdresse: 'Adresse_Utilisateur',
         b_idUtilisateur: 'Utilisateur'
-    }
+    };
 
     public static adresseUtilisateurConvivialNames = {
         a_idAdresse: 'Id',
@@ -37,20 +37,20 @@ export class Aliases{
         g_suppNomAdresse: 'Supplément',
         h_villeAdresse: 'Ville',
         i_estActive: 'Active'
-    }
-    
+    };
+
     ///
     ///     ALLERGENES
     ///
     public static  allergeneCustomRoutes = {
         a_idAllergene: 'Allergene'
-    }
+    };
 
     public static allergeneConvivialNames = {
         a_idAllergene: 'Id',
         b_libelleAllergene: 'Libellé',
         c_estActive: 'Actif'
-    }  
+    };
 
     ///
     ///     ARTICLE
@@ -90,14 +90,16 @@ export class Aliases{
 
     ///
     ///     COMMANDE
-    /// 
+    ///
+
     public static commandeCustomRoutes = {
         a_idCommande: 'Commande',
         b_idUtilisateur: 'Utilisateur',
         d_idAdresseLivraison: 'Adresse_Utilisateur',
         c_idAdresseFacturation: 'Adresse_Utilisateur',
         h_idFranchise: 'Franchise'
-    }
+    };
+
     public static commandeConvivialNames = {
         a_idCommande: 'Id',
         e_dateCommande: 'Date',
@@ -117,7 +119,8 @@ export class Aliases{
         a_idFournisseur: 'Fournisseur',
         b_idFranchise: 'Franchise',
         g_adresseFournisseur: 'Adresse_Fournisseur'
-    }
+    };
+
     public static fournisseurConvivialNames = {
         a_idFournisseur: 'Id',
         b_idFranchise: 'idFranchise',
@@ -135,7 +138,8 @@ export class Aliases{
     public static franchiseCustomRoutes = {
         a_idFranchise: 'Franchise',
         c_idGroupeFranchise: 'Groupe_Franchise'
-    }
+    };
+
     public static franchiseConvivialNames = {
         a_idFranchise: 'Id',
         c_idGroupeFranchise: 'idGroupeFranchise',
@@ -151,7 +155,8 @@ export class Aliases{
     ///
     public static groupeFranchiseCustomRoutes = {
         a_idGroupeFranchise: 'Groupe_Franchise'
-    }
+    };
+
     public static groupeFranchiseConvivialNames = {
         a_idGroupeFranchise: 'Id',
         b_nomGroupeFranchise: 'Nom',
@@ -165,7 +170,8 @@ export class Aliases{
         a_idLigneCommande: 'Ligne_Commande',
         b_idCommande: 'Commande',
         c_idArticle: 'Article'
-    }
+    };
+
     public static ligneCommandeConvivialNames = {
         a_idLigneCommande: 'Id',
         b_idCommande: 'idCommande',
@@ -188,7 +194,7 @@ export class Aliases{
         d_libellePromo: 'Libellé',
         e_reduction: 'Réduction (en %)',
         b_estActive: 'Active'
-    }
+    };
 
     ///
     ///     UTILISATEUR
@@ -209,6 +215,7 @@ export class Aliases{
         h_prenomUtilisateur: 'Prenom',
         g_numeroTelUtilisateur: 'Téléphone',
         i_role: 'role',
-        j_idFranchise: 'idFranchise'
+        j_idFranchise: 'idFranchise',
+        k_estActive: 'Actif'
     };
 }

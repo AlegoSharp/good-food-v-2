@@ -1,0 +1,54 @@
+<div *ngIf="adr">
+  <ion-card class="adr" color="dark">
+    <ion-item color="success" style="margin-top: 25px;border-radius: 10px;">
+      <ion-label>
+        <h1>Adresse :</h1>
+      </ion-label>
+    </ion-item>
+    <ion-row>
+      <ion-col color="success">
+        <ion-text color="success"><span class="label">Nom</span></ion-text>
+        <ion-input class="input" [value]="user.f_nomUtilisateur" [(ngModel)]="user.f_nomUtilisateur" padding-horizontal></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-text color="success"><span class="label">Prenom</span></ion-text>
+        <ion-input class="input" [value]="user.h_prenomUtilisateur" [(ngModel)]="user.h_prenomUtilisateur" padding-horizontal></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text color="success"><span class="label">Nom adresse</span></ion-text>
+        <ion-input class="input" [value]="adr.d_nomAdresse" [(ngModel)]="adr.d_nomAdresse" padding-horizontal></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text color="success"><span class="label">Supp nom adresse</span></ion-text>
+        <ion-input class="input" [value]="adr.g_suppNomAdresse" [(ngModel)]="adr.g_suppNomAdresse" padding-horizontal placeholder="Optionel"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text color="success"><span class="label">Pays</span></ion-text>
+        <ion-input class="input" [value]="adr.f_pays" [(ngModel)]="adr.g_suppNomAdresse" padding-horizontal placeholder="Optionel"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text color="success"><span class="label">Ville</span></ion-text>
+        <ion-input class="input" [value]="adr.h_villeAdresse"  [(ngModel)]="adr.h_villeAdresse" padding-horizontal></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-text color="success"><span class="label">Code postal</span></ion-text>
+        <ion-input class="input" [value]="adr.c_codePostal" [(ngModel)]="adr.c_codePostal" type="number" padding-horizontal></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text color="success"><span class="label">Numero de téléphone</span></ion-text>
+        <ion-input class="input" [value]="user.g_numeroTelUtilisateur"  [(ngModel)]="user.g_numeroTelUtilisateur" type="number" padding-horizontal></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-button expand="block" color="mytheme" class="bottom" (click)="update()"><span class="white"><strong>Enregistrer</strong></span></ion-button>
+  </ion-card>
+</div>

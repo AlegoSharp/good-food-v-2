@@ -43,6 +43,9 @@ export class FormPage implements OnInit {
    * @param value value
    */
   async setProperty(item: FormProperty, value: any) {
+    if(value.options !== undefined){
+      delete value.options;
+    }
     if (item.alias === 'Id') {
       value.options = this.util.Store[this.MyForm.title].options;
       this.myObject = value;
@@ -113,7 +116,21 @@ export class FormPage implements OnInit {
    */
   editElement() {
     this.formService.setObjectProps(this.myObject, this.MyForm.properties);
-    this.formService.postEditObject(window.document.URL.split('/')[4], this.myObject, this.util.token).toPromise().then(Response => {
+    this.formService.postEditObject(window.document.URL.split('/')[4], this.myObject).toPromise().then(Response => {
+      this.alertService.presentToast('Success', this.MyForm.title + ' à été modifié', true);
+    }).catch(reason => {
+      this.alertService.presentAlertOk('Erreur', reason.message);
+    });
+  }
+
+  /**
+   * Delete the element
+   * Delete l'élément
+   */
+  deleteElement() {
+    this.formService.postDeleteObject(this.MyForm.properties[0].value, 
+      window.document.URL.split('/')[4]).toPromise().then(Response => {
+      this.alertService.presentToast('Success', this.MyForm.title + ' à été modifié', true);
     }).catch(reason => {
       this.alertService.presentAlertOk('Erreur', reason.message);
     });
@@ -127,7 +144,7 @@ export class FormPage implements OnInit {
     this.formService.setObjectProps(this.myObject, this.MyForm.properties);
     delete this.myObject[this.idName];
     console.log(this.idName, this.myObject);
-    this.formService.postObject(window.document.URL.split('/')[4], this.myObject, this.util.token).toPromise()
+    this.formService.postObject(window.document.URL.split('/')[4], this.myObject).toPromise()
       .then(() => {
         this.alertService.presentToast('Success', this.MyForm.title + ' créé', true);
       }).catch(reason => {

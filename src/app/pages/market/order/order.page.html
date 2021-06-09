@@ -9,11 +9,16 @@
         <h1>Adresses :</h1>
       </ion-label>
     </ion-item>
+
     <ion-item color="dark" style="border-radius: 10px;">
       <ion-label>
         <h2>Livraison</h2>
       </ion-label>
+      <ion-label>
+        
+      </ion-label>
     </ion-item>
+    {{addressLivr}}
 
     <ion-item color="dark" style="border-radius: 10px;">
       <ion-label>
@@ -27,7 +32,7 @@
     </ion-item>
     <ion-card class="productContainer contentBorders" *ngFor="let art of Articles">
       <ion-toolbar class="productToolbar" color="dark">
-        <img class="productPicture" slot="start" src="{{art.article.urlImgArticle}}" style="display:block;" />
+        <img class="productPicture" slot="start" src="{{art.article.f_urlImgArticle}}" style="display:block;" />
         <div style="width: 50%;display: inline-block;" slot="start">
           <h3>
             <ion-label class="article_lib">{{art.article.d_libelleArticle}}</ion-label>
@@ -42,10 +47,6 @@
           </ion-label>
         </div>
         <ion-label slot="end" class="toolboxContent" class="productPrice">{{art.article.g_prixArticleHt * art.d_quantiteArticle }} €</ion-label>
-        <ion-button slot="end" (click)="deleteArtFromBasket(art)" color="tertiary">
-          <ion-label>Supprimer du panier</ion-label>
-          <ion-icon color="dark" name="trash" size="large" style="margin-left: 10px;"></ion-icon>
-        </ion-button>
       </ion-toolbar>
     </ion-card>
     <ion-card class="totaux contentBorders">

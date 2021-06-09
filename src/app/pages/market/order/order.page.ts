@@ -11,6 +11,9 @@ import { StorageService } from 'src/app/services/storage.service';
 import jwt_decode from 'jwt-decode';
 import { Article } from 'src/app/models/Article';
 import { AlertService } from 'src/app/services/alert.service';
+import { UtilityService } from 'src/app/services/utility.service';
+import { Adresse_Utilisateur } from 'src/app/models/Adresse_Utilisateur';
+import { threadId } from 'worker_threads';
 
 const { Storage } = Plugins;
 
@@ -24,7 +27,10 @@ export class OrderPage implements OnInit {
   public Articles: Array<LigneCommande>;
   public Commande: Commande;
   public CommandeApi: Commande;
+
   public User: Utilisateur;
+  public addressLivr: Adresse_Utilisateur;
+  public addressFact: Adresse_Utilisateur;
 
   public userId: number;
 
@@ -37,16 +43,21 @@ export class OrderPage implements OnInit {
     private guardService: GuardService,
     private formService: FormService,
     private toastController: ToastController,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private util: UtilityService,
   ) { }
 
   ngOnInit() {
+
     this.Commande = new Commande();
     this.guardService.checkAuth().then(result => {
       this.ModeSupport = result;
     });
     this.getUser();
     this.Commande.lignesCommande = new Array<LigneCommande>();
+    this.addressFact = this.util.addressFact;
+    this.addressLivr = this.util.addressLivr;
+    console.log(this.util.addressFact, this.util.addressLivr);
   }
 
   ionViewDidEnter() {
@@ -104,7 +115,11 @@ export class OrderPage implements OnInit {
             this.formService.getList('Adresse_Utilisateur?idUtilisateur=' + this.userId).toPromise().then((responseAdresse: any) => {
               if (responseAdresse !== undefined) {
                 this.Commande.d_idAdresseLivraison = responseAdresse[0].idAdresse;
-                this.Commande.c_idAdresseFacturation = responseAdresse[1].idAdresse;
+                if (responseAdresse.length > 1){
+                  this.Commande.c_idAdresseFacturation = responseAdresse[1].idAdresse;
+                }else{
+                  this.Commande.c_idAdresseFacturation = responseAdresse[0].idAdresse;
+                }
               }
             });
           }

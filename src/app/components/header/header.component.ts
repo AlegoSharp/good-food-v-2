@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
   public displayFranchise = false;
   public role = '';
 
-  searchFranchise = '';
+  public searchFranchise = '';
   public franchises: Franchise[];
   public selectedFranchise: Franchise;
 

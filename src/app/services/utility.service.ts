@@ -57,4 +57,21 @@ export class UtilityService{
         Promo: new Promo(),
         Aliases: new Aliases(),
     };
+
+    /**
+     * User connecté
+     */
+    public userConnected: Utilisateur;
+
+    /**
+     * Address livraison
+     */
+    public addressLivr: Adresse_Utilisateur;
+
+    /**
+     * Address facturation
+     */
+    public addressFact: Adresse_Utilisateur;
+
+
 }

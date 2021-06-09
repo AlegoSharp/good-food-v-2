@@ -25,7 +25,7 @@ const routes: Routes = [
     },
     {
       path: 'form',
-      redirectTo: 'form/User',
+      redirectTo: 'form/Article',
     },
     {
       path: 'home',

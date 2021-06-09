@@ -7,7 +7,7 @@
       <ion-searchbar 
         color="dark" 
         (ionInput)="onSearchInput($event)"
-        placeholder="Rechercher un restaurant" 
+        placeholder="Chercher un restaurant"
         ></ion-searchbar>
         <ion-label *ngIf="selectedFranchise">
           {{selectedFranchise.d_nomFranchise}}
@@ -35,11 +35,11 @@
 
 <ion-toolbar color="primary" class="header ion-align-items-center">
   <img slot="start" src="../../../assets/GoodFood_Logo1.png"  (click)="backHome()" class="btnHomeGf" width="100px">
-  <div slot="start" >
+  <div slot="start" style="width: 100%;">
     <ion-searchbar 
       color="dark" 
       (ionInput)="onSearchInput($event)"
-      placeholder="Rechercher un restaurant" 
+      placeholder="Chercher un restaurant"
       ></ion-searchbar>
       <ion-label *ngIf="selectedFranchise">
         {{selectedFranchise.d_nomFranchise}}
@@ -83,7 +83,7 @@
   <!-- <ion-toggle slot="end" (ionChange)="switchTheme()"></ion-toggle> -->
 </ion-toolbar>
 
-<ion-toolbar *ngIf="displayFranchise" style="height: 50vh;">
+<ion-toolbar *ngIf="displayFranchise && searchFranchise !== ''" style="height: 50vh;">
   <ion-card *ngFor=" let item of franchises" color="success" style="width:80%; margin: 0 auto; margin-bottom: 10px; padding: 20px;" (click)="selectFranchise(item)">
     <ion-label style="font-size: large; width: 100%; display: block;">{{item.d_nomFranchise}}</ion-label>
     <ion-label style="font-size: large; width: 100%; display: block;">{{item.b_emailFranchise}}</ion-label>

@@ -1,4 +1,5 @@
 import { Commande } from './Commande';
+import { Aliases } from './models-ressources/Aliases';
 
 export class Utilisateur {
     a_idUtilisateur: number;
@@ -14,7 +15,10 @@ export class Utilisateur {
     k_estActive: number;
 
     constructor() { }
-
+    private options = {
+        ConvivialsNames: Aliases.userConvivialNames,
+        CustomRoutes: Aliases.userCustomRoutes,
+    };
     public init_empty(): void {
         this.a_idUtilisateur = 0;
         this.b_idAdresseLivraison = 0;

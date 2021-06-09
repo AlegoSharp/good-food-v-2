@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { LigneCommande } from 'src/app/models/LigneCommande';
 import { Commande } from 'src/app/models/Commande';
 import { AlertService } from 'src/app/services/alert.service';
+import { UtilityService } from 'src/app/services/utility.service';
 
 @Component({
   selector: 'app-basket',
@@ -15,7 +16,12 @@ export class BasketPage implements OnInit {
   public Articles: Array<LigneCommande>;
   public Commande: Commande;
 
-  constructor(private storageService: StorageService, private router: Router, private alertService: AlertService) { }
+  constructor(
+    private storageService: StorageService,
+    private router: Router,
+    private alertService: AlertService,
+    private util: UtilityService,
+    ) { }
 
   ngOnInit() {
     this.Commande = new Commande();
@@ -55,8 +61,15 @@ export class BasketPage implements OnInit {
   }
 
   validateOrder() {
-    if (this.Articles.length > 0) {
-      this.router.navigateByUrl('/order');
+    if (this.util.addressLivr !== undefined && this.util.addressLivr !== undefined){
+      if (this.Articles.length > 0) {
+        this.router.navigateByUrl('/order');
+      }
+    }else{
+      this.alertService.presentAlertOk('Information', 'Vous n\'avez pas encore d\'adresses enregistrées.').then(() => {
+        this.router.navigateByUrl('account');
+      });
     }
+
   }
 }

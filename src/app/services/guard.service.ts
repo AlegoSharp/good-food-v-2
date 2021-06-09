@@ -38,22 +38,14 @@ export class GuardService implements CanActivate {
    * @returns auth
    */
   async checkAuth(): Promise<boolean> {
+    if (this.util.token === undefined){
+      return false;
+    }
     console.log((jwt_decode(this.util.token.replace('"', '')) as any).role);
     if ((jwt_decode(this.util.token) as any).role === 'admin') {
       return true;
     } else {
       return false;
     }
-    const result = await Storage.get({ key: 'token' }).then(x => {
-      if (x.value !== null && x.value !== undefined) {
-        // console.log((jwt_decode(x.value) as any).role === 1);
-        if ((jwt_decode(x.value) as any).role === 'admin') {
-          return true;
-        } else {
-          return false;
-        }
-      }
-    });
-    return result;
   }
 }

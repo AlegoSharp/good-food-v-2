@@ -141,42 +141,28 @@ export class FormService {
         return headerDict;
     }
 
-    postObject(route: string, body: any, token = '') {
-        let headerDict;
-        if (token !== '') {
-            headerDict = {
-                'Content-Type': 'application/json',
-                Authorization: 'Bearer' + ' ' + token.replace('"', '').replace('"', '')
-            };
-        } else {
-            headerDict = {
-                'Content-Type': 'application/json',
-            };
-        }
+    postObject(route: string, body: any, securitymode: 'none' |'bearer' |'withCredentials'= 'bearer') {
         const requestOptions = {
-            headers: new HttpHeaders(headerDict),
+            headers: new HttpHeaders(this.getHeaderFromSecurityMode(securitymode)),
             withCredentials: true
         };
         return this.http.post(this.env.API_URL + route + '/creer', body, requestOptions);
     }
 
-    postEditObject(route: string, body: any, token: string) {
-        let headerDict;
-        if (token !== '') {
-            headerDict = {
-                'Content-Type': 'application/json',
-                Authorization: 'Bearer' + ' ' + token.replace('"', '').replace('"', '')
-            };
-        } else {
-            headerDict = {
-                'Content-Type': 'application/json',
-            };
-        }
+    postEditObject(route: string, body: any, securitymode: 'none' |'bearer' |'withCredentials'= 'bearer') {
         const requestOptions = {
-            headers: new HttpHeaders(headerDict),
+            headers: new HttpHeaders(this.getHeaderFromSecurityMode(securitymode)),
             withCredentials: true
         };
-        console.log('test');
         return this.http.patch(this.env.API_URL + route + '/modifier', body, requestOptions);
+    }
+
+
+    postDeleteObject(id: string, route: string, securitymode: 'none' |'bearer' |'withCredentials'= 'bearer') {
+        const requestOptions = {
+            headers: new HttpHeaders(this.getHeaderFromSecurityMode(securitymode)),
+            withCredentials: true
+        };
+        return this.http.delete(this.env.API_URL + route + '/supprimer/' + id, requestOptions);
     }
 }

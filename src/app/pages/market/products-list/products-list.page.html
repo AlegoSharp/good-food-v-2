@@ -6,6 +6,11 @@
   <ion-card class="topContent">
     <ion-toolbar>
       <ion-title slot="start" >Nos produits ! ({{nbArt}})</ion-title>
+      <ion-button slot="end" (click)="searchArticle()">
+        <ion-label>
+          Appliquer les filtres
+        </ion-label>
+      </ion-button>
       <ion-icon slot="end" name="close" class="pointer" size="large" (click)="removeFilters()" color="danger"></ion-icon>
       <ion-icon slot="end" name="filter" class="pointer" size="large" (click)="showHideFilters()"></ion-icon>
     </ion-toolbar>
@@ -30,7 +35,7 @@
       <ion-slide *ngFor="let page of Pages" style="padding: 20px;display: inline-block;" >
         <ion-card class="artCard" *ngFor="let art of page.Articles" style="height: 80%;" style="background-color: rgba(186, 194, 191, 0.24);" color="success">
           <div class="cardContent" >
-            <ion-toolbar color="success" class="headerCard" [routerLink]="['/article-detail/']" [queryParams]="{id: art.idArticle}">
+            <ion-toolbar color="success" class="headerCard" [routerLink]="['/article-detail/']" [queryParams]="{id: art.a_idArticle}">
               <div>
                 <h5><b><ion-label slot="start">{{art.d_libelleArticle}}</ion-label></b></h5>
                 <ion-label>   
@@ -57,7 +62,7 @@
   
       <div style="width: 100px; margin: 0 auto;text-align: center;">
         <ion-label slot="end" color="primary">Page</ion-label>
-        <ion-select color="primary" style="width: 100px;color:black;" interface="action-sheet" [(value)]="currentSlideNumber">
+        <ion-select color="primary" style="width: 100px;color:black;" interface="action-sheet" >
           <ion-select-option  *ngFor="let page of Pages" [value]="page.NumeroPage" color="primary">
             <ion-label color="primary">{{page.NumeroPage + 1}}</ion-label>
           </ion-select-option >
