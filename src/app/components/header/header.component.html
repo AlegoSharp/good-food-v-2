@@ -52,7 +52,7 @@
     <ion-button [routerLink]="['/register']" *ngIf="isConnected() ? false : true" color="tertiary">
       <ion-label color="dark">S'inscrire</ion-label>
     </ion-button>
-    <ion-button [routerLink]="['/myBasket']" *ngIf="isConnected() ? true : false" color="success">
+    <ion-button [routerLink]="['/myBasket']" color="success">
         <ion-label class="basketCount">{{this.basketCount}}</ion-label>
         <ion-icon name="basket" size="large" color="dark"></ion-icon>
       <ion-label color="dark">Mon panier</ion-label>
