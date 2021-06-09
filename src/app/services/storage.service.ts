@@ -53,13 +53,28 @@ export class StorageService {
      * @param ligneCommande     * LigneCommande to delete / Ligne_commande à supprimer
      */
     public async removeItemFromBasket(ligneCommande: LigneCommande){
+        if (this.util.franchisesInBasket === undefined){
+            this.util.franchisesInBasket = [];
+        }
+        if (!this.util.franchisesInBasket.includes(ligneCommande.article.c_idFranchise)){
+            this.util.franchisesInBasket.push(ligneCommande.article.c_idFranchise);
+        }
+        let count = 0;
         let basket =  await this.getObject('basket').then(value => {
+            ((value as unknown) as Array<LigneCommande>).forEach(element => {
+                if (element.article.c_idFranchise === ligneCommande.article.c_idFranchise){
+                    count++;
+                }
+            });
             return (value as unknown) as Array<LigneCommande>;
         });
         if (basket !== undefined){
             basket = basket.filter(w => w.article.a_idArticle !== ligneCommande.article.a_idArticle);
             await this.setObject('basket', basket);
             this.util.backetCache = basket;
+            if (count === 1){
+                this.util.franchisesInBasket = this.util.franchisesInBasket.filter(x => x === ligneCommande.article.c_idFranchise);
+            }
         }
     }
 
@@ -87,8 +102,17 @@ export class StorageService {
      * @param ligneCommande ligne
      */
     public async addItemToBasket(ligneCommande: LigneCommande){
+
+        if (this.util.franchisesInBasket === undefined){
+            this.util.franchisesInBasket = [];
+        }
+
+        if (!this.util.franchisesInBasket.includes(ligneCommande.article.c_idFranchise)){
+            this.util.franchisesInBasket.push(ligneCommande.article.c_idFranchise);
+        }
+
         let basket = new Array<LigneCommande>();
-        const tempBasket = await this.getObject("basket").then(value => {
+        const tempBasket = await this.getObject('basket').then(value => {
             return (value as unknown) as Array<LigneCommande>;
         });
         if (tempBasket !== null){

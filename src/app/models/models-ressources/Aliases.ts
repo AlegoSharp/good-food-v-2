@@ -85,27 +85,12 @@ export class Aliases{
     };
 
     public static articleAllergeneConvivialNames = {
-        a_idAllergeneArticle: 'idAllergeneArticle',
+        a_idAllergeneArticle: 'idAllergene Article',
         b_idArticle: 'idArticle',
         c_idAllergene: 'idAllergene',
         d_estActive: 'Actif'
     };
 
-    ///
-    ///     ARTICLE_PROMO
-    ///
-    public static articlePromoCustomRoutes = {
-        a_idPromoArticle: 'Article_Promo',
-        b_idArticle: 'idArticle',
-        c_idPromo: 'idPromo',
-    };
-
-    public static articlePromoConvivialNames = {
-        a_idPromoArticle: 'idPromoArticle',
-        b_idArticle: 'idArticle',
-        c_idPromo: 'idPromo',
-        d_estActive: 'Actif'
-    };
 
     ///
     ///     CATEGORIE ARTICLE

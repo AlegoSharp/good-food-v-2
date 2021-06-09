@@ -36,7 +36,7 @@ export class LoginPage implements OnInit {
         this.router.navigateByUrl('/account');
       }
       ).catch(reason => {
-        this.alertService.presentAlertOk('Erreur', reason.message);
+        this.alertService.presentAlertOk('Erreur', 'Identifiants incorrects');
       });
   }
 

@@ -5,62 +5,64 @@
 <ion-content>
   <div class="pageContent contentBorders">
     <ion-item color="success" style="border-radius: 10px;">
-      <ion-label>
+      <ion-label color="primary">
         <h1>Adresses :</h1>
       </ion-label>
     </ion-item>
 
-    <ion-item color="dark" style="border-radius: 10px;">
-      <ion-label>
+    <ion-item color="medium" style="border-radius: 10px;">
+      <ion-label color="primary">
         <h2>Livraison</h2>
       </ion-label>
-      <ion-label>
-        
+      <ion-label color="primary">
+        {{addressLivr.d_nomAdresse}}
       </ion-label>
     </ion-item>
-    {{addressLivr}}
 
-    <ion-item color="dark" style="border-radius: 10px;">
-      <ion-label>
+    <ion-item color="medium" style="border-radius: 10px;">
+      <ion-label color="primary">
         <h2>Facturation</h2>
+      </ion-label>
+      <ion-label color="primary">
+        {{addressFact.d_nomAdresse}}
       </ion-label>
     </ion-item>
     <ion-item color="success" style="margin-top: 25px;border-radius: 10px;">
-      <ion-label>
+      <ion-label color="primary">
         <h1>Articles :</h1>
       </ion-label>
     </ion-item>
     <ion-card class="productContainer contentBorders" *ngFor="let art of Articles">
-      <ion-toolbar class="productToolbar" color="dark">
+      <ion-toolbar class="productToolbar" color="medium">
         <img class="productPicture" slot="start" src="{{art.article.f_urlImgArticle}}" style="display:block;" />
         <div style="width: 50%;display: inline-block;" slot="start">
           <h3>
-            <ion-label class="article_lib">{{art.article.d_libelleArticle}}</ion-label>
+            <ion-label class="article_lib" color="primary">{{art.article.d_libelleArticle}}</ion-label>
           </h3>
-          <ion-label class="article_desc">
+          <ion-label class="article_desc" color="primary">
             {{art.article.e_descriptionArticle}}
           </ion-label>
         </div>
         <div slot="start">
-          <ion-label class="toolboxContent">
+          <ion-label class="toolboxContent" color="primary">
             x {{art.d_quantiteArticle}}
           </ion-label>
         </div>
-        <ion-label slot="end" class="toolboxContent" class="productPrice">{{art.article.g_prixArticleHt * art.d_quantiteArticle }} €</ion-label>
+        <ion-label slot="end" class="toolboxContent" class="productPrice" color="primary">{{art.article.g_prixArticleHt * art.d_quantiteArticle }} €</ion-label>
       </ion-toolbar>
     </ion-card>
     <ion-card class="totaux contentBorders">
-      <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">
+      <ion-toolbar color="medium" class="totToolBars" style="padding: 5px; height: 50px;">
         <h5>
-          <ion-label class="toolboxContent">TOTAL HT:</ion-label>
+          <ion-label class="toolboxContent" color="primary">TOTAL HT:</ion-label>
         </h5>
-        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalHt()}} €</ion-label>
+        <ion-label slot="end" class="toolboxContent" color="primary">{{Commande.calculerTotalHt()}} €</ion-label>
       </ion-toolbar>
-      <ion-toolbar color="dark" class="totToolBars" style="padding: 5px; height: 50px;">
+      <ion-toolbar class="totToolBars" style="padding: 5px; height: 50px;">
         <h4>
           <ion-label>TTC :</ion-label>
         </h4>
-        <ion-label slot="end" class="toolboxContent">{{Commande.calculerTotalTtc()}} €</ion-label>
+        <ion-label slot="end" class="toolboxContent" color="primary">{{Commande.calculerTotalTtc()}} €</ion-label>
       </ion-toolbar>
       <div>
         <ion-button (click)="createOrder()">Valider ma commande</ion-button>

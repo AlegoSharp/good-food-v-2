@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Article } from 'src/app/models/Article';
 import { Article_Allergene } from 'src/app/models/Article_Allergene';
-import { Article_Promo } from 'src/app/models/Article_Promo';
 import { LigneCommande } from 'src/app/models/LigneCommande';
+import { Promo } from 'src/app/models/Promo';
 import { AlertService } from 'src/app/services/alert.service';
 import { FormService } from 'src/app/services/form.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -20,7 +20,7 @@ export class ArticleDetailPage implements OnInit {
   public article: Article;
   public id: number;
   public artAllergenes: any;
-  public artPromos: Article_Promo[];
+  public artPromos: Promo[];
 
   constructor(
     private route: ActivatedRoute,
@@ -60,7 +60,7 @@ export class ArticleDetailPage implements OnInit {
 
   async getPromos() {
     await this.formService.getList('Article/' + this.id + '/Promo').toPromise().then(response => {
-      this.artPromos = response as Article_Promo[]
+      this.artPromos = response as Promo[]
       console.log(this.artPromos);
     })
     .catch(reason => {

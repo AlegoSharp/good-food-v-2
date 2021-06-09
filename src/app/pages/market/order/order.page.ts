@@ -57,7 +57,6 @@ export class OrderPage implements OnInit {
     this.Commande.lignesCommande = new Array<LigneCommande>();
     this.addressFact = this.util.addressFact;
     this.addressLivr = this.util.addressLivr;
-    console.log(this.util.addressFact, this.util.addressLivr);
   }
 
   ionViewDidEnter() {
@@ -72,36 +71,39 @@ export class OrderPage implements OnInit {
   async createOrder() {
     this.Commande.totalHt = this.Commande.calculerTotalHt();
     this.Commande.f_totalTtc = this.Commande.calculerTotalTtc();
+    this.Commande.b_idUtilisateur = this.util.userConnected.a_idUtilisateur;
+    this.Commande.c_idAdresseFacturation = this.util.addressFact.a_idAdresse;
+    this.Commande.d_idAdresseLivraison = this.util.addressLivr.a_idAdresse;
     this.Commande.lignesCommande.forEach(element => {
       element.e_sousTotalTtc = (element.article.g_prixArticleHt * element.d_quantiteArticle) * (1 + (element.article.h_tva / 100));
     });
     this.CommandeApi = JSON.parse(JSON.stringify(this.Commande));
+    console.log((this.Commande));
 
-    const lignesCommande = JSON.parse(JSON.stringify(this.Commande.lignesCommande));
 
     delete this.CommandeApi.lignesCommande;
 
     this.CommandeApi.utilisateur = this.User;
-
-    this.formService.postObject('Commande', JSON.stringify(this.CommandeApi)).toPromise().then((responseCommande: any) => {
-      lignesCommande.forEach(element => {
-        element.idCommande = responseCommande.idCommande;
-        element.idArticle = element.article.idArticle;
-        delete element.article;
-        delete element.idLigneCommande;
-      });
-      console.log(lignesCommande);
-      console.log(JSON.stringify(lignesCommande));
-      this.formService.postObject('Ligne_Commande', JSON.stringify(lignesCommande)).toPromise().then((responseLignesCommande: any) => {
-        this.presentToast(responseLignesCommande, false, 'bottom', 2100);
+    this.util.franchisesInBasket.forEach(element => {
+      this.CommandeApi.h_idFranchise = this.util.userConnected.j_idFranchise;
+      this.formService.postObject('Commande', JSON.stringify(this.CommandeApi)).toPromise().then((responseCommande: any) => {
+        const lignesCommande = JSON.parse(JSON.stringify(this.Commande.lignesCommande.filter(x => x.article.c_idFranchise === element)));
+        lignesCommande.forEach(element => {
+          element.b_idCommande = responseCommande;
+          element.c_idArticle = element.article.a_idArticle;
+          delete element.article;
+          delete element.a_idLigneCommande;
+        });
+        console.log(lignesCommande);
+        this.formService.postObject('Ligne_Commande', JSON.stringify(lignesCommande)).toPromise().then((responseLignesCommande: any) => {
+          this.presentToast(responseLignesCommande, false, 'bottom', 2100);
+        }).catch(reason => {
+          this.alertService.presentAlertOk('Erreur', reason.message);
+        });
       }).catch(reason => {
         this.alertService.presentAlertOk('Erreur', reason.message);
-      });
-    }).catch(reason => {
-      this.alertService.presentAlertOk('Erreur', reason.message);
+      });  
     });
-
-
   }
 
   async getUser() {
