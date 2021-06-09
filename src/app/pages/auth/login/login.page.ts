@@ -34,6 +34,7 @@ export class LoginPage implements OnInit {
         this.setObject('token', response.replace('"', ''));
         this.util.token = response.replace('"', '');
         this.router.navigateByUrl('/account');
+        this.util.teest.
       }
       ).catch(reason => {
         this.alertService.presentAlertOk('Erreur', 'Identifiants incorrects');
