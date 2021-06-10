@@ -84,21 +84,22 @@ export class OrderPage implements OnInit {
     delete this.CommandeApi.lignesCommande;
 
     this.CommandeApi.utilisateur = this.User;
-    this.util.franchisesInBasket.forEach(franchises => {
-      this.CommandeApi.h_idFranchise = this.util.userConnected.j_idFranchise;
+    this.util.franchisesInBasket.forEach(element => {
+      this.CommandeApi.h_idFranchise = element;
+      this.CommandeApi.e_dateCommande = new Date(Date.now()).toDateString();
       this.formService.postObject('Commande', JSON.stringify(this.CommandeApi)).toPromise().then((responseCommande: any) => {
-        const lignesCommande = JSON.parse(JSON.stringify(this.Commande.lignesCommande.filter(x => x.article.c_idFranchise === franchises)));
-        lignesCommande.forEach(element => {
-          element.b_idCommande = responseCommande;
-          element.c_idArticle = element.article.a_idArticle;
-          delete element.article;
-          delete element.a_idLigneCommande;
+        const lignesCommande = JSON.parse(JSON.stringify(this.Commande.lignesCommande.filter(x => x.article.c_idFranchise === element)));
+        lignesCommande.forEach(ligne => {
+          ligne.b_idCommande = responseCommande;
+          ligne.c_idArticle = ligne.article.a_idArticle;
+          delete ligne.article;
+          delete ligne.a_idLigneCommande;
         });
         console.log(lignesCommande);
         this.formService.postObject('Ligne_Commande', JSON.stringify(lignesCommande)).toPromise().then((responseLignesCommande: any) => {
           this.storageService.setObject('basket', []);
           this.util.backetCache = [];
-          this.alertService.presentToast('Success', 'La commande à été crée', true);
+          this.alertService.presentToast('Success', 'La commande à été créée', true);
           this.router.navigateByUrl('/home');
         }).catch(reason => {
           this.alertService.presentAlertOk('Erreur', reason.message);

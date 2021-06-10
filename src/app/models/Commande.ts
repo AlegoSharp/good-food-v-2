@@ -9,7 +9,7 @@ export class Commande {
     b_idUtilisateur: number;
     c_idAdresseFacturation: number;
     d_idAdresseLivraison: number;
-    e_dateCommande: Date;
+    e_dateCommande: string;
     f_totalTtc: number;
     g_statutCommande: number;
     h_idFranchise: number;

@@ -38,8 +38,10 @@ export class AccountPage implements OnInit {
 
   ngOnInit() {
     // this.getInfo();
-    this.user = new Utilisateur();
-    this.user.init_empty();
+    if (this.util.userConnected !== undefined){
+      this.router.navigateByUrl('/home');
+    }
+    this.user = this.util.userConnected;
     this.getToken('token').then(value => this.Token = value.toString());
     Storage.get({ key: 'token' }).then((x: any) => {
       if (x.value !== null && x.value !== undefined) {
@@ -63,6 +65,7 @@ export class AccountPage implements OnInit {
   async deleteToken(key: string) {
     const ret = await Storage.remove({ key });
     this.util.token = '';
+    this.util.userConnected = new Utilisateur();
     this.router.navigateByUrl('/home');
   }
 

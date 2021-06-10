@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title slot="start">{{email}}</ion-title>
+    <ion-title slot="start">{{this.user.d_emailUtilisateur}}</ion-title>
     <ion-button color="secondary" slot="start" (click)="displayMode = 'Adresse_Utilisateur'">Mes adresses</ion-button>
     <ion-button color="secondary" slot="start" (click)="displayMode = 'Commande'">Mes commandes</ion-button>
     <ion-button color="secondary" (click)="deleteToken('token')" slot="end">Se deconnecter</ion-button>
@@ -14,8 +14,8 @@
       <app-adresse *ngIf="addressFact" adresseType="fact"></app-adresse>
     </div>
     <div id="Adr" *ngIf="displayMode === 'Commande'">
-      <div style="width: 70%; margin: 0 auto; margin-top: 25vh;" class="ion-text-center">      
-        <ion-label *ngIf="commandes.length < 1" color="danger">
+      <div *ngIf="commandes.length < 1" style="width: 70%; margin: 0 auto; margin-top: 25vh;" class="ion-text-center">      
+        <ion-label color="danger">
           <h2>Vous n'avez pas de commande enregistrées.</h2>
         </ion-label>
       </div>
