@@ -51,6 +51,7 @@ export class AccountPage implements OnInit {
         });
       }
     });
+    if (displayMode !== '' )
   }
 
   async getToken(key: string): Promise<{ value: any }> {
