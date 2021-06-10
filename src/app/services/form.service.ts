@@ -104,6 +104,7 @@ export class FormService {
         });
         return result;
     }
+
     getList(route: string, securitymode: 'none'|'bearer'|'withCredentials' = 'none') {
         const requestOptions = {
             headers: new HttpHeaders(this.getHeaderFromSecurityMode(securitymode)),

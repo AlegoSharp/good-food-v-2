@@ -1,1 +1,1 @@
-sonar-scanner.bat -D"sonar.projectKey=goodfood-angular" -D"sonar.sources=./src/" -D"sonar.host.url=http://globecen.freeboxos.fr:9100" -D"sonar.login=d2a57a4843405fafa2037dd015063e2b27bdc315"
+sonar-scanner.bat -D"sonar.projectKey=goodfood-angular" -D"sonar.sources=." -D"sonar.host.url=http://globecen.freeboxos.fr:9000" -D"sonar.login=931d5c4ae7f20e27b2eaa56b7f9eaea2def76e8d"

@@ -62,7 +62,8 @@ export class HeaderComponent implements OnInit {
     if (this.util.backetCache) {
       this.basketCount = this.util.backetCache.length;
     }
-    return !this.IsConnected || this.util.token === undefined || this.util.token === '' ? false : true;
+    return this.util.userConnected !== undefined && this.util.token !== '';
+    // return !this.IsConnected || this.util.token === undefined || this.util.token === '' ? false : true;
   }
 
   public async getToken(): Promise<string> {
