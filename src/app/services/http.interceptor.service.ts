@@ -9,6 +9,7 @@ export class HttpInterceptor implements HttpInterceptor {
         const userToken = 'secure-user-token';
         const modifiedReq = req.clone(
             {
+                //
                 //url: 'http://192.168.1.27:8082/' + req.url,
                 headers: req.headers
                     .set('Content-Type', 'application/json')
