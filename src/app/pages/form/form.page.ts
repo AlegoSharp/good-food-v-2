@@ -43,7 +43,7 @@ export class FormPage implements OnInit {
    * @param value value
    */
   async setProperty(item: FormProperty, value: any) {
-    if(value.options !== undefined){
+    if (value.options !== undefined){
       delete value.options;
     }
     if (item.alias === 'Id') {
@@ -52,7 +52,6 @@ export class FormPage implements OnInit {
       item.objectReference = Object.values(value);
       this.setUpdateForm(value, this.MyForm.title);
       this.idName = item.nom;
-
     } else {
       item.value = value[item.nom];
       item.objectReference = Object.values(value);

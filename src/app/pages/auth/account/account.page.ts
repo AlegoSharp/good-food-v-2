@@ -38,9 +38,6 @@ export class AccountPage implements OnInit {
 
   ngOnInit() {
     // this.getInfo();
-    if (this.util.userConnected !== undefined){
-      this.router.navigateByUrl('/home');
-    }
     this.user = this.util.userConnected;
     this.getToken('token').then(value => this.Token = value.toString());
     Storage.get({ key: 'token' }).then((x: any) => {
