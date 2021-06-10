@@ -27,6 +27,18 @@ export class Commande {
         CustomRoutes: Aliases.categorieArticleCustomRoutes,
     };
 
+    public init_empty(): void{
+        this.a_idCommande = 0;
+        this.b_idUtilisateur = 0;
+        this.c_idAdresseFacturation = 0;
+        this.d_idAdresseLivraison = 0;
+        this.e_dateCommande = '';
+        this.f_totalTtc = 0;
+        this.g_statutCommande = 0;
+        this.h_idFranchise = 2;
+        this.i_estActive = 1;
+    }
+
     public calculerTotalTtc(): number{
         if (this.lignesCommande !== undefined && this.lignesCommande.length > 0){
             return this.totalHt * (1 + (this.lignesCommande[0].article.h_tva / 100));
