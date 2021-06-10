@@ -31,9 +31,13 @@ export class LoginPage implements OnInit {
       .toPromise()
       .then(response => {
         console.log(response);
-        this.setObject('token', response.replace('"', ''));
-        this.util.token = response.replace('"', '');
-        this.router.navigateByUrl('/account');
+        if (response.length > 0){
+          this.setObject('token', response.replace('"', ''));
+          this.util.token = response.replace('"', '');
+          this.router.navigateByUrl('/account');
+        }else{
+          this.alertService.presentAlertOk('Erreur', 'Identifiants incorrects');
+        }
       }
       ).catch(reason => {
         this.alertService.presentAlertOk('Erreur', 'Identifiants incorrects');

@@ -47,7 +47,7 @@ export class AccountPage implements OnInit {
         this.getUser().then(() => {
           this.getOrders();
           this.getAdresses();
-          this.getCommandes();
+          // this.getCommandes();
         });
       }
     });
