@@ -1,5 +1,6 @@
 import { JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Plugins } from '@capacitor/core';
 import jwt_decode from 'jwt-decode';
 import { Adresse_Utilisateur } from 'src/app/models/Adresse_Utilisateur';
@@ -31,7 +32,8 @@ export class AccountPage implements OnInit {
   constructor(
     private formService: FormService,
     private util: UtilityService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -61,6 +63,7 @@ export class AccountPage implements OnInit {
   async deleteToken(key: string) {
     const ret = await Storage.remove({ key });
     this.util.token = '';
+    this.router.navigateByUrl('/home');
   }
 
   async getOrders() {

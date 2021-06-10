@@ -14,6 +14,12 @@
       <app-adresse *ngIf="addressFact" adresseType="fact"></app-adresse>
     </div>
     <div id="Adr" *ngIf="displayMode === 'Commande'">
+      <div style="width: 70%; margin: 0 auto; margin-top: 25vh;" class="ion-text-center">      
+        <ion-label *ngIf="commandes.length < 1" color="danger">
+          <h2>Vous n'avez pas de commande enregistrées.</h2>
+        </ion-label>
+      </div>
+
       <ion-card *ngFor="let commande of commandes" style="width: 70%; margin: 0 auto; margin-bottom: 10px;">
           <ion-item color="tertiary" style="margin-top: 25px;border-radius: 10px;">
             <ion-label>

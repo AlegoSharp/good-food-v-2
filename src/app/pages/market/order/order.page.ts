@@ -96,7 +96,10 @@ export class OrderPage implements OnInit {
         });
         console.log(lignesCommande);
         this.formService.postObject('Ligne_Commande', JSON.stringify(lignesCommande)).toPromise().then((responseLignesCommande: any) => {
+          this.storageService.setObject('basket', []);
+          this.util.backetCache = [];
           this.alertService.presentToast('Success', 'La commande à été crée', true);
+          this.router.navigateByUrl('/home');
         }).catch(reason => {
           this.alertService.presentAlertOk('Erreur', reason.message);
         });

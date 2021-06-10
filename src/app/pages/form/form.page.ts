@@ -130,7 +130,7 @@ export class FormPage implements OnInit {
   deleteElement() {
     this.formService.postDeleteObject(this.MyForm.properties[0].value, 
       window.document.URL.split('/')[4]).toPromise().then(Response => {
-      this.alertService.presentToast('Success', this.MyForm.title + ' à été modifié', true);
+      this.alertService.presentToast('Success', this.MyForm.title + ' à été supprimé', true);
     }).catch(reason => {
       this.alertService.presentAlertOk('Erreur', reason.message);
     });
