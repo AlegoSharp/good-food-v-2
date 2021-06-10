@@ -84,10 +84,10 @@ export class OrderPage implements OnInit {
     delete this.CommandeApi.lignesCommande;
 
     this.CommandeApi.utilisateur = this.User;
-    this.util.franchisesInBasket.forEach(element => {
+    this.util.franchisesInBasket.forEach(franchises => {
       this.CommandeApi.h_idFranchise = this.util.userConnected.j_idFranchise;
       this.formService.postObject('Commande', JSON.stringify(this.CommandeApi)).toPromise().then((responseCommande: any) => {
-        const lignesCommande = JSON.parse(JSON.stringify(this.Commande.lignesCommande.filter(x => x.article.c_idFranchise === element)));
+        const lignesCommande = JSON.parse(JSON.stringify(this.Commande.lignesCommande.filter(x => x.article.c_idFranchise === franchises)));
         lignesCommande.forEach(element => {
           element.b_idCommande = responseCommande;
           element.c_idArticle = element.article.a_idArticle;
@@ -96,13 +96,13 @@ export class OrderPage implements OnInit {
         });
         console.log(lignesCommande);
         this.formService.postObject('Ligne_Commande', JSON.stringify(lignesCommande)).toPromise().then((responseLignesCommande: any) => {
-          this.presentToast(responseLignesCommande, false, 'bottom', 2100);
+          this.alertService.presentToast('Success', 'La commande à été crée', true);
         }).catch(reason => {
           this.alertService.presentAlertOk('Erreur', reason.message);
         });
       }).catch(reason => {
         this.alertService.presentAlertOk('Erreur', reason.message);
-      });  
+      });
     });
   }
 
