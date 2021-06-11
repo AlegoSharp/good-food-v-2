@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar *ngIf="this.user">
     <ion-title slot="start">{{this.user.d_emailUtilisateur}}</ion-title>
     <ion-button color="secondary" slot="start" (click)="displayMode = 'Adresse_Utilisateur'">Mes adresses</ion-button>
     <ion-button color="secondary" slot="start" (click)="displayMode = 'Commande'">Mes commandes</ion-button>
