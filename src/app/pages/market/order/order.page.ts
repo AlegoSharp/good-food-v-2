@@ -48,7 +48,6 @@ export class OrderPage implements OnInit {
   ) { }
 
   ngOnInit() {
-
     this.Commande = new Commande();
     this.guardService.checkAuth().then(result => {
       this.ModeSupport = result;

@@ -64,6 +64,10 @@ export class AccountPage implements OnInit {
     this.util.token = '';
     this.util.userConnected = new Utilisateur();
     this.router.navigateByUrl('/home');
+    let currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
   }
 
   async getOrders() {

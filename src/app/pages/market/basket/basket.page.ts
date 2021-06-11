@@ -61,13 +61,19 @@ export class BasketPage implements OnInit {
   }
 
   validateOrder() {
-    if (this.util.addressLivr !== undefined && this.util.addressLivr !== undefined && this.util.userConnected.a_idUtilisateur !== 0){
-      if (this.Articles.length > 0) {
-        this.router.navigateByUrl('/order');
+    if (this.util.userConnected !== undefined && this.util.token !== '' ){
+      if (this.util.addressLivr !== undefined && this.util.addressLivr !== undefined ){
+        if (this.Articles.length > 0) {
+          this.router.navigateByUrl('/order');
+        }
+      }else{
+        this.alertService.presentAlertOk('Information', 'Vous n\'avez pas encore d\'adresses enregistrées.').then(() => {
+          this.router.navigateByUrl('/account');
+        });
       }
     }else{
-      this.alertService.presentAlertOk('Information', 'Vous n\'avez pas encore d\'adresses enregistrées.').then(() => {
-        this.router.navigateByUrl('account');
+      this.alertService.presentAlertOk('Information', 'Vous n\'êtes pas connecté.').then(() => {
+        this.router.navigateByUrl('/login');
       });
     }
 
