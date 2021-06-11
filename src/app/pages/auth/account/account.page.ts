@@ -1,5 +1,5 @@
 import { JsonpClientBackend } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Plugins } from '@capacitor/core';
 import jwt_decode from 'jwt-decode';
@@ -36,6 +36,7 @@ export class AccountPage implements OnInit {
     private router: Router,
   ) { }
 
+
   ngOnInit() {
     // this.getInfo();
     this.user = this.util.userConnected;
@@ -50,6 +51,9 @@ export class AccountPage implements OnInit {
           this.getAdresses();
           // this.getCommandes();
         });
+      }else{
+        this.router.navigateByUrl('login');
+
       }
     });
   }
@@ -64,10 +68,6 @@ export class AccountPage implements OnInit {
     this.util.token = '';
     this.util.userConnected = new Utilisateur();
     this.router.navigateByUrl('/home');
-    let currentUrl = this.router.url;
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.router.onSameUrlNavigation = 'reload';
-    this.router.navigate([currentUrl]);
   }
 
   async getOrders() {
