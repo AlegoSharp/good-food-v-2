@@ -61,7 +61,7 @@ export class BasketPage implements OnInit {
   }
 
   validateOrder() {
-    if (this.util.addressLivr !== undefined && this.util.addressLivr !== undefined && this.util.userConnected !== undefined){
+    if (this.util.addressLivr !== undefined && this.util.addressLivr !== undefined && this.util.userConnected.a_idUtilisateur !== 0){
       if (this.Articles.length > 0) {
         this.router.navigateByUrl('/order');
       }
